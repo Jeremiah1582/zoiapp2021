@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +12,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+=======
+:root{
+  --main: #003e29;
+  --light: #00f9a5;
+  --black: #010101;
+  --white: #f2f1f1;
+  --fonts: #333333;
+}
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+}
+body{
+  height: 100vh;
+  width: 100vw;
+  font-size: 2.9rem;
+  background-color: var(--white);
+  color: var(--fonts);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+>>>>>>> origin/jose
