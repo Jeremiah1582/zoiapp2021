@@ -1,7 +1,9 @@
 {
   "name": "zoiapp2021",
-  "version": "1.0.0",
+
   "description": "",
+  "version": "1.0.0",
+
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/ashikkhandani/zoiapp2021.git"
   },
-  "author": "",
+
+  "author": "Jose, Ashik, Pietro, Jeremiah",
+
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ashikkhandani/zoiapp2021/issues"
