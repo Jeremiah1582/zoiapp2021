@@ -48,15 +48,11 @@ body{
   animation: animateHeart 1.2s infinite;
 }
 
-
 .title{
-  font-weight: 400;
-  font-size: 9rem;
-  text-transform: uppercase;
-  letter-spacing: 1.9rem;
-  color: var(--white);
-  margin-left: 95%;
-  line-height: 45vh;
+
+}
+.subTitle{
+  
 }
 
 

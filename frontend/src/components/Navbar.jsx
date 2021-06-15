@@ -7,10 +7,13 @@ const Navbar = () => {
         <div className = "header">
             <div className="logo-box">
                 <img src= { logo } alt="logo" className = "logo" />
-
-                <h1 className = "title">ZOIAPP</h1>
-                
             </div>
+                <h1 className = "title-wrap">
+                    <span className= "title">ZOEAPP</span>
+                    <span className="subTitle">bcs your life matters</span>
+                </h1>
+                
+            
         </div>
     )
 }
