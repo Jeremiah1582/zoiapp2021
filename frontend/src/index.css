@@ -47,15 +47,24 @@ body{
   height: 7rem;
   animation: animateHeart 1.2s infinite;
 }
+.text-wrap{
+  
+}
 .title-wrap{
   color: var(--white);
   text-transform: uppercase;
 }
 .title{
   display: block;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 2rem;
 }
 .subTitle{
-
+  display: block;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 1.5rem;
 }
 
 

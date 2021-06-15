@@ -8,10 +8,14 @@ const Navbar = () => {
             <div className="logo-box">
                 <img src= { logo } alt="logo" className = "logo" />
             </div>
-                <h1 className = "title-wrap">
-                    <span className= "title">ZOEAPP</span>
-                    <span className="subTitle">bcs your life matters</span>
-                </h1>
+
+                <div className= "text-wrap">
+                    <h1 className = "title-wrap">
+                        <span className= "title">ZOEAPP</span>
+                        <span className="subTitle"><i>bcs your life matters</i></span>
+                    </h1>  
+                </div>
+                
                 
             
         </div>
