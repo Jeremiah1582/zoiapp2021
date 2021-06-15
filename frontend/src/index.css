@@ -47,12 +47,15 @@ body{
   height: 7rem;
   animation: animateHeart 1.2s infinite;
 }
-
+.title-wrap{
+  color: var(--white);
+  text-transform: uppercase;
+}
 .title{
-
+  display: block;
 }
 .subTitle{
-  
+
 }
 
 
