@@ -1,18 +1,4 @@
-<<<<<<< HEAD
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-=======
+/******* main setups done******* */
 :root{
   --main: #003e29;
   --light: #00f9a5;
@@ -38,5 +24,71 @@ body{
   color: var(--fonts);
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  line-height: 1.7;
+  padding: 3rem;
 }
->>>>>>> origin/jose
+
+/* *****header****** */
+
+.header{
+  height: 95vh;
+  background-image: linear-gradient(to right, rgba(0, 61, 41, 0.705), rgba(0, 250, 167, 0.568)), url('./imgs/surgeons.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+} 
+.logo-box{
+  position: absolute;
+  top: 11rem;
+  left: 11rem;
+}
+.logo{
+  height: 7rem;
+  animation: animateHeart 1.2s infinite;
+}
+.text-wrap{
+  
+}
+.title-wrap{
+  color: var(--white);
+  text-transform: uppercase;
+}
+.title{
+  display: block;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 2rem;
+}
+.subTitle{
+  display: block;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 1.5rem;
+}
+
+
+/* ********keyframes****** */
+
+@keyframes animateHeart {
+  
+  0% {
+    transform:  scale(0.8);
+  }
+  5% {
+    transform:  scale(0.9);
+  }
+  10% {
+    transform:  scale(0.8);
+  }
+  15% {
+    transform:  scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+

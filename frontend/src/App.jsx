@@ -26,15 +26,7 @@ const App = () => {
         {/* *******for dinamic contain******** */}
 
         <Switch> 
-          
-          {/* <Route exact path = '/contacto'>
-            <Contacto />
-          </Route> */}
-          
-         {/*  <Route exact path = '/nosotros'>
-            <Nosotros />
-          </Route> */}
-
+        
           <Route exact path = '/patient'>
             <Patient />
           </Route>
