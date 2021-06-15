@@ -1,5 +1,4 @@
-/* *****Main setups done******** */
-
+/******* main setups done******* */
 :root{
   --main: #003e29;
   --light: #00f9a5;
@@ -84,3 +83,4 @@ body{
     transform: scale(0.8);
   }
 }
+
