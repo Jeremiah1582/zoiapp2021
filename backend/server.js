@@ -4,17 +4,17 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 const PORT = 5000 ||  process.env.PORT;
-// const session = require("express-session");
-// const cors = require("cors");
-// const mongoose = require("mongoose");
+const session = require("express-session");
+const cors = require("cors");
+const mongoose = require("mongoose");
 
 
-// // Routes files from Patient and Doctor
+// Routes files from Patient and Doctor
 
 const indexRouter = require('./Routers/indexRouter')
 const userRouter = require('./Routers/userRouter')
-// const patientRouter = require('./Patient/Routers/patientRouter')
-// const doctorRouter = require('./Doctor/Routers/doctorRouter')
+const patientRouter = require('./Routers/Patient/patientRouter')
+const doctorRouter = require('./Routers/Doctor/doctorRouter')
 
 // // Settings
 // app.use(cors());
@@ -45,8 +45,8 @@ const userRouter = require('./Routers/userRouter')
 // // Routes
 app.use("/", indexRouter);
 app.use("/user", userRouter);
-// app.use("/patient", patientRouter);
-// app.use("/doctor", doctorRouter);
+app.use("/patient", patientRouter);
+app.use("/doctor", doctorRouter);
 
 
 // Listening PORT

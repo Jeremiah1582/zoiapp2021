@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const patientController = require('../Controllers/patientController')
+const patientController = require('../../Controllers/Patient/p_Controller')
 
-
+router.get('/', patientController.bookAppointment )
 
 
 

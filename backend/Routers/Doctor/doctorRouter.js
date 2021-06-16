@@ -1,7 +1,6 @@
 const router = require('express').Router()
-const doctorController = require('../Controllers/userController')
+const doctorController = require('../../Controllers/Doctor/dr_Controller')
 
-router.post('/login', doctorController.login)
-router.post('/signup', doctorController.signup)
+router.get('/', doctorController.appointments)
 
-module.exports= router
+module.exports= router;
