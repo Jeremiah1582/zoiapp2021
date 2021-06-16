@@ -1,31 +1,20 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const newUser = new Schema({
-  insuranceCompany: {
-    name: {
-      type: String,
-      required: [true, "Company name is required!"],
-    },
-  },
-  insuranceNumber: {
+const newDoctor = new Schema({
+  accountType: {
     type: String,
-    required: [true, "Insurance number is required!"],
   },
   user: {
     firstName: {
       type: String,
-      required: [true, "Please enter your first name!"],
+      required: [true, "First name is required!"],
       default: "First name",
     },
     lastName: {
       type: String,
-      required: [true, "Please enter your last name!"],
+      required: [true, "Last name is required!"],
       default: "Last name",
-    },
-    birthDate: {
-      type: String,
-      required: [true, "Please enter your birth date!"],
     },
     email: {
       type: String,
@@ -37,7 +26,37 @@ const newUser = new Schema({
       required: [true, "Password is required!"],
     },
   },
+  licenseNumber: {
+    type: String,
+    required: [true, "License number is required!"],
+  },
+  yearOfCertificate: {
+    type: String,
+  },
+  specialistIn: {
+    type: String,
+  },
+  languages: {
+    type: String,
+  },
+  address: {
+    street: {
+      type: String,
+    },
+    houseNr: {
+      type: String,
+    },
+    postalCode: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    country: {
+      type: String,
+    },
+  },
 });
 
-const User = mongoose.model("User", newUser);
-module.exports = User;
+const Doctor = mongoose.model("Doctor", newDoctor);
+module.exports = Doctor;

@@ -36,6 +36,9 @@ mongoose
 // Routes
 app.use("/");
 app.use("/user");
+app.use("/patient");
+app.use("/doctor");
+app.use("/indexDr");
 
 // Listening PORT
 app.listen(PORT, () => {

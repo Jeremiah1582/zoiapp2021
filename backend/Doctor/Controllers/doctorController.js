@@ -1,3 +1,4 @@
+const DoctorModel=require('../Models/doctorModel')
 
 //********** login function***********
 module.exports=login=()=>{
