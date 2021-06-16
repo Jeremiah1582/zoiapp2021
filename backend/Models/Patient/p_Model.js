@@ -59,5 +59,5 @@ const newPatient = new Schema({
   },
 });
 
-const Patient = mongoose.model("Patient", newPatient);
-module.exports = Patient;
+const PatientModel = mongoose.model("PatientModel", newPatient);
+module.exports = PatientModel;
