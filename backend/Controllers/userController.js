@@ -5,19 +5,19 @@ exports.login=(req,res)=>{
     //assign cookie to the 
     
     console.log('this is the login function');
-    res.send('login page')
+    res.send('<h1> <br/> login page </h1>')
 }
 
 // ****************** signup function************
 exports.signup=(req,res)=>{
     //Create user in database 
     console.log('this is the signup function');
-    res.send('sign up page')
+    res.send('<h1> <br/>  sign up page </h1>')
 }
 
 //****************** logout function***************/
 exports.logout=(req,res)=>{
     //delete the cookies here
     console.log('this is the logout function');
-        res.send('you have licked log out')
+        res.send('<h1> <br/> you have licked log out </h1>')
 }

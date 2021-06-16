@@ -1,5 +1,5 @@
 exports.bookAppointment=(req, res)=>{
 
-    res.send('Patient: this is where patients will book appointments')
+    res.send('<h1> Patient: </br> this is where patients will book appointments</h1> ')
 
 }

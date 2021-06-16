@@ -1,4 +1,4 @@
 exports.appointments=(req, res)=>{
 
-res.send('Dr: this is the appointment page for Dr')
+res.send(' <h1>Dr: </br> this is the appointment page for Dr </h1>')
 }
