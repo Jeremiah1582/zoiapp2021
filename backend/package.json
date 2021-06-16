@@ -1,7 +1,7 @@
 {
-  "name": "zoiapp",
+  "name": "zoeapp",
   "version": "1.0.0",
-  "description": "creating zoiapp as final project",
+  "description": "creating zoeapp as final project",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
