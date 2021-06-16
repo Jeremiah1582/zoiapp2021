@@ -1,4 +1,4 @@
-
+const Patient = require('../Models/patientModel')
 //********** login function***********
 module.exports=login=()=>{
     //assign cookie to the 
