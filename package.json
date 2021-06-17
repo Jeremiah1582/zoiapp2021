@@ -1,19 +1,6 @@
 {
-  "name": "zoeapp2021",
-  "version": "1.0.0",
-  "description": " ",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ashikkhandani/zoiapp2021.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ashikkhandani/zoiapp2021/issues"
-  },
-  "homepage": "https://github.com/ashikkhandani/zoiapp2021#readme"
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "react-bootstrap": "^1.6.1"
+  }
 }

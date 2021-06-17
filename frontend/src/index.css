@@ -1,5 +1,5 @@
 /******* main setups done******* */
-:root{
+:root {
   --main: #003e29;
   --light: #00f9a5;
   --black: #010101;
@@ -8,81 +8,178 @@
 }
 *,
 *::after,
-*::before{
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html{
+html {
   font-size: 62.5%;
 }
-body{
+body {
   height: 100vh;
   width: 100vw;
   font-size: 2.9rem;
   background-color: var(--white);
   color: var(--fonts);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 1.7;
   padding: 3rem;
 }
+ul {
+  list-style: none;
+}
+li a {
+  color: var(--white);
+  text-decoration: none;
+}
 
 /* *****header****** */
 
-.header{
+.header {
   height: 95vh;
-  background-image: linear-gradient(to right, rgba(0, 61, 41, 0.705), rgba(0, 250, 167, 0.568)), url('./imgs/surgeons.jpeg');
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 61, 41, 0.705),
+      rgba(0, 250, 167, 0.568)
+    ),
+    url("./imgs/surgeons.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-} 
-.logo-box{
-  position: absolute;
-  top: 11rem;
-  left: 11rem;
 }
-.logo{
-  height: 7rem;
+
+.logo {
+  height: 11rem;
   animation: animateHeart 1.2s infinite;
+  margin: 3rem;
 }
-.text-wrap{
-  
+.text-wrap {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.title-wrap{
+.title-wrap {
   color: var(--white);
   text-transform: uppercase;
 }
-.title{
+.title {
   display: block;
   font-size: 6rem;
   font-weight: 700;
   letter-spacing: 2rem;
+  animation: moveInLeft 5s;
 }
-.subTitle{
+.subTitle {
   display: block;
   font-size: 3rem;
   font-weight: 300;
   letter-spacing: 1.5rem;
+  animation: moveInRight 5s;
 }
 
+/* *******************menu********************* */
+.navBackground {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  z-index: 3;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 61, 41, 0.705),
+    rgba(0, 250, 167, 0.568)
+  );
+  transform: scale(80);
+}
+.navButton {
+  background-color: var(--white);
+  height: 7rem;
+  width: 7rem;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  border-radius: 50%;
+  z-index: 5;
+}
+.navNav {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 4;
+}
+.navList {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.navItem {
+  margin: 1rem;
+}
+.navLink {
+  font-size: 5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  background-image: linear-gradient(120deg);
+}
+
+/* *******footer******** */
+.footerWrap {
+  height: 35vh;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 61, 41, 0.705),
+      rgba(0, 250, 167, 0.568)
+    ),
+    url("./imgs/surgeons.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+.footerItem {
+  display: flex;
+  justify-content: space-around;
+  line-height: 25rem;
+  font-weight: 700;
+}
+.footerLink:hover {
+  color: var(--light);
+  text-shadow: 0 1rem 2rem var(--black);
+  transform: scale(1.1);
+  transition: 2s;
+}
+.copyright {
+  position: absolute;
+  bottom: 3%;
+  left: 35%;
+  color: var(--white);
+  font-size: 1.9rem;
+}
 
 /* ********keyframes****** */
 
 @keyframes animateHeart {
-  
   0% {
-    transform:  scale(0.8);
+    transform: scale(0.8);
   }
   5% {
-    transform:  scale(0.9);
+    transform: scale(0.9);
   }
   10% {
-    transform:  scale(0.8);
+    transform: scale(0.8);
   }
   15% {
-    transform:  scale(1);
+    transform: scale(1);
   }
   50% {
     transform: scale(0.8);
@@ -92,3 +189,16 @@ body{
   }
 }
 
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-10rem);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translate(10rem);
+  }
+}
