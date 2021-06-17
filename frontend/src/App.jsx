@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import Home from './components/Home';
-import Patient from './components/Patient';
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,17 +26,18 @@ const App = () => {
 
         <Switch> 
         
-          <Route exact path = '/patient'>
-            <Patient />
-          </Route>
-          
           <Route exact path = '/'>
             <Home />
           </Route>
             
          {/*  <Route exact path = '/nosotros/:id'>
 
-          </Route> */}
+          </Route> 
+          
+          <Route exact path = '/patient'>
+            <Patient />
+          </Route>*/
+          }
         
         </Switch>
       </div>
