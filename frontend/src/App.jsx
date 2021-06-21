@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import Home from './components/Home';
+import About from './components/About';
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,6 +29,10 @@ const App = () => {
         
           <Route exact path = '/'>
             <Home />
+          </Route>
+          
+          <Route exact path = '/about'>
+            <About />
           </Route>
             
          {/*  <Route exact path = '/nosotros/:id'>
