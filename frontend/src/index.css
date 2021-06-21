@@ -1,51 +1,425 @@
-:root{
+/******* main setups done******* */
+:root {
   --main: #003e29;
   --light: #00f9a5;
   --black: #010101;
-  --white: #f2f1f1;
+  --white: #dff0e2;
   --fonts: #333333;
 }
 *,
 *::after,
-*::before{
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html{
+html {
   font-size: 62.5%;
 }
-body{
+body {
   height: 100vh;
   width: 100vw;
   font-size: 2.9rem;
   background-color: var(--white);
   color: var(--fonts);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 1.7;
   padding: 3rem;
 }
+ul {
+  list-style: none;
+}
+li a {
+  color: var(--white);
+  text-decoration: none;
+}
 
 /* *****header****** */
 
-.header{
-  height: 95vh;
-  background-image: linear-gradient(to right, rgba(0, 61, 41, 0.705), rgba(0, 250, 167, 0.568)), url('./imgs/surgeons.jpeg');
+.header {
+  height: 100vh;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 61, 41, 0.705),
+      rgba(0, 250, 167, 0.568)
+    ),
+    url("./imgs/surgeons.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-} 
-.logo-box{
-  position: absolute;
-  top: 11rem;
-  left: 11rem;
 }
-.logo{
-  height: 7rem;
+
+.logo {
+  height: 11rem;
   animation: animateHeart 1.2s infinite;
+  margin: 5rem;
 }
-.text-wrap{
-  
+.text-wrap {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.title-wrap {
+  color: var(--white);
+  text-transform: uppercase;
+}
+.title {
+  display: block;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 2rem;
+  animation: moveInLeft 5s;
+}
+.subTitle {
+  display: block;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 1.5rem;
+  animation: moveInRight 5s;
+}
+
+/* *******************menu********************* */
+.navBackground {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  z-index: 3;
+  background: radial-gradient(circle at 100%, #00a46d, #00c683, #00e89a);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  opacity: 1;
+  transition: transform 2s;
+}
+.navButton {
+  background-color: var(--white);
+  height: 7rem;
+  width: 7rem;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  border-radius: 50%;
+  box-shadow: 0 1rem 2rem #232323;
+  z-index: 5;
+}
+.navNav {
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  opacity: 0;
+  transition: all 2s;
+}
+.navList {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.navItem {
+  margin: 1rem;
+}
+.navLink {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  background-size: 230%;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 50%,
+    var(--white)
+  );
+  transition: all 0.4s;
+}
+.navLink:hover {
+  background-position: 100%;
+  color: var(--main);
+}
+.navCheckbox:checked ~ .navBackground {
+  transform: scale(80);
+}
+.navCheckbox:checked ~ .navNav {
+  opacity: 1;
+  width: 100%;
+}
+#navigationToogle {
+  display: none;
+}
+
+/* ********cards********* */
+.cardWrap {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  min-height: 120rem;
+  /* background-image: url('../src/imgs/dentist.jpeg'); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.cardWrap .card {
+  position: relative;
+  min-width: 32rem;
+  height: 85vh;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 5px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  margin-top: 25rem;
+}
+.cardWrap .card::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  /* background: rgba(255, 255, 255, 0.1);  */
+  /* background-color: var(--main); */
+}
+.cardWrap .card .boxCard {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+  bottom: 2rem;
+  background: rgba(0, 62, 41, 0.4);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 3rem;
+}
+.cardWrap .card .boxCard::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  /* background: #006400; */
+  pointer-events: none;
+}
+.cardWrap .card .boxCard:hover {
+  transform: translateY(-50px);
+  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
+}
+.cardWrap .card .boxCard .contentCard {
+  padding: 2rem;
+  text-align: center;
+}
+.cardWrap .card .boxCard .contentCard h2 {
+  /* position: absolute;
+  top: -90px;
+  right: 30px; */
+  font-size: 5rem;
+  color: var(--white);
+  margin-top: -3rem;
+  margin-bottom: 3rem;
+  text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
+}
+.cardWrap .card .boxCard .contentCard p {
+  font-size: 2rem;
+  z-index: 1;
+  transition: 0.5s;
+  color: var(--white);
+  margin-top: 4rem;
+  font-weight: 700;
+}
+.cardWrap .card .boxCard .contentCard a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 2rem;
+  margin-top: 9rem;
+  /* background: #000; */
+
+  border-radius: 2rem;
+  text-decoration: none;
+  color: var(--white);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.cardWrap .card:nth-child(1) .boxCard .contentCard a {
+  background-color: #1eec1e;
+}
+.cardWrap .card:nth-child(1) .boxCard .contentCard a:hover {
+  background-color: var(--white);
+  color: #1eec1e;
+}
+.cardWrap .card:nth-child(2) .boxCard .contentCard a {
+  background-color: #5df15d;
+}
+.cardWrap .card:nth-child(2) .boxCard .contentCard a:hover {
+  background-color: var(--white);
+  color: #5df15d;
+}
+.cardWrap .card:nth-child(3) .boxCard .contentCard a {
+  background-color: #10b610;
+}
+.cardWrap .card:nth-child(3) .boxCard .contentCard a:hover {
+  background-color: var(--white);
+  color: #10b610;
+}
+
+/* ********about********  */
+
+.aboutMain {
+  background-image: url("./imgs/hospital-bed.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.aboutTitle {
+  color: var(--main);
+  text-align: center;
+}
+.card {
+  margin-bottom: 19rem;
+  padding: 2rem;
+}
+.card-img {
+  height: 15rem;
+  border-radius: 50%;
+}
+.box {
+  text-align: center;
+}
+
+.box p {
+  margin-top: 3rem;
+}
+/* *******footer******** */
+.footerWrap {
+  height: 45vh;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 61, 41, 0.705),
+      rgba(0, 250, 167, 0.568)
+    ),
+    url("./imgs/surgeons.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.footerItem {
+  display: flex;
+  flex-direction: column;
+  line-height: 3rem;
+  font-weight: 700;
+  text-align: center;
+  font-size: 4rem;
+}
+.footerLink {
+  margin: 2rem 0;
+}
+.footerLink:hover {
+  color: var(--light);
+  text-shadow: 0 1rem 2rem var(--black);
+  transform: scale(1.1);
+  transition: 2s;
+}
+.copyright {
+  position: absolute;
+  bottom: 9%;
+  left: 35%;
+  color: var(--white);
+  font-size: 1.9rem;
+}
+
+/* ********media queries ******/
+
+@media (min-width: 768px) {
+  .footerItem {
+    flex-direction: row;
+    margin-left: 3rem;
+    justify-content: space-around;
+    line-height: 35rem;
+  }
+}
+@media (min-width: 1280px) {
+  .aboutTitle {
+    font-size: 10.1rem;
+    padding-top: 5rem;
+    margin-bottom: 11rem;
+    letter-spacing: 1.3rem;
+    text-transform: uppercase;
+    text-shadow: 6px 2px 11px rgba(35, 35, 35, 0.88);
+  }
+  .box h2,
+  h3 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    font-size: 5rem;
+    letter-spacing: 1.1rem;
+    text-shadow: 6px 2px 11px rgba(35, 35, 35, 0.88);
+  }
+}
+
+/* ********keyframes****** */
+
+@keyframes animateHeart {
+  0% {
+    transform: scale(0.8);
+  }
+  5% {
+    transform: scale(0.9);
+  }
+  10% {
+    transform: scale(0.8);
+  }
+  15% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-10rem);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translate(10rem);
+  }
+}
+@keyframes list {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 15%;
+  }
+  50% {
+    opacity: 25%;
+  }
+  75% {
+    opacity: 75%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
