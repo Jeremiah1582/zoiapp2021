@@ -24,11 +24,36 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+        return (
+        <div className="footerWrap">
+          <div className="row">
+            <div className="col-1-of-2">
+              <div className="footerNavigation">
+                <ul className="footerList">
+                  <li className="footerItem">
+                    <a href="#" className="footerLink">
+                      Company
+                    </a>
+                    <a href="#" className="footerLink">
+                      About Us
+                    </a>
+                    <a href="#">
+                      <i className="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#">
+                      <i className="fab fa-github"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-        <div className="col-2-of-2">
-          <p className="copyright">
-            all rights reserved<span> &copy;</span> <span>{date}</span>
-          </p>
+            <div className="col-2-of-2">
+              <p className="copyright">
+                all rights reserved<span> &copy;</span> <span>{date}</span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

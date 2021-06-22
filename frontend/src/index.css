@@ -5,6 +5,7 @@
   --black: #010101;
   --white: #dff0e2;
   --fonts: #333333;
+  --textCard: #fdfffc;
 }
 *,
 *::after,
@@ -30,8 +31,9 @@ body {
 ul {
   list-style: none;
 }
-li a {
-  color: var(--white);
+li a,
+a {
+  color: var(--textCard);
   text-decoration: none;
 }
 
@@ -63,7 +65,7 @@ li a {
   transform: translate(-50%, -50%);
 }
 .title-wrap {
-  color: var(--white);
+  color: var(--textCard);
   text-transform: uppercase;
 }
 .title {
@@ -98,7 +100,7 @@ li a {
   transition: transform 2s;
 }
 .navButton {
-  background-color: var(--white);
+  background-color: var(--textCard);
   height: 7rem;
   width: 7rem;
   position: fixed;
@@ -161,12 +163,12 @@ li a {
 /* ********cards********* */
 .cardWrap {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
   min-height: 120rem;
-  /* background-image: url('../src/imgs/dentist.jpeg'); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-top: 11rem;
 }
 .cardWrap .card {
   position: relative;
@@ -176,7 +178,7 @@ li a {
     inset -5px -5px -5px 15px rgba(255, 255, 255, 0.1),
     5px 5px 5px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
   border-radius: 1.5rem;
-  margin-top: 25rem;
+  margin-top: 5rem;
 }
 .cardWrap .card::before {
   content: " ";
@@ -185,8 +187,6 @@ li a {
   left: 0;
   width: 50%;
   height: 100%;
-  /* background: rgba(255, 255, 255, 0.1);  */
-  /* background-color: var(--main); */
 }
 .cardWrap .card .boxCard {
   position: absolute;
@@ -211,24 +211,29 @@ li a {
   left: 0;
   width: 50%;
   height: 100%;
-  /* background: #006400; */
   pointer-events: none;
 }
 .cardWrap .card .boxCard:hover {
   transform: translateY(-50px);
   box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
 }
+.imgCard {
+  height: 9rem;
+  width: 9rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 5%;
+  left: 40%;
+  box-shadow: 10px 10px 95px -16px rgba(0, 0, 0, 0.82);
+}
 .cardWrap .card .boxCard .contentCard {
   padding: 2rem;
   text-align: center;
 }
 .cardWrap .card .boxCard .contentCard h2 {
-  /* position: absolute;
-  top: -90px;
-  right: 30px; */
-  font-size: 5rem;
-  color: var(--white);
-  margin-top: -3rem;
+  font-size: 4rem;
+  color: var(--textCard);
+  margin-top: 7rem;
   margin-bottom: 3rem;
   text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
 }
@@ -236,42 +241,19 @@ li a {
   font-size: 2rem;
   z-index: 1;
   transition: 0.5s;
-  color: var(--white);
+  color: var(--textCard);
   margin-top: 4rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 .cardWrap .card .boxCard .contentCard a {
   position: relative;
   display: inline-block;
   padding: 8px 2rem;
   margin-top: 9rem;
-  /* background: #000; */
-
   border-radius: 2rem;
   text-decoration: none;
-  color: var(--white);
+  color: var(--textCard);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-.cardWrap .card:nth-child(1) .boxCard .contentCard a {
-  background-color: #1eec1e;
-}
-.cardWrap .card:nth-child(1) .boxCard .contentCard a:hover {
-  background-color: var(--white);
-  color: #1eec1e;
-}
-.cardWrap .card:nth-child(2) .boxCard .contentCard a {
-  background-color: #5df15d;
-}
-.cardWrap .card:nth-child(2) .boxCard .contentCard a:hover {
-  background-color: var(--white);
-  color: #5df15d;
-}
-.cardWrap .card:nth-child(3) .boxCard .contentCard a {
-  background-color: #10b610;
-}
-.cardWrap .card:nth-child(3) .boxCard .contentCard a:hover {
-  background-color: var(--white);
-  color: #10b610;
 }
 
 /* ********about********  */
@@ -297,7 +279,6 @@ li a {
 .box {
   text-align: center;
 }
-
 .box p {
   margin-top: 3rem;
 }
@@ -315,7 +296,6 @@ li a {
   background-position: center;
   position: relative;
 }
-
 .footerItem {
   display: flex;
   flex-direction: column;
@@ -333,17 +313,37 @@ li a {
   transform: scale(1.1);
   transition: 2s;
 }
+.footerLink .fab:hover {
+  color: var(--light);
+  text-shadow: 0 1rem 2rem var(--black);
+  transform: scale(1.1);
+  transition: 2s;
+}
 .copyright {
   position: absolute;
   bottom: 9%;
   left: 35%;
-  color: var(--white);
+  color: var(--textCard);
   font-size: 1.9rem;
 }
 
 /* ********media queries ******/
 
 @media (min-width: 768px) {
+  .imgCard {
+    height: 15rem;
+    width: 15rem;
+    top: 11%;
+    left: 45%;
+    color: var(--textCard);
+  }
+  .cardWrap .card .boxCard .contentCard h2 {
+    font-size: 6rem;
+    margin-top: 15rem;
+  }
+  .cardWrap .card .boxCard .contentCard p {
+    font-size: 3.1rem;
+  }
   .footerItem {
     flex-direction: row;
     margin-left: 3rem;
@@ -352,8 +352,25 @@ li a {
   }
 }
 @media (min-width: 1280px) {
+  .cardWrap {
+    grid-template-columns: auto auto auto;
+    margin-bottom: -9rem;
+  }
+  .imgCard {
+    width: 11rem;
+    height: 11rem;
+    top: 7%;
+    left: 40%;
+  }
+  .cardWrap .card .boxCard .contentCard h2 {
+    font-size: 4rem;
+    margin-top: 5rem;
+  }
+  .cardWrap .card .boxCard .contentCard p {
+    font-size: 2rem;
+  }
   .aboutTitle {
-    font-size: 10.1rem;
+    font-size: 10rem;
     padding-top: 5rem;
     margin-bottom: 11rem;
     letter-spacing: 1.3rem;
