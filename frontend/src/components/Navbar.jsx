@@ -21,8 +21,10 @@ const Navbar = () => {
             </span>
           </h1>
         </div>
-        <a href="#" className ="button">Im a Doctor</a>
-        <a href="#" className ="button">Im a Patient</a>
+      </div>
+      <div className="buttons">
+        <a href="#" className ="buttonNavbar">Im a Doctor</a>
+        <a href="#" className ="buttonNavbar">Im a Patient</a>
       </div>
     </div>
   );
