@@ -15,6 +15,8 @@ const Footer = () => {
                             <li className="footerItem">
                                 <a href="#" className="footerLink">Company</a>
                                 <a href="#" className="footerLink">About Us</a>
+                                <a href="#"><i className="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i className="fab fa-github"></i></a>
                             </li>
                         </ul>
                     </div>
