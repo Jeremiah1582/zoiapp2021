@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const newDoctor = new Schema({
   accountType: {
-    type: String,
+    type: "Doctor",
   },
   user: {
     firstName: {
@@ -21,6 +21,10 @@ const newDoctor = new Schema({
       required: [true, "E-mail is required!"],
       unique: true,
     },
+    mobileNumber:{
+      type:String,
+      required:[true, "Mobile number is required!"]
+    },
     password: {
       type: String,
       required: [true, "Password is required!"],
@@ -36,6 +40,11 @@ const newDoctor = new Schema({
   specialistIn: {
     type: String,
   },
+  qualifications: {
+      type: String,
+      required: [true, "upload required!"],
+      default: "please include a scanned copy of your qualifications",
+    },
   languages: {
     type: String,
   },
@@ -58,5 +67,5 @@ const newDoctor = new Schema({
   },
 });
 
-const Doctor = mongoose.model("Doctor", newDoctor);
-module.exports = Doctor;
+const DoctorModel = mongoose.model("DoctorModel", newDoctor);
+module.exports = DoctorModel;

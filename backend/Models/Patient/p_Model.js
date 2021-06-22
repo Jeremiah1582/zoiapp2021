@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const newPatient = new Schema({
   accountType: {
-    type: String,
+    type: "Patient",
   },
   user: {
     firstName: {
@@ -24,6 +24,10 @@ const newPatient = new Schema({
       type: String,
       required: [true, "E-mail is required!"],
       unique: true,
+    },
+    mobileNumber: {
+      type: String,
+      required: [true, "Mobile number is required!"],
     },
     password: {
       type: String,
@@ -59,5 +63,5 @@ const newPatient = new Schema({
   },
 });
 
-const Patient = mongoose.model("Patient", newPatient);
-module.exports = Patient;
+const PatientModel = mongoose.model("PatientModel", newPatient);
+module.exports = PatientModel;
