@@ -3,7 +3,7 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
-const PORT = 5000 ||  process.env.PORT;
+const PORT =  5000 || process.env.PORT;
 const session = require("express-session");
 const cors = require("cors");
 const mongoose = require("mongoose");
