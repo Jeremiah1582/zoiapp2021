@@ -21,7 +21,7 @@ body {
   height: 100vh;
   width: 100vw;
   font-size: 2.9rem;
-  background-color: var(--white);
+  background-color: var(--textCard);
   color: var(--fonts);
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -31,14 +31,17 @@ body {
 ul {
   list-style: none;
 }
-li a, a {
+li a{
+  color: var(--textCard);
+  text-decoration: none;
+}
+a{
   color: var(--textCard);
   text-decoration: none;
 }
 
 
 /* *****header****** */
-
 
 .header {
   height: 100vh;
@@ -54,7 +57,6 @@ li a, a {
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   
 }
-
 .logo {
   height: 11rem;
   animation: animateHeart 1.2s infinite;
