@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Home from "./components/Home";
 import About from "./components/About";
+import LoginForm from "./components/LoginForm";
 import {
   BrowserRouter as Router,
   Switch,
@@ -32,6 +33,10 @@ const App = () => {
 
           <Route exact path="/about">
             <About />
+          </Route>
+
+          <Route path="/user/login">
+            <LoginForm />
           </Route>
 
           {/*  <Route exact path = '/nosotros/:id'>
