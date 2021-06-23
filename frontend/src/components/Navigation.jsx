@@ -14,7 +14,7 @@ const Navigation = () => {
             <nav className="navNav">
                 <ul className="navList">
                   <li className="navItem"><a href="/" className="navLink">Home</a></li>
-                  <li className="navItem"><a href="#" className="navLink">About us</a></li>
+                  <li className="navItem"><a href="/about" className="navLink">About us</a></li>
                   <li className="navItem"><a href="#" className="navLink">Contact</a></li>
                   <li className="navItem"><a href="#" className="navLink">Login</a></li>
                 </ul>

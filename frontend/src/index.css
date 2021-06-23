@@ -179,11 +179,9 @@ a{
 
 
 /* ********************body********************* */
-.textHome{
+.textComponent{
   margin: 25rem auto;
 }
-
-
 /* *******************menu********************* */
 .navBackground {
   height: 6rem;
@@ -261,6 +259,54 @@ a{
 #navigationToogle{
   display: none;
 }
+
+/* **********aboutUs************* */
+.aboutMainWrap{
+  margin-bottom: 35rem;
+}
+.teamAbout{
+  margin-bottom: 11rem;
+  position: relative;
+}
+.teamAbout img{
+  height: 50rem;
+  float: left;
+  margin-right: 5rem;
+  box-shadow: 10px 10px 98px -27px rgba(35,35,35,0.75);
+}
+.teamAbout:nth-child(even) img{
+  float: right;
+  margin-right: 0;
+  margin-left: 5rem;
+}
+.nameTeam{
+  text-shadow: 5px 5px 5px rgba(35,35,35,0.61);
+  font-size: 5rem;
+  font-weight: 300;
+} 
+.presentation{
+  display: flex;
+  justify-content: center;
+}
+.presentation a{
+  color: var(--fonts);
+  margin-left: 5rem;
+  font-size: 3rem;
+  position: absolute;
+  right: 25rem;
+  top: 2rem;
+  text-shadow: 5px 5px 5px rgba(35,35,35,0.61);
+}
+.presentation a:hover{
+  transform: scale(1.5);
+  transition: 2s;
+}
+.presentation a:nth-child(2){
+  right: 35rem;
+  color: blue;
+}
+
+
 
 /* ********cards********* */
 .cardWrap{
@@ -342,32 +388,7 @@ a{
   box-shadow:0 10px 20px rgba(0, 0, 0, 0.2)
 }
 
-/* ********about********  */
 
-.aboutMain{
-  background-image: url('./imgs/hospital-bed.jpeg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.aboutTitle{
-  color: var(--main);
-  text-align: center;
-}
-.card{
-  margin-bottom: 19rem;
-  padding: 2rem;
-}
-.card-img{
-  height: 15rem;
-  border-radius: 50%;
-}
-.box{
-  text-align: center;
-}
-.box p{
-  margin-top: 3rem;
-}
 /* *******footer******** */
 .footerWrap {
   height: 45vh;
