@@ -10,7 +10,11 @@ const Navigation = () => {
         MENU
       </label>
       <div className="navBackground">&nbsp;</div>
+
       <nav className="navNav">
+        <div className="logo-box">
+          <img src={logo} alt="logo" className="logo" />
+        </div>
         <ul className="navList">
           <li className="navItem">
             <a href="/" className="navLink">
@@ -18,8 +22,13 @@ const Navigation = () => {
             </a>
           </li>
           <li className="navItem">
-            <a href="#" className="navLink">
+            <a href="/about" className="navLink">
               About us
+            </a>
+          </li>
+          <li className="navItem">
+            <a href="/zoeteam" className="navLink">
+              Our Team
             </a>
           </li>
           <li className="navItem">
@@ -28,8 +37,13 @@ const Navigation = () => {
             </a>
           </li>
           <li className="navItem">
-            <a href="/user/registration" className="navLink">
+            <a href="#" className="navLink">
               Login
+            </a>
+          </li>
+          <li className="navItem">
+            <a href="#" className="navLink">
+              Sign up
             </a>
           </li>
         </ul>
@@ -37,48 +51,5 @@ const Navigation = () => {
     </div>
   );
 };
-
-return (
-  <div className="navigation">
-    <input type="checkbox" className="navCheckbox" id="navigationToogle" />
-    <label htmlFor="navigationToogle" className="navButton">
-      MENU
-    </label>
-    <div className="navBackground">&nbsp;</div>
-
-    <nav className="navNav">
-      <div className="logo-box">
-        <img src={logo} alt="logo" className="logo" />
-      </div>
-      <ul className="navList">
-        <li className="navItem">
-          <a href="/" className="navLink">
-            Home
-          </a>
-        </li>
-        <li className="navItem">
-          <a href="/about" className="navLink">
-            About us
-          </a>
-        </li>
-        <li className="navItem">
-          <a href="#" className="navLink">
-            Contact
-          </a>
-        </li>
-        <li className="navItem">
-          <a href="#" className="navLink">
-            Login
-          </a>
-        </li>
-        <li className="navItem">
-          <a href="#" className="navLink">
-            Sign up
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-);
 
 export default Navigation;

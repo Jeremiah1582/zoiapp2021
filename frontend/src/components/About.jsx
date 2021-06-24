@@ -10,6 +10,8 @@ const About = () => {
   return (
     <div className="aboutWrap">
       <Navbar />
+      <h2 class= "team-title">ZOE Team</h2>
+
 
       <div className="aboutMainWrap">
         <p className="textComponent">
@@ -32,16 +34,33 @@ const About = () => {
           with the movement of the train, their high heels like polished hooves
           against the gray metal of the console in faded pinks and yellows.
         </p>
-
+       
         <div className="teamAbout">
+      
           <div className="presentation">
-            <h2 className="nameTeam">Jeremiah Brown</h2>
-            <a href="https://www.linkedin.com/in/jeremiah-brown-35232190/">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/Jeremiah1582">
-              <i className="fab fa-github"></i>
-            </a>
+         <h2 className="nameTeam">Jeremiah Brown</h2>
+            
+            {/*  follow button  */}
+            <div class="follow-button">
+              <span class="follow-button-frontage">Follow</span>
+              <div class="social-links">
+                <a
+                  href="https://www.linkedin.com/in/jeremiah-brown-35232190/"
+                  target="_blank"
+                  class="social-links_link"
+                >
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+
+                <a
+                  href="https://github.com/Jeremiah1582"
+                  target="_blank"
+                  class="social-links_link"
+                >
+                  <i className="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
           </div>
 
           <img src={Jeremiah} alt="jeremiah" />
@@ -68,16 +87,32 @@ const About = () => {
             amplified breathing of the fighters.
           </p>
         </div>
+     
 
         <div className="teamAbout">
           <div className="presentation">
-            <h2 className="nameTeam">Ashik Ahammed</h2>
-            <a href="https://www.linkedin.com/in/md-ashik-ahammed-a450881b3/">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/ashikkhandani">
-              <i className="fab fa-github"></i>
-            </a>
+            <h2 className="nameTeam"
+            >Ashik Ahammed</h2>
+            {/*  follow button  */}
+            <div class="follow-button">
+              <span class="follow-button-frontage">Follow </span>
+              <div class="social-links">
+                <a
+                  href="https://www.linkedin.com/in/md-ashik-ahammed-a450881b3/"
+                  class="social-links_link"
+                  target="_blank"
+                >
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="https://github.com/ashikkhandani"
+                  class="social-links_link"
+                  target="_blank"
+                >
+                  <i className="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
           </div>
 
           <img src={Ashik} alt="ashik" />
@@ -108,12 +143,26 @@ const About = () => {
         <div className="teamAbout">
           <div className="presentation">
             <h2 className="nameTeam">Jose Campos</h2>
-            <a href="https://www.linkedin.com/in/jose-campos-plaza-265541180/">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/camposCode">
-              <i className="fab fa-github"></i>
-            </a>
+            {/*  follow button  */}
+            <div class="follow-button">
+              <span class="follow-button-frontage">Follow</span>
+              <div class="social-links">
+                <a
+                  href="https://www.linkedin.com/in/jose-campos-plaza-265541180/"
+                  class="social-links_link"
+                  target="_blank"
+                >
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="https://github.com/camposCode"
+                  class="social-links_link"
+                  target="_blank"
+                >
+                  <i className="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
           </div>
 
           <img src={Jose} alt="jose" />
@@ -144,12 +193,26 @@ const About = () => {
         <div className="teamAbout">
           <div className="presentation">
             <h2 className="nameTeam">Pietro Simcic</h2>
-            <a href="https://www.linkedin.com/in/pietro-simcic/">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/whiteroach">
-              <i className="fab fa-github"></i>
-            </a>
+            {/*  follow button  */}
+            <div class="follow-button">
+              <span class="follow-button-frontage">Follow</span>
+              <div class="social-links">
+                <a
+                  href="https://www.linkedin.com/in/pietro-simcic/"
+                  class="social-links_link"
+                  target="_blank"
+                >
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="https://github.com/whiteroach"
+                  class="social-links_link"
+                  target="_blank"
+                >
+                  <i className="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
           </div>
 
           <img src={Pietro} alt="pietro" />
