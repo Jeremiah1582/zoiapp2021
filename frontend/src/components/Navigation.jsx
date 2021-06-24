@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import Home from "./Home";
+import logo from "../imgs/logo.png";
 
 const Navigation = () => {
   return (
@@ -44,7 +45,11 @@ return (
       MENU
     </label>
     <div className="navBackground">&nbsp;</div>
+
     <nav className="navNav">
+      <div className="logo-box">
+        <img src={logo} alt="logo" className="logo" />
+      </div>
       <ul className="navList">
         <li className="navItem">
           <a href="/" className="navLink">
@@ -64,6 +69,11 @@ return (
         <li className="navItem">
           <a href="#" className="navLink">
             Login
+          </a>
+        </li>
+        <li className="navItem">
+          <a href="#" className="navLink">
+            Sign up
           </a>
         </li>
       </ul>
