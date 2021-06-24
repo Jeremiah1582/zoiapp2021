@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect }  from 'react';
 import Home  from './Home';
+import logo from "../imgs/logo.png";
 
 
 
@@ -11,12 +12,17 @@ const Navigation = () => {
             <label htmlFor="navigationToogle" className= "navButton"  >
             MENU</label>
             <div className="navBackground"  >&nbsp;</div>
+            
             <nav className="navNav">
+                <div className="logo-box">
+                    <img src={logo} alt="logo" className="logo" />
+                </div>
                 <ul className="navList">
                   <li className="navItem"><a href="/" className="navLink">Home</a></li>
                   <li className="navItem"><a href="/about" className="navLink">About us</a></li>
                   <li className="navItem"><a href="#" className="navLink">Contact</a></li>
                   <li className="navItem"><a href="#" className="navLink">Login</a></li>
+                  <li className="navItem"><a href="#" className="navLink">Sign up</a></li>
                 </ul>
             </nav>
         </div>
