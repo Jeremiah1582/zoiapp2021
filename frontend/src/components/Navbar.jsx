@@ -23,9 +23,17 @@ const Navbar = () => {
       </div>
       <div className="buttons">
         <a href="#" className="buttonNavbar">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
           Im a Doctor
         </a>
         <a href="#" className="buttonNavbar">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
           Im a Patient
         </a>
       </div>
