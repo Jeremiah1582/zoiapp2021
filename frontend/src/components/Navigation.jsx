@@ -27,7 +27,7 @@ const Navigation = () => {
             </a>
           </li>
           <li className="navItem">
-            <a href="/user/login" className="navLink">
+            <a href="/user/registration" className="navLink">
               Login
             </a>
           </li>
