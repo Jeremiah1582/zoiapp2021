@@ -28,7 +28,7 @@ const Navigation = () => {
           </li>
           <li className="navItem">
             <a href="/zoeteam" className="navLink">
-              Our Team
+              ZOE Team
             </a>
           </li>
           <li className="navItem">
