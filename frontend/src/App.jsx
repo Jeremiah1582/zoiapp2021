@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import Home from './components/Home';
 import About from './components/About';
+import DoctorRegForm from './components/RegsDoctorForm'
+// import PatientRegForm from './components/RegsPatientForm'
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,6 +16,7 @@ import {
 const App = () => {
   return (
     <Router >
+
       <div className = "container">
         {/* <div className="btn-group m-5">
           <NavLink to = '/' className = 'btn btn-primary m-3  activeClassName="active"'>Inicio</NavLink>
@@ -31,9 +34,17 @@ const App = () => {
             <Home />
           </Route>
           
-          <Route exact path = '/about'>
+          <Route  path = '/about'>
             <About />
           </Route>
+          
+          <Route  path ='/registration/doctor'>
+            <DoctorRegForm/>
+          </Route>
+            
+          {/* <Route  path ='/registration/patient'>
+            <PatientRegForm/>
+          </Route> */}
             
          {/*  <Route exact path = '/nosotros/:id'>
 

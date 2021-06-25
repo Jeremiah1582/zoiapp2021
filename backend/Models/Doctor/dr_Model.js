@@ -8,12 +8,12 @@ const newDoctor = new Schema({
   user: {
     firstName: {
       type: String,
-      required: [true, "First name is required!"],
+      // required: [true, "First name is required!"],
       default: "First name",
     },
     lastName: {
       type: String,
-      required: [true, "Last name is required!"],
+      // required: [true, "Last name is required!"],
       default: "Last name",
     },
     email: {
@@ -23,16 +23,16 @@ const newDoctor = new Schema({
     },
     mobileNumber:{
       type:String,
-      required:[true, "Mobile number is required!"]
+      // required:[true, "Mobile number is required!"]
     },
     password: {
       type: String,
-      required: [true, "Password is required!"],
+      // required: [true, "Password is required!"],
     },
   },
   licenseNumber: {
     type: String,
-    required: [true, "License number is required!"],
+    // required: [true, "License number is required!"],
   },
   yearOfCertificate: {
     type: String,
@@ -42,8 +42,6 @@ const newDoctor = new Schema({
   },
   qualifications: {
       type: String,
-      required: [true, "upload required!"],
-      default: "please include a scanned copy of your qualifications",
     },
   languages: {
     type: String,

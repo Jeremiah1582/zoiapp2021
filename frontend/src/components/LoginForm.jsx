@@ -24,7 +24,7 @@ const LoginForm = () => {
    const submit =(e)=>{
      e.preventDefault();
      if (user.email !== ''){
-       // JWToken
+       // JWToken should added later
        axios.post("/user/login", user)
        .then((res)=>{
          console.log(res.data);
