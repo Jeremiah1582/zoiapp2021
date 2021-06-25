@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import Home from './components/Home';
 import About from './components/About';
+import Signup from './components/Signup';
 import {
   BrowserRouter as Router,
   Switch,
@@ -33,6 +34,10 @@ const App = () => {
           
           <Route exact path = '/about' component = { About }>
             <About />
+          </Route>
+
+          <Route exact path = '/signup' component = { Signup }>
+            <Signup />
           </Route>
             
          {/*  <Route exact path = '/nosotros/:id'>

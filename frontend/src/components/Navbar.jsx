@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../imgs/logo.png";
 import Navigation from "./Navigation";
+import logoNew from '../imgs/logoNew.png'
 
 
 const Navbar = () => {
@@ -9,7 +10,7 @@ const Navbar = () => {
       <Navigation />
       <div className="header">
         <div className="logo-box">
-          <img src={logo} alt="logo" className="logo" />
+          <img src={ logoNew } alt="logo" className="logo" />
         </div>
         <div className="text-wrap">
           <h1 className="title-wrap">

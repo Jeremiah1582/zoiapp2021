@@ -6,6 +6,7 @@
   --white: #DFF0E2;
   --fonts: #333333;
   --textCard: #fdfffc;
+  --navy: #000080;
 }
 *,
 *::after,
@@ -61,6 +62,7 @@ a{
   height: 11rem;
   animation: animateHeart 1.2s infinite;
   margin: 5rem;
+  background-color: tra;
 }
 .text-wrap {
   position: absolute;
@@ -308,7 +310,7 @@ a{
 
 
 
-/* ********cards********* */
+/* ******** Home Cards********* */
 .cardWrap{
   display: grid;
   grid-template-rows: auto ;
@@ -336,7 +338,8 @@ a{
     left: 2rem;
     right: 2rem;
     bottom: 2rem;
-    background: rgba(0, 62, 41, 0.4);
+    /* background: #00c683;  */
+    background: rgba(0, 0, 0, 0.5);
     box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.5);
     transition: 0.5s;
     display: flex;
@@ -387,6 +390,12 @@ a{
   color: var(--textCard);
   box-shadow:0 10px 20px rgba(0, 0, 0, 0.2)
 }
+
+/* **********SignUp Cards */
+.signup-cardWrap{
+  grid-template-columns: repeat(2fr);
+}
+
 
 
 /* *******footer******** */
@@ -558,7 +567,6 @@ a{
   100%{
     opacity: 100%;
   }
-
 }
 
 
