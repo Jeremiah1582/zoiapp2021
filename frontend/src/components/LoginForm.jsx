@@ -74,56 +74,6 @@ const LoginForm = () => {
       </Form>
     </div>
   );
-
-  // form 2
-  // return (
-  // <MDBContainer>
-  //   <MDBRow>
-  //     <MDBCol md="6">
-  //       <MDBCard>
-  //         <MDBCardBody>
-  //           <form onSubmit={submit} >
-  //             <p className="h4 text-center py-4">Log in</p>
-  //             <div className="grey-text">
-  //              <p class = "warningMsg"> {message} </p>
-
-  //               <MDBInput
-  //                 label="Your email"
-  //                 icon="envelope"
-  //                 group
-  //                 type="email"
-  //                 validate
-  //                 error="wrong"
-  //                 success="right"
-  //                 name="email"
-  //                 value={user.email}
-  //                 onChange={handleChange}
-  //                 placeholder="Enter your email"
-  //               />
-  //               <MDBInput
-  //                 label="Your password"
-  //                 icon="lock"
-  //                 group
-  //                 type="password"
-  //                 validate
-  //                 name="password"
-  //                 value={user.password}
-  //                 onChange={handleChange}
-  //                 placeholder=" Enter your password"
-  //               />
-  //             </div>
-  //             <div className="text-center py-4 mt-3">
-  //               <MDBBtn color="cyan" type="submit">
-  //                 Log in
-  //               </MDBBtn>
-  //             </div>
-  //           </form>
-  //         </MDBCardBody>
-  //       </MDBCard>
-  //     </MDBCol>
-  //   </MDBRow>
-  // </MDBContainer>
-  // );
 };
 
 export default LoginForm;

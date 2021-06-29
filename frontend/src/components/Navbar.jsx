@@ -22,14 +22,14 @@ const Navbar = () => {
         </div>
       </div>
       <div className="buttons">
-        <a href="#" className="buttonNavbar">
+        <a href="/user/registration/doctor" className="buttonNavbar">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           Im a Doctor
         </a>
-        <a href="#" className="buttonNavbar">
+        <a href="/user/registration/patient" className="buttonNavbar">
           <span></span>
           <span></span>
           <span></span>

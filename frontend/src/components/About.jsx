@@ -14,7 +14,7 @@ const About = () => {
 
 
       <div className="aboutMainWrap">
-        <p className="textComponent">
+        {/* <p className="textComponent">
           He’d waited in the human system. The semiotics of the console in faded
           pinks and yellows. Then a mist closed over the black water and the
           robot gardener. Its hands were holograms that altered to match the
@@ -33,7 +33,7 @@ const About = () => {
           tunnel’s ceiling. The two surviving Founders of Zion were old men, old
           with the movement of the train, their high heels like polished hooves
           against the gray metal of the console in faded pinks and yellows.
-        </p>
+        </p> */}
        
         <div className="teamAbout">
       

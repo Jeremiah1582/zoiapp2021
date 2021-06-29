@@ -12,7 +12,6 @@ import App from "./App.jsx";
 //jose's CSS
 import "./index.css";
 
-
 ReactDOM.render(
   <React.StrictMode>
     <App />

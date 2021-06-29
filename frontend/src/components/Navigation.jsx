@@ -22,7 +22,7 @@ const Navigation = () => {
             </a>
           </li>
           <li className="navItem">
-            <a href="/about" className="navLink">
+            <a href="/aboutzoe" className="navLink">
               About us
             </a>
           </li>
@@ -32,17 +32,17 @@ const Navigation = () => {
             </a>
           </li>
           <li className="navItem">
-            <a href="#" className="navLink">
+            <a href="/contact" className="navLink">
               Contact
             </a>
           </li>
           <li className="navItem">
-            <a href="#" className="navLink">
+            <a href="/user/login" className="navLink">
               Login
             </a>
           </li>
           <li className="navItem">
-            <a href="#" className="navLink">
+            <a href="/" className="navLink">
               Sign up
             </a>
           </li>

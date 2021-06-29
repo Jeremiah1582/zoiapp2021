@@ -1,8 +1,8 @@
 const router = require('express').Router()
-const userController =require('../Controllers/userController')
+const patientController =require('../Controllers/patientController')
 
-router.get('/login',  userController.login)
-router.get('/signup', userController.signup)
-router.get('/logout', userController.logout)
+router.get('/login',  patientController.login)
+router.get('/signup', patientController.signup)
+router.get('/logout', patientController.logout)
 
 module.exports= router
