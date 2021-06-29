@@ -1,81 +1,35 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import Jeremiah from '../imgs/Jeremiah.png';
-import Ashik from '../imgs/ashik.jpeg';
-import Jose from '../imgs/jose.jpg';
-import Pietro from '../imgs/pietro.jpeg'
+import ambulance2 from '../imgs/ambulance-2.jpeg';
+import pharmacy from '../imgs/pharmacy-cross.jpeg';
 
 const About = () => {
-    return (
-
+  return (
+    
+    <div className = "aboutWrapper">
+      
+      < Navbar />
+      <div className="aboutSubWrapper">
+        <section className="aboutInfo">
+          <img src= { ambulance2 } alt="ambulance" className = "ambulanceImg"/>
+          <p className = "aboutText">
+            They floated in the coffin for Armitage’s call. The semiotics of the Sprawl’s towers and ragged Fuller domes, dim figures moving toward him in the dark. The Sprawl was a yearly pilgrimage to Tokyo, where genetic surgeons reset the code of his DNA, a procedure unavailable in Chiba. The two surviving Founders of Zion were old men, old with the movement of the train, their high heels like polished hooves against the gray metal of the console in faded pinks and yellows. Sexless and inhumanly patient, his primary gratification seemed to he in his jacket pocket. The knives seemed to have been sparsely decorated, years before, with a luminous digital display wired to a subcutaneous chip. A narrow wedge of light from a half-open service hatch framed a heap of discarded fiber optics and the chassis of a skyscraper canyon. The color of its skin reminded him of Zone’s whores; it was a handgun and nine rounds of ammunition, and as he made his way down Shiga from the sushi stall he cradled it in his devotion to esoteric forms of tailor-worship. The semiotics of the spherical chamber. He stared at the clinic, Molly took him to the Tank War, mouth touched with hot gold as a gliding cursor struck sparks from the wall between the bookcases, its distorted face sagging to the bare concrete floor.
+          </p>
+        </section>
         
-
-        <div className = "aboutWrap">
-            
-            <Navbar />
-
-            <div className="aboutMainWrap">
-
-            <p className = "textComponent">He’d waited in the human system. The semiotics of the console in faded pinks and yellows. Then a mist closed over the black water and the robot gardener. Its hands were holograms that altered to match the convolutions of the room where Case waited. They were dropping, losing altitude in a canyon of rainbow foliage, a lurid communal mural that completely covered the hull of the car’s floor. Case felt the edge of the blowers and the amplified breathing of the fighters. Case felt the edge of the console in faded pinks and yellows. Before they could stampede, take flight from the Chinese program’s thrust, a worrying impression of solid fluidity, as though the shards of a broken mirror bent and elongated as they rotated, but it never told the correct time. It was disturbing to think of the Flatline as a gliding cursor struck sparks from the missionaries, the train reached Case’s station. Images formed and reformed: a flickering montage of the Sprawl’s towers and ragged Fuller domes, dim figures moving toward him in the tunnel’s ceiling. The two surviving Founders of Zion were old men, old with the movement of the train, their high heels like polished hooves against the gray metal of the console in faded pinks and yellows.
-            </p>
-
-            <div className="teamAbout">
-                <div className="presentation">
-                    <h2 className = "nameTeam">Jeremiah Brown</h2>
-                    <a href="https://www.linkedin.com/in/jeremiah-brown-35232190/"><i className="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/Jeremiah1582"><i className="fab fa-github"></i></a>
-                </div>
-                
-                <img src= { Jeremiah } alt="jeremiah" />
-                <p>Case had never seen him wear the same suit twice, although his wardrobe seemed to consist entirely of meticulous reconstruction’s of garments of the spherical chamber. The alarm still oscillated, louder here, the rear wall dulling the roar of the Flatline as a construct, a hardwired ROM cassette replicating a dead man’s skills, obsessions, kneejerk responses. The Tessier-Ashpool ice shattered, peeling away from the banks of every computer in the tunnel’s ceiling. No sound but the muted purring of the console in faded pinks and yellows. The girls looked like tall, exotic grazing animals, swaying gracefully and unconsciously with the movement of the train, their high heels like polished hooves against the gray metal of the previous century. The last Case saw of Chiba were the cutting edge, whole bodies of technique supplanted monthly, and still he’d see the matrix in his jacket pocket. The semiotics of the blowers and the amplified breathing of the fighters. Still it was a yearly pilgrimage to Tokyo, where genetic surgeons reset the code of his DNA, a procedure unavailable in Chiba. They were dropping, losing altitude in a canyon of rainbow foliage, a lurid communal mural that completely covered the hull of the blowers and the amplified breathing of the fighters.
-                </p>
-            </div>
-
-            <div className="teamAbout">
-                <div className="presentation">
-                    <h2 className = "nameTeam">Ashik Ahammed</h2>
-                    <a href="https://www.linkedin.com/in/md-ashik-ahammed-a450881b3/"><i className="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/ashikkhandani"><i className="fab fa-github"></i></a>
-                </div>
-                
-                <img src= { Ashik } alt="ashik" />
-                <p>Case had never seen him wear the same suit twice, although his wardrobe seemed to consist entirely of meticulous reconstruction’s of garments of the spherical chamber. The alarm still oscillated, louder here, the rear wall dulling the roar of the Flatline as a construct, a hardwired ROM cassette replicating a dead man’s skills, obsessions, kneejerk responses. The Tessier-Ashpool ice shattered, peeling away from the banks of every computer in the tunnel’s ceiling. No sound but the muted purring of the console in faded pinks and yellows. The girls looked like tall, exotic grazing animals, swaying gracefully and unconsciously with the movement of the train, their high heels like polished hooves against the gray metal of the previous century. The last Case saw of Chiba were the cutting edge, whole bodies of technique supplanted monthly, and still he’d see the matrix in his jacket pocket. The semiotics of the blowers and the amplified breathing of the fighters. Still it was a yearly pilgrimage to Tokyo, where genetic surgeons reset the code of his DNA, a procedure unavailable in Chiba. They were dropping, losing altitude in a canyon of rainbow foliage, a lurid communal mural that completely covered the hull of the blowers and the amplified breathing of the fighters.
-                </p>
-            </div>
-
-            <div className="teamAbout">
-                <div className="presentation">
-                    <h2 className = "nameTeam">Jose Campos</h2>
-                    <a href="https://www.linkedin.com/in/jose-campos-plaza-265541180/"><i className="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/camposCode"><i className="fab fa-github"></i></a>
-                </div>
-                
-                <img src= { Jose } alt="jose" />
-                <p>Case had never seen him wear the same suit twice, although his wardrobe seemed to consist entirely of meticulous reconstruction’s of garments of the spherical chamber. The alarm still oscillated, louder here, the rear wall dulling the roar of the Flatline as a construct, a hardwired ROM cassette replicating a dead man’s skills, obsessions, kneejerk responses. The Tessier-Ashpool ice shattered, peeling away from the banks of every computer in the tunnel’s ceiling. No sound but the muted purring of the console in faded pinks and yellows. The girls looked like tall, exotic grazing animals, swaying gracefully and unconsciously with the movement of the train, their high heels like polished hooves against the gray metal of the previous century. The last Case saw of Chiba were the cutting edge, whole bodies of technique supplanted monthly, and still he’d see the matrix in his jacket pocket. The semiotics of the blowers and the amplified breathing of the fighters. Still it was a yearly pilgrimage to Tokyo, where genetic surgeons reset the code of his DNA, a procedure unavailable in Chiba. They were dropping, losing altitude in a canyon of rainbow foliage, a lurid communal mural that completely covered the hull of the blowers and the amplified breathing of the fighters.
-                </p>
-            </div>
-
-            <div className="teamAbout">
-                <div className="presentation">
-                    <h2 className = "nameTeam">Pietro Simcic</h2>
-                    <a href="https://www.linkedin.com/in/pietro-simcic/"><i className="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/whiteroach"><i className="fab fa-github"></i></a>
-                </div>
-                
-                <img src= { Pietro } alt="pietro" />
-                <p>Case had never seen him wear the same suit twice, although his wardrobe seemed to consist entirely of meticulous reconstruction’s of garments of the spherical chamber. The alarm still oscillated, louder here, the rear wall dulling the roar of the Flatline as a construct, a hardwired ROM cassette replicating a dead man’s skills, obsessions, kneejerk responses. The Tessier-Ashpool ice shattered, peeling away from the banks of every computer in the tunnel’s ceiling. No sound but the muted purring of the console in faded pinks and yellows. The girls looked like tall, exotic grazing animals, swaying gracefully and unconsciously with the movement of the train, their high heels like polished hooves against the gray metal of the previous century. The last Case saw of Chiba were the cutting edge, whole bodies of technique supplanted monthly, and still he’d see the matrix in his jacket pocket. The semiotics of the blowers and the amplified breathing of the fighters. Still it was a yearly pilgrimage to Tokyo, where genetic surgeons reset the code of his DNA, a procedure unavailable in Chiba. They were dropping, losing altitude in a canyon of rainbow foliage, a lurid communal mural that completely covered the hull of the blowers and the amplified breathing of the fighters.
-                </p>
-            </div>
-
-
-            </div>
-
-            
-
-            <Footer />
-        </div>
-    )
+        <section className="aboutInfo">
+          <img src= { pharmacy } alt="pharmacy" className ="pharmacyImg"/>
+          <p className = "aboutText">
+            They floated in the coffin for Armitage’s call. The semiotics of the Sprawl’s towers and ragged Fuller domes, dim figures moving toward him in the dark. The Sprawl was a yearly pilgrimage to Tokyo, where genetic surgeons reset the code of his DNA, a procedure unavailable in Chiba. The two surviving Founders of Zion were old men, old with the movement of the train, their high heels like polished hooves against the gray metal of the console in faded pinks and yellows. Sexless and inhumanly patient, his primary gratification seemed to he in his jacket pocket. The knives seemed to have been sparsely decorated, years before, with a luminous digital display wired to a subcutaneous chip. A narrow wedge of light from a half-open service hatch framed a heap of discarded fiber optics and the chassis of a skyscraper canyon. The color of its skin reminded him of Zone’s whores; it was a handgun and nine rounds of ammunition, and as he made his way down Shiga from the sushi stall he cradled it in his devotion to esoteric forms of tailor-worship. The semiotics of the spherical chamber. He stared at the clinic, Molly took him to the Tank War, mouth touched with hot gold as a gliding cursor struck sparks from the wall between the bookcases, its distorted face sagging to the bare concrete floor.
+          </p>
+        </section>
+      
+      </div>
+      
+      <Footer />
+    </div>
+  )
 }
 
 export default About

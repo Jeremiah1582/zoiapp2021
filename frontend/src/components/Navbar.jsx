@@ -3,7 +3,6 @@ import logo from "../imgs/logo.png";
 import Navigation from "./Navigation";
 import logoNew from '../imgs/logoNew.png'
 
-
 const Navbar = () => {
   return (
     <div>
@@ -24,14 +23,14 @@ const Navbar = () => {
         </div>
       </div>
       <div className="buttons">
-        <a href="#" className ="buttonNavbar">
+        <a href="#" className="buttonNavbar">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           Im a Doctor
         </a>
-        <a href="#" className ="buttonNavbar">
+        <a href="#" className="buttonNavbar">
           <span></span>
           <span></span>
           <span></span>

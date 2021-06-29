@@ -10,7 +10,7 @@ const Signup = () => {
             <Navbar />  
             
             
-            <div className="cardWrap">
+            <div className="cardWrap signup-cardWrap">
                 <a href="/about">
                     <div className = "card">
                         <div className = "boxCard">

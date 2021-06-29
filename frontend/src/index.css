@@ -3,10 +3,9 @@
   --main: #003e29;
   --light: #00f9a5;
   --black: #010101;
-  --white: #DFF0E2;
+  --white: #dff0e2;
   --fonts: #333333;
   --textCard: #fdfffc;
-  --navy: #000080;
 }
 *,
 *::after,
@@ -32,15 +31,14 @@ body {
 ul {
   list-style: none;
 }
-li a{
+li a {
   color: var(--textCard);
   text-decoration: none;
 }
-a{
+a {
   color: var(--textCard);
   text-decoration: none;
 }
-
 
 /* *****header****** */
 
@@ -56,13 +54,11 @@ a{
   background-repeat: no-repeat;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  
 }
 .logo {
   height: 11rem;
   animation: animateHeart 1.2s infinite;
   margin: 5rem;
-  background-color: tra;
 }
 .text-wrap {
   position: absolute;
@@ -88,102 +84,7 @@ a{
   letter-spacing: 1.5rem;
   animation: moveInRight 5s;
 }
-.buttons{
-  position: absolute;
-  top: 65%;
-  left: 25%;
-}
-.buttonNavbar{
-  position: relative;
-  font-size: 2rem;
-  display: inline-block;
-  text-transform: uppercase;
-  letter-spacing: 0.3rem;
-  overflow: hidden;
-  transition: 0.2s;
-  color: var(--textCard);
-  margin: -1rem;
-  border-radius: 9rem;
-  padding: 2rem;
-  font-weight: 700;
-  background: linear-gradient(
-    to right,
-    rgba(0, 61, 41, 0.486),
-    rgba(0, 250, 167, 0.39)
-  );
-	backdrop-filter: blur(10px);
-}
-.buttonNavbar:hover{
-  /* color: var(--white);
-  background-color: var(--textCard);
-  box-shadow: 0 0 10rem var(--textCard), 0 0 4rem var(--textCard), 0 0 8rem var(--textCard);
-  transition-delay: 1s;
-  color: var(--black); */
-  background-image: linear-gradient(
-    120deg,
-    transparent 0%,
-    transparent 50%,
-    var(--white)
-  );
-  transition: all 0.4s;
-}
-.buttonNavbar span{
-  position: absolute;
-  display: block;
-}
-.buttonNavbar span:nth-child(1){
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--textCard) );
-}
-.buttonNavbar:hover span:nth-child(1){
-  left: 100%;
-  transition: 0.5s;
-}
-.buttonNavbar span:nth-child(2){
-  top: -100%;
-  right: 0%;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, var(--textCard) );
-}
-.buttonNavbar:hover span:nth-child(2){
-  top: 100%;
-  transition: 0.5s;
-  transition-delay: 0.25s;
-}
-.buttonNavbar span:nth-child(3){
-  bottom: 0;
-  right: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(270deg, transparent, var(--textCard));
-}
-.buttonNavbar:hover span:nth-child(3){
-  right: 100%;
-  transition: 0.5s;
-  transition-delay: 0.5s;
-}
-.buttonNavbar span:nth-child(4){
-  bottom: -100%;
-  left: 0%;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(360deg, transparent, var(--textCard) );
-}
-.buttonNavbar:hover span:nth-child(4){
-  bottom: 100%;
-  transition: 0.5s;
-  transition-delay: 0.75s;
-}
 
-
-/* ********************body********************* */
-.textComponent{
-  margin: 25rem auto;
-}
 /* *******************menu********************* */
 .navBackground {
   height: 6rem;
@@ -193,13 +94,12 @@ a{
   top: 6.5rem;
   right: 6.5rem;
   z-index: 3;
-  background: radial-gradient( circle at 100%, #00a46d, #00c683, #00e89a);
+  background: radial-gradient(circle at 100%, #00a46d, #00c683, #00e89a);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top; 
+  background-position: top;
   opacity: 1;
-  transition:  transform 2s;
-
+  transition: transform 2s;
 }
 .navButton {
   background-color: var(--textCard);
@@ -219,15 +119,15 @@ a{
   top: 0;
   right: 0;
   z-index: 4;
-  opacity: 0; 
-  transition: all 2s;  
+  opacity: 0;
+  transition: all 2s;
 }
 .navList {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;   
+  text-align: center;
 }
 .navItem {
   margin: 1rem;
@@ -251,128 +151,77 @@ a{
   background-position: 100%;
   color: var(--main);
 }
-.navCheckbox:checked ~ .navBackground{
+.navCheckbox:checked ~ .navBackground {
   transform: scale(80);
 }
-.navCheckbox:checked ~ .navNav{
+.navCheckbox:checked ~ .navNav {
   opacity: 1;
   width: 100%;
 }
-#navigationToogle{
+#navigationToogle {
   display: none;
 }
 
-/* **********aboutUs************* */
-.aboutMainWrap{
-  margin-bottom: 35rem;
-}
-.teamAbout{
-  margin-bottom: 11rem;
-  position: relative;
-}
-.teamAbout img{
-  height: 50rem;
-  float: left;
-  margin-right: 5rem;
-  box-shadow: 10px 10px 98px -27px rgba(35,35,35,0.75);
-}
-.teamAbout:nth-child(even) img{
-  float: right;
-  margin-right: 0;
-  margin-left: 5rem;
-}
-.nameTeam{
-  text-shadow: 5px 5px 5px rgba(35,35,35,0.61);
-  font-size: 5rem;
-  font-weight: 300;
-} 
-.presentation{
-  display: flex;
-  justify-content: center;
-}
-.presentation a{
-  color: var(--fonts);
-  margin-left: 5rem;
-  font-size: 3rem;
-  position: absolute;
-  right: 25rem;
-  top: 2rem;
-  text-shadow: 5px 5px 5px rgba(35,35,35,0.61);
-}
-.presentation a:hover{
-  transform: scale(1.5);
-  transition: 2s;
-}
-.presentation a:nth-child(2){
-  right: 35rem;
-  color: blue;
-}
-
-
-
-/* ******** Home Cards********* */
-.cardWrap{
+/* ********cards********* */
+.cardWrap {
   display: grid;
-  grid-template-rows: auto ;
+  grid-template-rows: auto;
   min-height: 120rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 11rem;
 }
-.cardWrap .card{
+.cardWrap .card {
   position: relative;
   min-width: 32rem;
   height: 85vh;
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
-                inset -5px -5px -5px 15px rgba(255, 255, 255, 0.1),
-                5px 5px 5px rgba(0, 0, 0, 0.3),
-                -5px -5px 15px rgba(255, 255, 255, 0.1);
+    inset -5px -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 5px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
   border-radius: 1.5rem;
   margin-top: 5rem;
 }
-
-.cardWrap .card .boxCard{
+.cardWrap .card .boxCard {
   position: absolute;
-    top: 2rem;
-    left: 2rem;
-    right: 2rem;
-    bottom: 2rem;
-    /* background: #00c683;  */
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.5);
-    transition: 0.5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    border-radius: 3rem;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+  bottom: 2rem;
+  background: rgba(0, 62, 41, 0.4);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 3rem;
 }
-.cardWrap .card .boxCard:hover{
+.cardWrap .card .boxCard:hover {
   transform: translateY(-50px);
   box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
 }
-.imgCard{
+.imgCard {
   height: 9rem;
   width: 9rem;
   border-radius: 50%;
   position: absolute;
   top: 5%;
   left: 40%;
-  box-shadow: 10px 10px 95px -16px rgba(0,0,0,0.82);
+  box-shadow: 10px 10px 95px -16px rgba(0, 0, 0, 0.82);
 }
-.cardWrap .card .boxCard .contentCard{
+.cardWrap .card .boxCard .contentCard {
   padding: 2rem;
   text-align: center;
 }
-.cardWrap .card .boxCard .contentCard h2{
+.cardWrap .card .boxCard .contentCard h2 {
   font-size: 4rem;
   color: var(--textCard);
   margin-top: 7rem;
   margin-bottom: 3rem;
-  text-shadow: 5px 3px 7px rgba(35,35,35,0.65);
+  text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
 }
-.cardWrap .card .boxCard .contentCard p{
+.cardWrap .card .boxCard .contentCard p {
   font-size: 2rem;
   z-index: 1;
   transition: 0.5s;
@@ -380,24 +229,161 @@ a{
   margin-top: 4rem;
   font-weight: 400;
 }
-.cardWrap .card .boxCard .contentCard a{
+.cardWrap .card .boxCard .contentCard a {
   position: relative;
   display: inline-block;
   padding: 8px 2rem;
-  margin-top: 9rem;  
+  margin-top: 9rem;
   border-radius: 2rem;
   text-decoration: none;
   color: var(--textCard);
-  box-shadow:0 10px 20px rgba(0, 0, 0, 0.2)
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* **********SignUp Cards */
-.signup-cardWrap{
-  grid-template-columns: repeat(2fr);
+/* ********About********* */
+.aboutSubWrapper{
+  margin: 19rem auto;
+}
+.ambulanceImg{
+  height: 55rem;
+  float: left;
+  margin-right: 3rem;
+  margin-top: 1.9rem;
+}
+.pharmacyImg{
+  height: 55rem;
+  float: right;
+  margin-left: 3rem;
 }
 
+/* ********Team********  */
 
-
+.teamAbout{
+  position: relative;
+  margin-bottom: 9rem;
+}
+.follow-button{
+  position: absolute;
+  top: 5%;
+  left: 39%;
+  margin-bottom: 4rem;
+}
+.teamTitle{
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 300;
+  text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
+  margin: 1rem auto;
+}
+.teamPresentation{
+  margin-top: 5rem;
+}
+.teamName{
+  font-size: 4rem;
+  font-weight: 300;
+  text-align: center;
+}
+.teamImage{
+  height: 15rem;
+  margin-right: 3rem;
+  margin-top: 8rem;
+  float: left;
+}
+.textComponent{
+  margin-top: 7rem;
+}
+/***** follow buttons ******/
+.follow-button {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  width: 240px;
+  height: 65px;
+  background-color: var(--white);
+  border-radius: 80px;
+  padding: 0 18px;
+  margin-top: 15px;
+  margin-left: -7rem;
+  will-change: transform;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.follow-button:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.follow-button-frontage {
+  position: absolute;
+  z-index: 99;
+  width: 240px;
+  height: 62px;
+  border-radius: 80px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 23px;
+  text-align: center;
+  line-height: 60px;
+  letter-spacing: 2px;
+  color: var(--fonts);
+  background-color: var(--light);
+  text-shadow: 2px 2px 3px rgba(35, 35, 35, 0.61);
+  padding: 0 18px;
+  -webkit-transition: all 1.2s ease;
+  transition: all 1.2s ease;
+}
+.social-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 240px;
+  height: 64px;
+  border-radius: 80px;
+}
+.social-links i:nth-of-type(1) {
+  -webkit-transition-delay: 1.1s;
+  transition-delay: 1.1s;
+}
+.social-links i:nth-of-type(2) {
+  -webkit-transition-delay: 0.9s;
+  transition-delay: 0.9s;
+}
+.follow-button:hover span {
+  -webkit-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+  -webkit-transform: translateX(-280px);
+  transform: translateX(-280px);
+}
+.follow-button:hover i {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.social-links_link {
+  font-size: 30px;
+  color: #0A66C2;
+  will-change: transform;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.social-links_link:hover {
+  transform: scale(1.2);
+  transition: 0.5s;
+}
 /* *******footer******** */
 .footerWrap {
   height: 45vh;
@@ -411,7 +397,6 @@ a{
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-  
 }
 .footerItem {
   display: flex;
@@ -421,7 +406,7 @@ a{
   text-align: center;
   font-size: 4rem;
 }
-.footerLink{
+.footerLink {
   margin: 2rem 0;
 }
 .footerLink:hover {
@@ -430,11 +415,11 @@ a{
   transform: scale(1.1);
   transition: 2s;
 }
-.footerLink .fab:hover{
+.footerLink .fab:hover {
   color: var(--light);
   text-shadow: 0 1rem 2rem var(--black);
   transform: scale(1.1);
-  transition: 1s;
+  transition: 2s;
 }
 .copyright {
   position: absolute;
@@ -444,74 +429,90 @@ a{
   font-size: 1.9rem;
 }
 
-
 /* ********media queries ******/
 
 @media (min-width: 768px) {
-  .imgCard{
+  .imgCard {
     height: 15rem;
     width: 15rem;
     top: 11%;
     left: 45%;
     color: var(--textCard);
   }
-  .cardWrap .card .boxCard .contentCard h2{
+  .cardWrap .card .boxCard .contentCard h2 {
     font-size: 6rem;
     margin-top: 15rem;
   }
-  .cardWrap .card .boxCard .contentCard p{
+  .cardWrap .card .boxCard .contentCard p {
     font-size: 3.1rem;
   }
-  .buttonNavbar{
-    right: 11%;
+  .teamTitle{
+    font-size: 9rem;
+    font-weight: 300;
+    text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
+    margin: 11rem auto;
+  } 
+  .teamName{
+    font-size: 6rem;
   }
-  .buttonNavbar{
-    margin-left: 2rem;
+  .follow-button{
+    margin-left: -5rem;
   }
-  .footerItem{
+  .footerItem {
     flex-direction: row;
     margin-left: 3rem;
     justify-content: space-around;
     line-height: 35rem;
   }
 }
-@media(min-width: 1280px){
-  .cardWrap{
+@media (min-width: 1280px) {
+  .cardWrap {
     grid-template-columns: auto auto auto;
     margin-bottom: -9rem;
   }
-  .imgCard{
+  .imgCard {
     width: 11rem;
     height: 11rem;
     top: 7%;
     left: 40%;
   }
-  .cardWrap .card .boxCard .contentCard h2{
+  .cardWrap .card .boxCard .contentCard h2 {
     font-size: 4rem;
     margin-top: 5rem;
   }
-  .cardWrap .card .boxCard .contentCard p{
+  .cardWrap .card .boxCard .contentCard p {
     font-size: 2rem;
   }
-  .buttonNavbar{
-    left: 25%;
+  .teamTitle{
+    font-size: 9rem;
+    font-weight: 300;
+    text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
+    margin: 11rem auto;
+  }
+  .teamName{
+    font-size: 6rem;
+    margin-top: 9rem;
+    margin-bottom: -3rem;
+  }
+  .textComponent{
+    margin-top: 9rem;
+  }
+  .teamImage{
+    height: 25rem;
+    margin-right: 5rem;
+    margin-top: 7rem;
+    float: left;
+  }
+  .follow-button{
+    margin-top: 5rem;
     margin-left: 5rem;
   }
-  
-  .aboutTitle{
-    font-size: 10rem;
-    padding-top: 5rem;
-    margin-bottom: 11rem;
-    letter-spacing: 1.3rem;
-    text-transform: uppercase;
-    text-shadow: 6px 2px 11px rgba(35,35,35,0.88);
-  }
-  .box h2, h3{
+  .box h2, h3 {
     margin-top: 3rem;
     margin-bottom: 3rem;
     font-size: 5rem;
     letter-spacing: 1.1rem;
-    text-shadow: 6px 2px 11px rgba(35,35,35,0.88);
+    text-shadow: 6px 2px 11px rgba(35, 35, 35, 0.88);
   }
 }
 
@@ -551,24 +552,20 @@ a{
     transform: translate(10rem);
   }
 }
-@keyframes list{
-  0%{
+@keyframes list {
+  0% {
     opacity: 0;
   }
-  25%{
+  25% {
     opacity: 15%;
   }
-  50%{
+  50% {
     opacity: 25%;
   }
-  75%{
+  75% {
     opacity: 75%;
   }
-  100%{
+  100% {
     opacity: 100%;
   }
 }
-
-
-
-
