@@ -5,6 +5,9 @@ import About from "./components/About";
 import LoginForm from "./components/LoginForm";
 import RegsDoctorForm from "./components/DoctorRegForm";
 import RegsPatientForm from "./components/PatientRegForm";
+import Signup from "./components/Signup";
+import Footer from "./components/Footer";
+import Team from "./components/Team";
 import {
   BrowserRouter as Router,
   Switch,
@@ -39,28 +42,26 @@ const App = () => {
           <Route exact path="/">
             <Home />
           </Route>
-
-          <Route exact path="/zoeteam" component={About}>
-            <About />
+          <Route exact path="/aboutzoe">
+            {About}
           </Route>
-
-          <Route path="/user/registration/doctor">
-            <RegsDoctorForm />
-          </Route>
-          <Route path="/user/registration/patient">
-            <RegsPatientForm />
+          <Route exact path="/zoeteam">
+            <Team />
           </Route>
           <Route path="/user/login">
             <LoginForm />
           </Route>
 
-          {/*  <Route exact path = '/nosotros/:id'>
+          <Route exact path="/signup" component={Signup}>
+            <Signup />
+          </Route>
+          <Route path="/user/registration/doctor">
+            <RegsDoctorForm />
+          </Route>
 
-          </Route> 
-          
-          <Route exact path = '/patient'>
-            <Patient />
-          </Route>*/}
+          <Route path="/user/registration/patient">
+            <RegsPatientForm />
+          </Route>
         </Switch>
       </div>
     </Router>

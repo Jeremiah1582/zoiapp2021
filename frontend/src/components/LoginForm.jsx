@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-// import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
 
 import axios from "axios";
 
