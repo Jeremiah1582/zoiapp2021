@@ -84,6 +84,95 @@ a {
   letter-spacing: 1.5rem;
   animation: moveInRight 5s;
 }
+.buttons {
+  position: absolute;
+  top: 65%;
+  left: 25%;
+}
+.buttonNavbar {
+  position: relative;
+  font-size: 2rem;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  overflow: hidden;
+  transition: 0.2s;
+  color: var(--textCard);
+  margin: 0.5rem;
+  border-radius: 9rem;
+  padding: 1rem;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    rgba(0, 61, 41, 0.486),
+    rgba(0, 250, 167, 0.39)
+  );
+  backdrop-filter: blur(10px);
+}
+.buttonNavbar:hover {
+  background-image: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 50%,
+    var(--white)
+  );
+  transition: all 0.4s;
+}
+.buttonNavbar span {
+  position: absolute;
+  display: block;
+}
+.buttonNavbar span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--textCard));
+}
+.buttonNavbar:hover span:nth-child(1) {
+  left: 100%;
+  transition: 0.5s;
+}
+.buttonNavbar span:nth-child(2) {
+  top: -100%;
+  right: 0%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--textCard));
+}
+.buttonNavbar:hover span:nth-child(2) {
+  top: 100%;
+  transition: 0.5s;
+  transition-delay: 0.25s;
+}
+.buttonNavbar span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, var(--textCard));
+}
+.buttonNavbar:hover span:nth-child(3) {
+  right: 100%;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+.buttonNavbar span:nth-child(4) {
+  bottom: -100%;
+  left: 0%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, var(--textCard));
+}
+.buttonNavbar:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 0.5s;
+  transition-delay: 0.75s;
+}
+/* ********************body********************* */
+.textComponent {
+  margin: 25rem auto;
+}
 
 /* *******************menu********************* */
 .navBackground {
@@ -171,6 +260,7 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 11rem;
+  margin-bottom: 5rem;
 }
 .cardWrap .card {
   position: relative;
@@ -286,7 +376,7 @@ a {
 .teamImage{
   height: 15rem;
   margin-right: 3rem;
-  margin-top: 8rem;
+  margin-top: 5rem;
   float: left;
 }
 .textComponent{
@@ -432,11 +522,24 @@ a {
 /* ********media queries ******/
 
 @media (min-width: 768px) {
+  .title{
+    font-size: 9rem;
+  }
+  .subTitle{
+    font-size: 3.3rem;
+  }
+  .text-wrap{
+    left: 55%;
+  }
+  .buttonNavbar{
+    margin: 2rem;
+    left: -9%;
+  }
   .imgCard {
     height: 15rem;
     width: 15rem;
     top: 11%;
-    left: 45%;
+    left: 41%;
     color: var(--textCard);
   }
   .cardWrap .card .boxCard .contentCard h2 {
@@ -466,16 +569,25 @@ a {
   }
 }
 @media (min-width: 1280px) {
+  .title{
+    font-size: 11rem;
+  }
+  .subTitle{
+    font-size: 3.5rem;
+  }
+  .buttonNavbar{
+    left: 33%;
+  }
   .cardWrap {
     grid-template-columns: auto auto auto;
-    margin-bottom: -9rem;
-  }
+    margin-bottom: 5rem;
+  } 
   .imgCard {
-    width: 11rem;
-    height: 11rem;
+    width: 19rem;
+    height: 19rem;
     top: 7%;
-    left: 40%;
-  }
+    left:23%;
+  } 
   .cardWrap .card .boxCard .contentCard h2 {
     font-size: 4rem;
     margin-top: 5rem;
@@ -515,6 +627,7 @@ a {
     text-shadow: 6px 2px 11px rgba(35, 35, 35, 0.88);
   }
 }
+
 
 /* ********keyframes****** */
 
