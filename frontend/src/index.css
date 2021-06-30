@@ -174,6 +174,103 @@ a {
   margin: 25rem auto;
 }
 
+/* ********buttons******* */
+.buttons {
+  position: absolute;
+  top: 60%;
+  left: 25%;
+}
+.buttonNavbar {
+  position: relative;
+  font-size: 2rem;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  overflow: hidden;
+  transition: 0.2s;
+  color: var(--textCard);
+  margin: 1rem;
+  border-radius: 9rem;
+  padding: 2rem;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    rgba(0, 61, 41, 0.486),
+    rgba(0, 250, 167, 0.39)
+  );
+  backdrop-filter: blur(10px);
+}
+.buttonNavbar:hover {
+  /* color: var(--white);
+  background-color: var(--textCard);
+  box-shadow: 0 0 10rem var(--textCard), 0 0 4rem var(--textCard), 0 0 8rem var(--textCard);
+  transition-delay: 1s;
+  color: var(--black); */
+  background-image: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 50%,
+    var(--white)
+  );
+  transition: all 0.4s;
+}
+.buttonNavbar span {
+  position: absolute;
+  display: block;
+
+}
+.buttonNavbar span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--textCard));
+}
+.buttonNavbar:hover span:nth-child(1) {
+  left: 100%;
+  transition: 0.5s;
+}
+.buttonNavbar span:nth-child(2) {
+  top: -100%;
+  right: 0%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--textCard));
+}
+.buttonNavbar:hover span:nth-child(2) {
+  top: 100%;
+  transition: 0.5s;
+  transition-delay: 0.25s;
+}
+.buttonNavbar span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, var(--textCard));
+}
+.buttonNavbar:hover span:nth-child(3) {
+  right: 100%;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+.buttonNavbar span:nth-child(4) {
+  bottom: -100%;
+  left: 0%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, var(--textCard));
+}
+.buttonNavbar:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 0.5s;
+  transition-delay: 0.75s;
+}
+/* ********************body********************* */
+.textComponent {
+  margin: 25rem auto;
+}
+
 /* *******************menu********************* */
 .navBackground {
   height: 6rem;
@@ -382,6 +479,7 @@ a {
 .textComponent{
   margin-top: 7rem;
 }
+
 /***** follow buttons ******/
 .follow-button {
   position: relative;

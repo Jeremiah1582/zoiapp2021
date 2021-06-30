@@ -93,7 +93,7 @@ const About = () => {
             </div>
           </div>
 
-          <img src={Ashik} alt="ashik" className = "teamImage"/>
+          <img src={Ashik} alt="ashik" className = "teamImage" />
           <p className="textComponent">
             Case had never seen him wear the same suit twice, although his
             wardrobe seemed to consist entirely of meticulous reconstruction’s
