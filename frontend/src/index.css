@@ -86,21 +86,21 @@ a {
 }
 .buttons {
   position: absolute;
-  top: 65%;
+  top: 61%;
   left: 25%;
 }
 .buttonNavbar {
   position: relative;
-  font-size: 2rem;
+  font-size: 1rem;
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   overflow: hidden;
   transition: 0.2s;
   color: var(--textCard);
-  margin: 0.5rem;
+  /* margin: 0.3rem; */
   border-radius: 9rem;
-  padding: 1rem;
+  /* padding: 1rem; */
   font-weight: 700;
   background: linear-gradient(
     to right,
@@ -201,11 +201,6 @@ a {
   backdrop-filter: blur(10px);
 }
 .buttonNavbar:hover {
-  /* color: var(--white);
-  background-color: var(--textCard);
-  box-shadow: 0 0 10rem var(--textCard), 0 0 4rem var(--textCard), 0 0 8rem var(--textCard);
-  transition-delay: 1s;
-  color: var(--black); */
   background-image: linear-gradient(
     120deg,
     transparent 0%,
@@ -217,7 +212,6 @@ a {
 .buttonNavbar span {
   position: absolute;
   display: block;
-
 }
 .buttonNavbar span:nth-child(1) {
   top: 0;
@@ -428,6 +422,13 @@ a {
 }
 
 /* ********About********* */
+.aboutTitle{
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 300;
+  text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
+  margin: 1rem auto;
+}
 .aboutSubWrapper{
   margin: 19rem auto;
 }
@@ -659,6 +660,12 @@ a {
   .follow-button{
     margin-left: -5rem;
   }
+  .aboutTitle{
+    font-size: 9rem;
+    font-weight: 300;
+    text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
+    margin: 11rem auto;
+  }
   .footerItem {
     flex-direction: row;
     margin-left: 3rem;
@@ -681,10 +688,10 @@ a {
     margin-bottom: 5rem;
   } 
   .imgCard {
-    width: 19rem;
-    height: 19rem;
+    width: 13rem;
+    height: 13rem;
     top: 7%;
-    left:23%;
+    left:37%;
   } 
   .cardWrap .card .boxCard .contentCard h2 {
     font-size: 4rem;
@@ -712,6 +719,12 @@ a {
     margin-right: 5rem;
     margin-top: 7rem;
     float: left;
+  }
+  .aboutTitle{
+    font-size: 9rem;
+    font-weight: 300;
+    text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
+    margin: 9rem auto;
   }
   .follow-button{
     margin-top: 5rem;
