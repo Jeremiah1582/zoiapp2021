@@ -1,4 +1,4 @@
-const specialistField = [
+const specialistFields = [
   {
     field: "General Practice (GP)",
     description: `General practitioners (GPs) treat all common medical conditions and refer patients to hospitals and other medical services for urgent and specialist treatment. They focus on the health of the whole person combining physical, psychological and social aspects of care.`,
@@ -253,4 +253,4 @@ const specialistField = [
   },
 ];
 
-export default specialistField;
+export default specialistFields;

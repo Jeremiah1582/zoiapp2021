@@ -56,7 +56,7 @@ const PatientRegForm = () => {
   const sendToBackEnd = (e) => {
     e.preventDefault();
     if (patientSignUp.email !== "" && patientSignUp.password !== "") {
-      axios.post("/user/registration/patient", patientSignUp).then((res) => {
+      axios.post("http://localhost:5000/patient/registration", patientSignUp).then((res) => {
         setPatientSignUp({
           firstName: "",
           lastName: "",

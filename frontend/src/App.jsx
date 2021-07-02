@@ -6,7 +6,7 @@ import LoginForm from "./components/LoginForm";
 import RegsDoctorForm from "./components/DoctorRegForm";
 import RegsPatientForm from "./components/PatientRegForm";
 import Signup from "./components/Signup";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Team from "./components/Team";
 import {
   BrowserRouter as Router,
@@ -18,20 +18,20 @@ import {
 } from "react-router-dom";
 
 const App = () => {
-  // save token in localStorage for login
-  const [token, setToken] = useState("false");
-  useEffect(() => {
-    const user = localStorage.getItem("currentToken");
-    if (user) {
-      setToken(true);
-    }
-  }, []);
+  // // save token in localStorage for login
+  // const [token, setToken] = useState("false");
+  // useEffect(() => {
+  //   const user = localStorage.getItem("currentToken");
+  //   if (user) {
+  //     setToken(true);
+  //   }
+  // }, []);
 
-  // logout and remove token
-  const logout = () => {
-    localStorage.removeItem("currentToken");
-    window.location.href = "/user/login";
-  };
+  // // logout and remove token
+  // const logout = () => {
+  //   localStorage.removeItem("currentToken");
+  //   window.location.href = "/user/login";
+  // };
 
   return (
     <Router>
@@ -52,16 +52,29 @@ const App = () => {
             <LoginForm />
           </Route>
 
-          <Route exact path="/signup" component={Signup}>
+          <Route path="/signup" component={Signup}>
             <Signup />
           </Route>
-          <Route path="/user/registration/doctor">
+          <Route path="/doctor/registration">
             <RegsDoctorForm />
           </Route>
 
-          <Route path="/user/registration/patient">
+          <Route path="/patient/registration">
             <RegsPatientForm />
           </Route>
+
+          <Route
+            path="/doctor"
+            render={() => {
+              "Doctor Page";
+            }}
+          ></Route>
+          <Route
+            path="/patient"
+            render={() => {
+              "Patient Page";
+            }}
+          ></Route>
         </Switch>
       </div>
     </Router>

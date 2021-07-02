@@ -1,5 +1,5 @@
 import React from "react";
-import doctor from "../imgs/doctorpng.png";
+// import doctor from "../imgs/doctorpng.png";
 
 const Footer = () => {
   const current = new Date();
@@ -14,10 +14,10 @@ const Footer = () => {
           <div className="footerNavigation">
             <ul className="footerList">
               <li className="footerItem">
-                <a href="#" className="footerLink">
+                <a href="/" className="footerLink">
                   Company
                 </a>
-                <a href="#" className="footerLink">
+                <a href="/aboutzoe" className="footerLink">
                   About Us
                 </a>
                 <a href="#">

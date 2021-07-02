@@ -5,30 +5,45 @@ import axios from "axios";
 
 const LoginForm = () => {
   // useState
-  const [user, setUser] = useState({
+  const [UserLogin, setUserLogin] = useState({
     email: "",
     password: "",
+    condition: "",
   });
+
+  // const [condition, setCondition] = useState("patient");
+
   const [message, setMessage] = useState("");
 
   // handleChange function
   const handleChange = (e) => {
-    setUser({
-      ...user,
+    setUserLogin({
+      ...UserLogin,
       [e.target.name]: e.target.value,
     });
   };
+
+  // account type function
+  const accountType = (e) => {
+    setUserLogin({...UserLogin,condition:e.target.value});
+  };
+  // console.log(UserLogin.condition, "is here");
   // submit function
   const submit = (e) => {
     e.preventDefault();
-    if (user.email !== "") {
+    if (UserLogin.email !== "") {
+      console.log(UserLogin, "from line 35");
       // JWToken
-      axios.post("/user/login", user).then((res) => {
+      axios.post("http://localhost:5000/user/login", UserLogin).then((res) => {
         console.log(res.data);
 
         // localStorage
         localStorage.setItem("currentToken", res.data);
-        window.location.href = "/patient";
+        if (UserLogin.condition === "patient") {
+          window.location.href = "/patient";
+        } else if (UserLogin.condition === "doctor") {
+          window.location.href = "/doctor";
+        }
       });
     } else {
       setMessage("All fields are required!");
@@ -45,7 +60,7 @@ const LoginForm = () => {
           <Form.Control
             type="email"
             name="email"
-            value={user.email}
+            value={UserLogin.email}
             onChange={handleChange}
             placeholder="Enter your email"
           />
@@ -59,11 +74,20 @@ const LoginForm = () => {
           <Form.Control
             type="password"
             name="password"
-            value={user.password}
+            value={UserLogin.password}
             onChange={handleChange}
             placeholder=" Enter your password"
           />
         </Form.Group>
+
+        <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Label>Account Type</Form.Label>
+          <Form.Control as="select" name="condition" onChange={accountType}>
+            <option value="doctor">Doctor</option>
+            <option value="patient">Patient</option>
+          </Form.Control>
+        </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Remind me" />
         </Form.Group>

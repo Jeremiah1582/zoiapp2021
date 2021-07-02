@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import About from "./About";
+// import About from "./About";
 import appointment from "../imgs/appointment.jpg";
 import findYourDoctor from "../imgs/findyourdoctor.jpg";
 import aboutUs from "../imgs/aboutus.png";
@@ -32,7 +32,7 @@ const Home = () => {
         faded pinks and yellows.
       </p>
       <div className="cardWrap">
-        <a href="#">
+        <a href="/find_a_doctor">
           <div className="card">
             <div className="boxCard">
               <div className="contentCard">
@@ -53,7 +53,7 @@ const Home = () => {
           </div>
         </a>
 
-        <a href="/about">
+        <a href="/aboutzoe">
           <div className="card">
             <div className="boxCard">
               <div className="contentCard">
@@ -70,7 +70,7 @@ const Home = () => {
           </div>
         </a>
 
-        <a href="#">
+        <a href="/user/login">
           <div className="card">
             <div className="boxCard">
               <div className="contentCard">

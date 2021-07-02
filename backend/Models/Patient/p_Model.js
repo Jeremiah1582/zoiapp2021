@@ -3,36 +3,36 @@ const Schema = mongoose.Schema;
 
 const newPatient = new Schema({
   accountType: {
-    type: "Patient",
+    type: String,
+    default: "Patient",
   },
-  user: {
-    firstName: {
-      type: String,
-      required: [true, "Please enter your first name!"],
-      default: "First name",
-    },
-    lastName: {
-      type: String,
-      required: [true, "Please enter your last name!"],
-      default: "Last name",
-    },
-    birthDate: {
-      type: String,
-      required: [true, "Please enter your birth date!"],
-    },
-    email: {
-      type: String,
-      required: [true, "E-mail is required!"],
-      unique: true,
-    },
-    mobileNumber: {
-      type: String,
-      required: [true, "Mobile number is required!"],
-    },
-    password: {
-      type: String,
-      required: [true, "Password is required!"],
-    },
+
+  firstName: {
+    type: String,
+    required: [true, "Please enter your first name!"],
+    default: "First name",
+  },
+  lastName: {
+    type: String,
+    required: [true, "Please enter your last name!"],
+    default: "Last name",
+  },
+  birthDate: {
+    type: Number,
+    required: [true, "Please enter your birth date!"],
+  },
+  email: {
+    type: String,
+    required: [true, "E-mail is required!"],
+    unique: true,
+  },
+  mobileNumber: {
+    type: String,
+    required: [true, "Mobile number is required!"],
+  },
+  password: {
+    type: String,
+    required: [true, "Password is required!"],
   },
   insurance: {
     companyName: {
@@ -63,5 +63,5 @@ const newPatient = new Schema({
   },
 });
 
-const PatientModel = mongoose.model("PatientModel", newPatient);
-module.exports = PatientModel;
+const Patient = mongoose.model("Patient", newPatient);
+module.exports = Patient;
