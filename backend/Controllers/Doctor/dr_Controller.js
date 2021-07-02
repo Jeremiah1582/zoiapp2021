@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 // res.send(' <h1>Dr: </br> this is the appointment page for Dr </h1>')
 // }
 exports.registerDoctor = (req, res) => {
-  console.log(req.body, "line 09 controller");
+  // console.log(req.body, "line 09 controller");
   const {
     firstName,
     lastName,
@@ -16,47 +16,49 @@ exports.registerDoctor = (req, res) => {
     confirmedPassword,
     licenceNumber,
     specialistFields,
+    doctorFile,
   } = req.body;
-  // const error = {};
-  // if (firstName == "") {
-  //   error.firstName = "First name is required";
-  // }
-  // if (lastName == "") {
-  //   error.lastName = "Last name is required";
-  // }
-  // if (email == "") {
-  //   error.email = "email is required";
-  // }
-  // if (mobileNumber == "") {
-  //   error.mobileNumber = "mobile number is required";
-  // }
-  // if (password == "") {
-  //   error.password = "password is required";
-  // }
-  // if (confirmedPassword == "") {
-  //   error.confirmedPassword = "password is required";
-  // }
-  // if (licenceNumber == "") {
-  //   error.licenceNumber = "licence number is required";
-  // }
-  // if (specialistFields == "") {
-  //   error.specialistFields = "specialistFields is required";
-  // }
-  // if (doctorFile == "") {
-  //   error.doctorFile = "files is required";
-  // }
-  // if (
-  //   firstName == "" ||
-  //   lastName == "" ||
-  //   mobileNumber == "" ||
-  //   email == "" ||
-  //   password == "" ||
-  //   confirmedPassword == "" ||
-  //   licenceNumber == "" ||
-  //   specialistFields == ""
-  // ) {
-  //   return res.json({ msg: error });
-  // }
+  const error = {};
+  if (firstName == "") {
+    error.firstName = "First name is required";
+  }
+  if (lastName == "") {
+    error.lastName = "Last name is required";
+  }
+  if (email == "") {
+    error.email = "email is required";
+  }
+  if (mobileNumber == "") {
+    error.mobileNumber = "mobile number is required";
+  }
+  if (password == "") {
+    error.password = "password is required";
+  }
+  if (confirmedPassword == "") {
+    error.confirmedPassword = "password is required";
+  }
+  if (licenceNumber == "") {
+    error.licenceNumber = "licence number is required";
+  }
+  if (specialistFields == "") {
+    error.specialistFields = "specialistFields is required";
+  }
+  if (doctorFile == "") {
+    error.doctorFile = "files is required";
+  }
+  if (
+    firstName == "" ||
+    lastName == "" ||
+    mobileNumber == "" ||
+    email == "" ||
+    password == "" ||
+    confirmedPassword == "" ||
+    licenceNumber == "" ||
+    specialistFields == "" ||
+    doctorFile == ""
+  ) {
+    return res.json({ msg: error });
+  }
   Doctor.findOne({ email: req.body.email }, (err, data) => {
     if (data !== null) {
       return res.json({ msg: "Email already registered" });

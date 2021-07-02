@@ -21,7 +21,7 @@ const newDoctor = new Schema({
       // unique: true,
     },
     mobileNumber: {
-      type: String,
+      type: Number,
       // required:[true, "Mobile number is required!"]
     },
     password: {

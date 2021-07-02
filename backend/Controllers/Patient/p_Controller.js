@@ -1,6 +1,7 @@
 const Patient = require("../../Models/Patient/p_Model");
-
+const bcrypt= require("bcrypt")
 exports.registerPatient = (req, res) => {
+  // console.log(req.body, "patient data line 04");
   const {
     firstName,
     lastName,
@@ -80,7 +81,7 @@ exports.registerPatient = (req, res) => {
   }
   Patient.findOne({ email: req.body.email }, (err, data) => {
     if (data !== null) {
-      res.json({ msg: "Email already registered" });
+      return res.json({ msg: "Email already registered" });
     } else {
       const userPassword = req.body.password;
       const saltRounds = 10;
@@ -89,8 +90,12 @@ exports.registerPatient = (req, res) => {
           req.body.password = hashPassword;
           const newPatient = new Patient(req.body);
           newPatient.save((err, doc) => {
-            if (err) throw err;
-            res.json({ msg: `${doc.firstName} successfully added.` });
+            if (err) {
+              throw err;
+            }else{
+              res.json({ msg: `${doc.firstName} successfully added.` });
+            }
+           
           });
         });
       });

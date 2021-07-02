@@ -128,7 +128,6 @@ a {
 .buttonNavbar span {
   position: absolute;
   display: block;
-
 }
 .buttonNavbar span:nth-child(1) {
   top: 0;
@@ -338,16 +337,16 @@ a {
 }
 
 /* ********About********* */
-.aboutSubWrapper{
+.aboutSubWrapper {
   margin: 19rem auto;
 }
-.ambulanceImg{
+.ambulanceImg {
   height: 55rem;
   float: left;
   margin-right: 3rem;
   margin-top: 1.9rem;
 }
-.pharmacyImg{
+.pharmacyImg {
   height: 55rem;
   float: right;
   margin-left: 3rem;
@@ -355,38 +354,38 @@ a {
 
 /* ********Team********  */
 
-.teamAbout{
+.teamAbout {
   position: relative;
   margin-bottom: 9rem;
 }
-.follow-button{
+.follow-button {
   position: absolute;
   top: 5%;
   left: 39%;
   margin-bottom: 4rem;
 }
-.teamTitle{
+.teamTitle {
   text-align: center;
   font-size: 5rem;
   font-weight: 300;
   text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
   margin: 1rem auto;
 }
-.teamPresentation{
+.teamPresentation {
   margin-top: 5rem;
 }
-.teamName{
+.teamName {
   font-size: 4rem;
   font-weight: 300;
   text-align: center;
 }
-.teamImage{
+.teamImage {
   height: 15rem;
   margin-right: 3rem;
   margin-top: 8rem;
   float: left;
 }
-.textComponent{
+.textComponent {
   margin-top: 7rem;
 }
 
@@ -471,7 +470,7 @@ a {
 }
 .social-links_link {
   font-size: 30px;
-  color: #0A66C2;
+  color: #0a66c2;
   will-change: transform;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -563,10 +562,13 @@ a {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
-
+/* *** Patient Sign Up Form  *** */
+.pt-reg {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
 
 /* *******footer******** */
 .footerWrap {
@@ -630,16 +632,16 @@ a {
   .cardWrap .card .boxCard .contentCard p {
     font-size: 3.1rem;
   }
-  .teamTitle{
+  .teamTitle {
     font-size: 9rem;
     font-weight: 300;
     text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
     margin: 11rem auto;
-  } 
-  .teamName{
+  }
+  .teamName {
     font-size: 6rem;
   }
-  .follow-button{
+  .follow-button {
     margin-left: -5rem;
   }
   .footerItem {
@@ -667,31 +669,32 @@ a {
   .cardWrap .card .boxCard .contentCard p {
     font-size: 2rem;
   }
-  .teamTitle{
+  .teamTitle {
     font-size: 9rem;
     font-weight: 300;
     text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
     margin: 11rem auto;
   }
-  .teamName{
+  .teamName {
     font-size: 6rem;
     margin-top: 9rem;
     margin-bottom: -3rem;
   }
-  .textComponent{
+  .textComponent {
     margin-top: 9rem;
   }
-  .teamImage{
+  .teamImage {
     height: 25rem;
     margin-right: 5rem;
     margin-top: 7rem;
     float: left;
   }
-  .follow-button{
+  .follow-button {
     margin-top: 5rem;
     margin-left: 5rem;
   }
-  .box h2, h3 {
+  .box h2,
+  h3 {
     margin-top: 3rem;
     margin-bottom: 3rem;
     font-size: 5rem;

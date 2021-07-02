@@ -30,7 +30,7 @@ const Navbar = () => {
           <span></span>
           Im a Doctor
         </a>
-        <a href="/user/registration/patient" className="buttonNavbar">
+        <a href="/patient/registration" className="buttonNavbar">
           <span></span>
           <span></span>
           <span></span>

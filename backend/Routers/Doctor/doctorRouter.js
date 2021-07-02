@@ -2,7 +2,7 @@ const router = require("express").Router();
 const doctorController = require("../../Controllers/Doctor/dr_Controller");
 const multer = require("multer");
 
-// Multer part not finish yet !!!
+// *** Multer Part *** //
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
     callback(null, "public/upload/files");
@@ -13,12 +13,15 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// router.get("/", doctorController.appointments);
-// Register a new doctor
+
+// *** Register a new Doctor *** // 
 router.post(
   "/registration",
   upload.single("doctorFile"),
   doctorController.registerDoctor
 );
+
+// *** Appointment Part *** // 
+// router.get("/", doctorController.appointments);
 
 module.exports = router;

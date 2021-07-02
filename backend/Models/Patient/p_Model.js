@@ -9,42 +9,37 @@ const newPatient = new Schema({
 
   firstName: {
     type: String,
-    required: [true, "Please enter your first name!"],
-    default: "First name",
+    // required: [true, "Please enter your first name!"],
   },
   lastName: {
     type: String,
-    required: [true, "Please enter your last name!"],
-    default: "Last name",
+    // required: [true, "Please enter your last name!"],
   },
   birthDate: {
-    type: Number,
-    required: [true, "Please enter your birth date!"],
+    type: Date,
+    // required: [true, "Please enter your birth date!"],
   },
   email: {
     type: String,
-    required: [true, "E-mail is required!"],
-    unique: true,
+    // required: [true, "E-mail is required!"],
+    // unique: true,
   },
   mobileNumber: {
-    type: String,
-    required: [true, "Mobile number is required!"],
+    type: Number,
+    // required: [true, "Mobile number is required!"],
   },
   password: {
     type: String,
-    required: [true, "Password is required!"],
+    // required: [true, "Password is required!"],
   },
-  insurance: {
-    companyName: {
+    insuranceCompany: {
       type: String,
-      required: [true, "Company name is required!"],
+      // required: [true, "Company name is required!"],
     },
     insuranceNumber: {
       type: String,
-      required: [true, "Insurance number is required!"],
+      // required: [true, "Insurance number is required!"],
     },
-  },
-  address: {
     street: {
       type: String,
     },
@@ -60,7 +55,6 @@ const newPatient = new Schema({
     country: {
       type: String,
     },
-  },
 });
 
 const Patient = mongoose.model("Patient", newPatient);

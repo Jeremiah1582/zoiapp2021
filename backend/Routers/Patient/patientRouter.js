@@ -1,14 +1,13 @@
 const router = require("express").Router();
 const patientController = require("../../Controllers/Patient/p_Controller");
 
-// router.get("/", patientController.bookAppointment);
 
-// ** Registration Part ** //
 
-// display registration form page
-// router.get("/registration", patientController.registrationForm);
-
-// register a new patient
+// *** Register a new Patient *** // 
 router.post("/registration", patientController.registerPatient);
+
+
+// *** Appointment Part *** // 
+// router.get("/", patientController.bookAppointment);
 
 module.exports = router;
