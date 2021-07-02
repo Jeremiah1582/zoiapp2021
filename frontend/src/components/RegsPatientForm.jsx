@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
-// import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
+
 import {Form, Button, Card, Image, FormControl,InputGroup,DropdownButton} from 'react-bootstrap';
-import PatientImage from '../imags/userlogin02.jpg'
+import PatientImage from '../imgs/userlogin02.jpg'
 import axios from "axios";
 
 const RegsPatientForm = () => {
 
-  const [userSignUp,setUserSignUp]= useState({
+  const [patientSignUp,setPatientSignUp]= useState({
       firstName:"",
       lastName:"",
       birthDate:"",
@@ -15,8 +15,8 @@ const RegsPatientForm = () => {
       password:"",
       insuranceCompany:"",
       insuranceNumber:"",
-      streetName:"",
-      houseNumber:"",
+      street:"",
+      houseNr:"",
       postalCode:"",
       city:"",
       country:""
@@ -26,8 +26,8 @@ const RegsPatientForm = () => {
 
   // handleChange function
   const handleFormInput=(e)=>{
-    setUserSignUp({
-      ...userSignUp,
+    setPatientSignUp({
+      ...patientSignUp,
       [e.target.name]: e.target.value
     })
   }
@@ -36,13 +36,13 @@ const RegsPatientForm = () => {
   const sendToBackEnd=(e)=>{
     e.preventDefault();
     if(
-      userSignUp.email !== "" &&
-      userSignUp.password !== ""
+      patientSignUp.email !== "" &&
+      patientSignUp.password !== ""
     ) {
 
-      axios.post("/user/signUp", userSignUp).then(res=>{
+      axios.post("/user/signUp", patientSignUp).then(res=>{
 
-        setUserSignUp({
+        setPatientSignUp({
           firstName:"",
           lastName:"",
           birthDate:"",
@@ -51,8 +51,8 @@ const RegsPatientForm = () => {
           password:"",
           insuranceCompany:"",
           insuranceNumber:"",
-          streetName:"",
-          houseNumber:"",
+          street:"",
+          houseNr:"",
           postalCode:"",
           city:"",
           country:""
@@ -90,34 +90,59 @@ const RegsPatientForm = () => {
         
     
       </Form.Group>
+
+        {/* Birth Date */}
+        <Form.Group className='input-field' controlId="formBasicEmail">
+        <Form.Label>Date of Birth:</Form.Label>
+        <Form.Control name='birthDate' type="text" placeholder="Enter date of birth" onChange={(e)=>{handleFormInput(e)}} />
+       
+      </Form.Group>
   
   {/* email */}
       <Form.Group className='input-field' controlId="formBasicEmail">
         <Form.Label>Email address:</Form.Label>
         <Form.Control name='email' type="email" placeholder="Enter email" onChange={(e)=>{handleFormInput(e)}}/>
         
-  
       </Form.Group>
+
+
+  {/* address details */}
+  <Form.Group  className='input-field name' controlId="formBasicEmail">
+        <Form.Label>Street Name:</Form.Label>
+        <Form.Control name='street' type="text" placeholder="Street Name" onChange={(e)=>{handleFormInput(e)}}/>
+    
+      </Form.Group>
+
+  <Form.Group  className='input-field name' controlId="formBasicEmail">
+        <Form.Label>House Nr.:</Form.Label>
+        <Form.Control name='houseNr' type="number" placeholder="Street Name" onChange={(e)=>{handleFormInput(e)}}/>
+    
+      </Form.Group>
+      <Form.Group  className='input-field name' controlId="formBasicEmail">
+        <Form.Label>Postal Code:</Form.Label>
+        <Form.Control name='postalCode' type="number" placeholder="Postal Code" onChange={(e)=>{handleFormInput(e)}}/>
+    
+      </Form.Group>
+      <Form.Group  className='input-field name' controlId="formBasicEmail">
+        <Form.Label>City:</Form.Label>
+        <Form.Control name='city' type="text" placeholder="City Name" onChange={(e)=>{handleFormInput(e)}}/>
+    
+      </Form.Group>
+      <Form.Group  className='input-field name' controlId="formBasicEmail">
+        <Form.Label>Country:</Form.Label>
+        <Form.Control name='country' type="text" placeholder="Country Name" onChange={(e)=>{handleFormInput(e)}}/>
+    
+      </Form.Group>
+
+
   {/* contact Number */}
       <Form.Group className='input-field' controlId="formBasicEmail">
         <Form.Label>Phone Number:</Form.Label>
-        <Form.Control name='mobileNumber' type="number" placeholder="Enter phone number" onChange={(e)=>{handleFormInput(e)}}/>
+        <Form.Control name='mobileNumber' type="number" placeholder="Enter mobile number" onChange={(e)=>{handleFormInput(e)}}/>
         
   
       </Form.Group>
-  {/* Licence Number */}
-      <Form.Group className='input-field' controlId="formBasicEmail">
-        <Form.Label>Licence Number:</Form.Label>
-        <Form.Control name='licenseNumber' type="text" placeholder="Enter license  number" onChange={(e)=>{handleFormInput(e)}} />
-       
-      </Form.Group>
-  
-  {/* upload Files */}
-      <Form className='input-field' name='qualifications' >
-        <Form.Group>
-          <Form.File id="exampleFormControlFile1" label="Upload Qualification:" />
-        </Form.Group>
-      </Form>
+
   {/* Password */}
       <Form.Group className='input-field' controlId="formBasicPassword">
         <Form.Label>Password:</Form.Label>
@@ -144,10 +169,6 @@ const RegsPatientForm = () => {
           />
       </Form.Group>
       </div>
-  {/* upload documents */}
-  
-      
-  
       <Button type="submit">
         Sign Up
       </Button>

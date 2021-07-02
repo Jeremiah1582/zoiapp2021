@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import Home from './components/Home';
 import About from './components/About';
-import DoctorRegForm from './components/RegsDoctorForm'
-// import PatientRegForm from './components/RegsPatientForm'
+import DrRegForm from './components/DrRegForm.js'
+import PatientRegForm from './components/RegsPatientForm'
 import {
   BrowserRouter as Router,
   Switch,
@@ -39,12 +39,12 @@ const App = () => {
           </Route>
           
           <Route  path ='/registration/doctor'>
-            <DoctorRegForm/>
+            <DrRegForm/>
           </Route>
             
-          {/* <Route  path ='/registration/patient'>
+          <Route  path ='/registration/patient'>
             <PatientRegForm/>
-          </Route> */}
+          </Route>
             
          {/*  <Route exact path = '/nosotros/:id'>
 
