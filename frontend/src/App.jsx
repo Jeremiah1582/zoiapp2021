@@ -1,66 +1,84 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import Home from './components/Home';
-import About from './components/About';
-import DrRegForm from './components/DrRegForm.js'
-import PatientRegForm from './components/RegsPatientForm'
+import Home from "./components/Home";
+import About from "./components/About";
+import LoginForm from "./components/LoginForm";
+import RegsDoctorForm from "./components/DoctorRegForm";
+import RegsPatientForm from "./components/PatientRegForm";
+import Signup from "./components/Signup";
+// import Footer from "./components/Footer";
+import Team from "./components/Team";
 import {
   BrowserRouter as Router,
   Switch,
   Link,
   NavLink,
   Redirect,
-  Route
+  Route,
 } from "react-router-dom";
 
 const App = () => {
+  // // save token in localStorage for login
+  // const [token, setToken] = useState("false");
+  // useEffect(() => {
+  //   const user = localStorage.getItem("currentToken");
+  //   if (user) {
+  //     setToken(true);
+  //   }
+  // }, []);
+
+  // // logout and remove token
+  // const logout = () => {
+  //   localStorage.removeItem("currentToken");
+  //   window.location.href = "/user/login";
+  // };
+
   return (
-    <Router >
-
-      <div className = "container">
-        {/* <div className="btn-group m-5">
-          <NavLink to = '/' className = 'btn btn-primary m-3  activeClassName="active"'>Inicio</NavLink>
-          
-          <NavLink to = '/nosotros' className = 'btn btn-primary m-3'>Nosotros</NavLink>
-          
-          <NavLink to = '/contacto' className = 'btn btn-primary m-3'>Contacto</NavLink>
-        </div> */}
-
+    <Router>
+      <div className="container">
         {/* *******for dinamic contain******** */}
 
-        <Switch> 
-        
-          <Route exact path = '/'>
+        <Switch>
+          <Route exact path="/">
             <Home />
           </Route>
-          
-          <Route  path = '/about'>
-            <About />
+          <Route exact path="/aboutzoe">
+            {About}
           </Route>
-          
-          <Route  path ='/registration/doctor'>
-            <DrRegForm/>
+          <Route exact path="/zoeteam">
+            <Team />
           </Route>
-            
-          <Route  path ='/registration/patient'>
-            <PatientRegForm/>
+          <Route path="/user/login">
+            <LoginForm />
           </Route>
-            
-         {/*  <Route exact path = '/nosotros/:id'>
 
-          </Route> 
-          
-          <Route exact path = '/patient'>
-            <Patient />
-          </Route>*/
-          }
-        
+          <Route path="/signup" component={Signup}>
+            <Signup />
+          </Route>
+          <Route path="/doctor/registration">
+            <RegsDoctorForm />
+          </Route>
+
+          <Route path="/patient/registration">
+            <RegsPatientForm />
+          </Route>
+
+          <Route
+            path="/doctor"
+            render={() => {
+              "Doctor Page";
+            }}
+          ></Route>
+          <Route
+            path="/patient"
+            render={() => {
+              "Patient Page";
+            }}
+          ></Route>
         </Switch>
       </div>
     </Router>
-    
-  )
-}
+  );
+};
 
-export default App
-
+export default App;

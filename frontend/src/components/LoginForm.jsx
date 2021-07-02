@@ -1,130 +1,102 @@
-import React,{useState} from 'react';
-// import {Form, Button} from 'react';
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
 
-import axios from 'axios';
+import axios from "axios";
 
 const LoginForm = () => {
-
   // useState
-  const [user, setUser]= useState({
-    email:"",
-    password:""
-  })
-   const [message, setMessage]= useState('');
+  const [UserLogin, setUserLogin] = useState({
+    email: "",
+    password: "",
+    condition: "",
+  });
 
-   // handleChange function
-   const handleChange=(e)=>{
-     setUser({
-       ...user,
-       [e.target.name]: e.target.value
-     })
-   }
-   // submit function
-   const submit =(e)=>{
-     e.preventDefault();
-     if (user.email !== ''){
-       // JWToken should added later
-       axios.post("/user/login", user)
-       .then((res)=>{
-         console.log(res.data);
+  // const [condition, setCondition] = useState("patient");
 
-         // localStorage
-         localStorage.setItem('currentToken',res.data);
-         window.location.href="/patient";
-       });
-     } 
-     else{
-       setMessage("All fields are required!")
-     }
+  const [message, setMessage] = useState("");
 
-   }
+  // handleChange function
+  const handleChange = (e) => {
+    setUserLogin({
+      ...UserLogin,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-   // form 1
-//     return (
-//         <div>
-//           <p class = "warningMsg"> {message} </p>
-//             <Form onSubmit={submit} >
-//     <Form.Group className="mb-3" controlId="formBasicEmail">
-//     <Form.Label>Email address</Form.Label>
-//     <Form.Control type="email"
-//     name="email"
-//     value={user.email}
-//     onChange={handleChange}
-//     placeholder="Enter your email" />
-//     <Form.Text className="text-muted">
-//       We'll never share your email with anyone else.
-//     </Form.Text>
-//   </Form.Group>
+  // account type function
+  const accountType = (e) => {
+    setUserLogin({...UserLogin,condition:e.target.value});
+  };
+  // console.log(UserLogin.condition, "is here");
+  // submit function
+  const submit = (e) => {
+    e.preventDefault();
+    if (UserLogin.email !== "") {
+      console.log(UserLogin, "from line 35");
+      // JWToken
+      axios.post("http://localhost:5000/user/login", UserLogin).then((res) => {
+        console.log(res.data);
 
-//   <Form.Group className="mb-3" controlId="formBasicPassword">
-//     <Form.Label>Password</Form.Label>
-//     <Form.Control type="password" 
-//     name="password"
-//     value={user.password}
-//     onChange={handleChange}
-//     placeholder=" Enter your password" />
-//   </Form.Group>
-//   <Form.Group className="mb-3" controlId="formBasicCheckbox">
-//     <Form.Check type="checkbox" label="Remind me" />
-//   </Form.Group>
-//   <Button variant="primary" type="submit">
-//     Log in
-//   </Button>
-// </Form>
-//         </div>
-//     )
+        // localStorage
+        localStorage.setItem("currentToken", res.data);
+        if (UserLogin.condition === "patient") {
+          window.location.href = "/patient";
+        } else if (UserLogin.condition === "doctor") {
+          window.location.href = "/doctor";
+        }
+      });
+    } else {
+      setMessage("All fields are required!");
+    }
+  };
 
-    // form 2
-    return (
-      <MDBContainer>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBCard>
-              <MDBCardBody>
-                <form onSubmit={submit} >
-                  <p className="h4 text-center py-4">Log in</p>
-                  <div className="grey-text">
-                   <p class = "warningMsg"> {message} </p>
-                   
-                    <MDBInput
-                      label="Your email"
-                      icon="envelope"
-                      group
-                      type="email"
-                      validate
-                      error="wrong"
-                      success="right"
-                      name="email"
-                      value={user.email}
-                      onChange={handleChange}
-                      placeholder="Enter your email"
-                    />
-                    <MDBInput
-                      label="Your password"
-                      icon="lock"
-                      group
-                      type="password"
-                      validate
-                      name="password"
-                      value={user.password}
-                      onChange={handleChange}
-                      placeholder=" Enter your password"
-                    />
-                  </div>
-                  <div className="text-center py-4 mt-3">
-                    <MDBBtn color="cyan" type="submit">
-                      Log in
-                    </MDBBtn>
-                  </div>
-                </form>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    );
+  // form 1
+  return (
+    <div>
+      <p class="warningMsg"> {message} </p>
+      <Form onSubmit={submit}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            type="email"
+            name="email"
+            value={UserLogin.email}
+            onChange={handleChange}
+            placeholder="Enter your email"
+          />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
 
-}
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            value={UserLogin.password}
+            onChange={handleChange}
+            placeholder=" Enter your password"
+          />
+        </Form.Group>
 
-export default LoginForm
+        <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Label>Account Type</Form.Label>
+          <Form.Control as="select" name="condition" onChange={accountType}>
+            <option value="doctor">Doctor</option>
+            <option value="patient">Patient</option>
+          </Form.Control>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Remind me" />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Log in
+        </Button>
+      </Form>
+    </div>
+  );
+};
+
+export default LoginForm;

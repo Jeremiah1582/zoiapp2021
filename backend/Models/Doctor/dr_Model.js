@@ -3,46 +3,46 @@ const Schema = mongoose.Schema;
 
 const newDoctor = new Schema({
   accountType: {
-    type: "Doctor",
+    type: String,
+    default: "Doctor",
   },
-  user: {
+  
     firstName: {
       type: String,
       // required: [true, "First name is required!"],
-      default: "First name",
     },
     lastName: {
       type: String,
       // required: [true, "Last name is required!"],
-      default: "Last name",
     },
     email: {
       type: String,
-      required: [true, "E-mail is required!"],
-      unique: true,
+      // required: [true, "E-mail is required!"],
+      // unique: true,
     },
-    mobileNumber:{
-      type:String,
+    mobileNumber: {
+      type: Number,
       // required:[true, "Mobile number is required!"]
     },
     password: {
       type: String,
       // required: [true, "Password is required!"],
     },
-  },
-  licenseNumber: {
+ 
+  licenceNumber: {
     type: String,
     // required: [true, "License number is required!"],
   },
   yearOfCertificate: {
     type: String,
   },
-  specialistIn: {
+  specialistFields: [{
     type: String,
+  }],
+  doctorFile: {
+    type: String,
+    // required: [true, "upload required!"],
   },
-  qualifications: {
-      type: String,
-    },
   languages: {
     type: String,
   },
@@ -65,5 +65,5 @@ const newDoctor = new Schema({
   },
 });
 
-const DoctorModel = mongoose.model("DoctorModel", newDoctor);
-module.exports = DoctorModel;
+const Doctor = mongoose.model("Doctor", newDoctor);
+module.exports = Doctor;

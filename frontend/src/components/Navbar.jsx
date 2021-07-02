@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "../imgs/logo.png";
+// import logo from "../imgs/logo.png";
 import Navigation from "./Navigation";
-
+import logoNew from "../imgs/logoNew.png";
 
 const Navbar = () => {
   return (
@@ -9,7 +9,7 @@ const Navbar = () => {
       <Navigation />
       <div className="header">
         <div className="logo-box">
-          <img src={logo} alt="logo" className="logo" />
+          <img src={logoNew} alt="logo" className="logo" />
         </div>
         <div className="text-wrap">
           <h1 className="title-wrap">
@@ -23,8 +23,20 @@ const Navbar = () => {
         </div>
       </div>
       <div className="buttons">
-        <a href="#" className ="buttonNavbar">Im a Doctor</a>
-        <a href="#" className ="buttonNavbar">Im a Patient</a>
+        <a href="/doctor/registration" className="buttonNavbar">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Im a Doctor
+        </a>
+        <a href="/patient/registration" className="buttonNavbar">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Im a Patient
+        </a>
       </div>
     </div>
   );
