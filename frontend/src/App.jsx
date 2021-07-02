@@ -36,7 +36,7 @@ const App = () => {
   return (
     <Router>
       <div className="container">
-        {/* *******for dinamic contain******** */}
+        {/* *******for dynamic contain******** */}
 
         <Switch>
           <Route exact path="/">
