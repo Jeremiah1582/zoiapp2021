@@ -1,6 +1,7 @@
 import React from "react";
 // import DashNav from './DashNav';
-import "../../styling/customDash.scss";
+// import "../../styling/customDashboard.scss";
+import '../../styling/customDashboard.scss'
 //dashNav Widgets:
 import Home from './DashWidgets/Home'
 import Calendar from "./DashWidgets/Calendar";
@@ -14,10 +15,10 @@ import { BrowserRouter as DashRouter } from "react-router-dom";
 import { Link, Route, Switch } from "react-router-dom";
 function DashboardPage() {
   return (
-    
+    <DashRouter>
     <div className="page-container">
     {/* <img className='background-img' href='../../styling/images/operacion-retorno-mallorca-by-andres-nieto-porras.jpg' */}
-      <DashRouter>
+      
          <div className="dash-nav-container">
           <ul className="dash-nav-items">
             <Link className="dash-menu-item dash-menu-link" to="/home">
@@ -82,8 +83,9 @@ function DashboardPage() {
             </Route>
           </Switch>
         
-      </DashRouter>
+      
     </div>
+    </DashRouter>
   );
 }
 

@@ -6,6 +6,9 @@ import LoginForm from "./components/LoginForm";
 import RegsDoctorForm from "./components/DoctorRegForm";
 import RegsPatientForm from "./components/PatientRegForm";
 import Signup from "./components/Signup";
+import DashboardPage from "./components/Dashboard/DashboardPage.js";
+import PatientPage from "./components/PatientPage";
+
 // import Footer from "./components/Footer";
 import Team from "./components/Team";
 import {
@@ -70,11 +73,13 @@ const App = () => {
             }}
           ></Route>
           <Route
-            path="/patient"
-            render={() => {
-              "Patient Page";
-            }}
-          ></Route>
+            path="/patientpage"> 
+            <PatientPage/>
+            </Route>
+          <Route
+            path="/dr/dashboard">
+            <DashboardPage/>
+            </Route>
         </Switch>
       </div>
     </Router>

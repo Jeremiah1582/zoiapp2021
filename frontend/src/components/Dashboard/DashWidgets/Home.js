@@ -1,5 +1,5 @@
 import React from 'react'
-import image1 from '../../../styling/images/operacion-retorno-mallorca-by-andres-nieto-porras.jpg'
+// import image1 from '../../../styling/images/operacion-retorno-mallorca-by-andres-nieto-porras.jpg'
 import { Link } from "react-router-dom";
 
 
