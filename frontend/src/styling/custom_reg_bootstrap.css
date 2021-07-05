@@ -1,0 +1,61 @@
+
+  .container{
+      display: flex;
+      width: 100vw;
+      height:100%;
+      /* border: solid pink; */
+      position: relative;
+      background-image: linear-gradient(to top,rgba(0, 249, 166, 0.506), rgba(227, 255, 246, 0.959)) ;
+      /* background-image: url('../styling/images/online-doctor-video-doctor-using-healthcare-app-laptop-medi.jpg'); */
+   }     
+    .reg-img{
+      
+    max-width: 100%;
+    /* justify-content: left; */
+    z-index: 0;
+    position: absolute;
+     
+    }
+  
+      
+  
+  .signupForm{
+    
+    min-width: 50vw;
+    position:absolute;
+    right: 100px;
+    padding: 5px;
+    height: 100%;
+      /* -webkit-filter: blur(7px); */
+      
+      
+      border: #ffffff;
+      border-radius: 0px;
+      background-color: rgba(255, 255, 255, 0.71 );
+      backdrop-filter: blur(50px);
+      box-shadow:  -5px 0px 15px #949494,
+                   8px -20px 60px rgb(160, 160, 160);
+      }
+      
+  
+      .input-field{
+          margin: 5px;
+          max-width: 90%;
+      
+      }
+      .name {
+          width: 50%;
+      
+      }
+      .reg-form-footer{
+  
+      }
+
+      .reg-discipline{
+          background-color: rgba(0, 249, 166, 0.506);
+          border-radius: 5px;
+          padding: 4px;
+          max-width: fit-content;
+          margin:2px;
+          cursor: pointer;
+      }

@@ -1,0 +1,36 @@
+$returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+.weather-app-container{
+    grid-area: 2/3/4/6;
+    margin: 50px;
+}
+
+.weather-card{
+    position: relative;
+    // flex: 0 0 240px;
+    min-width: 250px;
+    min-height:500px;
+    padding: 20px;
+    background-color: rgba(51, 51, 51, 0.753);
+    // overflow: hidden;
+    border-radius: 10px;
+    box-shadow:
+      rgba(black, 0.66) 0 30px 60px 0;
+      // inset #333 0 0 0 5px,
+      // inset rgba(white, 0.5) 0 0 0 6px
+    transition: 1s $returnEasing;
+}
+.city-input{
+   
+
+}
+.input-field{
+
+}
+                
+.result-field{
+background: rgba(148, 148, 148, 0.123);
+height: 100%;
+width: 90%;
+}
+

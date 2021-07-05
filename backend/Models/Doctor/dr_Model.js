@@ -4,37 +4,44 @@ const Schema = mongoose.Schema;
 const newDoctor = new Schema({
   accountType: {
     type: String,
+    default: "Doctor",
   },
-  user: {
+  
     firstName: {
       type: String,
-      required: [true, "First name is required!"],
-      default: "First name",
+      // required: [true, "First name is required!"],
     },
     lastName: {
       type: String,
-      required: [true, "Last name is required!"],
-      default: "Last name",
+      // required: [true, "Last name is required!"],
     },
     email: {
       type: String,
-      required: [true, "E-mail is required!"],
-      unique: true,
+      // required: [true, "E-mail is required!"],
+      // unique: true,
+    },
+    mobileNumber: {
+      type: Number,
+      // required:[true, "Mobile number is required!"]
     },
     password: {
       type: String,
-      required: [true, "Password is required!"],
+      // required: [true, "Password is required!"],
     },
-  },
-  licenseNumber: {
+ 
+  licenceNumber: {
     type: String,
-    required: [true, "License number is required!"],
+    // required: [true, "License number is required!"],
   },
   yearOfCertificate: {
     type: String,
   },
-  specialistIn: {
+  specialistFields: [{
     type: String,
+  }],
+  doctorFile: {
+    type: String,
+    // required: [true, "upload required!"],
   },
   languages: {
     type: String,
