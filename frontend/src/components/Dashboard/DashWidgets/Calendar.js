@@ -1,6 +1,6 @@
 import React from 'react'
 // import '@syncfusion/ej2-react-calendars'
-import '../../../styling/customDashboard.scss'
+// import '../../../styling/customDashboard.scss'
 function Calendar() {
    
     return ( 

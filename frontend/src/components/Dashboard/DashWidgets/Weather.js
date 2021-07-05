@@ -1,6 +1,6 @@
 import React,{useState, useEffect}from 'react'
 import axios from 'axios'
-import '../../../styling/customWeather.scss'
+// import '../../../styling/customWeather.scss'
 function Weather() {
 const [input, setInput] = useState('')
 const [city, setCity] = useState('')
