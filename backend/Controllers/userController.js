@@ -1,39 +1,46 @@
-// const PatientModel = require('../Models/Patient/p_Model')
-// const DoctorModel = require('../Models/Doctor/dr_Model')
+const Patient = require("../Models/Patient/p_Model");
+const Doctor = require("../Models/Doctor/dr_Model");
 
-// ****************** signup function************
-// exports.registrationForm = (req, res) => {
-//   //Create user in database
-//   console.log("this is the signup function");
-//   res.send("<h1> <br/>  sign up page </h1>");
-// };
-// exports.registerUser = (req, res) => {
-//   //Create user in database
-//   console.log("this is the signup function");
-//   res.send("<h1> <br/>  sign up page </h1>");
-// };
-
-// //********** login function***********
-// exports.loginForm = (req, res) => {
-//   //assign cookie to the
-
-//   console.log("this is the login function");
-//   res.send("<h1> <br/> login page </h1>");
-// };
+//***** Login function for Patient & Doctor *******//
 
 exports.loginUser = (req, res) => {
-  console.log(req.body,"is here");
+  // console.log(req.body, "is here 25");
   //assign cookie to the
+  // console.log(req.body.email, "line 27");
   if (req.body.condition === "doctor") {
-    console.log("doctor Page");
-    res.status(200).json({msg:"Doctor Page here"})
+    Doctor.findOne(
+      { email: req.body.email },
+      (err, data) => {
+        if (data !== null) {
+          console.log(data, "line 31");
+          console.log("Test 01: Doctor Dashboard. 32");
+          res.status(200).json({ msg: "Doctor Page here 33" });
+        }
+         else {
+          console.log("Please log in!");
+          res.status(404).json({ msg: "Please log in!" });
+        }
+      }
+    );
+
     // res.send("I m doctor");
-  } else if(req.body.condition === "patient") {
-    console.log("patient page");
-    res.status(200).json({msg:"Patient Page here"})
+  } else if (req.body.condition === "patient") {
+    console.log(req.body, "line 28");
+    Patient.findOne(
+      { email: req.body.email },
+      (err, data) => {
+        if (data ) {
+          console.log(data, "line 42");
+          console.log("Test 02: Patient Dashboard connected. 32");
+          res.status(200).json({ msg: "Patient Page here 44" });
+        } else {
+          console.log("Please log in!");
+        }
+      }
+    );
     // res.send("I m patient")
-  } else{
-      console.log("Please log in!");
+    // } else {
+    //   console.log("Please log in!");
   }
 };
 
