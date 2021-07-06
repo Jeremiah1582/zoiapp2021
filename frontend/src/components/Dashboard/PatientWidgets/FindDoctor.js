@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import specialistAPI from "../../../Context_APIs/specialistFields";
+import '../../../styling/customFindDoctor.css'
 // import { Form, Button, Image } from "react-bootstrap";
 
 function FindDoctor() {
@@ -25,8 +26,8 @@ function FindDoctor() {
   //   formState.splice(index, 1);
   //   setFormState({ ...formState, field: newFormState });
   // }
-
-  // Send & receive from Back End---------------------------------------
+ 
+// Send & receive from Back End---------------------------------------
   const submit = (e) => {
     e.preventDefault();
     console.log(formState, "line 12");
@@ -113,7 +114,7 @@ function FindDoctor() {
                 </td>
                 <td>{specialist.email}</td>
                 <td>{specialist.specialistFields}</td>
-                <td><button type="button" className="booking-button">Book an Appointment</button></td>
+                <td><button  type="button" className="booking-button"  >Book an Appointment</button></td>
               </tr>
             );
           })}
