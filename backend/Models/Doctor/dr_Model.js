@@ -6,29 +6,29 @@ const newDoctor = new Schema({
     type: String,
     default: "Doctor",
   },
-  
-    firstName: {
-      type: String,
-      // required: [true, "First name is required!"],
-    },
-    lastName: {
-      type: String,
-      // required: [true, "Last name is required!"],
-    },
-    email: {
-      type: String,
-      // required: [true, "E-mail is required!"],
-      // unique: true,
-    },
-    mobileNumber: {
-      type: Number,
-      // required:[true, "Mobile number is required!"]
-    },
-    password: {
-      type: String,
-      // required: [true, "Password is required!"],
-    },
- 
+
+  firstName: {
+    type: String,
+    // required: [true, "First name is required!"],
+  },
+  lastName: {
+    type: String,
+    // required: [true, "Last name is required!"],
+  },
+  email: {
+    type: String,
+    // required: [true, "E-mail is required!"],
+    // unique: true,
+  },
+  mobileNumber: {
+    type: Number,
+    // required:[true, "Mobile number is required!"]
+  },
+  password: {
+    type: String,
+    // required: [true, "Password is required!"],
+  },
+
   licenceNumber: {
     type: String,
     // required: [true, "License number is required!"],
@@ -36,9 +36,11 @@ const newDoctor = new Schema({
   yearOfCertificate: {
     type: String,
   },
-  specialistFields: [{
-    type: String,
-  }],
+  specialistFields: [
+    {
+      type: String,
+    },
+  ],
   doctorFile: {
     type: String,
     // required: [true, "upload required!"],
@@ -46,22 +48,21 @@ const newDoctor = new Schema({
   languages: {
     type: String,
   },
-  address: {
-    street: {
-      type: String,
-    },
-    houseNr: {
-      type: String,
-    },
-    postalCode: {
-      type: String,
-    },
-    city: {
-      type: String,
-    },
-    country: {
-      type: String,
-    },
+
+  street: {
+    type: String,
+  },
+  houseNr: {
+    type: String,
+  },
+  postalCode: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+  country: {
+    type: String,
   },
 });
 

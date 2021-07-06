@@ -1,4 +1,5 @@
 const Patient = require("../../Models/Patient/p_Model");
+const Doctor = require("../../Models/Doctor/dr_Model")
 const bcrypt= require("bcrypt")
 exports.registerPatient = (req, res) => {
   // console.log(req.body, "patient data line 04");
@@ -102,6 +103,17 @@ exports.registerPatient = (req, res) => {
     }
   });
 };
+
+// ** Search for a Doctor ** //
+exports.findDoctor = (req,res) => {
+  console.log(req.body.field,"line 108")
+  const searchName = req.body.field 
+  const regex = new RegExp(searchName, 'i') 
+  Doctor.find({"specialistFields.0": {$regex: regex}}) 
+  .then((err, doc)=>{
+    if(err) throw err;
+    console.log(doc, '113')})
+}
 
 // exports.bookAppointment = (req, res) => {
 //   res.send(

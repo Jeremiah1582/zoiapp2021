@@ -7,7 +7,7 @@ import RegsDoctorForm from "./components/DoctorRegForm";
 import RegsPatientForm from "./components/PatientRegForm";
 import Signup from "./components/Signup";
 import DashboardPage from "./components/Dashboard/DashboardPage";
-import PatientPage from "./components/Dashboard/PatientDashboard";
+import PatientDashboard from "./components/Dashboard/PatientDashboard";
 
 // import Footer from "./components/Footer";
 import Team from "./components/Team";
@@ -66,10 +66,10 @@ const App = () => {
             <RegsPatientForm />
           </Route>
 
-          <Route path="/patientpage">
-            <PatientPage />
+          <Route path="/patientdashboard">
+            <PatientDashboard />
           </Route>
-          <Route path="/doctorpage">
+          <Route path="/doctordashboard">
             <DashboardPage />
           </Route>
         </Switch>

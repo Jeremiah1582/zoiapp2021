@@ -19,6 +19,11 @@ function DoctorRegForm() {
     confirmedPassword: "",
     licenceNumber: "",
     specialistFields: [],
+    street: "",
+    houseNr: "",
+    postalCode: "",
+    city: "",
+    country: "",
   });
   // Error message state
   const [message, setMessage] = useState("");
@@ -31,9 +36,12 @@ function DoctorRegForm() {
 
   // Add function specialist Field
   const handleSpecialistInput = (item) => {
-    console.log(item);
-    const newSpecialistFields = [...specialistFields, item];
-    setDrSignUp({ ...DrSignUp, specialistFields: newSpecialistFields });
+    // console.log(item);
+    const newSpecialistFields = [item];
+    //  const newSpecialistFields = DrSignUp.specialistFields.push(item);
+
+
+    setDrSignUp({ ...DrSignUp, specialistFields: DrSignUp.specialistFields.push(item)});
     // DrSignUp.specialistFields.push(`${item}`)
   };
   // File state
@@ -67,6 +75,15 @@ function DoctorRegForm() {
     formData.append("confirmedPassword", DrSignUp.confirmedPassword);
     formData.append("licenceNumber", DrSignUp.licenceNumber);
     formData.append("specialistFields", DrSignUp.specialistFields);
+    formData.append("street", DrSignUp.street);
+    formData.append("houseNr", DrSignUp.houseNr);
+    formData.append("postalCode", DrSignUp.postalCode);
+    formData.append("city", DrSignUp.city);
+    formData.append("country", DrSignUp.country);
+
+
+
+
     formData.append("doctorFile", DrFile);
 
     // file data
@@ -75,31 +92,35 @@ function DoctorRegForm() {
         "content-type": "multipart/form-data",
       },
     };
-    if (DrSignUp.email !== "" && DrSignUp.password !== "")
-    {
-    // console.log(formData);
-    axios
-      .post("http://localhost:5000/doctor/registration", formData, config)
-      .then((res) => {
-        console.log(res.data);
-        setDrSignUp({
-          firstName: "",
-          lastName: "",
-          email: "",
-          mobileNumber: "",
-          password: "",
-          confirmedPassword: "",
-          licenceNumber: "",
-          specialistFields: [],
+    if (DrSignUp.email !== "" && DrSignUp.password !== "") {
+      // console.log(formData);
+      axios
+        .post("http://localhost:5000/doctor/registration", formData, config)
+        .then((res) => {
+          console.log(res.data);
+          setDrSignUp({
+            firstName: "",
+            lastName: "",
+            email: "",
+            mobileNumber: "",
+            password: "",
+            confirmedPassword: "",
+            licenceNumber: "",
+            specialistFields: [],
+            street: "",
+            houseNr: "",
+            postalCode: "",
+            city: "",
+            country: "",
+          });
+          // setMessage(res.data.msg);
+          // redirecting to login page
+          window.location.href = "/user/login";
+          // console.log("Sign up done! ");
+        })
+        .catch((error) => {
+          console.log(error, "form Doctor");
         });
-        // setMessage(res.data.msg);
-        // redirecting to login page
-        window.location.href = "/user/login";
-        // console.log("Sign up done! ");
-      })
-      .catch((error) => {
-        console.log(error, "form Doctor");
-      });
     } else {
       setMessage("Please fill the required fields!");
     }
@@ -285,6 +306,91 @@ function DoctorRegForm() {
                         </Form>
                       </div>
 
+                      {/* Address Details */}
+
+                      {/* Street Name */}
+                      <Form.Group
+                        className="input-field name"
+                        controlId="formBasicEmail"
+                      >
+                        <Form.Label>Street Name:</Form.Label>
+                        <Form.Control
+                          name="street"
+                          value={DrSignUp.street}
+                          type="text"
+                          placeholder="Street Name"
+                          onChange={(e) => {
+                            handleFormInput(e);
+                          }}
+                        />
+                      </Form.Group>
+
+                      {/* House Number */}
+                      <Form.Group
+                        className="input-field name"
+                        controlId="formBasicEmail"
+                      >
+                        <Form.Label>House Nr.:</Form.Label>
+                        <Form.Control
+                          name="houseNr"
+                          value={DrSignUp.houseNr}
+                          type="number"
+                          placeholder="House Nr"
+                          onChange={(e) => {
+                            handleFormInput(e);
+                          }}
+                        />
+                      </Form.Group>
+
+                      {/* Postal Code */}
+                      <Form.Group
+                        className="input-field name"
+                        controlId="formBasicEmail"
+                      >
+                        <Form.Label>Postal Code:</Form.Label>
+                        <Form.Control
+                          name="postalCode"
+                          value={DrSignUp.postalCode}
+                          type="number"
+                          placeholder="Postal Code"
+                          onChange={(e) => {
+                            handleFormInput(e);
+                          }}
+                        />
+                      </Form.Group>
+
+                      {/* City Name */}
+                      <Form.Group
+                        className="input-field name"
+                        controlId="formBasicEmail"
+                      >
+                        <Form.Label>City:</Form.Label>
+                        <Form.Control
+                          name="city"
+                          value={DrSignUp.city}
+                          type="text"
+                          placeholder="City Name"
+                          onChange={(e) => {
+                            handleFormInput(e);
+                          }}
+                        />
+                      </Form.Group>
+                      {/* Country Name */}
+                      <Form.Group
+                        className="input-field name"
+                        controlId="formBasicEmail"
+                      >
+                        <Form.Label>Country:</Form.Label>
+                        <Form.Control
+                          name="country"
+                          value={DrSignUp.country}
+                          type="text"
+                          placeholder="Country Name"
+                          onChange={(e) => {
+                            handleFormInput(e);
+                          }}
+                        />
+                      </Form.Group>
                       {/* Password */}
                       <div className="col-md-12">
                         <Form.Group
