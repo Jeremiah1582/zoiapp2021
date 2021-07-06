@@ -3,7 +3,7 @@ import React from "react";
 // import "../../styling/customDashboard.scss";
 import '../../styling/customDashboard.css'
 //dashNav Widgets:
-import Home from "./PatientWidgets/PDashHome";
+import Home from "./PatientWidgets/Home";
 // import Calendar from "./PatientWidgets/Calendar";
 // import Messages from "./PatientWidgets/Messages";
 // import PatientList from "./PatientWidgets/PatientList";
