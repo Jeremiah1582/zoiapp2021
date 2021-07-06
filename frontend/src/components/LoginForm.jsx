@@ -40,10 +40,10 @@ const LoginForm = () => {
 
         // localStorage
         localStorage.setItem("currentToken", res.data);
-        if (UserLogin.condition == "patient") {
-          window.location.href = "/patient";
-        } else if (UserLogin.condition == "doctor") {
-          window.location.href = "/doctor";
+        if (UserLogin.condition === "patient") {
+          window.location.href = "/patientpage";
+        } else if (UserLogin.condition === "doctor") {
+          window.location.href = "/doctorpage";
         }
       });
     } else {
