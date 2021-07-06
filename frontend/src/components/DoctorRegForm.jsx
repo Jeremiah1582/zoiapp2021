@@ -18,7 +18,7 @@ function DoctorRegForm() {
     password: "",
     confirmedPassword: "",
     licenceNumber: "",
-    specialistFields: [],
+    // specialistFields: [],
     street: "",
     houseNr: "",
     postalCode: "",
@@ -27,7 +27,11 @@ function DoctorRegForm() {
   });
   // Error message state
   const [message, setMessage] = useState("");
-
+  const specialist = [];
+  const handleSpecial = (item) => {
+    specialist.push(item);
+    console.log(item, specialist);
+  };
   const { specialistFields } = DrSignUp;
   // add new Dr details
   const handleFormInput = (e) => {
@@ -35,15 +39,18 @@ function DoctorRegForm() {
   };
 
   // Add function specialist Field
-  const handleSpecialistInput = (item) => {
-    // console.log(item);
-    const newSpecialistFields = [item];
-    //  const newSpecialistFields = DrSignUp.specialistFields.push(item);
+  // const handleSpecialistInput = (item) => {
+  //   // console.log(item);
+  //   // const newSpecialistFields = [item];
+  //    const newSpecialistFields = DrSignUp.specialistFields.push(item);
 
-
-    setDrSignUp({ ...DrSignUp, specialistFields: DrSignUp.specialistFields.push(item)});
-    // DrSignUp.specialistFields.push(`${item}`)
-  };
+  //   setDrSignUp({
+  //     ...DrSignUp,
+  //     // specialistFields: DrSignUp.specialistFields.push(item),
+  //     specialistFields: newSpecialistFields
+  //   });
+  //   // DrSignUp.specialistFields.push(`${item}`)
+  // };
   // File state
   const [DrFile, setDrFile] = useState("");
   // upload File function
@@ -66,6 +73,7 @@ function DoctorRegForm() {
     e.preventDefault();
     // console.log(DrFile);
     // new doctor data state
+
     const formData = new FormData();
     formData.append("firstName", DrSignUp.firstName);
     formData.append("lastName", DrSignUp.lastName);
@@ -74,16 +82,12 @@ function DoctorRegForm() {
     formData.append("password", DrSignUp.password);
     formData.append("confirmedPassword", DrSignUp.confirmedPassword);
     formData.append("licenceNumber", DrSignUp.licenceNumber);
-    formData.append("specialistFields", DrSignUp.specialistFields);
+    formData.append("specialistFields", specialist);
     formData.append("street", DrSignUp.street);
     formData.append("houseNr", DrSignUp.houseNr);
     formData.append("postalCode", DrSignUp.postalCode);
     formData.append("city", DrSignUp.city);
     formData.append("country", DrSignUp.country);
-
-
-
-
     formData.append("doctorFile", DrFile);
 
     // file data
@@ -93,7 +97,7 @@ function DoctorRegForm() {
       },
     };
     if (DrSignUp.email !== "" && DrSignUp.password !== "") {
-      // console.log(formData);
+      console.log(formData);
       axios
         .post("http://localhost:5000/doctor/registration", formData, config)
         .then((res) => {
@@ -250,7 +254,7 @@ function DoctorRegForm() {
                           controlId="exampleForm.ControlSelect1 "
                           className="input-field d-flex align-items-center"
                         >
-                          <Form.Label>Example select</Form.Label>
+                          <Form.Label>Specialist In</Form.Label>
 
                           <Form.Control
                             class="input-field col-md-12"
@@ -260,7 +264,8 @@ function DoctorRegForm() {
                             onChange={(e) => {
                               console.log("onSelect is", e.target.value);
                               const selectedItem = e.target.value;
-                              handleSpecialistInput(selectedItem);
+                              // handleSpecialistInput(selectedItem);
+                              handleSpecial(selectedItem);
                             }}
                           >
                             {specialistAPI.map((item, index) => {
@@ -273,7 +278,21 @@ function DoctorRegForm() {
                           </Form.Control>
 
                           <div className="discipline-container col-md-12">
-                            {DrSignUp.specialistFields.map((item, index) => {
+                            {/* {DrSignUp.specialistFields.map((item, index) => {
+                              return (
+                                <div
+                                  id={index}
+                                  key={index}
+                                  className="reg-discipline"
+                                  onClick={(e) => {
+                                    deleteField(e);
+                                  }}
+                                >
+                                  {item}
+                                </div>
+                              );
+                            })} */}
+                            {specialist.map((item, index)=>{
                               return (
                                 <div
                                   id={index}

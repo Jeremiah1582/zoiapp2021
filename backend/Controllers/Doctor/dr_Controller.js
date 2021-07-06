@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 // res.send(' <h1>Dr: </br> this is the appointment page for Dr </h1>')
 // }
 exports.registerDoctor = (req, res) => {
-  // console.log(req.body, "line 09 controller");
+  console.log(req.body, "line 09 controller");
   const {
     firstName,
     lastName,
@@ -75,7 +75,7 @@ exports.registerDoctor = (req, res) => {
     confirmedPassword == "" ||
     licenceNumber == "" ||
     specialistFields == "" ||
-    doctorFile == ""||
+    doctorFile == "" ||
     street == "" ||
     houseNr == "" ||
     postalCode == "" ||

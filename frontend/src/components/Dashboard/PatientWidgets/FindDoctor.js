@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import specialistAPI from "../../../../Context_APIs/specialistFields";
+// import specialistAPI from "../../../Context_APIs/specialistFields";
 // import { Form, Button, Image } from "react-bootstrap";
 
 function FindDoctor() {
@@ -17,9 +17,14 @@ function FindDoctor() {
     axios
       .post("http://localhost:5000/patient/finddoctor", formState)
       .then((res) => setDoctorTable(res.data));
-      
+
   };
 
+  // booking button function
+  // const booking=(e)=>{
+    // part to be done here !!!!!
+
+  // }
   // send request to backend
 
   //receive data from backend
@@ -27,6 +32,7 @@ function FindDoctor() {
   return (
     <div>
       {/* search bar (search in database) */}
+     
       <form class="example" onSubmit={submit}>
         <input
           type="text"
@@ -47,6 +53,7 @@ function FindDoctor() {
           <th>Address</th>
           <th>Email</th>
           <th>Speciality</th>
+          <th>Appointment</th>
         </thead>
         <tbody>
           {doctorTable.map((specialist, index) => {
@@ -62,6 +69,7 @@ function FindDoctor() {
                 </td>
                 <td>{specialist.email}</td>
                 <td>{specialist.specialistFields}</td>
+                <td><button type="button" className="booking-button">Book an Appointment</button></td>
               </tr>
             );
           })}

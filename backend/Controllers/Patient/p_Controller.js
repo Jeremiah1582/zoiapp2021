@@ -107,12 +107,10 @@ exports.registerPatient = (req, res) => {
 // ** Search for a Doctor ** //
 exports.findDoctor = (req,res) => {
   console.log(req.body.field,"line 108")
-  const searchName = req.body.field 
-  const regex = new RegExp(searchName, 'i') 
-  Doctor.find({"specialistFields.0": {$regex: regex}}) 
-  .then((err, doc)=>{
-    if(err) throw err;
-    console.log(doc, '113')})
+  Doctor.find({$text:{$search:req.body.field}},(err,doc)=>{
+    // console.log(doc)
+    res.json(doc)
+  })
 }
 
 // exports.bookAppointment = (req, res) => {

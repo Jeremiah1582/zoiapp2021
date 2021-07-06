@@ -41,6 +41,9 @@ const newDoctor = new Schema({
       type: String,
     },
   ],
+
+  // specialistFields:[Object],
+
   doctorFile: {
     type: String,
     // required: [true, "upload required!"],
