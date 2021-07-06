@@ -7,7 +7,7 @@ import RegsDoctorForm from "./components/DoctorRegForm";
 import RegsPatientForm from "./components/PatientRegForm";
 import Signup from "./components/Signup";
 import DashboardPage from "./components/Dashboard/DashboardPage.js";
-import PatientPage from "./components/PatientPage";
+import PatientDashboard from "./components/Dashboard/PatientDashboard.js"
 
 // import Footer from "./components/Footer";
 import Team from "./components/Team";
@@ -73,8 +73,8 @@ const App = () => {
             }}
           ></Route>
           <Route
-            path="/patientpage"> 
-            <PatientPage/>
+            path="/patient/dashboard"> 
+            <PatientDashboard/>
             </Route>
           <Route
             path="/dr/dashboard">

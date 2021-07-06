@@ -3,14 +3,14 @@ import React from "react";
 // import "../../styling/customDashboard.scss";
 
 //dashNav Widgets:
-import Home from './DashWidgets/Home'
-import Calendar from "./DashWidgets/Calendar";
-import Messages from "./DashWidgets/Messages";
-import PatientList from "./DashWidgets/PatientList";
-import DrList from "./DashWidgets/DrList";
-import TodoList from "./DashWidgets/TodoList";
-import Weather from "./DashWidgets/Weather";
-import Settings from "./DashWidgets/Settings";
+import Home from './PatientWidgets/Home'
+// import Calendar from "./PatientWidgets/Calendar";
+// import Messages from "./PatientWidgets/Messages";
+// import PatientList from "./PatientWidgets/PatientList";
+import FindDoctor from "./PatientWidgets/FindDoctor";
+// import TodoList from "./PatientWidgets/TodoList";
+// import Weather from "./PatientWidgets/Weather";
+// import Settings from "./PatientWidgets/Settings";
 import { BrowserRouter as DashRouter } from "react-router-dom";
 import { Link, Route, Switch } from "react-router-dom";
 function DashboardPage() {
@@ -24,30 +24,30 @@ function DashboardPage() {
             <Link className="dash-menu-item dash-menu-link" to="/home">
               <i className="fas fa-home" />
             </Link>
-           <Link className="dash-menu-item dash-menu-link" to="/findDr">
+           <Link className="dash-menu-item dash-menu-link" to="/FindDoctor">
               <i className="fas fa-user-md"></i>
             </Link>
-            <Link className="dash-menu-item dash-menu-link" to="/calendar">
+            {/* <Link className="dash-menu-item dash-menu-link" to="/calendar">
               <i className="fas fa-calendar-alt"></i>
-            </Link>
+            </Link> */}
 
-            <Link className="dash-menu-item dash-menu-link" to="/messages">
+            {/* <Link className="dash-menu-item dash-menu-link" to="/messages">
               <i className="fas fa-comments"></i>
-            </Link>
-
+            </Link> */}
+{/* 
             <Link className="dash-menu-item dash-menu-link" to="/patientList">
               <i className="fas fa-user-injured"></i>
-            </Link>
+            </Link> */}
 
             
 
-            <Link className="dash-menu-item dash-menu-link" to="/todolist">
+            {/* <Link className="dash-menu-item dash-menu-link" to="/todolist">
               <i className="fas fa-th-list"></i>
             </Link>
              
             <Link className="dash-menu-item dash-menu-link" to="/settings">
               <i className="fas fa-cog"></i>
-            </Link>
+            </Link> */}
             
           </ul>
         </div>
@@ -59,8 +59,11 @@ function DashboardPage() {
           <Switch>
             <Route exact path="/home">
             <Home/>
+            </Route> 
+            <Route path="/FindDoctor">
+              <FindDoctor />
             </Route>
-            <Route path="/calendar">
+            {/* <Route path="/calendar">
               <Calendar />
             </Route>
             <Route path="/messages">
@@ -69,9 +72,7 @@ function DashboardPage() {
             <Route path="/patientList">
               <PatientList />
             </Route>
-            <Route path="/findDr">
-              <DrList />
-            </Route>
+           
             <Route path="/todolist">
               <TodoList />
             </Route>
@@ -80,7 +81,7 @@ function DashboardPage() {
             </Route>
             <Route path="/settings">
               <Settings />
-            </Route>
+            </Route> */}
           </Switch>
         
       
