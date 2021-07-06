@@ -6,8 +6,8 @@ import LoginForm from "./components/LoginForm";
 import RegsDoctorForm from "./components/DoctorRegForm";
 import RegsPatientForm from "./components/PatientRegForm";
 import Signup from "./components/Signup";
-import DashboardPage from "./components/Dashboard/DashboardPage";
-import PatientDashboard from "./components/Dashboard/PatientDashboard";
+import DashboardPage from "./components/Dashboard/DashboardPage.js";
+import PatientDashboard from "./components/Dashboard/PatientDashboard.js";
 
 // import Footer from "./components/Footer";
 import Team from "./components/Team";
@@ -66,10 +66,10 @@ const App = () => {
             <RegsPatientForm />
           </Route>
 
-          <Route path="/patientdashboard">
+          <Route path="/patient/dashboard">
             <PatientDashboard />
           </Route>
-          <Route path="/doctordashboard">
+          <Route path="/doctor/dashboard">
             <DashboardPage />
           </Route>
         </Switch>

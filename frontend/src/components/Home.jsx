@@ -38,7 +38,7 @@ const Home = () => {
               <div className="contentCard">
                 <img
                   src={findYourDoctor}
-                  alt="find a doctor picture"
+                  alt="find a doctor"
                   className="imgCard"
                 />
                 <h2>Find a Doctor</h2>
@@ -57,7 +57,7 @@ const Home = () => {
           <div className="card">
             <div className="boxCard">
               <div className="contentCard">
-                <img src={aboutUs} alt="about us picture" className="imgCard" />
+                <img src={aboutUs} alt="about us" className="imgCard" />
                 <h2>About Us</h2>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.

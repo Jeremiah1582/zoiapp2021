@@ -108,7 +108,7 @@ exports.registerPatient = (req, res) => {
 exports.findDoctor = (req,res) => {
   console.log(req.body.field,"line 108")
   Doctor.find({$text:{$search:req.body.field}},(err,doc)=>{
-    // console.log(doc)
+    console.log(doc)
     res.json(doc)
   })
 }
