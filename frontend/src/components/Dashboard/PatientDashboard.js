@@ -1,6 +1,7 @@
-import React {useState} from "react";
+import React, { useState } from "react";
 
 const PatientDashboard = () => {
+  const [formState, setFormState] = useState()
   const handleChange = (e) => {
     [e.target.name] = e.target.value
   }
