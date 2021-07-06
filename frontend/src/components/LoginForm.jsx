@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import NavBar from "./Navbar";
 
 import axios from "axios";
 
@@ -25,7 +26,7 @@ const LoginForm = () => {
 
   // account type function
   const accountType = (e) => {
-    setUserLogin({...UserLogin,condition:e.target.value});
+    setUserLogin({ ...UserLogin, condition: e.target.value });
   };
   // console.log(UserLogin.condition, "is here");
   // submit function
@@ -40,9 +41,9 @@ const LoginForm = () => {
         // localStorage
         localStorage.setItem("currentToken", res.data);
         if (UserLogin.condition === "patient") {
-          window.location.href = "/patient";
+          window.location.href = "/patientdashboard";
         } else if (UserLogin.condition === "doctor") {
-          window.location.href = "/doctor";
+          window.location.href = "/doctordashboard";
         }
       });
     } else {
@@ -53,6 +54,7 @@ const LoginForm = () => {
   // form 1
   return (
     <div>
+      <NavBar />
       <p class="warningMsg"> {message} </p>
       <Form onSubmit={submit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
