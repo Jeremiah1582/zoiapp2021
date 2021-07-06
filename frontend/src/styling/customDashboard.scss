@@ -137,15 +137,27 @@ transform: translate(-50%);
 }
 .dash-menu-item:hover{
   background-color:lighten($color-green,40%);
-}
-.dash-menu-item i:hover{
+
+.dash-menu-item{
+ i{
+  &{
       color:$color-green;
       scale: 1.2;
   }
-  .dash-menu-item i &.box:hover{
+} 
+} 
+
+
+
+  .dash-menu-item {
+     i {
+  
+      &.box{
       display: block !important;
   }
-
+}
+  }
+ 
 
 // i{
 // color:$color-dark;
@@ -153,10 +165,13 @@ transform: translate(-50%);
 // line-height:55px;
 // }
 
-&.active i{
+&.active {
+  i{
   color:$color-green;
 }
+}
 
+}
 
 
 
