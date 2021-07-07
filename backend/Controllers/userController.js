@@ -4,17 +4,17 @@ const Doctor = require("../Models/Doctor/dr_Model");
 //***** Login function for Patient & Doctor *******//
 
 exports.loginUser = (req, res) => {
-  // console.log(req.body, "is here 25");
+  // console.log(req.body, "userController: 07");
   //assign cookie to the
-  // console.log(req.body.email, "line 27");
+  // console.log(req.body.email, "userController: 09");
   if (req.body.condition === "doctor") {
     Doctor.findOne(
       { email: req.body.email },
       (err, data) => {
         if (data !== null) {
-          console.log(data, "line 31");
-          console.log("Test 01: Doctor Dashboard. 32");
-          res.status(200).json({ msg: "Doctor Page here 33" });
+          console.log(data, "userController: 15");
+          console.log("Test 01: Doctor Dashboard. userController :16");
+          res.status(200).json({ msg: "Doctor Page connected. uController :17" });
         }
          else {
           console.log("Please log in!");
@@ -25,14 +25,14 @@ exports.loginUser = (req, res) => {
 
     // res.send("I m doctor");
   } else if (req.body.condition === "patient") {
-    console.log(req.body, "line 28");
+    console.log(req.body, "uController :28");
     Patient.findOne(
       { email: req.body.email },
       (err, data) => {
         if (data ) {
-          console.log(data, "line 42");
-          console.log("Test 02: Patient Dashboard connected. 32");
-          res.status(200).json({ msg: "Patient Page here 44" });
+          console.log(data, "uController: 33");
+          console.log("Test 02: Patient Dashboard connected. 34");
+          res.status(200).json({ msg: "Patient Page here 35" });
         } else {
           console.log("Please log in!");
         }

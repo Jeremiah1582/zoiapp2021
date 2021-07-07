@@ -1,7 +1,7 @@
 import React from "react";
 // import DashNav from './DashNav';
 // import "../../styling/customDashboard.scss";
-import '../../styling/customDashboard.scss'
+import '../../styling/customDashboard.css'
 //dashNav Widgets:
 import Home from './DashWidgets/Home'
 import Calendar from "./DashWidgets/Calendar";

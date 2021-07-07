@@ -19,7 +19,6 @@ const newBooking = new Schema({
   description: {
     type: String,
   },
-
 });
-const Bookings = mongoose.model("Booking",newBooking);
-module.exports= Bookings;
+const Bookings = mongoose.model("Booking", newBooking);
+module.exports = Bookings;
