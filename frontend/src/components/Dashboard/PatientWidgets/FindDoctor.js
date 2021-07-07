@@ -4,7 +4,8 @@ import axios from "axios";
 // import { Form, Button, Image } from "react-bootstrap";
 
 function FindDoctor() {
-  // const [formState, setFormState] = useState('');
+  // const [searchInput, setSearchInput] = useState('');
+
   const [formState, setFormState] = useState({ field: "" });
   const [doctorTable, setDoctorTable] = useState([]);
   const handleChange = (e) => {
@@ -19,19 +20,18 @@ function FindDoctor() {
       .then((res) => setDoctorTable(res.data));
 
   };
-
+  // const handleSpecialistInput = (item) => {
+  //   setSearchInput(item);
+  //   console.log(searchInput);
+  // };
   // booking button function
   // const booking=(e)=>{
     // part to be done here !!!!!
 
   // }
-  // send request to backend
-
-  //receive data from backend
 
   return (
     <div>
-      {/* search bar (search in database) */}
      
       <form class="example" onSubmit={submit}>
         <input
@@ -75,8 +75,63 @@ function FindDoctor() {
           })}
         </tbody>
       </table>
-    </div>
+  
+{/* Jeremiah code  */}
+
+  {/* <form name="form1" id="form1" action="" onSubmit={submit}> Specialist fields:
+    <select name="SpecialistFields" id="subject">
+      {specialistAPI.map((item,index)=>{ 
+        return(
+          <div>
+        <option id={index} onChange={()=>{handleSpecialistInput}}> {item.field} </option>
+          </div> 
+        )
+      })}
+    </select>
+    <button type="submit">
+          <i className="fa fa-search"></i>
+        </button>
+    <br/><br/>
+  </form>
+
+      <div className="dr-list">
+          <table className="doctor-list-table">
+        <thead>
+          <th>Doctor</th>
+          <th>Address</th>
+          <th>Email</th>
+          <th>Speciality</th>
+          <th>Appointment</th>
+        </thead>
+        <tbody>
+          {doctorTable.map((specialist, index) => {
+            return (
+              <tr>
+                <td>
+                  {specialist.firstName} {specialist.lastName}
+                </td>
+                <td>
+                  {specialist.street}
+                  {specialist.houseNr},{specialist.postalCode}
+                  {specialist.city}
+                </td>
+                <td>{specialist.email}</td>
+                <td>{specialist.specialistFields}</td>
+                <td><button type="button" className="booking-button">Book an Appointment</button></td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      
+      </div>*/}
+    </div> 
   );
 }
-
 export default FindDoctor;
+
+
+
+
+
+

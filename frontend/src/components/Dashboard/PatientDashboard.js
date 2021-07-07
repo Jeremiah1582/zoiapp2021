@@ -1,9 +1,9 @@
 import React from "react";
 // import DashNav from './DashNav';
 // import "../../styling/customDashboard.scss";
-import '../../styling/customDashboard.css'
+
 //dashNav Widgets:
-import Home from "./PatientWidgets/PDashHome";
+import Home from './PatientWidgets/Home'
 // import Calendar from "./PatientWidgets/Calendar";
 // import Messages from "./PatientWidgets/Messages";
 // import PatientList from "./PatientWidgets/PatientList";
@@ -35,10 +35,12 @@ function PatientDashboard() {
             {/* <Link className="dash-menu-item dash-menu-link" to="/messages">
               <i className="fas fa-comments"></i>
             </Link> */}
-
-            {/* <Link className="dash-menu-item dash-menu-link" to="/patientList">
+{/* 
+            <Link className="dash-menu-item dash-menu-link" to="/patientList">
               <i className="fas fa-user-injured"></i>
             </Link> */}
+
+            
 
             {/* <Link className="dash-menu-item dash-menu-link" to="/todolist">
               <i className="fas fa-th-list"></i>
@@ -47,6 +49,7 @@ function PatientDashboard() {
             {/* <Link className="dash-menu-item dash-menu-link" to="/settings">
               <i className="fas fa-cog"></i>
             </Link> */}
+            
           </ul>
         </div>
 
