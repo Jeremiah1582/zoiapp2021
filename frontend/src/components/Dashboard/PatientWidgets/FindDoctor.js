@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import specialistAPI from "../../../Context_APIs/specialistFields";
-import '../../../styling/customFindDoctor.css'
+// import '../../../styling/customFindDoctor.css'
 // import { Form, Button, Image } from "react-bootstrap";
 
 function FindDoctor() {
