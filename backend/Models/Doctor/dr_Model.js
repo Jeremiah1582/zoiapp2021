@@ -67,6 +67,17 @@ const newDoctor = new Schema({
   country: {
     type: String,
   },
+
+  // Booking information---
+  availableTimeSlots: [
+    {
+    time:Date,
+    date:Date,
+    duration: Number
+    }
+  ],
+
+  AppointmentsBooked:[ ]
 });
 
 const Doctor = mongoose.model("Doctor", newDoctor);
