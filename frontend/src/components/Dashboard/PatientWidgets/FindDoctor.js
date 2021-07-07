@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BookingModal from "../../ShowModals/BookingModal";
 import axios from "axios";
 // import specialistAPI from "../../../Context_APIs/specialistFields";
 // import { Form, Button, Image } from "react-bootstrap";
@@ -8,6 +9,8 @@ function FindDoctor() {
 
   const [formState, setFormState] = useState({ field: "" });
   const [doctorTable, setDoctorTable] = useState([]);
+  const [modalShow, setModalShow] = useState(false);
+
   const handleChange = (e) => {
     // console.log(e.target.value, "line08 ")
     setFormState({ field: e.target.value });
@@ -18,7 +21,6 @@ function FindDoctor() {
     axios
       .post("http://localhost:5000/patient/finddoctor", formState)
       .then((res) => setDoctorTable(res.data));
-
   };
   // const handleSpecialistInput = (item) => {
   //   setSearchInput(item);
@@ -26,13 +28,13 @@ function FindDoctor() {
   // };
   // booking button function
   // const booking=(e)=>{
-    // part to be done here !!!!!
+
+  // part to be done here !!!!!
 
   // }
 
   return (
     <div>
-     
       <form class="example" onSubmit={submit}>
         <input
           type="text"
@@ -69,16 +71,20 @@ function FindDoctor() {
                 </td>
                 <td>{specialist.email}</td>
                 <td>{specialist.specialistFields}</td>
-                <td><button type="button" className="booking-button">Book an Appointment</button></td>
+                <td>
+                  <button type="button" className="booking-button">
+                    Book an Appointment
+                  </button>
+                </td>
               </tr>
             );
           })}
         </tbody>
       </table>
-  
-{/* Jeremiah code  */}
 
-  {/* <form name="form1" id="form1" action="" onSubmit={submit}> Specialist fields:
+      {/* Jeremiah code  */}
+
+      {/* <form name="form1" id="form1" action="" onSubmit={submit}> Specialist fields:
     <select name="SpecialistFields" id="subject">
       {specialistAPI.map((item,index)=>{ 
         return(
@@ -125,13 +131,12 @@ function FindDoctor() {
       </table>
       
       </div>*/}
-    </div> 
+      {/* Show/ Hidden  Modal  */}
+      <BookingModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+    </div>
   );
 }
 export default FindDoctor;
-
-
-
-
-
-

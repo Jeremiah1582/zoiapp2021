@@ -11,12 +11,12 @@ const Signup = () => {
             
             
             <div className="cardWrap signup-cardWrap">
-                <a href="/about">
+                <a href="/patient/registration">
                     <div className = "card">
                         <div className = "boxCard">
                             <div className = "contentCard">
                                 <img src= { patient } alt="about us picture" className = "imgCard"/>
-                                <h2>About Us</h2>
+                                <h2>As a Patient</h2>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi neque quo et provident labore, incidunt maxime alias. Consequuntur ipsum temporibus mollitia, quae placeat dolorum, eum odio illum, quos eius nemo?</p>
                             </div>
                         </div>
@@ -24,12 +24,12 @@ const Signup = () => {
                     </div>
                 </a>
                 
-                <a href="#">
+                <a href="/doctor/registration">
                     <div className = "card">
                         <div className = "boxCard">
                             <div className = "contentCard">
                                 <img src= { doctor } alt="appointment" className = "imgCard"/>
-                                <h2>Appointments</h2>
+                                <h2>As a Doctor</h2>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi neque quo et provident labore, incidunt maxime alias. Consequuntur ipsum temporibus mollitia, quae placeat dolorum, eum odio illum, quos eius nemo?</p>
                             </div>
                         </div>
