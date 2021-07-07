@@ -6,7 +6,7 @@ import LoginForm from "./components/LoginForm";
 import RegsDoctorForm from "./components/DoctorRegForm";
 import RegsPatientForm from "./components/PatientRegForm";
 import Signup from "./components/Signup";
-import DashboardPage from "./components/Dashboard/DashboardPage.js";
+import DoctorDashboard from "./components/Dashboard/DoctorDashboard.js";
 import PatientDashboard from "./components/Dashboard/PatientDashboard.js";
 
 // import Footer from "./components/Footer";
@@ -70,7 +70,7 @@ const App = () => {
             <PatientDashboard />
           </Route>
           <Route path="/doctor/dashboard">
-            <DashboardPage />
+            <DoctorDashboard />
           </Route>
         </Switch>
       </div>

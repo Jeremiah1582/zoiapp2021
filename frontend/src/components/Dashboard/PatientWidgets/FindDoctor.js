@@ -8,13 +8,13 @@ function FindDoctor() {
   // const [formState, setFormState] = useState('');
   const [formState, setFormState] = useState([
     // {field: ''}
-  ])
+  ]);
   const [doctorTable, setDoctorTable] = useState([]);
 
   //add new search query to formState-------------------------
   const handleChange = (e) => {
     // console.log(e, "line11 ")
-   setFormState({...formState, [e.target.name]:e.target.value});
+    setFormState({ ...formState, [e.target.name]: e.target.value });
     console.log(formState);
   };
 
@@ -26,24 +26,22 @@ function FindDoctor() {
   //   formState.splice(index, 1);
   //   setFormState({ ...formState, field: newFormState });
   // }
- 
-// Send & receive from Back End---------------------------------------
+
+  // Send & receive from Back End---------------------------------------
   const submit = (e) => {
     e.preventDefault();
     console.log(formState, "line 12");
     axios
       .post("http://localhost:5000/patient/finddoctor", formState)
       .then((res) => {
-        console.log(res, 'line 25');
-        setDoctorTable(res.data)
-        
-        });
-
+        console.log(res, "line 25");
+        setDoctorTable(res.data);
+      });
   };
 
   // booking button function
   // const booking=(e)=>{
-    // part to be done here !!!!!
+  // part to be done here !!!!!
 
   // }
   // send request to backend
@@ -52,33 +50,28 @@ function FindDoctor() {
 
   return (
     <div>
-      {/* search bar (search in database) */}
-     
-      {/* <form class="example" onSubmit={submit}>
-        <input
-          type="text"
-          placeholder="Cardiology..."
-          name="search"
-          onChange={handleChange}
-        />
-        
-      </form> */}
-<form name="form1" id="form1" action="" onSubmit={submit}> Specialist fields:
-    <select name="field" id="subject" onChange={handleChange}>
-      {specialistAPI.map((item,index)=>{ 
-        return( 
-        <option name='field' id={index} key={index} value={item.field} > {item.field} </option>
-        )
-      })}
-    </select>
-    <button type="submit">
+      <form name="form1" id="form1" action="" onSubmit={submit}>
+        {" "}
+        Specialist fields:
+        <select name="field" id="subject" onChange={handleChange}>
+          {specialistAPI.map((item, index) => {
+            return (
+              <option name="field" id={index} key={index} value={item.field}>
+                {" "}
+                {item.field}{" "}
+              </option>
+            );
+          })}
+        </select>
+        <button type="submit">
           <i className="fa fa-search"></i>
-      </button>
-    <br/><br/>
-  </form>
-  {/* NOTE: below is where all the selected discliplines will be displayed */}
-  <div>
-  {/* {formState.map((item,index)=>{
+        </button>
+        <br />
+        <br />
+      </form>
+      {/* NOTE: below is where all the selected discliplines will be displayed */}
+      <div>
+        {/* {formState.map((item,index)=>{
     return(
       <div 
       id={index} 
@@ -89,7 +82,7 @@ function FindDoctor() {
       </div>
     )
   })} */}
-  </div>
+      </div>
       {/* Specialist Field */}
 
       <table className="doctor-list-table">
@@ -114,7 +107,11 @@ function FindDoctor() {
                 </td>
                 <td>{specialist.email}</td>
                 <td>{specialist.specialistFields}</td>
-                <td><button  type="button" className="booking-button"  >Book an Appointment</button></td>
+                <td>
+                  <button type="button" className="booking-button">
+                    Book an Appointment
+                  </button>
+                </td>
               </tr>
             );
           })}
