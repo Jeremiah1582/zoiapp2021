@@ -65,7 +65,6 @@ export default FindDoctor;
           className="input-field d-flex align-items-center"
         >
           <Form.Label>Select Specialist Field</Form.Label>
-
           <Form.Control
             class="input-field col-md-12"
             name="specialistFields"
@@ -77,7 +76,6 @@ export default FindDoctor;
               handleSpecialistInput(selectedItem);
             }}
           >
-
             {specialistAPI.map((item, index) => {
               return (
                 <option key={index} value={item.field}>
