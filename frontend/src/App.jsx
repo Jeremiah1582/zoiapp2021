@@ -66,10 +66,10 @@ const App = () => {
             <RegsPatientForm />
           </Route>
 
-          <Route path="/patientdashboard">
+          <Route path="/patient/dashboard">
             <PatientDashboard />
           </Route>
-          <Route path="/doctordashboard">
+          <Route path="/doctor/dashboard">
             <DashboardPage />
           </Route>
         </Switch>

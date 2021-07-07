@@ -32,7 +32,7 @@ function DoctorRegForm() {
     specialist.push(item);
     console.log(item, specialist);
   };
-  const { specialistFields } = DrSignUp;
+  // const { specialistFields } = DrSignUp;
   // add new Dr details
   const handleFormInput = (e) => {
     setDrSignUp({ ...DrSignUp, [e.target.name]: e.target.value });
@@ -59,13 +59,13 @@ function DoctorRegForm() {
   };
 
   // delete function specialist Field
-  const deleteField = (e) => {
-    const index = e.target.id;
-    console.log(index);
-    const newSpecialistFields = [...specialistFields];
-    newSpecialistFields.splice(index, 1);
-    setDrSignUp({ ...DrSignUp, specialistFields: newSpecialistFields });
-  };
+  // const deleteField = (e) => {
+  //   const index = e.target.id;
+  //   console.log(index);
+  //   const newSpecialistFields = [...specialistFields];
+  //   newSpecialistFields.splice(index, 1);
+  //   setDrSignUp({ ...DrSignUp, specialistFields: newSpecialistFields });
+  // };
 
   //send to back end handler
   const sendToBackEnd = (e) => {
@@ -278,7 +278,21 @@ function DoctorRegForm() {
                           </Form.Control>
 
                           <div className="discipline-container col-md-12">
-                            {/* {DrSignUp.specialistFields.map((item, index) => {
+                            {DrSignUp.specialistFields.map((item, index) => {
+                              return (
+                                <div
+                                  id={index}
+                                  key={index}
+                                  className="reg-discipline"
+                                  // onClick={(e) => {
+                                  //   deleteField(e);
+                                  // }}
+                                >
+                                  {item}
+                                </div>
+                              );
+                            })}
+                            {/* {specialist.map((item, index)=>{
                               return (
                                 <div
                                   id={index}
@@ -292,20 +306,6 @@ function DoctorRegForm() {
                                 </div>
                               );
                             })} */}
-                            {specialist.map((item, index)=>{
-                              return (
-                                <div
-                                  id={index}
-                                  key={index}
-                                  className="reg-discipline"
-                                  onClick={(e) => {
-                                    deleteField(e);
-                                  }}
-                                >
-                                  {item}
-                                </div>
-                              );
-                            })}
                           </div>
                         </Form.Group>
                       </div>
