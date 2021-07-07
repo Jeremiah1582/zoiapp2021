@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import "./index.css";
 // import './styling/customDashboard.scss'
 //bootstrap custom SCSS
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
