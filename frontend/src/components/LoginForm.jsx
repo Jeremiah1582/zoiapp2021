@@ -37,10 +37,9 @@ const LoginForm = () => {
       // JWToken
       axios.post("http://localhost:5000/user/login", UserLogin).then((res) => {
         console.log(res.data);
-        
 
         // localStorage
-        localStorage.setItem("currentToken", res.data);
+        localStorage.setItem("currentToken", res.data.token);
         if (UserLogin.condition === "patient") {
           window.location.href = "/patient/dashboard";
         } else if (UserLogin.condition === "doctor") {
