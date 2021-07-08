@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/ashikkhandani/zoiapp2021#readme",
   "dependencies": {
-    "@sendgrid/mail": "^7.4.4",
+    "@sendgrid/mail": "^7.4.5",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
