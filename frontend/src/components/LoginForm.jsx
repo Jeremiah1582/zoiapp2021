@@ -37,6 +37,7 @@ const LoginForm = () => {
       // JWToken
       axios.post("http://localhost:5000/user/login", UserLogin).then((res) => {
         console.log(res.data);
+        
 
         // localStorage
         localStorage.setItem("currentToken", res.data);
