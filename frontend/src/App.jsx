@@ -46,7 +46,7 @@ const App = () => {
             <Home />
           </Route>
           <Route exact path="/aboutzoe">
-            {About}
+            <About/>
           </Route>
           <Route exact path="/zoeteam">
             <Team />
@@ -55,7 +55,7 @@ const App = () => {
             <LoginForm />
           </Route>
 
-          <Route path="/signup" component={Signup}>
+          <Route path="/signup" >
             <Signup />
           </Route>
           <Route path="/doctor/registration">
