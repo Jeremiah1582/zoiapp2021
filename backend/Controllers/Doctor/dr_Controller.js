@@ -108,3 +108,10 @@ exports.registerDoctor = (req, res) => {
     }
   });
 };
+
+exports.setAppointmentTime=(req,res)=>{
+ //add timeslot to the doctors DB 
+console.log(req.body);
+
+
+}
