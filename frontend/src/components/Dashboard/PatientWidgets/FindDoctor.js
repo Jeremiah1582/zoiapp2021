@@ -19,7 +19,7 @@ function FindDoctor() {
   const handleChange = (e) => {
     // console.log(e, "line11 ")
     setFormState({ ...formState, [e.target.name]: e.target.value });
-    console.log(formState);
+    // console.log(formState);
   };
 
   //Delete search Query from formState------------------------
@@ -34,11 +34,11 @@ function FindDoctor() {
   // Send & receive from Back End---------------------------------------
   const submit = (e) => {
     e.preventDefault();
-    console.log(formState, "line 12");
+    // console.log(formState, "line 12");
     axios
       .post("http://localhost:5000/patient/finddoctor", formState)
       .then((res) => {
-        console.log(res, "line 25");
+        // console.log(res, "line 25");
         setDoctorTable(res.data);
       });
   };
