@@ -4,39 +4,34 @@ import axios from 'axios'
 // import '../../../styling/customDashboard.scss'
 function SetAppointmentTimes() {
    const [timeSlot, setTimeSlot]=useState([
-       {
-        time: '',
-        date: '',
-        duration: 30*60 
-       }
+  
    ])
 
-   const [timeSlotList, setTimeSlotList] = useState([])
+   const [StateB, setStateB] = useState([])
 
-   useEffect(() => {
-       const formState =  timeSlot
-      axios.post('http://localhost:5000/setAppointmentTime', formState)
-      .then((result)=>{
-          console.log(result);
-          setTimeSlotList(result.data)
 
-      })
-   }, [addTimeSlot])
+   
+
+
 // handle state func---------------------------------------------------------------
    const handleSetTimeSlot=(e)=>{
     setTimeSlot({...timeSlot,[e.target.name]: e.target.value})
    }
 
-console.log(timeSlot, ' line 16 ');
+console.log(timeSlot);
 
 // add time slot to the database-------------------------------------------------------
    const addTimeSlot=(e)=>{
     e.preventDefault()
-   console.log(e.target.value, e.target.type);
-   
-
-
+//    console.log(e.target[0].defaultValue , 'line 29');
+ axios.post('http://localhost:5000/doctor/setAppointmentTime', timeSlot)
+      .then((result)=>{
+          console.log(result);
+          setStateB({...StateB, data: result.data})
+      })
+      console.log(setStateB());
    }
+    
 // delete timeslot from the database------------------------------------------------
    const deleteTimeSlot=()=>{
 
@@ -48,10 +43,12 @@ return (
             <h1>SetAppointmentTimes</h1>
  {/* set availability here */}
 <div className="set-time-slot">
-<form onSubmit={addTimeSlot()} action="">
+<form onSubmit={(e)=>{addTimeSlot(e)}} action="">
+<label htmlFor="time">Time</label>
     <input name='time' type="time" value={timeSlot.time} onChange={(e)=>{handleSetTimeSlot(e)}} />
     <input name='date' type="date" value={timeSlot.date} onChange={(e)=>{handleSetTimeSlot(e)}} />
-    <button type='submit'>
+    <input name='duration' type="number" value={timeSlot.duration} onChange={(e)=>{handleSetTimeSlot(e)}} placeholder='30 mins'/>
+    <button type='submit'>Add
     </button>
 </form>
 </div>

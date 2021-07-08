@@ -77,7 +77,7 @@ const newDoctor = new Schema({
     }
   ],
 
-  AppointmentsBooked:[ ]
+  AppointmentsBooked:[Object]
 });
 
 const Doctor = mongoose.model("Doctor", newDoctor);
