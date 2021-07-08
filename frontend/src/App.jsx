@@ -6,8 +6,8 @@ import LoginForm from "./components/LoginForm";
 import RegsDoctorForm from "./components/DoctorRegForm";
 import RegsPatientForm from "./components/PatientRegForm";
 import Signup from "./components/Signup";
-import DoctorDashboard from "./components/Dashboard/DoctorDashboard.js";
-import PatientDashboard from "./components/Dashboard/PatientDashboard.js";
+import DashboardPage from "./components/Dashboard/DashboardPage";
+import PatientDashboard from "./components/Dashboard/PatientDashboard";
 
 // import Footer from "./components/Footer";
 import Team from "./components/Team";

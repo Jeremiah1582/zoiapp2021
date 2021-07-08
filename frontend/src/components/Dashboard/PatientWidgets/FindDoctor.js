@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import BookingModal from "../../ShowModals/BookingModal";
 import axios from "axios";
 import specialistAPI from "../../../Context_APIs/specialistFields";
-// import '../../../styling/customFindDoctor.css'
+import "../../../styling/customFindDoctor.css";
 // import { Form, Button, Image } from "react-bootstrap";
 
 function FindDoctor() {
-  // const [formState, setFormState] = useState('');
+  // const [searchInput, setSearchInput] = useState('');
+
+  const [modalShow, setModalShow] = useState(false);
+
   const [formState, setFormState] = useState([
     // {field: ''}
   ]);
@@ -15,7 +19,7 @@ function FindDoctor() {
   const handleChange = (e) => {
     // console.log(e, "line11 ")
     setFormState({ ...formState, [e.target.name]: e.target.value });
-    console.log(formState);
+    // console.log(formState);
   };
 
   //Delete search Query from formState------------------------
@@ -30,18 +34,20 @@ function FindDoctor() {
   // Send & receive from Back End---------------------------------------
   const submit = (e) => {
     e.preventDefault();
-    console.log(formState, "line 12");
+    // console.log(formState, "line 12");
     axios
       .post("http://localhost:5000/patient/finddoctor", formState)
       .then((res) => {
-        console.log(res, "line 25");
+        // console.log(res, "line 25");
         setDoctorTable(res.data);
       });
   };
-
+  // const handleSpecialistInput = (item) => {
+  //   setSearchInput(item);
+  //   console.log(searchInput);
+  // };
   // booking button function
   // const booking=(e)=>{
-  // part to be done here !!!!!
 
   // }
   // send request to backend
@@ -50,6 +56,8 @@ function FindDoctor() {
 
   return (
     <div>
+      {/* search bar (search in database) */}
+
       <form name="form1" id="form1" action="" onSubmit={submit}>
         {" "}
         Specialist fields:
@@ -117,8 +125,13 @@ function FindDoctor() {
           })}
         </tbody>
       </table>
+
+{/* Show/ Hidden Modal  */}
+      <BookingModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </div>
   );
 }
-
 export default FindDoctor;

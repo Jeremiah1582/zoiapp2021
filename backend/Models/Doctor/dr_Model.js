@@ -42,7 +42,6 @@ const newDoctor = new Schema({
     },
   ],
 
-  // specialistFields:[Object],
 
   doctorFile: {
     type: String,
