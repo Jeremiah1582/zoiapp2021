@@ -22,31 +22,34 @@ import {
 
 const App = () => {
   // // save token in localStorage for login
-  // const [token, setToken] = useState("false");
-  // useEffect(() => {
-  //   const user = localStorage.getItem("currentToken");
-  //   if (user) {
-  //     setToken(true);
-  //   }
-  // }, []);
+  const [token, setToken] = useState("false");
+  useEffect(() => {
+    const user = localStorage.getItem("currentToken");
+    if (user) {
+      setToken(true);
+    }
+  }, []);
 
-  // // logout and remove token
-  // const logout = () => {
-  //   localStorage.removeItem("currentToken");
-  //   window.location.href = "/user/login";
-  // };
+  // logout and remove token
+  const logout = () => {
+    localStorage.removeItem("currentToken");
+    window.location.href = "/user/login";
+  };
 
   return (
     <Router>
       <div className="container">
         {/* *******for dynamic contain******** */}
-
+        {/* Log out Button */}
+        <button type="button" onClick={logout}>
+          Log Out
+        </button>
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
           <Route path="/aboutzoe">
-            <About/>
+            <About />
           </Route>
           <Route path="/zoeteam">
             <Team />
@@ -55,7 +58,7 @@ const App = () => {
             <LoginForm />
           </Route>
 
-          <Route path="/signup" >
+          <Route path="/signup">
             <Signup />
           </Route>
           <Route path="/doctor/registration">

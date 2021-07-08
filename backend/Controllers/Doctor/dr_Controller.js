@@ -1,12 +1,12 @@
 const Doctor = require("../../Models/Doctor/dr_Model");
 const bcrypt = require("bcrypt");
-
+const jwt = require("jsonwebtoken");
 // exports.appointments=(req, res)=>{
 
 // res.send(' <h1>Dr: </br> this is the appointment page for Dr </h1>')
 // }
 exports.registerDoctor = (req, res) => {
-  console.log(req.body, "line 09 controller");
+  // console.log(req.body, "line 09 controller");
   const {
     firstName,
     lastName,
@@ -109,9 +109,22 @@ exports.registerDoctor = (req, res) => {
   });
 };
 
-exports.setAppointmentTime=(req,res)=>{
- //add timeslot to the doctors DB 
-console.log(req.body);
+exports.setAppointmentTime = (req, res) => {
+  //add timeslot to the doctors DB
+  console.log(req.body, "line 114");
+  const token = req.body.userToken;
+  let Id = "";
+  jwt.verify(token, process.env.JWT_SECRET, (err, userId) => {
+    if (err) throw err;
+    Id = userId;
+  });
 
-
-}
+  Doctor.findByIdAndUpdate(
+    Id,
+    { $push: { availableTimeSlots: req.body.timeSlot } },
+    (err, doc) => {
+      console.log(doc, "line 126");
+      res.json({ msg: "time slot successfully added" });
+    }
+  );
+};

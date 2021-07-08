@@ -27,10 +27,16 @@ function DoctorRegForm() {
   });
   // Error message state
   const [message, setMessage] = useState("");
-  const specialist = [];
+  // let specialist = [];
+  const [specialist, setSpecialist] = useState([]);
   const handleSpecial = (item) => {
-    specialist.push(item);
-    console.log(item, specialist);
+    // specialist.push(item);
+    // console.log(item, specialist);
+    // setSpecialist(specialist);
+
+    // Arif's Code
+
+    setSpecialist([...specialist, item]) 
   };
   // const { specialistFields } = DrSignUp;
   // add new Dr details
@@ -59,13 +65,12 @@ function DoctorRegForm() {
   };
 
   // delete function specialist Field
-  // const deleteField = (e) => {
-  //   const index = e.target.id;
-  //   console.log(index);
-  //   const newSpecialistFields = [...specialistFields];
-  //   newSpecialistFields.splice(index, 1);
-  //   setDrSignUp({ ...DrSignUp, specialistFields: newSpecialistFields });
-  // };
+  const deleteField = (e) => {
+    const index = e.target.id;
+    console.log(index);
+    setSpecialist([].splice(index,1))
+    
+  };
 
   //send to back end handler
   const sendToBackEnd = (e) => {
@@ -110,7 +115,7 @@ function DoctorRegForm() {
             password: "",
             confirmedPassword: "",
             licenceNumber: "",
-            specialistFields: [],
+            // specialistFields: [],
             street: "",
             houseNr: "",
             postalCode: "",
@@ -278,7 +283,7 @@ function DoctorRegForm() {
                           </Form.Control>
 
                           <div className="discipline-container col-md-12">
-                            {DrSignUp.specialistFields.map((item, index) => {
+                            {/* {DrSignUp.specialistFields.map((item, index) => {
                               return (
                                 <div
                                   id={index}
@@ -291,8 +296,8 @@ function DoctorRegForm() {
                                   {item}
                                 </div>
                               );
-                            })}
-                            {/* {specialist.map((item, index)=>{
+                            })} */}
+                            {specialist.map((item, index) => {
                               return (
                                 <div
                                   id={index}
@@ -305,7 +310,7 @@ function DoctorRegForm() {
                                   {item}
                                 </div>
                               );
-                            })} */}
+                            })}
                           </div>
                         </Form.Group>
                       </div>
