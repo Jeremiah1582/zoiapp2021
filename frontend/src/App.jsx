@@ -6,7 +6,7 @@ import LoginForm from "./components/LoginForm";
 import RegsDoctorForm from "./components/DoctorRegForm";
 import RegsPatientForm from "./components/PatientRegForm";
 import Signup from "./components/Signup";
-import DashboardPage from "./components/Dashboard/DashboardPage";
+import DoctorDashboard from "./components/Dashboard/DoctorDashboard";
 import PatientDashboard from "./components/Dashboard/PatientDashboard";
 
 // import Footer from "./components/Footer";
@@ -45,10 +45,10 @@ const App = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/aboutzoe">
+          <Route path="/aboutzoe">
             <About/>
           </Route>
-          <Route exact path="/zoeteam">
+          <Route path="/zoeteam">
             <Team />
           </Route>
           <Route path="/user/login">
@@ -70,7 +70,7 @@ const App = () => {
             <PatientDashboard />
           </Route>
           <Route path="/doctor/dashboard">
-            <DashboardPage />
+            <DoctorDashboard />
           </Route>
         </Switch>
       </div>

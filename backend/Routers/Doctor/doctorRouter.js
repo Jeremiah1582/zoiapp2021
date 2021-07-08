@@ -21,6 +21,7 @@ router.post(
   doctorController.registerDoctor
 );
 
+router.post("/setAppointmentTime", doctorController.setAppointmentTime)
 // *** Appointment Part *** // 
 // router.get("/", doctorController.appointments);
 
