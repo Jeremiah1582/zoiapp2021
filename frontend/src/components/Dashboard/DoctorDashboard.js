@@ -3,7 +3,7 @@ import React from "react";
 // import "../../styling/customDashboard.scss";
 import "../../styling/customDashboard.css";
 //dashNav Widgets:
-import NavBar from "../Navigation";
+import Logout from "../Logout";
 import Home from "./DashWidgets/Home";
 import SetAppointmentTimes from "./DashWidgets/SetAppointmentTimes";
 import Messages from "./DashWidgets/Messages";
@@ -17,7 +17,7 @@ import { Link, Route, Switch } from "react-router-dom";
 function DoctorDashboard() {
   return (
     <DashRouter>
-      <NavBar />
+      <Logout />
       <h3>Doctor Dashboard</h3>
 
       <div className="page-container">
