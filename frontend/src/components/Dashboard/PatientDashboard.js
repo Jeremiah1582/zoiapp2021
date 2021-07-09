@@ -4,6 +4,7 @@ import React from "react";
 import '../../styling/customDashboard.css'
 //dashNav Widgets:
 import Home from "./PatientWidgets/Home";
+import Logout from "../Logout";
 // import Calendar from "./PatientWidgets/Calendar";
 // import Messages from "./PatientWidgets/Messages";
 // import PatientList from "./PatientWidgets/PatientList";
@@ -16,6 +17,7 @@ import { Link, Route, Switch } from "react-router-dom";
 function PatientDashboard() {
   return (
     <DashRouter>
+      <Logout/>
       <h3>Patient Dashboard</h3>
       <div className="page-container">
         <div className="dash-nav-container">
