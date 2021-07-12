@@ -54,6 +54,7 @@ a {
   background-repeat: no-repeat;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+ /* z-index: 0; */
 }
 .logo {
   height: 11rem;
@@ -110,6 +111,7 @@ a {
     rgba(0, 250, 167, 0.39)
   );
   backdrop-filter: blur(10px);
+  
 }
 .buttonNavbar:hover {
   /* color: var(--white);

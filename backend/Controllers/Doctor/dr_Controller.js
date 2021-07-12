@@ -113,18 +113,19 @@ exports.setAppointmentTime = (req, res) => {
   //add timeslot to the doctors DB
   console.log(req.body, "line 114");
   const token = req.body.userToken;
-  let Id = "";
-  jwt.verify(token, process.env.JWT_SECRET, (err, userId) => {
-    if (err) throw err;
-    Id = userId;
-  });
-
+  // let Id = "";
+  // jwt.verify(token, process.env.JWT_SECRET, (err, userId) => {
+  //   if (err) throw err;
+  //   Id = userId;
+  // });
+const Id= jwt.verify(token, process.env.JWT_SECRET)
+console.log(Id.id, 'line 122');
+const newTimeSlot = req.body.timeSlot
   Doctor.findByIdAndUpdate(
-    Id,
-    { $push: { availableTimeSlots: req.body.timeSlot } },
+       Id.id,{ $push: { availableTimeSlots: newTimeSlot }},
     (err, doc) => {
-      console.log(doc, "line 126");
-      res.json({ msg: "time slot successfully added" });
+      res.json({ msg: "time slot successfully added" })
+      console.log(doc, ' line 129');
     }
   );
 };

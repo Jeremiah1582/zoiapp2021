@@ -70,7 +70,7 @@ const newDoctor = new Schema({
   // Booking information---
   availableTimeSlots: [
     {
-    time:Date,
+    time:String,
     date:Date,
     duration: Number
     }

@@ -1,9 +1,11 @@
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from "react";
 import Footer from "./Footer";
 import NavBar from "./Navbar";
 import { Form, Button, Image } from "react-bootstrap";
 import specialistAPI from "../Context_APIs/specialistFields";
 import DocImage from "../imgs/drReg.png";
+
 import "../styling/customRegForm.css";
 
 import axios from "axios";
@@ -67,8 +69,10 @@ function DoctorRegForm() {
   // delete function specialist Field
   const deleteField = (e) => {
     const index = e.target.id;
-    console.log(index);
-    setSpecialist([].splice(index,1))
+    const newList = [...specialist]
+    newList.splice(index,1)
+    setSpecialist(newList)
+    // setSpecialist([].splice(index,1))
     
   };
 
@@ -134,24 +138,30 @@ function DoctorRegForm() {
       setMessage("Please fill the required fields!");
     }
   };
-
+ 
   //handle form Data
   // console.log(DrSignUp);
 
   // 2nd form test responsive
+  
   return (
+ 
+
     <div className="doc-reg">
-      <NavBar />
-      <div className="reg-section pt-4 col-sm-11 col-md-10">
+    <div >
+    {/* <div style={{position: "fixed"}} > */}
+    <NavBar />
+    </div>
+      
+      <div className="" >
         <div className="reg-container">
-          <div className="row justify-content-center">
-            <div className="col-lg-12">
-              <div className="wrap d-md-flex">
+          
                 {/* Photo-Container  */}
-                <div className="photo-wrap img">
-                  <Image src={DocImage} className="reg-img " fluid />
+                <div className='reg-img-container'>
+                  <Image src={DocImage} className='reg-img' />
                 </div>
-                <div className="reg-form p-4 p-md-5">
+                  
+                <div className="signUpForm">
                   <Form
                     className="form "
                     onSubmit={sendToBackEnd}
@@ -283,20 +293,7 @@ function DoctorRegForm() {
                           </Form.Control>
 
                           <div className="discipline-container col-md-12">
-                            {/* {DrSignUp.specialistFields.map((item, index) => {
-                              return (
-                                <div
-                                  id={index}
-                                  key={index}
-                                  className="reg-discipline"
-                                  // onClick={(e) => {
-                                  //   deleteField(e);
-                                  // }}
-                                >
-                                  {item}
-                                </div>
-                              );
-                            })} */}
+                            
                             {specialist.map((item, index) => {
                               return (
                                 <div
@@ -471,6 +468,7 @@ function DoctorRegForm() {
                       {/* upload documents */}
 
                       <Button type="submit">Sign Up</Button>
+                   
                     </div>
                   </Form>
                   {/* Log in form link */}
@@ -483,9 +481,7 @@ function DoctorRegForm() {
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
+             
         </div>
       </div>
       <Footer />
@@ -689,3 +685,4 @@ function DoctorRegForm() {
 }
 
 export default DoctorRegForm;
+

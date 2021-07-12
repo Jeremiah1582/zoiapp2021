@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import NavBar from "./Navbar";
+// import "../styling/customRegForm.css";
 
 import axios from "axios";
 
@@ -54,9 +55,13 @@ const LoginForm = () => {
   // form 1
   return (
     <div>
-      <NavBar />
+    <NavBar />
+    <div className='reg-container'>
+     
+    <div  className='signUpForm'>
+      
       <p class="warningMsg"> {message} </p>
-      <Form onSubmit={submit}>
+      <Form onSubmit={submit} className=''>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -97,6 +102,8 @@ const LoginForm = () => {
           Log in
         </Button>
       </Form>
+    </div>
+    </div>
     </div>
   );
 };

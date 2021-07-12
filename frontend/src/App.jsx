@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import "./app.css";
+
+
 import ReactDOM from "react-dom";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -38,12 +42,12 @@ const App = () => {
 
   return (
     <Router>
-      <div className="container">
+      <div className="">
         {/* *******for dynamic contain******** */}
         {/* Log out Button */}
-        <button type="button" onClick={logout}>
+        {/* <button type="button" onClick={logout}>
           Log Out
-        </button>
+        </button> */}
         <Switch>
           <Route exact path="/">
             <Home />
