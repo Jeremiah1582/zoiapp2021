@@ -3,7 +3,7 @@ import BookingModal from "../../ShowModals/BookingModal";
 import axios from "axios";
 import specialistAPI from "../../../Context_APIs/specialistFields";
 import "../../../styling/customFindDoctor.css";
-// import { Form, Button, Image } from "react-bootstrap";
+import { Modal, Form, Button, Image } from "react-bootstrap";
 
 function FindDoctor() {
   // const [searchInput, setSearchInput] = useState('');
@@ -14,13 +14,26 @@ function FindDoctor() {
     // {field: ''}
   ]);
   const [doctorTable, setDoctorTable] = useState([]);
-
+const [availableTimesDisplay, setAvailableTimesDisplay] = useState([])
+  const [show, setShow] = useState(false);
   //add new search query to formState-------------------------
   const handleChange = (e) => {
     // console.log(e, "line11 ")
     setFormState({ ...formState, [e.target.name]: e.target.value });
     // console.log(formState);
   };
+ 
+  const handleShow =(timeSlots, index)=>{
+    setShow(true)
+    console.log(timeSlots);
+    setAvailableTimesDisplay(timeSlots)
+    console.log(availableTimesDisplay);
+  }
+
+  const scheduleAppointment=(timeDate)=>{
+console.log(timeDate.id); //the Dr's ID 
+  }
+  // 
 
   //Delete search Query from formState------------------------
   // const deleteField = (e) => {
@@ -55,7 +68,7 @@ function FindDoctor() {
   //receive data from backend
 
   return (
-    <div>
+    <div >
       {/* search bar (search in database) */}
 
       <form name="form1" id="form1" action="" onSubmit={submit}>
@@ -116,9 +129,9 @@ function FindDoctor() {
                 <td>{specialist.email}</td>
                 <td>{specialist.specialistFields}</td>
                 <td>
-                  <button type="button" className="booking-button">
-                    Book an Appointment
-                  </button>
+                  <Button className='find-dr-modal' variant="primary" onClick={() =>{handleShow(specialist.availableTimeSlots, index)}}>
+                    book appointment 
+                  </Button>
                 </td>
               </tr>
             );
@@ -127,10 +140,36 @@ function FindDoctor() {
       </table>
 
 {/* Show/ Hidden Modal  */}
-      <BookingModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
+         
+        <Modal
+        show={show}
+        onHide={() =>setShow(false)}
+        dialogClassName="modal-90w"
+        aria-labelledby="example-custom-modal-styling-title"
+        
+      >
+      <div>
+        <Modal.Header closeButton>
+          <Modal.Title > Select an Appointment Time</Modal.Title>
+           
+          
+        </Modal.Header>
+        <Modal.Body>
+            {availableTimesDisplay.map((item, index)=>{
+            return(
+              <div className='available-times' onclick={()=>{scheduleAppointment(item)}}>
+              <h6 key={index} id={index}>Time: {item.time} <br /> Date: {item.date}</h6>
+              </div>
+            )
+           }
+            )}
+          </Modal.Body>
+        <Modal.Footer>
+         
+        </Modal.Footer>
+        </div>
+      </Modal>
+    
     </div>
   );
 }

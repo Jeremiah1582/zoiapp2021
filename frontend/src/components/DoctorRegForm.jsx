@@ -1,7 +1,7 @@
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from "react";
 import Footer from "./Footer";
-import NavBar from "./Navbar";
+import Navigation from "./Navigation";
 import { Form, Button, Image } from "react-bootstrap";
 import specialistAPI from "../Context_APIs/specialistFields";
 import DocImage from "../imgs/drReg.png";
@@ -150,7 +150,7 @@ function DoctorRegForm() {
     <div className="doc-reg">
     <div >
     {/* <div style={{position: "fixed"}} > */}
-    <NavBar />
+    <Navigation />
     </div>
       
       <div className="" >
@@ -174,7 +174,7 @@ function DoctorRegForm() {
                           className="input-field name d-flex align-items-center"
                           controlId="formBasicFirstName"
                         >
-                          <Form.Label>First Name:</Form.Label>
+                          <Form.Label className='form-label'>First Name:</Form.Label> <br />
                           <Form.Control
                             name="firstName"
                             type="text"
@@ -193,7 +193,7 @@ function DoctorRegForm() {
                           className="input-field name d-flex align-items-center"
                           controlId="formBasicLastName"
                         >
-                          <Form.Label>Last Name:</Form.Label>
+                          <Form.Label className='form-label'>Last Name:</Form.Label> <br />
                           <Form.Control
                             name="lastName"
                             type="text"
@@ -212,7 +212,7 @@ function DoctorRegForm() {
                           className="input-field d-flex align-items-center"
                           controlId="formBasicEmail"
                         >
-                          <Form.Label>Email address:</Form.Label>
+                          <Form.Label className='form-label'>Email address</Form.Label> <br /> 
                           <Form.Control
                             name="email"
                             type="email"
@@ -231,7 +231,7 @@ function DoctorRegForm() {
                           className="input-field d-flex align-items-center"
                           controlId="formBasicMobileNumber"
                         >
-                          <Form.Label>Mobile Number:</Form.Label>
+                          <Form.Label className='form-label'>Mobile Number:</Form.Label> <br />
                           <Form.Control
                             name="mobileNumber"
                             type="number"
@@ -250,7 +250,7 @@ function DoctorRegForm() {
                           className="input-field d-flex align-items-center"
                           controlId="formBasicLicenceNumber"
                         >
-                          <Form.Label>Licence Number:</Form.Label>
+                          <Form.Label className='form-label'>Licence Number:</Form.Label> <br />
                           <Form.Control
                             name="licenceNumber"
                             type="text"
@@ -269,7 +269,7 @@ function DoctorRegForm() {
                           controlId="exampleForm.ControlSelect1 "
                           className="input-field d-flex align-items-center"
                         >
-                          <Form.Label>Specialist In</Form.Label>
+                          <Form.Label className='form-label'>Specialist In</Form.Label> <br />
 
                           <Form.Control
                             class="input-field col-md-12"
@@ -334,7 +334,7 @@ function DoctorRegForm() {
                         className="input-field name"
                         controlId="formBasicEmail"
                       >
-                        <Form.Label>Street Name:</Form.Label>
+                        <Form.Label className='form-label'>Street Name:</Form.Label> <br />
                         <Form.Control
                           name="street"
                           value={DrSignUp.street}
@@ -351,7 +351,7 @@ function DoctorRegForm() {
                         className="input-field name"
                         controlId="formBasicEmail"
                       >
-                        <Form.Label>House Nr.:</Form.Label>
+                        <Form.Label className='form-label'>House Nr.:</Form.Label> <br />
                         <Form.Control
                           name="houseNr"
                           value={DrSignUp.houseNr}
@@ -368,7 +368,7 @@ function DoctorRegForm() {
                         className="input-field name"
                         controlId="formBasicEmail"
                       >
-                        <Form.Label>Postal Code:</Form.Label>
+                        <Form.Label className='form-label'>Postal Code:</Form.Label> <br />
                         <Form.Control
                           name="postalCode"
                           value={DrSignUp.postalCode}
@@ -385,7 +385,7 @@ function DoctorRegForm() {
                         className="input-field name"
                         controlId="formBasicEmail"
                       >
-                        <Form.Label>City:</Form.Label>
+                        <Form.Label className='form-label'>City:</Form.Label> <br />
                         <Form.Control
                           name="city"
                           value={DrSignUp.city}
@@ -401,7 +401,7 @@ function DoctorRegForm() {
                         className="input-field name"
                         controlId="formBasicEmail"
                       >
-                        <Form.Label>Country:</Form.Label>
+                        <Form.Label className='form-label'>Country:</Form.Label> <br />
                         <Form.Control
                           name="country"
                           value={DrSignUp.country}
@@ -418,7 +418,7 @@ function DoctorRegForm() {
                           className="input-field d-flex align-items-center"
                           controlId="formBasicPassword"
                         >
-                          <Form.Label>Password:</Form.Label>
+                          <Form.Label className='form-label'>Password:</Form.Label> <br />
                           <Form.Control
                             name="password"
                             type="password"
@@ -500,7 +500,7 @@ function DoctorRegForm() {
   //         <Form className="form " onSubmit={sendToBackEnd}>
   //           {/* First Name */}
   //           <Form.Group className="input-field name" controlId="formBasicName">
-  //             <Form.Label>First Name:</Form.Label>
+  //             <Form.Label className='form-label'>First Name:</Form.Label> <br />
   //             <Form.Control
   //               name="firstName"
   //               type="text"
@@ -516,7 +516,7 @@ function DoctorRegForm() {
   //             className="input-field name"
   //             controlId="formBasicFirstEmail"
   //           >
-  //             <Form.Label>Last Name:</Form.Label>
+  //             <Form.Label>Last Name:</Form.Label> <br />
   //             <Form.Control
   //               name="lastName"
   //               type="text"
@@ -530,7 +530,7 @@ function DoctorRegForm() {
 
   //           {/* email */}
   //           <Form.Group className="input-field" controlId="formBasicLastName">
-  //             <Form.Label>Email address:</Form.Label>
+  //             <Form.Label>Email address:</Form.Label> <br />
   //             <Form.Control
   //               name="email"
   //               type="email"
@@ -543,7 +543,7 @@ function DoctorRegForm() {
   //           </Form.Group>
   //           {/* contact Number */}
   //           <Form.Group className="input-field" controlId="formBasicEmail">
-  //             <Form.Label>Phone Number:</Form.Label>
+  //             <Form.Label>Phone Number:</Form.Label> <br />
   //             <Form.Control
   //               name="mobileNumber"
   //               type="number"
@@ -559,7 +559,7 @@ function DoctorRegForm() {
   //             className="input-field"
   //             controlId="formBasicLicenceNumber"
   //           >
-  //             <Form.Label>Licence Number:</Form.Label>
+  //             <Form.Label>Licence Number:</Form.Label> <br />
   //             <Form.Control
   //               name="licenceNumber"
   //               type="text"
@@ -576,7 +576,7 @@ function DoctorRegForm() {
   //             controlId="exampleForm.ControlSelect1"
   //             className="input-field"
   //           >
-  //             <Form.Label>Example select</Form.Label>
+  //             <Form.Label>Example select</Form.Label> <br />
 
   //             <Form.Control
   //               name="specialistFields"
@@ -631,7 +631,7 @@ function DoctorRegForm() {
   //           </Form>
   //           {/* Password */}
   //           <Form.Group className="input-field" controlId="formBasicPassword">
-  //             <Form.Label>Password:</Form.Label>
+  //             <Form.Label>Password:</Form.Label> <br />
   //             <Form.Control
   //               name="password"
   //               type="password"

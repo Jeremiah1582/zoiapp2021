@@ -8,7 +8,7 @@ import aboutUs from "../imgs/aboutus.png";
 
 const Home = () => {
   return (
-    <div>
+    <div style={{padding: '3rem'}}>
       <Navbar />
 
       <p className="textComponent">
