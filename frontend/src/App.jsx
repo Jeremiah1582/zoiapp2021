@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "./app.css";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
 
 import ReactDOM from "react-dom";
 import Home from "./components/Home";
