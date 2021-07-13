@@ -30,13 +30,7 @@ function DoctorRegForm() {
   // let specialist = [];
   const [specialist, setSpecialist] = useState([]);
   const handleSpecial = (item) => {
-    // specialist.push(item);
-    // console.log(item, specialist);
-    // setSpecialist(specialist);
-
-    // Arif's Code
-
-    setSpecialist([...specialist, item]) 
+    setSpecialist([...specialist, item]);
   };
   // const { specialistFields } = DrSignUp;
   // add new Dr details
@@ -44,19 +38,6 @@ function DoctorRegForm() {
     setDrSignUp({ ...DrSignUp, [e.target.name]: e.target.value });
   };
 
-  // Add function specialist Field
-  // const handleSpecialistInput = (item) => {
-  //   // console.log(item);
-  //   // const newSpecialistFields = [item];
-  //    const newSpecialistFields = DrSignUp.specialistFields.push(item);
-
-  //   setDrSignUp({
-  //     ...DrSignUp,
-  //     // specialistFields: DrSignUp.specialistFields.push(item),
-  //     specialistFields: newSpecialistFields
-  //   });
-  //   // DrSignUp.specialistFields.push(`${item}`)
-  // };
   // File state
   const [DrFile, setDrFile] = useState("");
   // upload File function
@@ -67,9 +48,11 @@ function DoctorRegForm() {
   // delete function specialist Field
   const deleteField = (e) => {
     const index = e.target.id;
-    console.log(index);
-    setSpecialist([].splice(index,1))
-    
+    const newList = [...specialist];
+    newList.splice(index, 1);
+    setSpecialist(newList);
+    // console.log(index);
+    // setSpecialist([].splice(index,1))
   };
 
   //send to back end handler

@@ -15,10 +15,12 @@ const Logout = () => {
   // logout and remove token
   const logout = () => {
     localStorage.removeItem("currentToken");
+    setToken(false);
     window.location.href = "/user/login";
   };
   return (
     <div className="navigation">
+      <h3>{token?"Welcome" : "Good Bye"}</h3>
       <input type="checkbox" className="navCheckbox" id="navigationToogle" />
       <label htmlFor="navigationToogle" className="navButton">
         MENU

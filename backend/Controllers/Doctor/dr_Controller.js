@@ -99,7 +99,7 @@ exports.registerDoctor = (req, res) => {
               throw err;
             } else {
               // res.json({ msg: `${doc.firstName} successfully added.` });
-              console.log(doc, "document 73");
+              // console.log(doc, "document 73");
               res.json("Sign up done.");
             }
           });
@@ -114,17 +114,20 @@ exports.setAppointmentTime = (req, res) => {
   console.log(req.body, "line 114");
   const token = req.body.userToken;
   let Id = "";
-  jwt.verify(token, process.env.JWT_SECRET, (err, userId) => {
+  jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
     if (err) throw err;
-    Id = userId;
+    Id = data.id;
+    // console.log(Id, "line 120");
+    Doctor.findByIdAndUpdate(
+      Id,
+      // { availableTimeSlots: req.body.timeSlot },
+      { $push: { availableTimeSlots: req.body.timeSlot } },
+      (err, doc) => {
+        // console.log(req.body.timeSlot, "line 126");
+        if (err) throw err;
+        console.log(doc, "line 127");
+        res.json({ msg: "time slot successfully added" });
+      }
+    );
   });
-
-  Doctor.findByIdAndUpdate(
-    Id,
-    { $push: { availableTimeSlots: req.body.timeSlot } },
-    (err, doc) => {
-      console.log(doc, "line 126");
-      res.json({ msg: "time slot successfully added" });
-    }
-  );
 };

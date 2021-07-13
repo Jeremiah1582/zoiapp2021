@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+
 import BookingModal from "../../ShowModals/BookingModal";
 import axios from "axios";
 import specialistAPI from "../../../Context_APIs/specialistFields";
 import "../../../styling/customFindDoctor.css";
-// import { Form, Button, Image } from "react-bootstrap";
+import { Form, Button, Image,Modal } from "react-bootstrap";
 
 function FindDoctor() {
   // const [searchInput, setSearchInput] = useState('');
@@ -53,6 +54,10 @@ function FindDoctor() {
   // send request to backend
 
   //receive data from backend
+const [show,setShow] = useState(false)
+
+ const handleClose = () => setShow(false);
+const handleShow =()=>setShow(true)
 
   return (
     <div>
@@ -116,9 +121,12 @@ function FindDoctor() {
                 <td>{specialist.email}</td>
                 <td>{specialist.specialistFields}</td>
                 <td>
-                  <button type="button" className="booking-button">
+                  {/* <button type="button" className="booking-button" onCLick={handleShowModal}>
                     Book an Appointment
-                  </button>
+                  </button> */}
+                   <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button>
                 </td>
               </tr>
             );
@@ -127,10 +135,21 @@ function FindDoctor() {
       </table>
 
 {/* Show/ Hidden Modal  */}
-      <BookingModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
+    
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
