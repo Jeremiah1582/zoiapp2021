@@ -4,7 +4,7 @@ import Navigation from "./Navigation";
 import { Form, Button, Card, Image, Alert } from "react-bootstrap";
 import PatientImage from "../imgs/userlogin02.jpg";
 import axios from "axios";
-import '../styling/customRegForm.css'
+// import '../styling/customRegForm.css'
 
 const PatientRegForm = () => {
   // patient state
