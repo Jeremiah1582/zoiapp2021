@@ -94,7 +94,7 @@ function FindDoctor() {
           <th>Appointment</th>
         </thead>
 
-        <tbody>
+        <tbody >
           {doctorTable.map((specialist, index) => {
             return (
               <tr>

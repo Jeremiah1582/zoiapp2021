@@ -6,6 +6,17 @@
   --white: #dff0e2;
   --fonts: #333333;
   --textCard: #fdfffc;
+
+  
+    --color-green:rgba(52, 173, 133, 0.795);
+    --color-grey:#999;
+    --color-dark:#000;
+    --color-white:#fff;
+    --color-light:#eee;
+    
+    --hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
+    --returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  
 }
 *,
 *::after,
@@ -854,7 +865,10 @@ a {
     }
 
     /* *************************doctor List Table********************************/
+.doctor-list-table{
+  max-width: 90%;
 
+}
 .doctor-list-table thead th {
   /* background: rgb(179, 157, 157); */
   margin: 5px;
