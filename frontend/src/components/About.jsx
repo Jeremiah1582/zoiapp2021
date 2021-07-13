@@ -7,7 +7,7 @@ import pharmacy from '../imgs/pharmacy-cross.jpeg';
 const About = () => {
   return (
     
-    <div className = "aboutWrapper">
+    <div className = "aboutWrapper" style={{padding: '3rem'}}>
       
       < Navbar />
       <div className="aboutSubWrapper">

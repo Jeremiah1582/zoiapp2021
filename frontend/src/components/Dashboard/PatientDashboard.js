@@ -1,7 +1,6 @@
 import React from "react";
 // import DashNav from './DashNav';
-// import "../../styling/customDashboard.scss";
-import '../../styling/customDashboard.css'
+// import '../../styling/customDashboard.css'
 //dashNav Widgets:
 import Home from "./PatientWidgets/Home";
 import Logout from "../Logout";

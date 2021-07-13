@@ -7,7 +7,7 @@ import patient from "../imgs/patient.png";
 const Signup = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className="cardWrap signup-cardWrap">
         <a href="/patient/registration">

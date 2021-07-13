@@ -26,7 +26,6 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 1.7;
-  padding: 3rem;
 }
 ul {
   list-style: none;
@@ -37,12 +36,12 @@ li a {
 }
 a {
   color: var(--textCard);
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 /* *****header****** */
 
-.header {
+/* .main-header {
   height: 100vh;
   background-image: linear-gradient(
       to right,
@@ -54,7 +53,8 @@ a {
   background-repeat: no-repeat;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-}
+ 
+} */
 .logo {
   height: 11rem;
   animation: animateHeart 1.2s infinite;

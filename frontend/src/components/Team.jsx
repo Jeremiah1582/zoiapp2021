@@ -8,7 +8,7 @@ import Pietro from "../imgs/pietro.jpeg";
 
 const Team = () => {
   return (
-    <div className="teamWrap">
+    <div className="teamWrap" style={{padding: '3rem'}}>
       <Navbar />
 
       <h2 className="teamTitle">ZOE Team</h2>

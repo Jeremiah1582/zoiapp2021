@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./app.css";
+
 import ReactDOM from "react-dom";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -21,24 +24,9 @@ import {
 } from "react-router-dom";
 
 const App = () => {
-  // // save token in localStorage for login
-  // const [token, setToken] = useState("false");
-  // useEffect(() => {
-  //   const user = localStorage.getItem("currentToken");
-  //   if (user) {
-  //     setToken(true);
-  //   }
-  // }, []);
-
-  // // logout and remove token
-  // const logout = () => {
-  //   localStorage.removeItem("currentToken");
-  //   window.location.href = "/user/login";
-  // };
-
   return (
     <Router>
-      <div className="container">
+      <div className="">
         {/* *******for dynamic contain******** */}
         {/* Log out Button */}
         {/* <button type="button" onClick={logout}>

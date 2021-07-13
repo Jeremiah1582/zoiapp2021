@@ -1,7 +1,6 @@
 // import React from "react";
 // import { Modal, Button } from "react-bootstrap";
 // function BookingModal(props) {
- 
 //   return (
 //     <div></div>
     // <Modal

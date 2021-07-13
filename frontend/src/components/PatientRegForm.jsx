@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Footer from "./Footer";
-import NavBar from "./Navbar";
+import Navigation from "./Navigation";
 import { Form, Button, Card, Image, Alert } from "react-bootstrap";
 import PatientImage from "../imgs/userlogin02.jpg";
 import axios from "axios";
+// import '../styling/customRegForm.css'
 
 const PatientRegForm = () => {
   // patient state
@@ -79,9 +80,9 @@ const PatientRegForm = () => {
   };
 
   return (
-    <div>
-      <NavBar />
-      <div className="pt-reg ">
+    <div className="doc-reg">
+      <Navigation />
+      <div className="reg-container" >
         <div className="img-container">
           <Image src={PatientImage} className="reg-img" fluid />
         </div>
@@ -90,13 +91,13 @@ const PatientRegForm = () => {
             className="signUpForm"
             style={{ width: "50rem", height: "100" }}
           >
-            <Form className="form-class" onSubmit={sendToBackEnd}>
+            <Form className="form-class form" onSubmit={sendToBackEnd}>
               {/* First Name */}
               <Form.Group
-                className="input-field name"
+                className="input-field name d-flex align-items-center"
                 controlId="formBasicName"
               >
-                <Form.Label>First Name:</Form.Label>
+                <Form.Label >First Name:</Form.Label>
                 <Form.Control
                   name="firstName"
                   value={patientSignUp.firstName}
