@@ -8,7 +8,7 @@ import Home from "./DashWidgets/Home";
 import SetAppointmentTimes from "./DashWidgets/SetAppointmentTimes";
 import Messages from "./DashWidgets/Messages";
 import PatientList from "./DashWidgets/PatientList";
-import DrList from "./DashWidgets/DrList";
+import FindDoctor from "./PatientWidgets/FindDoctor";
 import TodoList from "./DashWidgets/TodoList";
 import Weather from "./DashWidgets/Weather";
 import Settings from "./DashWidgets/Settings";
@@ -50,7 +50,7 @@ function DoctorDashboard() {
               <i className="fas fa-user-injured"></i>
             </Link>
 
-            <Link className="dash-menu-item dash-menu-link" to="/doctor/drList">
+            <Link className="dash-menu-item dash-menu-link" to="/finddoctor">
               <i className="fas fa-user-md"></i>
             </Link>
 
@@ -86,8 +86,8 @@ function DoctorDashboard() {
           <Route path="/doctor/patientList">
             <PatientList />
           </Route>
-          <Route path="/doctor/drList">
-            <DrList />
+          <Route path="/finddoctor">
+            <FindDoctor />
           </Route>
           <Route path="/doctor/todolist">
             <TodoList />
