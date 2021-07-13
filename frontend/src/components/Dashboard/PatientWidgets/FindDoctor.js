@@ -10,7 +10,7 @@ function FindDoctor() {
 
   const handleSpecialistInput = (item) => {
     setSearchInput(item);
-    console.log(SearchInput);
+    console.log(searchInput);
   };
 
 //   const deleteField = (e) => {
