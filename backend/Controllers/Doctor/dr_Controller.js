@@ -1,6 +1,6 @@
 const Doctor = require("../../Models/Doctor/dr_Model");
 const bcrypt = require("bcrypt");
-
+const jwt = require("jsonwebtoken");
 // exports.appointments=(req, res)=>{
 
 // res.send(' <h1>Dr: </br> this is the appointment page for Dr </h1>')
@@ -17,6 +17,11 @@ exports.registerDoctor = (req, res) => {
     licenceNumber,
     specialistFields,
     doctorFile,
+    street,
+    houseNr,
+    postalCode,
+    city,
+    country,
   } = req.body;
   const error = {};
   if (firstName == "") {
@@ -46,6 +51,21 @@ exports.registerDoctor = (req, res) => {
   if (doctorFile == "") {
     error.doctorFile = "files is required";
   }
+  if (street == "") {
+    error.street = "Street is required!";
+  }
+  if (houseNr == "") {
+    error.houseNr = "House Nr is required!";
+  }
+  if (postalCode == "") {
+    error.postalCode = "Postal code Nr is required!";
+  }
+  if (city == "") {
+    error.city = "City is required!";
+  }
+  if (country == "") {
+    error.country = "Country is required!";
+  }
   if (
     firstName == "" ||
     lastName == "" ||
@@ -55,7 +75,12 @@ exports.registerDoctor = (req, res) => {
     confirmedPassword == "" ||
     licenceNumber == "" ||
     specialistFields == "" ||
-    doctorFile == ""
+    doctorFile == "" ||
+    street == "" ||
+    houseNr == "" ||
+    postalCode == "" ||
+    city == "" ||
+    country == ""
   ) {
     return res.json({ msg: error });
   }
@@ -82,4 +107,25 @@ exports.registerDoctor = (req, res) => {
       });
     }
   });
+};
+
+exports.setAppointmentTime = (req, res) => {
+  //add timeslot to the doctors DB
+  console.log(req.body, "line 114");
+  const token = req.body.userToken;
+  // let Id = "";
+  // jwt.verify(token, process.env.JWT_SECRET, (err, userId) => {
+  //   if (err) throw err;
+  //   Id = userId;
+  // });
+const Id= jwt.verify(token, process.env.JWT_SECRET)
+console.log(Id.id, 'line 122');
+const newTimeSlot = req.body.timeSlot
+  Doctor.findByIdAndUpdate(
+       Id.id,{ $push: { availableTimeSlots: newTimeSlot }},
+    (err, doc) => {
+      res.json({ msg: "time slot successfully added" })
+      console.log(doc, ' line 129');
+    }
+  );
 };

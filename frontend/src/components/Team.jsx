@@ -8,7 +8,7 @@ import Pietro from "../imgs/pietro.jpeg";
 
 const Team = () => {
   return (
-    <div className="teamWrap">
+    <div className="teamWrap" style={{padding: '3rem'}}>
       <Navbar />
 
       <h2 className="teamTitle">ZOE Team</h2>
@@ -36,6 +36,8 @@ const Team = () => {
                 <a
                   href="https://www.linkedin.com/in/jeremiah-brown-35232190/"
                   target="_blank"
+                  rel="noopener noreferrer"                  
+                  
                   className="social-links_link"
                 >
                   <i className="fab fa-linkedin-in"></i>
@@ -44,6 +46,8 @@ const Team = () => {
                 <a
                   href="https://github.com/Jeremiah1582"
                   target="_blank"
+                  rel="noopener noreferrer"                  
+                  
                   className="social-links_link"
                 >
                   <i className="fab fa-github"></i>
@@ -76,6 +80,8 @@ const Team = () => {
                   href="https://www.linkedin.com/in/md-ashik-ahammed-a450881b3/"
                   className="social-links_link"
                   target="_blank"
+                  rel="noopener noreferrer"                  
+                  
                 >
                   <i className="fab fa-linkedin-in"></i>
                 </a>
@@ -83,6 +89,8 @@ const Team = () => {
                   href="https://github.com/ashikkhandani"
                   className="social-links_link"
                   target="_blank"
+                  rel="noopener noreferrer"                  
+                  
                 >
                   <i className="fab fa-github"></i>
                 </a>
@@ -114,6 +122,9 @@ const Team = () => {
                   href="https://www.linkedin.com/in/jose-campos-plaza-265541180/"
                   className="social-links_link"
                   target="_blank"
+                  rel="noopener noreferrer"                  
+                   
+                  
                 >
                   <i className="fab fa-linkedin-in"></i>
                 </a>
@@ -121,6 +132,8 @@ const Team = () => {
                   href="https://github.com/camposCode"
                   className="social-links_link"
                   target="_blank"
+                  rel="noopener noreferrer"                  
+                  
                 >
                   <i className="fab fa-github"></i>
                 </a>
@@ -152,6 +165,8 @@ const Team = () => {
                   href="https://www.linkedin.com/in/pietro-simcic/"
                   className="social-links_link"
                   target="_blank"
+                  rel="noopener noreferrer"                  
+                  
                 >
                   <i className="fab fa-linkedin-in"></i>
                 </a>
@@ -159,6 +174,8 @@ const Team = () => {
                   href="https://github.com/whiteroach"
                   className="social-links_link"
                   target="_blank"
+                  rel="noopener noreferrer"                  
+                  
                 >
                   <i className="fab fa-github"></i>
                 </a>

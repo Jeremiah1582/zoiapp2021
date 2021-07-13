@@ -1,39 +1,52 @@
-// const PatientModel = require('../Models/Patient/p_Model')
-// const DoctorModel = require('../Models/Doctor/dr_Model')
-
-// ****************** signup function************
-// exports.registrationForm = (req, res) => {
-//   //Create user in database
-//   console.log("this is the signup function");
-//   res.send("<h1> <br/>  sign up page </h1>");
-// };
-// exports.registerUser = (req, res) => {
-//   //Create user in database
-//   console.log("this is the signup function");
-//   res.send("<h1> <br/>  sign up page </h1>");
-// };
-
-// //********** login function***********
-// exports.loginForm = (req, res) => {
-//   //assign cookie to the
-
-//   console.log("this is the login function");
-//   res.send("<h1> <br/> login page </h1>");
-// };
+const Patient = require("../Models/Patient/p_Model");
+const Doctor = require("../Models/Doctor/dr_Model");
+const jwt = require("jsonwebtoken");
+//***** Login function for Patient & Doctor *******//
 
 exports.loginUser = (req, res) => {
-  console.log(req.body,"is here");
+  // console.log(req.body, "userController: 07");
   //assign cookie to the
+  // console.log(req.body.email, "userController: 09");
   if (req.body.condition === "doctor") {
-    console.log("doctor Page");
-    res.status(200).json({msg:"Doctor Page here"})
+    Doctor.findOne({ email: req.body.email }, (err, data) => {
+      if (data !== null) {
+        // console.log(data, "userController: 15");
+        // console.log("Test 01: Doctor Dashboard. userController :16");
+        const secret = process.env.JWT_SECRET;
+        const token = jwt.sign({ id: data._id }, secret, {
+          expiresIn: "1d", // 60*60*24
+          algorithm: "HS256",
+        });
+        res
+          .status(200)
+          .json({ msg: "Doctor Page connected. uController :17", token });
+      } else {
+        console.log("Please log in!");
+        res.status(404).json({ msg: "Please log in!" });
+      }
+    });
+
     // res.send("I m doctor");
-  } else if(req.body.condition === "patient") {
-    console.log("patient page");
-    res.status(200).json({msg:"Patient Page here"})
+  } else if (req.body.condition === "patient") {
+    console.log(req.body, "uController :28");
+    Patient.findOne({ email: req.body.email }, (err, data) => {
+      if (data) {
+        // console.log(data, "uController: 33");
+        // console.log("Test 02: Patient Dashboard connected. 34");
+        const secret = process.env.JWT_SECRET;
+        const token = jwt.sign({ id: data._id }, secret, {
+          expiresIn: "1d", // 60*60*24
+          algorithm: "HS256",
+        });
+
+        res.status(200).json({ msg: "Patient Page here 35", token });
+      } else {
+        console.log("Please log in!");
+      }
+    });
     // res.send("I m patient")
-  } else{
-      console.log("Please log in!");
+    // } else {
+    //   console.log("Please log in!");
   }
 };
 

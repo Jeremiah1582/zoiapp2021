@@ -1,9 +1,11 @@
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from "react";
 import Footer from "./Footer";
-import NavBar from "./Navbar";
+import Navigation from "./Navigation";
 import { Form, Button, Image } from "react-bootstrap";
 import specialistAPI from "../Context_APIs/specialistFields";
 import DocImage from "../imgs/drReg.png";
+
 import "../styling/customRegForm.css";
 
 import axios from "axios";
@@ -18,24 +20,45 @@ function DoctorRegForm() {
     password: "",
     confirmedPassword: "",
     licenceNumber: "",
-    specialistFields: [],
+    // specialistFields: [],
+    street: "",
+    houseNr: "",
+    postalCode: "",
+    city: "",
+    country: "",
   });
   // Error message state
   const [message, setMessage] = useState("");
+  // let specialist = [];
+  const [specialist, setSpecialist] = useState([]);
+  const handleSpecial = (item) => {
+    // specialist.push(item);
+    // console.log(item, specialist);
+    // setSpecialist(specialist);
 
-  const { specialistFields } = DrSignUp;
+    // Arif's Code
+
+    setSpecialist([...specialist, item]) 
+  };
+  // const { specialistFields } = DrSignUp;
   // add new Dr details
   const handleFormInput = (e) => {
     setDrSignUp({ ...DrSignUp, [e.target.name]: e.target.value });
   };
 
   // Add function specialist Field
-  const handleSpecialistInput = (item) => {
-    console.log(item);
-    const newSpecialistFields = [...specialistFields, item];
-    setDrSignUp({ ...DrSignUp, specialistFields: newSpecialistFields });
-    // DrSignUp.specialistFields.push(`${item}`)
-  };
+  // const handleSpecialistInput = (item) => {
+  //   // console.log(item);
+  //   // const newSpecialistFields = [item];
+  //    const newSpecialistFields = DrSignUp.specialistFields.push(item);
+
+  //   setDrSignUp({
+  //     ...DrSignUp,
+  //     // specialistFields: DrSignUp.specialistFields.push(item),
+  //     specialistFields: newSpecialistFields
+  //   });
+  //   // DrSignUp.specialistFields.push(`${item}`)
+  // };
   // File state
   const [DrFile, setDrFile] = useState("");
   // upload File function
@@ -46,10 +69,11 @@ function DoctorRegForm() {
   // delete function specialist Field
   const deleteField = (e) => {
     const index = e.target.id;
-    console.log(index);
-    const newSpecialistFields = [...specialistFields];
-    newSpecialistFields.splice(index, 1);
-    setDrSignUp({ ...DrSignUp, specialistFields: newSpecialistFields });
+    const newList = [...specialist]
+    newList.splice(index,1)
+    setSpecialist(newList)
+    // setSpecialist([].splice(index,1))
+    
   };
 
   //send to back end handler
@@ -58,6 +82,7 @@ function DoctorRegForm() {
     e.preventDefault();
     // console.log(DrFile);
     // new doctor data state
+
     const formData = new FormData();
     formData.append("firstName", DrSignUp.firstName);
     formData.append("lastName", DrSignUp.lastName);
@@ -66,7 +91,12 @@ function DoctorRegForm() {
     formData.append("password", DrSignUp.password);
     formData.append("confirmedPassword", DrSignUp.confirmedPassword);
     formData.append("licenceNumber", DrSignUp.licenceNumber);
-    formData.append("specialistFields", DrSignUp.specialistFields);
+    formData.append("specialistFields", specialist);
+    formData.append("street", DrSignUp.street);
+    formData.append("houseNr", DrSignUp.houseNr);
+    formData.append("postalCode", DrSignUp.postalCode);
+    formData.append("city", DrSignUp.city);
+    formData.append("country", DrSignUp.country);
     formData.append("doctorFile", DrFile);
 
     // file data
@@ -75,53 +105,63 @@ function DoctorRegForm() {
         "content-type": "multipart/form-data",
       },
     };
-    if (DrSignUp.email !== "" && DrSignUp.password !== "")
-    {
-    // console.log(formData);
-    axios
-      .post("http://localhost:5000/doctor/registration", formData, config)
-      .then((res) => {
-        console.log(res.data);
-        setDrSignUp({
-          firstName: "",
-          lastName: "",
-          email: "",
-          mobileNumber: "",
-          password: "",
-          confirmedPassword: "",
-          licenceNumber: "",
-          specialistFields: [],
+    if (DrSignUp.email !== "" && DrSignUp.password !== "") {
+      console.log(formData);
+      axios
+        .post("http://localhost:5000/doctor/registration", formData, config)
+        .then((res) => {
+          console.log(res.data);
+          setDrSignUp({
+            firstName: "",
+            lastName: "",
+            email: "",
+            mobileNumber: "",
+            password: "",
+            confirmedPassword: "",
+            licenceNumber: "",
+            // specialistFields: [],
+            street: "",
+            houseNr: "",
+            postalCode: "",
+            city: "",
+            country: "",
+          });
+          // setMessage(res.data.msg);
+          // redirecting to login page
+          window.location.href = "/user/login";
+          // console.log("Sign up done! ");
+        })
+        .catch((error) => {
+          console.log(error, "form Doctor");
         });
-        // setMessage(res.data.msg);
-        // redirecting to login page
-        window.location.href = "/user/login";
-        // console.log("Sign up done! ");
-      })
-      .catch((error) => {
-        console.log(error, "form Doctor");
-      });
     } else {
       setMessage("Please fill the required fields!");
     }
   };
-
+ 
   //handle form Data
   // console.log(DrSignUp);
 
   // 2nd form test responsive
+  
   return (
+ 
+
     <div className="doc-reg">
-      <NavBar />
-      <div className="reg-section pt-4 col-sm-11 col-md-10">
+    <div >
+    {/* <div style={{position: "fixed"}} > */}
+    <Navigation />
+    </div>
+      
+      <div className="" >
         <div className="reg-container">
-          <div className="row justify-content-center">
-            <div className="col-lg-12">
-              <div className="wrap d-md-flex">
+          
                 {/* Photo-Container  */}
-                <div className="photo-wrap img">
-                  <Image src={DocImage} className="reg-img " fluid />
+                <div className='reg-img-container'>
+                  <Image src={DocImage} className='reg-img' />
                 </div>
-                <div className="reg-form p-4 p-md-5">
+                  
+                <div className="signUpForm">
                   <Form
                     className="form "
                     onSubmit={sendToBackEnd}
@@ -134,7 +174,7 @@ function DoctorRegForm() {
                           className="input-field name d-flex align-items-center"
                           controlId="formBasicFirstName"
                         >
-                          <Form.Label>First Name:</Form.Label>
+                          <Form.Label className='form-label'>First Name:</Form.Label> <br />
                           <Form.Control
                             name="firstName"
                             type="text"
@@ -153,7 +193,7 @@ function DoctorRegForm() {
                           className="input-field name d-flex align-items-center"
                           controlId="formBasicLastName"
                         >
-                          <Form.Label>Last Name:</Form.Label>
+                          <Form.Label className='form-label'>Last Name:</Form.Label> <br />
                           <Form.Control
                             name="lastName"
                             type="text"
@@ -172,7 +212,7 @@ function DoctorRegForm() {
                           className="input-field d-flex align-items-center"
                           controlId="formBasicEmail"
                         >
-                          <Form.Label>Email address:</Form.Label>
+                          <Form.Label className='form-label'>Email address</Form.Label> <br /> 
                           <Form.Control
                             name="email"
                             type="email"
@@ -191,7 +231,7 @@ function DoctorRegForm() {
                           className="input-field d-flex align-items-center"
                           controlId="formBasicMobileNumber"
                         >
-                          <Form.Label>Mobile Number:</Form.Label>
+                          <Form.Label className='form-label'>Mobile Number:</Form.Label> <br />
                           <Form.Control
                             name="mobileNumber"
                             type="number"
@@ -210,7 +250,7 @@ function DoctorRegForm() {
                           className="input-field d-flex align-items-center"
                           controlId="formBasicLicenceNumber"
                         >
-                          <Form.Label>Licence Number:</Form.Label>
+                          <Form.Label className='form-label'>Licence Number:</Form.Label> <br />
                           <Form.Control
                             name="licenceNumber"
                             type="text"
@@ -229,7 +269,7 @@ function DoctorRegForm() {
                           controlId="exampleForm.ControlSelect1 "
                           className="input-field d-flex align-items-center"
                         >
-                          <Form.Label>Example select</Form.Label>
+                          <Form.Label className='form-label'>Specialist In</Form.Label> <br />
 
                           <Form.Control
                             class="input-field col-md-12"
@@ -239,7 +279,8 @@ function DoctorRegForm() {
                             onChange={(e) => {
                               console.log("onSelect is", e.target.value);
                               const selectedItem = e.target.value;
-                              handleSpecialistInput(selectedItem);
+                              // handleSpecialistInput(selectedItem);
+                              handleSpecial(selectedItem);
                             }}
                           >
                             {specialistAPI.map((item, index) => {
@@ -252,7 +293,8 @@ function DoctorRegForm() {
                           </Form.Control>
 
                           <div className="discipline-container col-md-12">
-                            {DrSignUp.specialistFields.map((item, index) => {
+                            
+                            {specialist.map((item, index) => {
                               return (
                                 <div
                                   id={index}
@@ -285,13 +327,98 @@ function DoctorRegForm() {
                         </Form>
                       </div>
 
+                      {/* Address Details */}
+
+                      {/* Street Name */}
+                      <Form.Group
+                        className="input-field name"
+                        controlId="formBasicEmail"
+                      >
+                        <Form.Label className='form-label'>Street Name:</Form.Label> <br />
+                        <Form.Control
+                          name="street"
+                          value={DrSignUp.street}
+                          type="text"
+                          placeholder="Street Name"
+                          onChange={(e) => {
+                            handleFormInput(e);
+                          }}
+                        />
+                      </Form.Group>
+
+                      {/* House Number */}
+                      <Form.Group
+                        className="input-field name"
+                        controlId="formBasicEmail"
+                      >
+                        <Form.Label className='form-label'>House Nr.:</Form.Label> <br />
+                        <Form.Control
+                          name="houseNr"
+                          value={DrSignUp.houseNr}
+                          type="number"
+                          placeholder="House Nr"
+                          onChange={(e) => {
+                            handleFormInput(e);
+                          }}
+                        />
+                      </Form.Group>
+
+                      {/* Postal Code */}
+                      <Form.Group
+                        className="input-field name"
+                        controlId="formBasicEmail"
+                      >
+                        <Form.Label className='form-label'>Postal Code:</Form.Label> <br />
+                        <Form.Control
+                          name="postalCode"
+                          value={DrSignUp.postalCode}
+                          type="number"
+                          placeholder="Postal Code"
+                          onChange={(e) => {
+                            handleFormInput(e);
+                          }}
+                        />
+                      </Form.Group>
+
+                      {/* City Name */}
+                      <Form.Group
+                        className="input-field name"
+                        controlId="formBasicEmail"
+                      >
+                        <Form.Label className='form-label'>City:</Form.Label> <br />
+                        <Form.Control
+                          name="city"
+                          value={DrSignUp.city}
+                          type="text"
+                          placeholder="City Name"
+                          onChange={(e) => {
+                            handleFormInput(e);
+                          }}
+                        />
+                      </Form.Group>
+                      {/* Country Name */}
+                      <Form.Group
+                        className="input-field name"
+                        controlId="formBasicEmail"
+                      >
+                        <Form.Label className='form-label'>Country:</Form.Label> <br />
+                        <Form.Control
+                          name="country"
+                          value={DrSignUp.country}
+                          type="text"
+                          placeholder="Country Name"
+                          onChange={(e) => {
+                            handleFormInput(e);
+                          }}
+                        />
+                      </Form.Group>
                       {/* Password */}
                       <div className="col-md-12">
                         <Form.Group
                           className="input-field d-flex align-items-center"
                           controlId="formBasicPassword"
                         >
-                          <Form.Label>Password:</Form.Label>
+                          <Form.Label className='form-label'>Password:</Form.Label> <br />
                           <Form.Control
                             name="password"
                             type="password"
@@ -341,6 +468,7 @@ function DoctorRegForm() {
                       {/* upload documents */}
 
                       <Button type="submit">Sign Up</Button>
+                   
                     </div>
                   </Form>
                   {/* Log in form link */}
@@ -353,9 +481,7 @@ function DoctorRegForm() {
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
+             
         </div>
       </div>
       <Footer />
@@ -374,7 +500,7 @@ function DoctorRegForm() {
   //         <Form className="form " onSubmit={sendToBackEnd}>
   //           {/* First Name */}
   //           <Form.Group className="input-field name" controlId="formBasicName">
-  //             <Form.Label>First Name:</Form.Label>
+  //             <Form.Label className='form-label'>First Name:</Form.Label> <br />
   //             <Form.Control
   //               name="firstName"
   //               type="text"
@@ -390,7 +516,7 @@ function DoctorRegForm() {
   //             className="input-field name"
   //             controlId="formBasicFirstEmail"
   //           >
-  //             <Form.Label>Last Name:</Form.Label>
+  //             <Form.Label>Last Name:</Form.Label> <br />
   //             <Form.Control
   //               name="lastName"
   //               type="text"
@@ -404,7 +530,7 @@ function DoctorRegForm() {
 
   //           {/* email */}
   //           <Form.Group className="input-field" controlId="formBasicLastName">
-  //             <Form.Label>Email address:</Form.Label>
+  //             <Form.Label>Email address:</Form.Label> <br />
   //             <Form.Control
   //               name="email"
   //               type="email"
@@ -417,7 +543,7 @@ function DoctorRegForm() {
   //           </Form.Group>
   //           {/* contact Number */}
   //           <Form.Group className="input-field" controlId="formBasicEmail">
-  //             <Form.Label>Phone Number:</Form.Label>
+  //             <Form.Label>Phone Number:</Form.Label> <br />
   //             <Form.Control
   //               name="mobileNumber"
   //               type="number"
@@ -433,7 +559,7 @@ function DoctorRegForm() {
   //             className="input-field"
   //             controlId="formBasicLicenceNumber"
   //           >
-  //             <Form.Label>Licence Number:</Form.Label>
+  //             <Form.Label>Licence Number:</Form.Label> <br />
   //             <Form.Control
   //               name="licenceNumber"
   //               type="text"
@@ -450,7 +576,7 @@ function DoctorRegForm() {
   //             controlId="exampleForm.ControlSelect1"
   //             className="input-field"
   //           >
-  //             <Form.Label>Example select</Form.Label>
+  //             <Form.Label>Example select</Form.Label> <br />
 
   //             <Form.Control
   //               name="specialistFields"
@@ -505,7 +631,7 @@ function DoctorRegForm() {
   //           </Form>
   //           {/* Password */}
   //           <Form.Group className="input-field" controlId="formBasicPassword">
-  //             <Form.Label>Password:</Form.Label>
+  //             <Form.Label>Password:</Form.Label> <br />
   //             <Form.Control
   //               name="password"
   //               type="password"
@@ -559,3 +685,4 @@ function DoctorRegForm() {
 }
 
 export default DoctorRegForm;
+

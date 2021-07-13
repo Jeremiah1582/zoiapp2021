@@ -1,5 +1,6 @@
 const Patient = require("../../Models/Patient/p_Model");
-const bcrypt= require("bcrypt")
+const Doctor = require("../../Models/Doctor/dr_Model");
+const bcrypt = require("bcrypt");
 exports.registerPatient = (req, res) => {
   // console.log(req.body, "patient data line 04");
   const {
@@ -92,14 +93,22 @@ exports.registerPatient = (req, res) => {
           newPatient.save((err, doc) => {
             if (err) {
               throw err;
-            }else{
+            } else {
               res.json({ msg: `${doc.firstName} successfully added.` });
             }
-           
           });
         });
       });
     }
+  });
+};
+
+// ** Search for a Doctor ** //
+exports.findDoctor = (req, res) => {
+  console.log(req.body.field, "line 108");
+  Doctor.find({ $text: { $search: req.body.field } }, (err, doc) => {
+    // console.log(doc)
+    res.json(doc);
   });
 };
 

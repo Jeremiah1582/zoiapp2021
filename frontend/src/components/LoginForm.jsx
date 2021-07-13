@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import NavBar from "./Navbar";
+// import "../styling/customRegForm.css";
 
 import axios from "axios";
 
@@ -25,7 +27,7 @@ const LoginForm = () => {
 
   // account type function
   const accountType = (e) => {
-    setUserLogin({...UserLogin,condition:e.target.value});
+    setUserLogin({ ...UserLogin, condition: e.target.value });
   };
   // console.log(UserLogin.condition, "is here");
   // submit function
@@ -38,11 +40,11 @@ const LoginForm = () => {
         console.log(res.data);
 
         // localStorage
-        localStorage.setItem("currentToken", res.data);
+        localStorage.setItem("currentToken", res.data.token);
         if (UserLogin.condition === "patient") {
-          window.location.href = "/patient";
+          window.location.href = "/patient/dashboard";
         } else if (UserLogin.condition === "doctor") {
-          window.location.href = "/doctor";
+          window.location.href = "/doctor/dashboard";
         }
       });
     } else {
@@ -53,8 +55,13 @@ const LoginForm = () => {
   // form 1
   return (
     <div>
+    <NavBar />
+    <div className='reg-container'>
+     
+    <div  className='signUpForm'>
+      
       <p class="warningMsg"> {message} </p>
-      <Form onSubmit={submit}>
+      <Form onSubmit={submit} className=''>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -95,6 +102,8 @@ const LoginForm = () => {
           Log in
         </Button>
       </Form>
+    </div>
+    </div>
     </div>
   );
 };
