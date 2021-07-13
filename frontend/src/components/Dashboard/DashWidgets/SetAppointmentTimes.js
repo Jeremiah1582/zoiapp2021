@@ -12,7 +12,7 @@ function SetAppointmentTimes() {
     setTimeSlot({ ...timeSlot, [e.target.name]: e.target.value });
   };
 
-  console.log(timeSlot);
+  // console.log(timeSlot);
 
   // add time slot to the database-------------------------------------------------------
   const addTimeSlot = (e) => {
@@ -29,7 +29,7 @@ function SetAppointmentTimes() {
         console.log(result);
         setStateB({ ...StateB, data: result.data });
       });
-    console.log(setStateB());
+    // console.log(setStateB());
   };
 
   // delete timeslot from the database------------------------------------------------
@@ -57,6 +57,7 @@ function SetAppointmentTimes() {
             }}
           />
           <input
+         data-date-format="DD MMMM YYYY" 
             name="date"
             type="date"
             value={timeSlot.date}

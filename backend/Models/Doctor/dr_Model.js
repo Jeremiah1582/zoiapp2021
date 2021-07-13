@@ -71,7 +71,7 @@ const newDoctor = new Schema({
   availableTimeSlots: [
     {
     time:String,
-    date:Date,
+    date:String,
     duration: Number
     }
   ],

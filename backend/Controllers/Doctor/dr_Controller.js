@@ -120,7 +120,6 @@ exports.setAppointmentTime = (req, res) => {
     // console.log(Id, "line 120");
     Doctor.findByIdAndUpdate(
       Id,
-      // { availableTimeSlots: req.body.timeSlot },
       { $push: { availableTimeSlots: req.body.timeSlot } },
       (err, doc) => {
         // console.log(req.body.timeSlot, "line 126");
