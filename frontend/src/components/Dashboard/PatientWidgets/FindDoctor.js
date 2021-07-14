@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import specialistAPI from "../../../Context_APIs/specialistFields";
 // import "../../../styling/customFindDoctor.css";
@@ -18,6 +18,14 @@ function FindDoctor() {
   const [doctorTable, setDoctorTable] = useState([]);
   const [availableTimesDisplay, setAvailableTimesDisplay] = useState([]);
   const [show, setShow] = useState(false);
+  // const[patientInfo, setPatientInfo]=useState([])
+  // ------------------------------------------------------
+const {state, dispatch} = useContext('MyContext')
+
+const sendRequest=()=>{ //sending appointment info 
+
+
+}
   //add new search query to formState-------------------------
   const handleChange = (e) => {
     // console.log(e, "line11 ")
@@ -54,15 +62,15 @@ function FindDoctor() {
 
   // Send & receive from Back End---------------------------------------
 
-  useEffect(() => {
-    const userToken = localStorage.getItem("currentToken");
-    console.log(userToken);
-    axios
-      .post("http://localhost:5000/patient/bookingForm", { userToken })
-      .then((res) => {
-        console.log(res.data);
-      });
-  }, [bookingForm]);
+  // useEffect(() => {
+  //   const userToken = localStorage.getItem("currentToken");
+  //   console.log(userToken);
+  //   axios
+  //     .post("http://localhost:5000/patient/bookingForm", { userToken })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //     });
+  // }, [bookingForm]);
 
   const submit = (e) => {
     e.preventDefault();
@@ -218,6 +226,19 @@ function FindDoctor() {
                     // placeholder="Enter email"
                   />
                 </Form.Group>
+                  {/* Insurance Company Name */}
+              <Form.Group
+                className="input-field name"
+                controlId="formBasicInsuranceCompany"
+              >
+                <Form.Label>Insurance Company:</Form.Label>
+                <Form.Control
+                  name="insuranceCompany"
+                  type="text"
+                  // placeholder="Insurance Company"
+                 
+                />
+              </Form.Group>
                 {/* Insurance Number */}
                 <Form.Group
                   className="input-field"
@@ -228,6 +249,18 @@ function FindDoctor() {
                     name="insuranceNumber"
                     type="text"
                     // placeholder="Enter insurance number"
+                  />
+                </Form.Group>
+                  {/* Moblie Number */}
+                  <Form.Group
+                  className="input-field"
+                  controlId="formBasicMobileNumber"
+                >
+                  <Form.Label>Mobile Number:</Form.Label>
+                  <Form.Control
+                    name="mobileNumber"
+                    type="text"
+                    // placeholder="Enter mobile number"
                   />
                 </Form.Group>
                 {/* Send Request */}
