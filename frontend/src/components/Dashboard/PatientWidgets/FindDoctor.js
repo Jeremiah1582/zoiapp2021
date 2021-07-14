@@ -18,6 +18,7 @@ function FindDoctor() {
   const [doctorTable, setDoctorTable] = useState([]);
   const [availableTimesDisplay, setAvailableTimesDisplay] = useState([]);
   const [show, setShow] = useState(false);
+  const [patientInfo, setPatientInfo] = useState([]);
   //add new search query to formState-------------------------
   const handleChange = (e) => {
     // console.log(e, "line11 ")
@@ -61,6 +62,7 @@ function FindDoctor() {
       .post("http://localhost:5000/patient/bookingForm", { userToken })
       .then((res) => {
         console.log(res.data);
+        setPatientInfo(res.data);
       });
   }, [bookingForm]);
 
@@ -72,7 +74,7 @@ function FindDoctor() {
     axios
       .post("http://localhost:5000/patient/finddoctor", formState)
       .then((res) => {
-        // console.log(res, "line 25");
+        // console.log(res.data, "line 25");
         setDoctorTable(res.data);
       });
   };
@@ -170,6 +172,7 @@ function FindDoctor() {
               </Button>
 
               <h3>Booking Form</h3>
+
               {/* Form  */}
               <Form className="form-class form">
                 {/* First Name */}
