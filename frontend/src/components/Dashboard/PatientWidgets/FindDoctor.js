@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import specialistAPI from "../../../Context_APIs/specialistFields";
 // import "../../../styling/customFindDoctor.css";
@@ -53,6 +53,17 @@ function FindDoctor() {
   // }
 
   // Send & receive from Back End---------------------------------------
+
+  useEffect(() => {
+    const userToken = localStorage.getItem("currentToken");
+    console.log(userToken);
+    axios
+      .post("http://localhost:5000/patient/bookingForm", { userToken })
+      .then((res) => {
+        console.log(res.data);
+      });
+  }, [bookingForm]);
+
   const submit = (e) => {
     e.preventDefault();
     setShowTable(true);
@@ -164,7 +175,7 @@ function FindDoctor() {
                 {/* First Name */}
                 <Form.Group
                   className="input-field name d-flex align-items-center"
-                  controlId="formBasicName"
+                  controlId="formBasicFirstName"
                 >
                   <Form.Label>First Name:</Form.Label>
                   <Form.Control
@@ -173,11 +184,59 @@ function FindDoctor() {
                     // placeholder="First Name"
                   />
                 </Form.Group>
+                {/* Last Name */}
+                <Form.Group
+                  className="input-field name d-flex align-items-center"
+                  controlId="formBasicLastName"
+                >
+                  <Form.Label>Last Name:</Form.Label>
+                  <Form.Control
+                    name="lastName"
+                    type="text"
+                    // placeholder="First Name"
+                  />
+                </Form.Group>
+                {/* Birth Date */}
+                <Form.Group
+                  className="input-field name d-flex align-items-center"
+                  controlId="formBasicBirthDate"
+                >
+                  <Form.Label>Birth-Date:</Form.Label>
+                  <Form.Control
+                    name="birthDate"
+                    type="text"
+                    // placeholder="First Name"
+                  />
+                </Form.Group>
+
+                {/* email */}
+                <Form.Group className="input-field" controlId="formBasicEmail">
+                  <Form.Label>Email address:</Form.Label>
+                  <Form.Control
+                    name="email"
+                    type="email"
+                    // placeholder="Enter email"
+                  />
+                </Form.Group>
+                {/* Insurance Number */}
+                <Form.Group
+                  className="input-field"
+                  controlId="formBasicInsuranceNumber"
+                >
+                  <Form.Label>Insurance Number:</Form.Label>
+                  <Form.Control
+                    name="insuranceNumber"
+                    type="text"
+                    // placeholder="Enter insurance number"
+                  />
+                </Form.Group>
+                {/* Send Request */}
+                <Button type="submit">Send Request</Button>
               </Form>
             </Modal.Body>
           ) : (
             <Modal.Body>
-              <h3>Select an Appointment Time</h3>
+              <h3>Select Time and Date</h3>
               {availableTimesDisplay.map((item, index) => {
                 return (
                   <div className="available-times">

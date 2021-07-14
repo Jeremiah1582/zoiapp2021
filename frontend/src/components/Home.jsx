@@ -8,7 +8,7 @@ import aboutUs from "../imgs/aboutus.png";
 
 const Home = () => {
   return (
-    <div style={{padding: '3rem'}}>
+    <div style={{ padding: "3rem" }}>
       <Navbar />
 
       <p className="textComponent">
@@ -32,7 +32,7 @@ const Home = () => {
         faded pinks and yellows.
       </p>
       <div className="cardWrap">
-        <a href="/find_a_doctor">
+        <a href="/patient/finddoctor">
           <div className="card">
             <div className="boxCard">
               <div className="contentCard">

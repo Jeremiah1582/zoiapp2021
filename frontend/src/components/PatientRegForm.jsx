@@ -95,7 +95,7 @@ const PatientRegForm = () => {
               {/* First Name */}
               <Form.Group
                 className="input-field name d-flex align-items-center"
-                controlId="formBasicName"
+                controlId="formBasicFirstName"
               >
                 <Form.Label >First Name:</Form.Label>
                 <Form.Control
@@ -111,7 +111,7 @@ const PatientRegForm = () => {
               {/* Last Name */}
               <Form.Group
                 className="input-field name"
-                controlId="formBasicEmail"
+                controlId="formBasicLastName"
               >
                 <Form.Label>Last Name:</Form.Label>
                 <Form.Control
@@ -126,7 +126,7 @@ const PatientRegForm = () => {
               </Form.Group>
 
               {/* Birth Date */}
-              <Form.Group className="input-field" controlId="formBasicEmail">
+              <Form.Group className="input-field" controlId="formBasicBirthDate">
                 <Form.Label>Date of Birth:</Form.Label>
                 <Form.Control
                   name="birthDate"
@@ -157,7 +157,7 @@ const PatientRegForm = () => {
               </Form.Group>
 
               {/* Insurance Number */}
-              <Form.Group className="input-field" controlId="formBasicEmail">
+              <Form.Group className="input-field" controlId="formBasicInsuranceNumber">
                 <Form.Label>Insurance Number:</Form.Label>
                 <Form.Control
                   name="insuranceNumber"

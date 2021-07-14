@@ -1,6 +1,7 @@
 const Patient = require("../../Models/Patient/p_Model");
 const Doctor = require("../../Models/Doctor/dr_Model");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 exports.registerPatient = (req, res) => {
   // console.log(req.body, "patient data line 04");
   const {
@@ -112,6 +113,19 @@ exports.findDoctor = (req, res) => {
   });
 };
 
+exports.bookingForm = (req, res) => {
+  const token = req.body.userToken;
+  console.log(token, "line 118");
+  jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
+    if (err) throw err;
+    let Id = data.id;
+    console.log(Id, "line 120 p.controller");
+    Patient.findById(Id, (err, data) => {
+      console.log(data, "line 122 p.controller");
+      res.status(200).json({ msg: "Patient info is coming", data });
+    });
+  });
+};
 // exports.bookAppointment = (req, res) => {
 //   res.send(
 //     "<h1> Patient: </br> this is where patients will book appointments</h1> "

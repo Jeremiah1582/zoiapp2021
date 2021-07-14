@@ -16,7 +16,7 @@ import { Link, Route, Switch } from "react-router-dom";
 function PatientDashboard() {
   return (
     <DashRouter>
-      <Logout/>
+      <Logout />
       <h3>Patient Dashboard</h3>
       <div className="page-container">
         <div className="dash-nav-container">
@@ -27,7 +27,6 @@ function PatientDashboard() {
             <Link className="dash-menu-item dash-menu-link" to="/finddoctor">
               <i className="fas fa-user-md"></i>
             </Link>
-          
           </ul>
         </div>
 
@@ -38,11 +37,10 @@ function PatientDashboard() {
           <Route exact path="/home">
             <Home />
           </Route>
-         
+
           <Route path="/finddoctor">
             <FindDoctor />
           </Route>
-         
         </Switch>
       </div>
     </DashRouter>
