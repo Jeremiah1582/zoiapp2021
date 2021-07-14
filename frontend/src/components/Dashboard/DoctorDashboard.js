@@ -20,7 +20,7 @@ function DoctorDashboard() {
       <Logout />
       <h3>Doctor Dashboard</h3>
 
-      <div className="page-container">
+      <div className="dash-container">
         {/* <img className='background-img' href='../../styling/images/operacion-retorno-mallorca-by-andres-nieto-porras.jpg' */}
 
         <div className="dash-nav-container">
@@ -34,13 +34,6 @@ function DoctorDashboard() {
               to="/doctor/SetAppointmentTimes"
             >
               <i className="fas fa-calendar-alt"></i>
-            </Link>
-
-            <Link
-              className="dash-menu-item dash-menu-link"
-              to="/doctor/messages"
-            >
-              <i className="fas fa-comments"></i>
             </Link>
 
             <Link

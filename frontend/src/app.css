@@ -769,10 +769,9 @@ a {
 }
 
 /* dashbored***************************** */
-.page-container{
+.dash-container{
   height: 100vh;
   display: grid;
-  
   grid-template-rows: repeat(3, 20%) 10% ;
   grid-template-columns: repeat(2,10%) repeat(4,20%);
   font-family: 'Roboto', sans-serif;
@@ -792,6 +791,7 @@ a {
   grid-template-columns: repeat(3,33%);
   grid-gap:3px;
   margin-top: 10px;
+  padding: 20px;
   /* // grid-template-rows: repeat(3,30vw); */
   /* // grid-template-columns: repeat(3.30vh); */
   
@@ -824,7 +824,7 @@ a {
 }
 
 /* // ********************************* */
-/* // NAV side LEFt............... */
+/* // DASHBOARD NAV side LEFt............... */
 .dash-nav-container {
   border-right: 1px solid var(--color-light);
   /* // position: fixed; */
@@ -853,11 +853,11 @@ a {
   
        
   }
-  .dash-menu-item:hover{
-    background-color:lighten(var(--color-green),40%);
-  }
+  /* .dash-menu-item:hover{
+    background-color:lighten(var(--color-light),40%);
+  } */
   .dash-menu-item i:hover{
-        color:var(--color-green);
+        color:var(--color-dark);
         scale: 1.2;
     }
     .dash-menu-item i .box:hover{
