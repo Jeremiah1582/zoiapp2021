@@ -41,7 +41,9 @@ const newDoctor = new Schema({
       type: String,
     },
   ],
-
+  gender:{
+    type: String,
+  },
 
   doctorFile: {
     type: String,
@@ -70,13 +72,18 @@ const newDoctor = new Schema({
   // Booking information---
   availableTimeSlots: [
     {
+    doctorId:{
+      type:Schema.Types.ObjectId,
+    ref:"Doctor",
+
+    },
     time:String,
     date:String,
     duration: Number
     }
   ],
 
-  appointmentsBooked:[]
+  bookedAppointments:[]
 });
 
 const Doctor = mongoose.model("Doctor", newDoctor);

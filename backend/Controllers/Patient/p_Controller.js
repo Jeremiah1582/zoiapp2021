@@ -119,9 +119,10 @@ exports.bookingForm = (req, res) => {
   jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
     if (err) throw err;
     let Id = data.id;
-    console.log(Id, "line 120 p.controller");
+    console.log(Id, "line 122 p.controller");
     Patient.findById(Id, (err, data) => {
-      console.log(data, "line 122 p.controller");
+
+      console.log(data, "line 125 p.controller");
       res.status(200).json({ msg: "Patient info is coming", data });
     });
   });

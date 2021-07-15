@@ -4,6 +4,7 @@ import specialistAPI from "../../../Context_APIs/specialistFields";
 // import "../../../styling/customFindDoctor.css";
 import { Modal, Form, Button, Image, Card, Table } from "react-bootstrap";
 import specialistFields from "../../../Context_APIs/specialistFields";
+import { MyContext } from '../../../Context_APIs/userContextAPI'
 
 function FindDoctor() {
   // const [searchInput, setSearchInput] = useState('');
@@ -18,26 +19,37 @@ function FindDoctor() {
   const [doctorTable, setDoctorTable] = useState([]);
   const [availableTimesDisplay, setAvailableTimesDisplay] = useState([]);
   const [show, setShow] = useState(false);
-  // const[patientInfo, setPatientInfo]=useState([])
+  const [DrAppointmentId, setDrAppointmentId] = useState('')
+    // const[patientInfo, setPatientInfo]=useState([])
   // ------------------------------------------------------
-const {state, dispatch} = useContext('MyContext')
+const {userState, getUser} = useContext(MyContext)
+// console.log(userState, 'line 24');
+// ----------------------------------------------------------------
 
-const sendRequest=()=>{ //sending appointment info 
+const [newAppointment, setNewAppointment] = useState({})
 
-
+const sendRequest=()=>{ 
+  //sending appointment info 
+// removed booked time slot from the doctor Modal
+//add Booking details to BookedAppointments[array] in Patient Modal + Doctor Modal 
+// send confirmation email
+//display success message 
 }
+
+
   //add new search query to formState-------------------------
   const handleChange = (e) => {
-    // console.log(e, "line11 ")
+    getUser();
     setFormState({ ...formState, [e.target.name]: e.target.value });
-    // console.log(formState);
   };
 
-  const handleShow = (timeSlots, index) => {
+  const handleShow = (DrId,timeSlots, index) => {
     setShow(true);
-    console.log(timeSlots);
+    // console.log(timeSlots);
     setAvailableTimesDisplay(timeSlots);
-    console.log(availableTimesDisplay);
+    setDrAppointmentId(DrId)
+    // setNewAppointment([...newAppointment])
+    // console.log();
   };
 
   const backToSlot = () => {
@@ -46,11 +58,24 @@ const sendRequest=()=>{ //sending appointment info
   };
   const scheduleAppointment = (timeDate) => {
     // console.log(timeDate);
-    console.log(timeDate._id);
+    // console.log(timeDate._id);
+    setNewAppointment(
+      {
+    patientId: userState.userId,
+    doctorId: DrAppointmentId,
+    objectId: timeDate._id,
+    time: timeDate.time,
+    date: timeDate.date ,
+    duration: timeDate.duration,
+   
+  }
+ 
+    )
+   
     setBookingForm(true); //the Dr's ID
   };
   //
-
+ console.log(newAppointment);
   //Delete search Query from formState------------------------
   // const deleteField = (e) => {
   //   const index = e.target.id;
@@ -138,7 +163,7 @@ const sendRequest=()=>{ //sending appointment info
                       className="find-dr-modal"
                       variant="primary"
                       onClick={() => {
-                        handleShow(specialist.availableTimeSlots, index);
+                        handleShow(specialist._id, specialist.availableTimeSlots, index);
                       }}
                     >
                       Book Now
@@ -168,7 +193,14 @@ const sendRequest=()=>{ //sending appointment info
           </Modal.Header>
           {bookingForm ? (
             <Modal.Body>
-              {/* <Button type="submit">Back</Button> */}
+              <h3>Booking Form</h3>
+                <div>
+                <h4>
+                Time: {newAppointment.time} <br /> Date: {newAppointment.date} <br />{" "}
+                Duration: {newAppointment.duration} mins
+                </h4>
+                </div>
+              {/* Back Button */}
               <Button
                 className="find-dr-modal"
                 variant="primary"
@@ -177,7 +209,6 @@ const sendRequest=()=>{ //sending appointment info
                 Back
               </Button>
 
-              <h3>Booking Form</h3>
               {/* Form  */}
               <Form className="form-class form">
                 {/* First Name */}
@@ -189,7 +220,9 @@ const sendRequest=()=>{ //sending appointment info
                   <Form.Control
                     name="firstName"
                     type="text"
-                    // placeholder="First Name"
+                    placeholder="First name"
+                    defaultValue={userState.firstName}
+                   
                   />
                 </Form.Group>
                 {/* Last Name */}
@@ -201,7 +234,8 @@ const sendRequest=()=>{ //sending appointment info
                   <Form.Control
                     name="lastName"
                     type="text"
-                    // placeholder="First Name"
+                    placeholder="Last name"
+                    defaultValue={userState.lastName}
                   />
                 </Form.Group>
                 {/* Birth Date */}
@@ -213,7 +247,8 @@ const sendRequest=()=>{ //sending appointment info
                   <Form.Control
                     name="birthDate"
                     type="text"
-                    // placeholder="First Name"
+                    placeholder="Enter birth date"
+                    defaultValue={userState.birthDate}
                   />
                 </Form.Group>
 
@@ -223,7 +258,8 @@ const sendRequest=()=>{ //sending appointment info
                   <Form.Control
                     name="email"
                     type="email"
-                    // placeholder="Enter email"
+                    placeholder="Enter email"
+                     defaultValue={userState.email}
                   />
                 </Form.Group>
                   {/* Insurance Company Name */}
@@ -235,7 +271,8 @@ const sendRequest=()=>{ //sending appointment info
                 <Form.Control
                   name="insuranceCompany"
                   type="text"
-                  // placeholder="Insurance Company"
+                  placeholder="Insurance company name"
+                  defaultValue={userState.insuranceCompany}
                  
                 />
               </Form.Group>
@@ -248,7 +285,8 @@ const sendRequest=()=>{ //sending appointment info
                   <Form.Control
                     name="insuranceNumber"
                     type="text"
-                    // placeholder="Enter insurance number"
+                    placeholder="Enter insurance number"
+                      defaultValue={userState.insuranceNumber}
                   />
                 </Form.Group>
                   {/* Moblie Number */}
@@ -260,7 +298,8 @@ const sendRequest=()=>{ //sending appointment info
                   <Form.Control
                     name="mobileNumber"
                     type="text"
-                    // placeholder="Enter mobile number"
+                    placeholder="Enter mobile number"
+                    defaultValue={userState.mobileNumber}
                   />
                 </Form.Group>
                 {/* Send Request */}
