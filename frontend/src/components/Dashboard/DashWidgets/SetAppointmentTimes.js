@@ -12,7 +12,7 @@ function SetAppointmentTimes() {
     setTimeSlot({ ...timeSlot, [e.target.name]: e.target.value });
   };
 
-  // console.log(timeSlot);
+  console.log(timeSlot);
 
   // add time slot to the database-------------------------------------------------------
   const addTimeSlot = (e) => {

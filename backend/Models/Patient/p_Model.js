@@ -16,8 +16,11 @@ const newPatient = new Schema({
     // required: [true, "Please enter your last name!"],
   },
   birthDate: {
-    type: Date,
+    type: String,
     // required: [true, "Please enter your birth date!"],
+  },
+  gender:{
+    type: String,
   },
   email: {
     type: String,
@@ -55,6 +58,8 @@ const newPatient = new Schema({
     country: {
       type: String,
     },
+  bookedAppointments:[]
+
 });
 
 const Patient = mongoose.model("Patient", newPatient);

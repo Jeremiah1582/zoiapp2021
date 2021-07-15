@@ -8,7 +8,7 @@ import Home from "./DashWidgets/Home";
 import SetAppointmentTimes from "./DashWidgets/SetAppointmentTimes";
 import Messages from "./DashWidgets/Messages";
 import PatientList from "./DashWidgets/PatientList";
-import DrList from "./DashWidgets/DrList";
+import FindDoctor from "./PatientWidgets/FindDoctor";
 import TodoList from "./DashWidgets/TodoList";
 import Weather from "./DashWidgets/Weather";
 import Settings from "./DashWidgets/Settings";
@@ -20,7 +20,7 @@ function DoctorDashboard() {
       <Logout />
       <h3>Doctor Dashboard</h3>
 
-      <div className="page-container">
+      <div className="dash-container">
         {/* <img className='background-img' href='../../styling/images/operacion-retorno-mallorca-by-andres-nieto-porras.jpg' */}
 
         <div className="dash-nav-container">
@@ -38,19 +38,12 @@ function DoctorDashboard() {
 
             <Link
               className="dash-menu-item dash-menu-link"
-              to="/doctor/messages"
-            >
-              <i className="fas fa-comments"></i>
-            </Link>
-
-            <Link
-              className="dash-menu-item dash-menu-link"
               to="/doctor/patientList"
             >
               <i className="fas fa-user-injured"></i>
             </Link>
 
-            <Link className="dash-menu-item dash-menu-link" to="/doctor/drList">
+            <Link className="dash-menu-item dash-menu-link" to="/finddoctor">
               <i className="fas fa-user-md"></i>
             </Link>
 
@@ -86,8 +79,8 @@ function DoctorDashboard() {
           <Route path="/doctor/patientList">
             <PatientList />
           </Route>
-          <Route path="/doctor/drList">
-            <DrList />
+          <Route path="/finddoctor">
+            <FindDoctor />
           </Route>
           <Route path="/doctor/todolist">
             <TodoList />

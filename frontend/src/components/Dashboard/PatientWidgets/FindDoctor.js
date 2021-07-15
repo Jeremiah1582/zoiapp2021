@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import specialistAPI from "../../../Context_APIs/specialistFields";
 // import "../../../styling/customFindDoctor.css";
 import { Modal, Form, Button, Image, Card, Table } from "react-bootstrap";
 import specialistFields from "../../../Context_APIs/specialistFields";
+import { MyContext } from '../../../Context_APIs/userContextAPI'
 
 function FindDoctor() {
   // const [searchInput, setSearchInput] = useState('');
@@ -18,19 +19,37 @@ function FindDoctor() {
   const [doctorTable, setDoctorTable] = useState([]);
   const [availableTimesDisplay, setAvailableTimesDisplay] = useState([]);
   const [show, setShow] = useState(false);
-  const [patientInfo, setPatientInfo] = useState([]);
+  const [DrAppointmentId, setDrAppointmentId] = useState('')
+    // const[patientInfo, setPatientInfo]=useState([])
+  // ------------------------------------------------------
+const {userState, getUser} = useContext(MyContext)
+// console.log(userState, 'line 24');
+// ----------------------------------------------------------------
+
+const [newAppointment, setNewAppointment] = useState({})
+
+const sendRequest=()=>{ 
+  //sending appointment info 
+// removed booked time slot from the doctor Modal
+//add Booking details to BookedAppointments[array] in Patient Modal + Doctor Modal 
+// send confirmation email
+//display success message 
+}
+
+
   //add new search query to formState-------------------------
   const handleChange = (e) => {
-    // console.log(e, "line11 ")
+    getUser();
     setFormState({ ...formState, [e.target.name]: e.target.value });
-    // console.log(formState);
   };
 
-  const handleShow = (timeSlots, index) => {
+  const handleShow = (DrId,timeSlots, index) => {
     setShow(true);
-    console.log(timeSlots);
+    // console.log(timeSlots);
     setAvailableTimesDisplay(timeSlots);
-    console.log(availableTimesDisplay);
+    setDrAppointmentId(DrId)
+    // setNewAppointment([...newAppointment])
+    // console.log();
   };
 
   const backToSlot = () => {
@@ -39,11 +58,24 @@ function FindDoctor() {
   };
   const scheduleAppointment = (timeDate) => {
     // console.log(timeDate);
-    console.log(timeDate._id);
+    // console.log(timeDate._id);
+    setNewAppointment(
+      {
+    patientId: userState.userId,
+    doctorId: DrAppointmentId,
+    objectId: timeDate._id,
+    time: timeDate.time,
+    date: timeDate.date ,
+    duration: timeDate.duration,
+   
+  }
+ 
+    )
+   
     setBookingForm(true); //the Dr's ID
   };
   //
-
+ console.log(newAppointment);
   //Delete search Query from formState------------------------
   // const deleteField = (e) => {
   //   const index = e.target.id;
@@ -55,16 +87,15 @@ function FindDoctor() {
 
   // Send & receive from Back End---------------------------------------
 
-  useEffect(() => {
-    const userToken = localStorage.getItem("currentToken");
-    console.log(userToken);
-    axios
-      .post("http://localhost:5000/patient/bookingForm", { userToken })
-      .then((res) => {
-        console.log(res.data);
-        setPatientInfo(res.data);
-      });
-  }, [bookingForm]);
+  // useEffect(() => {
+  //   const userToken = localStorage.getItem("currentToken");
+  //   console.log(userToken);
+  //   axios
+  //     .post("http://localhost:5000/patient/bookingForm", { userToken })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //     });
+  // }, [bookingForm]);
 
   const submit = (e) => {
     e.preventDefault();
@@ -80,7 +111,7 @@ function FindDoctor() {
   };
 
   return (
-    <div>
+    <div className='page-container'>
       {/* search bar (search in database) */}
 
       <form name="form1" id="form1" action="" onSubmit={submit}>
@@ -132,7 +163,7 @@ function FindDoctor() {
                       className="find-dr-modal"
                       variant="primary"
                       onClick={() => {
-                        handleShow(specialist.availableTimeSlots, index);
+                        handleShow(specialist._id, specialist.availableTimeSlots, index);
                       }}
                     >
                       Book Now
@@ -162,7 +193,14 @@ function FindDoctor() {
           </Modal.Header>
           {bookingForm ? (
             <Modal.Body>
-              {/* <Button type="submit">Back</Button> */}
+              <h3>Booking Form</h3>
+                <div>
+                <h4>
+                Time: {newAppointment.time} <br /> Date: {newAppointment.date} <br />{" "}
+                Duration: {newAppointment.duration} mins
+                </h4>
+                </div>
+              {/* Back Button */}
               <Button
                 className="find-dr-modal"
                 variant="primary"
@@ -170,8 +208,6 @@ function FindDoctor() {
               >
                 Back
               </Button>
-
-              <h3>Booking Form</h3>
 
               {/* Form  */}
               <Form className="form-class form">
@@ -184,7 +220,9 @@ function FindDoctor() {
                   <Form.Control
                     name="firstName"
                     type="text"
-                    // placeholder="First Name"
+                    placeholder="First name"
+                    defaultValue={userState.firstName}
+                   
                   />
                 </Form.Group>
                 {/* Last Name */}
@@ -196,7 +234,8 @@ function FindDoctor() {
                   <Form.Control
                     name="lastName"
                     type="text"
-                    // placeholder="First Name"
+                    placeholder="Last name"
+                    defaultValue={userState.lastName}
                   />
                 </Form.Group>
                 {/* Birth Date */}
@@ -208,7 +247,8 @@ function FindDoctor() {
                   <Form.Control
                     name="birthDate"
                     type="text"
-                    // placeholder="First Name"
+                    placeholder="Enter birth date"
+                    defaultValue={userState.birthDate}
                   />
                 </Form.Group>
 
@@ -218,9 +258,24 @@ function FindDoctor() {
                   <Form.Control
                     name="email"
                     type="email"
-                    // placeholder="Enter email"
+                    placeholder="Enter email"
+                     defaultValue={userState.email}
                   />
                 </Form.Group>
+                  {/* Insurance Company Name */}
+              <Form.Group
+                className="input-field name"
+                controlId="formBasicInsuranceCompany"
+              >
+                <Form.Label>Insurance Company:</Form.Label>
+                <Form.Control
+                  name="insuranceCompany"
+                  type="text"
+                  placeholder="Insurance company name"
+                  defaultValue={userState.insuranceCompany}
+                 
+                />
+              </Form.Group>
                 {/* Insurance Number */}
                 <Form.Group
                   className="input-field"
@@ -230,7 +285,21 @@ function FindDoctor() {
                   <Form.Control
                     name="insuranceNumber"
                     type="text"
-                    // placeholder="Enter insurance number"
+                    placeholder="Enter insurance number"
+                      defaultValue={userState.insuranceNumber}
+                  />
+                </Form.Group>
+                  {/* Moblie Number */}
+                  <Form.Group
+                  className="input-field"
+                  controlId="formBasicMobileNumber"
+                >
+                  <Form.Label>Mobile Number:</Form.Label>
+                  <Form.Control
+                    name="mobileNumber"
+                    type="text"
+                    placeholder="Enter mobile number"
+                    defaultValue={userState.mobileNumber}
                   />
                 </Form.Group>
                 {/* Send Request */}

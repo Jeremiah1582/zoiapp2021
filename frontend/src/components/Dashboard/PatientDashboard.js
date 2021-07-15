@@ -17,8 +17,9 @@ function PatientDashboard() {
   return (
     <DashRouter>
       <Logout />
+     
       <h3>Patient Dashboard</h3>
-      <div className="page-container">
+      <div className="dash-container">
         <div className="dash-nav-container">
           <ul className="dash-nav-items">
             <Link className="dash-menu-item dash-menu-link" to="/home">
@@ -43,6 +44,7 @@ function PatientDashboard() {
           </Route>
         </Switch>
       </div>
+      
     </DashRouter>
   );
 }
