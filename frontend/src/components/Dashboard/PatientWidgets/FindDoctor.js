@@ -30,6 +30,11 @@ const [newAppointment, setNewAppointment] = useState({})
 
 const sendRequest=()=>{ 
   //sending appointment info 
+  axios
+    .post("http://localhost:5000/user/bookedappointments", newAppointment)
+    .then((result)=>{
+      console.log(result)
+    })
 // removed booked time slot from the doctor Modal
 //add Booking details to BookedAppointments[array] in Patient Modal + Doctor Modal 
 // send confirmation email

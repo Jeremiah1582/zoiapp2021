@@ -58,3 +58,39 @@ exports.loginUser = (req, res) => {
 //   console.log("this is the logout function");
 //   res.send("<h1> <br/> you have licked log out </h1>");
 // };
+
+
+//need to create an axios method in the front end to send the data to the back end
+exports.bookedAppointments = (req, res) => {
+  //add timeslot to the doctors DB
+  console.log(req.body, "line 114");
+  const token = req.body.userToken;
+  
+  jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
+    if (err) throw err;
+    let doctorId = req.body.newAppointment.doctorId
+    let patientId = req.body.newAppointment.patientId;
+    
+console.log(doctorId,"line74");
+    // console.log(Id, "line 120");
+    Doctor.findByIdAndUpdate(
+      doctorId,
+      { $push: { bookedAppointment: req.body.newAppointment } },
+      (err, doc) => {
+        // console.log(req.body.timeSlot, "line 126");
+        if (err) throw err;
+        console.log(doc, "line 127");
+        res.json({ msg: "Dr appointment successfully added" });
+      })
+    Patient.findByIdAndUpdate(
+      patientId,
+      { $push: { bookedAppointment: req.body.newAppointment } },
+      (err, doc) => {
+        // console.log(req.body.timeSlot, "line 126");
+        if (err) throw err;
+        console.log(doc, "line 127");
+        res.json({ msg: "patients appointment successfully added" });
+      }
+    );
+  });
+};
