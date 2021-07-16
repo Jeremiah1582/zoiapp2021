@@ -116,6 +116,7 @@ exports.findDoctor = (req, res) => {
 exports.bookingForm = (req, res) => {
   const token = req.body.userToken;
   console.log(token, "line 118");
+  
   jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
     if (err) throw err;
     let Id = data.id;

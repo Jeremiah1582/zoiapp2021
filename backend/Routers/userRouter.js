@@ -17,6 +17,9 @@ const userController = require("../Controllers/userController");
 // Login as user
 router.post("/login", userController.loginUser);
 
+
+// Booked Appointments Part
+router.post("/bookedappointments",userController.bookedAppointments)
 // *** Log Out *** //
 // router.get("/logout", userController.logout);
 
