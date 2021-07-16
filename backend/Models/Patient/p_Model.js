@@ -58,7 +58,17 @@ const newPatient = new Schema({
     country: {
       type: String,
     },
-  bookedAppointments:[]
+  bookedAppointments:[
+    {
+    patientId:{ type:Schema.Types.ObjectId, ref:"Patient"},
+    doctorId: { type:Schema.Types.ObjectId, ref:"Doctor"},
+    timeSlotId: { type:Schema.Types.ObjectId} ,
+    time: String,
+    date: String ,
+    duration: Number,
+   
+  }
+  ]
 
 });
 

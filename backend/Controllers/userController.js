@@ -64,33 +64,40 @@ exports.loginUser = (req, res) => {
 exports.bookedAppointments = (req, res) => {
   //add timeslot to the doctors DB
   console.log(req.body, "line 114");
-  const token = req.body.userToken;
   
-  jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
-    if (err) throw err;
-    let doctorId = req.body.newAppointment.doctorId
-    let patientId = req.body.newAppointment.patientId;
+  
+    let doctorId = req.body.doctorId
+    let patientId = req.body.patientId;
+    let timeSlotId = req.body.timeSlotId
     
-console.log(doctorId,"line74");
+console.log(doctorId,"Dr Id");
+console.log(patientId,"patient Id");
+console.log(timeSlotId,"timeSlot Id");
     // console.log(Id, "line 120");
     Doctor.findByIdAndUpdate(
       doctorId,
-      { $push: { bookedAppointment: req.body.newAppointment } },
-      (err, doc) => {
-        // console.log(req.body.timeSlot, "line 126");
+      { 
+      $push: { bookedAppointments: req.body}, //update
+      $pull:{ availableTimeSlots: {_id:timeSlotId} }},//remove 
+      (err, doc) => { // doc = all Dr details
         if (err) throw err;
-        console.log(doc, "line 127");
         res.json({ msg: "Dr appointment successfully added" });
-      })
+      }
+      )
     Patient.findByIdAndUpdate(
       patientId,
-      { $push: { bookedAppointment: req.body.newAppointment } },
-      (err, doc) => {
-        // console.log(req.body.timeSlot, "line 126");
+      { $push: { bookedAppointments: req.body } },
+      (err, doc) => { //doc= all Patient details
         if (err) throw err;
-        console.log(doc, "line 127");
-        res.json({ msg: "patients appointment successfully added" });
+        res.json({ msg: "patients appointment successfully added"});
       }
-    );
-  });
+    )
+    // Doctor.findById().availableTimeSlots.findByIdAndDelete() 
+    //  doctorId.findBy({availableTimeSlots},
+    //   findByIdAndDelete(timeSlotId)
+    //   {$splice: {availableTimeSlots: timeSlotId},1}
+    //   ))
+
+
+    ;
 };

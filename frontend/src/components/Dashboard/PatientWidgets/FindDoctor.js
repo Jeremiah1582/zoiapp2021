@@ -28,8 +28,10 @@ const {userState, getUser} = useContext(MyContext)
 
 const [newAppointment, setNewAppointment] = useState({})
 
-const sendRequest=()=>{ 
+const sendRequest=(e)=>{ 
+  e.preventDefault()
   //sending appointment info 
+  const userToken = localStorage.getItem("currentToken");
   axios
     .post("http://localhost:5000/user/bookedappointments", newAppointment)
     .then((result)=>{
@@ -47,6 +49,8 @@ const sendRequest=()=>{
     getUser();
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
+  console.log(bookingForm)
+
 
   const handleShow = (DrId,timeSlots, index) => {
     setShow(true);
@@ -68,13 +72,19 @@ const sendRequest=()=>{
       {
     patientId: userState.userId,
     doctorId: DrAppointmentId,
-    objectId: timeDate._id,
+    timeSlotId: timeDate._id,
     time: timeDate.time,
     date: timeDate.date ,
     duration: timeDate.duration,
-   
+    firstName: userState.firstName,
+    lastName: userState.lastName,
+    birthDate:userState.birthDate,
+    email:userState.email,
+    mobileNumber: userState.mobileNumber,
+    insuranceNumber:userState.insuranceNumber,
+    insuranceCompany:userState.insuranceCompany,
+    note: timeDate.note
   }
- 
     )
    
     setBookingForm(true); //the Dr's ID
@@ -215,7 +225,7 @@ const sendRequest=()=>{
               </Button>
 
               {/* Form  */}
-              <Form className="form-class form">
+              <Form className="form-class form" onSubmit={(e)=>sendRequest(e)}>
                 {/* First Name */}
                 <Form.Group
                   className="input-field name d-flex align-items-center"
@@ -306,6 +316,12 @@ const sendRequest=()=>{
                     placeholder="Enter mobile number"
                     defaultValue={userState.mobileNumber}
                   />
+                </Form.Group>
+                {/* Note from Patient */}
+                <Form.Group className="mb-3 appointment-note-field" controlId="exampleForm.ControlTextarea1" >
+                    <Form.Label>Note:</Form.Label>
+                    <Form.Control value={newAppointment.note} name='note' as='textarea' rows={3} 
+                    onChange={(e)=>{setNewAppointment({...newAppointment,note: e.target.value })}} />
                 </Form.Group>
                 {/* Send Request */}
                 <Button type="submit">Send Request</Button>
