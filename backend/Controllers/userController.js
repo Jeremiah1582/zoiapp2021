@@ -68,9 +68,9 @@ exports.bookedAppointments = (req, res) => {
   let patientId = req.body.patientId;
   let timeSlotId = req.body.timeSlotId;
 
-  console.log(doctorId, "Dr Id");
-  console.log(patientId, "patient Id");
-  console.log(timeSlotId, "timeSlot Id");
+  console.log(doctorId, "Dr Id 71");
+  console.log(patientId, "patient Id 72");
+  console.log(timeSlotId, "timeSlot Id 73");
   // console.log(Id, "line 120");
   Doctor.findByIdAndUpdate(
     doctorId,
@@ -90,7 +90,7 @@ exports.bookedAppointments = (req, res) => {
     (err, doc) => {
       //doc= all Patient details
       if (err) throw err;
-      res.json({ msg: "patients appointment successfully added", doc });
+      res.json({ msg: "patients appointment successfully added" });
     }
   );
   // Doctor.findById().availableTimeSlots.findByIdAndDelete()

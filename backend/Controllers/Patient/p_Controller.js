@@ -2,6 +2,8 @@ const Patient = require("../../Models/Patient/p_Model");
 const Doctor = require("../../Models/Doctor/dr_Model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const sgMail = require('@sendgrid/mail')
+require('dotenv').config()
 exports.registerPatient = (req, res) => {
   // console.log(req.body, "patient data line 04");
   const {
@@ -133,3 +135,13 @@ exports.bookingForm = (req, res) => {
 //     "<h1> Patient: </br> this is where patients will book appointments</h1> "
 //   );
 // };
+
+
+// sendGrid Email confirmation of appointment.
+
+sgMail.setApiKey(process.env.SG_SECRET_KEY)
+
+// const msg= .js{
+//   to: 
+
+// }
