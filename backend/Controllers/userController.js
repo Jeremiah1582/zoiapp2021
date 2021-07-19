@@ -1,6 +1,8 @@
 const Patient = require("../Models/Patient/p_Model");
 const Doctor = require("../Models/Doctor/dr_Model");
 const jwt = require("jsonwebtoken");
+const sgMail = require('@sendgrid/mail')
+require('dotenv').config()
 //***** Login function for Patient & Doctor *******//
 
 exports.loginUser = (req, res) => {
@@ -81,7 +83,7 @@ console.log(timeSlotId,"timeSlot Id");
       $pull:{ availableTimeSlots: {_id:timeSlotId} }},//remove 
       (err, doc) => { // doc = all Dr details
         if (err) throw err;
-        res.json({ msg: "Dr appointment successfully added" });
+        res.json({ msg: "Dr appointment successfully added", doc });
       }
       )
     Patient.findByIdAndUpdate(
@@ -89,7 +91,34 @@ console.log(timeSlotId,"timeSlot Id");
       { $push: { bookedAppointments: req.body } },
       (err, doc) => { //doc= all Patient details
         if (err) throw err;
-        res.json({ msg: "patients appointment successfully added"});
+        console.log(doc);
+        sgMail.setApiKey(process.env.SG_SECRET_KEY)
+
+        const sgEmail = {
+          to: doc.email,
+          from: process.env.ADMIN_EMAIL, 
+          html: `<p>
+            Hi  ${doc.firstName}.
+
+            Thank you for using the Zoe App to book your Dr appointment. Your appointment has been successfully booked. 
+
+            Please remember to bring to your appointment:
+            - your ID
+            - your insurance card
+
+            You can view your appointment details in the App by logging in and clicking into the appointment list feature. 
+
+            Stay healthy and well, and we hope to see you again soon!
+            The Zoe Team. 
+            </p>`
+        }
+        sgMail
+          .send(sgEmail)
+          .then(()=>{console.log('check email for confirmation')})
+        .catch(err=>{console.log('did not send email');}
+
+        )
+        res.json({msg: "patients appointment successfully added"}, doc);
       }
     )
     // Doctor.findById().availableTimeSlots.findByIdAndDelete() 

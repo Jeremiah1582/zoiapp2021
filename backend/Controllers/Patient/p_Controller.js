@@ -2,6 +2,8 @@ const Patient = require("../../Models/Patient/p_Model");
 const Doctor = require("../../Models/Doctor/dr_Model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+require('dotenv').config()
+
 exports.registerPatient = (req, res) => {
   // console.log(req.body, "patient data line 04");
   const {

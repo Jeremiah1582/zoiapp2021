@@ -46,7 +46,7 @@ const [newAppointment, setNewAppointment] = useState({
 })
 
 const sendRequest=(e)=>{ 
-  e.preventDefault()
+
   //sending appointment info 
   const userToken = localStorage.getItem("currentToken");
   axios
