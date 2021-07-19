@@ -68,14 +68,15 @@ exports.bookedAppointments = (req, res) => {
   
   jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
     if (err) throw err;
-    let doctorId = req.body.newAppointment.doctorId
-    let patientId = req.body.newAppointment.patientId;
+    let doctorId = req.body.doctorId
+    let patientId = req.body.patientId;
+    let timeSlotId= req.body.timeSlot;
     
 console.log(doctorId,"line74");
     // console.log(Id, "line 120");
     Doctor.findByIdAndUpdate(
       doctorId,
-      { $push: { bookedAppointment: req.body.newAppointment } },
+      { $push: { bookedAppointments: req.body} },
       (err, doc) => {
         // console.log(req.body.timeSlot, "line 126");
         if (err) throw err;
@@ -84,7 +85,7 @@ console.log(doctorId,"line74");
       })
     Patient.findByIdAndUpdate(
       patientId,
-      { $push: { bookedAppointment: req.body.newAppointment } },
+      { $push: { bookedAppointments: req.body } },
       (err, doc) => {
         // console.log(req.body.timeSlot, "line 126");
         if (err) throw err;
