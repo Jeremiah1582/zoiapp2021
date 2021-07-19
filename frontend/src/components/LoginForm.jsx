@@ -42,9 +42,9 @@ const LoginForm = () => {
         // localStorage
         localStorage.setItem("currentToken", res.data.token);
         if (UserLogin.condition === "patient") {
-          window.location.href = "/patient/dashboard";
+          window.location.href = "/patient/dashboard/home";
         } else if (UserLogin.condition === "doctor") {
-          window.location.href = "/doctor/dashboard";
+          window.location.href = "/doctor/dashboard/home";
         }
       });
     } else {

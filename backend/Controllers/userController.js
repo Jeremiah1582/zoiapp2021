@@ -3,6 +3,7 @@ const Doctor = require("../Models/Doctor/dr_Model");
 const jwt = require("jsonwebtoken");
 const sgMail = require('@sendgrid/mail')
 require('dotenv').config()
+
 //***** Login function for Patient & Doctor *******//
 
 exports.loginUser = (req, res) => {
@@ -61,7 +62,6 @@ exports.loginUser = (req, res) => {
 //   res.send("<h1> <br/> you have licked log out </h1>");
 // };
 
-
 //need to create an axios method in the front end to send the data to the back end
 exports.bookedAppointments = (req, res) => {
   //add timeslot to the doctors DB
@@ -92,6 +92,8 @@ console.log(timeSlotId,"timeSlot Id");
       (err, doc) => { //doc= all Patient details
         if (err) throw err;
         console.log(doc);
+        
+// sendGrid Email confirmation of appointment.
         sgMail.setApiKey(process.env.SG_SECRET_KEY)
 
         const sgEmail = {
@@ -127,6 +129,4 @@ console.log(timeSlotId,"timeSlot Id");
     //   {$splice: {availableTimeSlots: timeSlotId},1}
     //   ))
 
-
-    ;
 };

@@ -17,15 +17,21 @@ function PatientDashboard() {
   return (
     <DashRouter>
       <Logout />
-     
+
       <h3>Patient Dashboard</h3>
       <div className="dash-container">
         <div className="dash-nav-container">
           <ul className="dash-nav-items">
-            <Link className="dash-menu-item dash-menu-link" to="/home">
+            <Link
+              className="dash-menu-item dash-menu-link"
+              to="/patient/dashboard/home"
+            >
               <i className="fas fa-home" />
             </Link>
-            <Link className="dash-menu-item dash-menu-link" to="/finddoctor">
+            <Link
+              className="dash-menu-item dash-menu-link"
+              to="/patient/dashboard/finddoctor"
+            >
               <i className="fas fa-user-md"></i>
             </Link>
           </ul>
@@ -35,16 +41,18 @@ function PatientDashboard() {
           display
           </main> */}
         <Switch>
-          <Route exact path="/home">
+          <Route exact path="/patient/dashboard/home">
             <Home />
           </Route>
 
-          <Route path="/finddoctor">
+          <Route path="/patient/dashboard/finddoctor">
+            <FindDoctor />
+          </Route>
+          <Route path="/patient/dashboard/appointmentlist">
             <FindDoctor />
           </Route>
         </Switch>
       </div>
-      
     </DashRouter>
   );
 }

@@ -135,3 +135,10 @@ exports.bookingForm = (req, res) => {
 //     "<h1> Patient: </br> this is where patients will book appointments</h1> "
 //   );
 // };
+
+
+
+// const msg= .js{
+//   to: 
+
+// }
