@@ -91,9 +91,17 @@ const newDoctor = new Schema({
     time: String,
     date: String ,
     duration: Number,
-   
-  }
-  ]
+    firstName: String,
+    lastName: String,
+    birthDate:String,
+    email:String,
+    mobileNumber:Number,
+    insuranceNumber:Number,
+    insuranceCompany:String,
+    note: String
+    
+    }
+    ]
 });
 
 const Doctor = mongoose.model("Doctor", newDoctor);

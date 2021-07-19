@@ -26,7 +26,24 @@ const {userState, getUser} = useContext(MyContext)
 // console.log(userState, 'line 24');
 // ----------------------------------------------------------------
 
-const [newAppointment, setNewAppointment] = useState({})
+const [newAppointment, setNewAppointment] = useState({
+  firstName : '',
+   patientId: '',
+    doctorId: '',
+    timeSlotId: '',
+    time: '',
+    date:  '',
+    duration: '',
+    firstName: '',
+    lastName: '',
+    birthDate:'',
+    email:'',
+    mobileNumber: '',
+    insuranceNumber:'',
+    insuranceCompany:'',
+    note: ''
+
+})
 
 const sendRequest=(e)=>{ 
   e.preventDefault()
@@ -83,11 +100,15 @@ const sendRequest=(e)=>{
     mobileNumber: userState.mobileNumber,
     insuranceNumber:userState.insuranceNumber,
     insuranceCompany:userState.insuranceCompany,
-    note: timeDate.note
+    note: '',
   }
     )
    
     setBookingForm(true); //the Dr's ID
+  };
+
+  const handleModalInfoChange = (e) => {
+    setNewAppointment({...newAppointment, [e.target.name]: e.target.value });
   };
   //
  console.log(newAppointment);
@@ -236,7 +257,10 @@ const sendRequest=(e)=>{
                     name="firstName"
                     type="text"
                     placeholder="First name"
+                     onChange={(e)=>handleModalInfoChange(e)}
                     defaultValue={userState.firstName}
+                    value={newAppointment.firstName}
+                    onChange={handleModalInfoChange}
                    
                   />
                 </Form.Group>
@@ -250,7 +274,9 @@ const sendRequest=(e)=>{
                     name="lastName"
                     type="text"
                     placeholder="Last name"
+                     onChange={(e)=>handleModalInfoChange(e)}
                     defaultValue={userState.lastName}
+                    value={newAppointment.lastName}
                   />
                 </Form.Group>
                 {/* Birth Date */}
@@ -263,7 +289,9 @@ const sendRequest=(e)=>{
                     name="birthDate"
                     type="text"
                     placeholder="Enter birth date"
+                     onChange={(e)=>handleModalInfoChange(e)}
                     defaultValue={userState.birthDate}
+                    value={newAppointment.birthDate}
                   />
                 </Form.Group>
 
@@ -274,7 +302,9 @@ const sendRequest=(e)=>{
                     name="email"
                     type="email"
                     placeholder="Enter email"
+                     onChange={(e)=>handleModalInfoChange(e)}
                      defaultValue={userState.email}
+                    value={newAppointment.email}
                   />
                 </Form.Group>
                   {/* Insurance Company Name */}
@@ -287,8 +317,9 @@ const sendRequest=(e)=>{
                   name="insuranceCompany"
                   type="text"
                   placeholder="Insurance company name"
+                   onChange={(e)=>handleModalInfoChange(e)}
                   defaultValue={userState.insuranceCompany}
-                 
+                  value={newAppointment.insuranceCompany}
                 />
               </Form.Group>
                 {/* Insurance Number */}
@@ -301,10 +332,12 @@ const sendRequest=(e)=>{
                     name="insuranceNumber"
                     type="text"
                     placeholder="Enter insurance number"
+                     onChange={(e)=>handleModalInfoChange(e)}
                       defaultValue={userState.insuranceNumber}
+                      value={newAppointment.insuranceNumber}
                   />
                 </Form.Group>
-                  {/* Moblie Number */}
+                  {/* Mobile Number */}
                   <Form.Group
                   className="input-field"
                   controlId="formBasicMobileNumber"
@@ -314,14 +347,21 @@ const sendRequest=(e)=>{
                     name="mobileNumber"
                     type="text"
                     placeholder="Enter mobile number"
+                    onChange={(e)=>handleModalInfoChange(e)}
                     defaultValue={userState.mobileNumber}
+                    value={newAppointment.mobileNumber}
                   />
                 </Form.Group>
                 {/* Note from Patient */}
                 <Form.Group className="mb-3 appointment-note-field" controlId="exampleForm.ControlTextarea1" >
                     <Form.Label>Note:</Form.Label>
-                    <Form.Control value={newAppointment.note} name='note' as='textarea' rows={3} 
-                    onChange={(e)=>{setNewAppointment({...newAppointment,note: e.target.value })}} />
+                    <Form.Control 
+                    type="text"
+                    name='note' 
+                    as='textarea' 
+                    rows='3'
+                    onChange={(e)=>handleModalInfoChange(e)}
+                    value={newAppointment.note}  />
                 </Form.Group>
                 {/* Send Request */}
                 <Button type="submit">Send Request</Button>
