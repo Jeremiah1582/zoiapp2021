@@ -8,7 +8,7 @@ function Home() {
 <div className="widget-container">
 
 <Link to='./SetAppointmentTimes' className="widget calendar-widget"><div  >Set Availability</div> </Link>
-<Link to='./patientList' className="widget patient-list-widget"><div>Patient List </div></Link>
+<Link to='./appointmentlist' className="widget patient-list-widget"><div>Appointments </div></Link>
 <Link to='./finddoctor' className="widget dr-list-widget"><div > Find Dr </div></Link>
 <Link to='./todoList' className="widget todo-list-widget"><div>To Do List </div></Link>
 <Link to='./weather' className="widget todo-list-widget"><div>weather </div></Link>

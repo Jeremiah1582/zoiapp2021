@@ -6,7 +6,7 @@ import Home from "./PatientWidgets/Home";
 import Logout from "../Logout";
 // import Calendar from "./PatientWidgets/Calendar";
 // import Messages from "./PatientWidgets/Messages";
-import AppointmentList from "./DashWidgets/AppointmentList";
+import AppointmentList from "./PatientWidgets/AppointmentList";
 import FindDoctor from "./PatientWidgets/FindDoctor";
 // import TodoList from "./PatientWidgets/TodoList";
 import Weather from "./DashWidgets/Weather";
@@ -19,10 +19,10 @@ function PatientDashboard() {
   
   const {userState, getUser} = useContext(MyContext)
 
-// useEffect(() => {
-//  getUser
-// })
-
+useEffect(() => {
+ getUser()
+},[])
+console.log(userState, 'the patientState ')
   return (
     <DashRouter>
       <Logout />

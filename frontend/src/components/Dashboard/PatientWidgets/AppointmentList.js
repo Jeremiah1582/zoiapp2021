@@ -3,7 +3,7 @@ import {Card, Button} from 'react-bootstrap'
 import {MyContext} from '../../../Context_APIs/userContextAPI'
 
 function AppointmentList() {
-const { userState, getUser } = useContext(MyContext)
+const { userState, getUser} = useContext(MyContext)
 console.log(userState);
 
 // getUser()

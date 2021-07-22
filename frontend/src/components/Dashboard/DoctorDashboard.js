@@ -7,7 +7,7 @@ import Logout from "../Logout";
 import Home from "./DashWidgets/Home";
 import SetAppointmentTimes from "./DashWidgets/SetAppointmentTimes";
 import Messages from "./DashWidgets/Messages";
-import AppointmentList from "./DashWidgets/AppointmentList";
+import DrAppointmentList from "./DashWidgets/DrAppointmentList";
 import FindDoctor from "./DashWidgets/DrFindDoctor";
 import TodoList from "./DashWidgets/TodoList";
 import Weather from "./DashWidgets/Weather";
@@ -18,10 +18,12 @@ import {MyContext} from '../../Context_APIs/userContextAPI'
 
 function DoctorDashboard() {
   const {userDrState, getUserDr} = useContext(MyContext)
-  console.log(userDrState);
+  
+
 useEffect(() => {
  getUserDr()
-})
+ console.log(userDrState);
+},[])
 
   return (
     <DashRouter>
@@ -92,7 +94,7 @@ useEffect(() => {
             <Messages />
           </Route>
           <Route path="/doctor/dashboard/appointmentlist">
-            <AppointmentList />
+            <DrAppointmentList />
           </Route>
           <Route path="/doctor/dashboard/finddoctor">
             <FindDoctor />
