@@ -76,6 +76,7 @@ console.log(doctorId,"Dr Id");
 console.log(patientId,"patient Id");
 console.log(timeSlotId,"timeSlot Id");
     // console.log(Id, "line 120");
+  
     Doctor.findByIdAndUpdate(
       doctorId,
       { 

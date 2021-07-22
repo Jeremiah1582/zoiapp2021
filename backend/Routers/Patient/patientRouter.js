@@ -9,7 +9,7 @@ router.post("/finddoctor", patientController.findDoctor);
 
 
 // *** Add Patient info in Booking Form *** //
-router.post("/bookingForm",patientController.bookingForm)
+router.post("/bookingForm", patientController.bookingForm)
 // *** Appointment Part *** //
 // router.get("/", patientController.bookAppointment);
 

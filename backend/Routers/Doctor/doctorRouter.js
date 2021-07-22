@@ -20,6 +20,12 @@ router.post(
   upload.single("doctorFile"),
   doctorController.registerDoctor
 );
+// find doctor route
+router.post("/finddoctor", doctorController.findDoctor);
+
+
+// *** Add users info in Booking Form *** //
+router.post("/bookingForm",doctorController.bookingForm)
 
 router.post("/setAppointmentTime", doctorController.setAppointmentTime)
 // *** Appointment Part *** // 

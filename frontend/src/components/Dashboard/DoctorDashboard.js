@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 // import DashNav from './DashNav';
 // import "../../styling/customDashboard.scss";
 // import "../../styling/customDashboard.css";
@@ -7,18 +7,27 @@ import Logout from "../Logout";
 import Home from "./DashWidgets/Home";
 import SetAppointmentTimes from "./DashWidgets/SetAppointmentTimes";
 import Messages from "./DashWidgets/Messages";
-import PatientList from "./DashWidgets/PatientList";
-import FindDoctor from "./PatientWidgets/FindDoctor";
+import AppointmentList from "./DashWidgets/AppointmentList";
+import FindDoctor from "./DashWidgets/DrFindDoctor";
 import TodoList from "./DashWidgets/TodoList";
 import Weather from "./DashWidgets/Weather";
 import Settings from "./DashWidgets/Settings";
 import { BrowserRouter as DashRouter } from "react-router-dom";
 import { Link, Route, Switch } from "react-router-dom";
+import {MyContext} from '../../Context_APIs/userContextAPI'
+
 function DoctorDashboard() {
+  const {userDrState, getUserDr} = useContext(MyContext)
+  console.log(userDrState);
+useEffect(() => {
+ getUserDr()
+})
+
   return (
     <DashRouter>
+
       <Logout />
-      <h3>Doctor Dashboard</h3>
+    
 
       <div className="dash-container">
         {/* <img className='background-img' href='../../styling/images/operacion-retorno-mallorca-by-andres-nieto-porras.jpg' */}
@@ -41,7 +50,7 @@ function DoctorDashboard() {
 
             <Link
               className="dash-menu-item dash-menu-link"
-              to="/doctor/dashboard/patientList"
+              to="/doctor/dashboard/appointmentlist"
             >
               <i className="fas fa-user-injured"></i>
             </Link>
@@ -62,7 +71,7 @@ function DoctorDashboard() {
 
             <Link
               className="dash-menu-item dash-menu-link"
-              to="/doctor/dashboard/settings"
+              to="/user/dashboard/settings"
             >
               <i className="fas fa-cog"></i>
             </Link>
@@ -82,10 +91,10 @@ function DoctorDashboard() {
           <Route path="/doctor/dashboard/messages">
             <Messages />
           </Route>
-          <Route path="/doctor/dashboard/patientList">
-            <PatientList />
+          <Route path="/doctor/dashboard/appointmentlist">
+            <AppointmentList />
           </Route>
-          <Route path="/finddoctor">
+          <Route path="/doctor/dashboard/finddoctor">
             <FindDoctor />
           </Route>
           <Route path="/doctor/dashboard/todolist">

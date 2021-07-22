@@ -1,21 +1,23 @@
 import React from "react";
 // import image1 from '../../../styling/images/operacion-retorno-mallorca-by-andres-nieto-porras.jpg'
 import { Link } from "react-router-dom";
+// import {}from
 
 function Home() {
+  
   return (
     <div className="widget-container">
       <Link
         to="/patient/dashboard/messages"
         className="widget messenger-widget"
       >
-        <div>Messages</div>
+        <div>Messages (0)</div>
       </Link>
       <Link
         to="/patient/dashboard/appointmentlist"
         className="widget patient-list-widget"
       >
-        <div>Appointment List </div>
+        <div>Appointments (13) </div>
       </Link>
       <Link
         to="/patient/dashboard/finddoctor"

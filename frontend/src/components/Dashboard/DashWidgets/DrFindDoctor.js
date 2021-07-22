@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+// import "../../../styling/customFindDoctor.css";
 import { Modal, Form, Button, Image, Card, Table } from "react-bootstrap";
 import specialistFields from "../../../Context_APIs/specialistFields";
 import { MyContext } from "../../../Context_APIs/userContextAPI";
@@ -24,8 +25,8 @@ function FindDoctor() {
 
   // const[patientInfo, setPatientInfo]=useState([])
   // ------------------------------------------------------
-  const { userState, getUser } = useContext(MyContext);
-  // console.log(userState, 'line 24');
+  const { userDrState, getUserDr } = useContext(MyContext);
+  // console.log(userDrState, 'line 24');
   // ----------------------------------------------------------------
 
   const [newAppointment, setNewAppointment] = useState({
@@ -51,27 +52,25 @@ function FindDoctor() {
     //sending appointment info
     const userToken = localStorage.getItem("currentToken");
     axios
-      .post("http://localhost:5000/patient/bookedappointments", newAppointment)
+      .post("http://localhost:5000/doctor/bookedappointments", newAppointment)
       .then((result) => {
         console.log(result);
       });
-
     // send confirmation email
     //display success message
     setSuccessModalShow(true);
     // disappear the booking form
     setBookingForm(false);
-
     // disappear the Time Slots
     setAvailableTimesDisplay([]);
   };
 
   //add new search query to formState-------------------------
   const handleChange = (e) => {
-    getUser();
+    getUserDr();
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
-  console.log(bookingForm);
+  console.log(newAppointment);
 
   const handleShow = (DrId, timeSlots, index) => {
     setShow(true);
@@ -90,19 +89,19 @@ function FindDoctor() {
     // console.log(timeDate);
     // console.log(timeDate._id);
     setNewAppointment({
-      patientId: userState.userId,
+      patientId: userDrState.userId,
       doctorId: DrAppointmentId,
       timeSlotId: timeDate._id,
       time: timeDate.time,
       date: timeDate.date,
       duration: timeDate.duration,
-      firstName: userState.firstName,
-      lastName: userState.lastName,
-      birthDate: userState.birthDate,
-      email: userState.email,
-      mobileNumber: userState.mobileNumber,
-      insuranceNumber: userState.insuranceNumber,
-      insuranceCompany: userState.insuranceCompany,
+      firstName: userDrState.firstName,
+      lastName: userDrState.lastName,
+      birthDate: userDrState.birthDate,
+      email: userDrState.email,
+      mobileNumber: userDrState.mobileNumber,
+      insuranceNumber: userDrState.insuranceNumber,
+      insuranceCompany: userDrState.insuranceCompany,
       note: "",
     });
 
@@ -141,9 +140,9 @@ function FindDoctor() {
 
     // console.log(formState, "line 12");
     axios
-      .post("http://localhost:5000/patient/finddoctor", formState)
+      .post("http://localhost:5000/doctor/finddoctor", formState)
       .then((res) => {
-        // console.log(res.data, "line 25");
+        console.log(res.data, "line 148 drFindDr");
         setDoctorTable(res.data);
       });
   };
@@ -282,7 +281,7 @@ function FindDoctor() {
                     type="text"
                     placeholder="First name"
                     onChange={(e) => handleModalInfoChange(e)}
-                    defaultValue={userState.firstName}
+                    defaultValue={userDrState.firstName}
                     value={newAppointment.firstName}
                     onChange={handleModalInfoChange}
                   />
@@ -298,7 +297,7 @@ function FindDoctor() {
                     type="text"
                     placeholder="Last name"
                     onChange={(e) => handleModalInfoChange(e)}
-                    defaultValue={userState.lastName}
+                    defaultValue={userDrState.lastName}
                     value={newAppointment.lastName}
                   />
                 </Form.Group>
@@ -313,7 +312,7 @@ function FindDoctor() {
                     type="text"
                     placeholder="Enter birth date"
                     onChange={(e) => handleModalInfoChange(e)}
-                    defaultValue={userState.birthDate}
+                    defaultValue={userDrState.birthDate}
                     value={newAppointment.birthDate}
                   />
                 </Form.Group>
@@ -326,7 +325,7 @@ function FindDoctor() {
                     type="email"
                     placeholder="Enter email"
                     onChange={(e) => handleModalInfoChange(e)}
-                    defaultValue={userState.email}
+                    defaultValue={userDrState.email}
                     value={newAppointment.email}
                   />
                 </Form.Group>
@@ -341,7 +340,7 @@ function FindDoctor() {
                     type="text"
                     placeholder="Insurance company name"
                     onChange={(e) => handleModalInfoChange(e)}
-                    defaultValue={userState.insuranceCompany}
+                    defaultValue={userDrState.insuranceCompany}
                     value={newAppointment.insuranceCompany}
                   />
                 </Form.Group>
@@ -356,7 +355,7 @@ function FindDoctor() {
                     type="text"
                     placeholder="Enter insurance number"
                     onChange={(e) => handleModalInfoChange(e)}
-                    defaultValue={userState.insuranceNumber}
+                    defaultValue={userDrState.insuranceNumber}
                     value={newAppointment.insuranceNumber}
                   />
                 </Form.Group>
@@ -371,7 +370,7 @@ function FindDoctor() {
                     type="text"
                     placeholder="Enter mobile number"
                     onChange={(e) => handleModalInfoChange(e)}
-                    defaultValue={userState.mobileNumber}
+                    defaultValue={userDrState.mobileNumber}
                     value={newAppointment.mobileNumber}
                   />
                 </Form.Group>
