@@ -6,7 +6,7 @@ import { Form, Button, Image } from "react-bootstrap";
 import specialistAPI from "../Context_APIs/specialistFields";
 import DocImage from "../imgs/drReg.png";
 
-import "../styling/customRegForm.css";
+// import "../styling/customRegForm.css";
 
 import axios from "axios";
 
@@ -134,7 +134,7 @@ function DoctorRegForm() {
     <Navigation />
     </div>
       
-      <div className="" >
+      {/* <div className="" > */}
         <div className="reg-container">
           
                 {/* Photo-Container  */}
@@ -464,205 +464,10 @@ function DoctorRegForm() {
                 </div>
              
         </div>
-      </div>
+      {/* </div> */}
       <Footer />
     </div>
   );
-
-  // 1st form
-  // return (
-  //   <div className="reg-container">
-  //     <div className="con-picture col-xs-12 col-sm-12 col-md-5">
-  //       <Image src={DocImage} className="reg-img " fluid />
-  //     </div>
-
-  //     <div className="signUpForm col-xs-12 col-sm-12 col-md-5">
-  //       <Card>
-  //         <Form className="form " onSubmit={sendToBackEnd}>
-  //           {/* First Name */}
-  //           <Form.Group className="input-field name" controlId="formBasicName">
-  //             <Form.Label className='form-label'>First Name:</Form.Label> <br />
-  //             <Form.Control
-  //               name="firstName"
-  //               type="text"
-  //               value={DrSignUp.firstName}
-  //               placeholder="First Name"
-  //               onChange={(e) => {
-  //                 handleFormInput(e);
-  //               }}
-  //             />
-  //           </Form.Group>
-  //           {/* Last Name */}
-  //           <Form.Group
-  //             className="input-field name"
-  //             controlId="formBasicFirstEmail"
-  //           >
-  //             <Form.Label>Last Name:</Form.Label> <br />
-  //             <Form.Control
-  //               name="lastName"
-  //               type="text"
-  //               value={DrSignUp.lastName}
-  //               placeholder="Last Name"
-  //               onChange={(e) => {
-  //                 handleFormInput(e);
-  //               }}
-  //             />
-  //           </Form.Group>
-
-  //           {/* email */}
-  //           <Form.Group className="input-field" controlId="formBasicLastName">
-  //             <Form.Label>Email address:</Form.Label> <br />
-  //             <Form.Control
-  //               name="email"
-  //               type="email"
-  //               value={DrSignUp.email}
-  //               placeholder="Enter email"
-  //               onChange={(e) => {
-  //                 handleFormInput(e);
-  //               }}
-  //             />
-  //           </Form.Group>
-  //           {/* contact Number */}
-  //           <Form.Group className="input-field" controlId="formBasicEmail">
-  //             <Form.Label>Phone Number:</Form.Label> <br />
-  //             <Form.Control
-  //               name="mobileNumber"
-  //               type="number"
-  //               value={DrSignUp.mobileNumber}
-  //               placeholder="Enter phone number"
-  //               onChange={(e) => {
-  //                 handleFormInput(e);
-  //               }}
-  //             />
-  //           </Form.Group>
-  //           {/* Licence Number */}
-  //           <Form.Group
-  //             className="input-field"
-  //             controlId="formBasicLicenceNumber"
-  //           >
-  //             <Form.Label>Licence Number:</Form.Label> <br />
-  //             <Form.Control
-  //               name="licenceNumber"
-  //               type="text"
-  //               value={DrSignUp.licenceNumber}
-  //               placeholder="Enter licence number"
-  //               onChange={(e) => {
-  //                 handleFormInput(e);
-  //               }}
-  //             />
-  //           </Form.Group>
-  //           {/* Specialist Field */}
-
-  //           <Form.Group
-  //             controlId="exampleForm.ControlSelect1"
-  //             className="input-field"
-  //           >
-  //             <Form.Label>Example select</Form.Label> <br />
-
-  //             <Form.Control
-  //               name="specialistFields"
-  //               as="select"
-  //               type="text"
-  //               onChange={(e) => {
-  //                 console.log("onSelect is", e.target.value);
-  //                 const selectedItem = e.target.value;
-  //                 handleSpecialistInput(selectedItem);
-  //               }}
-  //             >
-  //               {specialistAPI.map((item, index) => {
-  //                 return (
-  //                   <option key={index} value={item.field}>
-  //                     {item.field}
-  //                   </option>
-  //                 );
-  //               })}
-  //             </Form.Control>
-
-  //             <div className="discipline-container">
-  //               {DrSignUp.specialistFields.map((item, index) => {
-  //                 return (
-  //                   <div
-  //                     id={index}
-  //                     key={index}
-  //                     className="reg-discipline"
-  //                     onClick={(e) => {
-  //                       deleteField(e);
-  //                     }}
-  //                   >
-  //                     {item}
-  //                   </div>
-  //                 );
-  //               })}
-  //             </div>
-  //           </Form.Group>
-
-  //           {/* upload Files */}
-  //           <Form className="input-field">
-  //             <Form.Group>
-  //               <Form.File
-  //                 name="file"
-  //                 onChange={(e) => {
-  //                   handleFormInput(e);
-  //                 }}
-  //                 value={DrSignUp.file}
-  //                 id="exampleFormControlFile1"
-  //                 label="Upload Qualification:"
-  //               />
-  //             </Form.Group>
-  //           </Form>
-  //           {/* Password */}
-  //           <Form.Group className="input-field" controlId="formBasicPassword">
-  //             <Form.Label>Password:</Form.Label> <br />
-  //             <Form.Control
-  //               name="password"
-  //               type="password"
-  //               placeholder="Password"
-  //               value={DrSignUp.password}
-  //               onChange={(e) => {
-  //                 handleFormInput(e);
-  //               }}
-  //             />
-  //           </Form.Group>
-
-  //           {/* Confirm Password */}
-  //           <Form.Group
-  //             className="input-field"
-  //             controlId="formBasicConfirmPassword"
-  //           >
-  //             <Form.Control
-  //               name="confirmedPassword"
-  //               type="password"
-  //               placeholder="Confirm Password"
-  //               value={DrSignUp.confirmedPassword}
-  //               onChange={(e) => {
-  //                 handleFormInput(e);
-  //               }}
-  //             />
-  //           </Form.Group>
-  //           <div className="reg-form-footer">
-  //             <Form.Group controlId="formBasicCheckbox">
-  //               <Form.Check
-  //                 required
-  //                 label="Agree to terms and conditions"
-  //                 feedback="You must agree before submitting."
-  //                 value={true}
-  //               />
-  //               <Form.Check
-  //                 required
-  //                 label="I confirm that this information is correct"
-  //                 feedback="You must agree before submitting."
-  //                 value={true}
-  //               />
-  //             </Form.Group>
-  //           </div>
-  //           {/* upload documents */}
-
-  //           <Button type="submit">Sign Up</Button>
-  //         </Form>
-  //       </Card>
-  //     </div>
-  //   </div>
-  // );
 }
 
 export default DoctorRegForm;

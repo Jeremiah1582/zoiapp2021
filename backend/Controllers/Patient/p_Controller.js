@@ -2,6 +2,7 @@ const Patient = require("../../Models/Patient/p_Model");
 const Doctor = require("../../Models/Doctor/dr_Model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const sgMail = require('@sendgrid/mail')
 require('dotenv').config()
 
 exports.registerPatient = (req, res) => {
@@ -117,15 +118,15 @@ exports.findDoctor = (req, res) => {
 
 exports.bookingForm = (req, res) => {
   const token = req.body.userToken;
-  console.log(req.body, "line 118 pController ");
+  // console.log(req.body, "line 118 pController ");
   
   jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
     if (err) throw err;
     let Id = data.id;
-    console.log(Id, "line 122 p.controller");
+    // console.log(Id, "line 122 p.controller");
     Patient.findById(Id, (err, data) => {
 
-      console.log(data, "line 125 p.controller");
+      // console.log(data, "line 125 p.controller");
       res.status(200).json({ msg: "Patient info is coming", data });
     });
   });
@@ -145,16 +146,15 @@ exports.bookingForm = (req, res) => {
 
 exports.bookedAppointments = (req, res) => {
   //add timeslot to the doctors DB
-  console.log(req.body, "line 114");
+  // console.log(req.body, "line 114");
   
   
     let doctorId = req.body.doctorId
     let patientId = req.body.patientId;
     let timeSlotId = req.body.timeSlotId
+    let formEmail = req.body.email
+    let formFirstName = req.body.firstName
     
-console.log(doctorId,"Dr Id");
-console.log(patientId,"patient Id");
-console.log(timeSlotId,"timeSlot Id");
     // console.log(Id, "line 120");
     Doctor.findByIdAndUpdate(
       doctorId,
@@ -163,7 +163,7 @@ console.log(timeSlotId,"timeSlot Id");
       $pull:{ availableTimeSlots: {_id:timeSlotId} }},//remove 
       (err, doc) => { // doc = all Dr details
         if (err) throw err;
-        res.json({ msg: "Dr appointment successfully added", doc });
+        // res.json({ msg: "Dr appointment successfully added", doc });
       }
       )
     Patient.findByIdAndUpdate(
@@ -171,16 +171,17 @@ console.log(timeSlotId,"timeSlot Id");
       { $push: { bookedAppointments: req.body } },
       (err, doc) => { //doc= all Patient details
         if (err) throw err;
-        console.log(doc);
+        // console.log(doc);
         
 // sendGrid Email confirmation of appointment.
         sgMail.setApiKey(process.env.SG_SECRET_KEY)
 
         const sgEmail = {
-          to: doc.email,
+          to: formEmail,
           from: process.env.ADMIN_EMAIL, 
+          subject: 'patient testing email ',
           html: `<p>
-            Hi  ${doc.firstName}.
+            Hi  ${formFirstName}.
 
             Thank you for using the Zoe App to book your Dr appointment. Your appointment has been successfully booked. 
 
@@ -196,11 +197,11 @@ console.log(timeSlotId,"timeSlot Id");
         }
         sgMail
           .send(sgEmail)
-          .then(()=>{console.log('check email for confirmation')})
-        .catch(err=>{console.log('did not send email');}
-
-        )
-        res.json({msg: "patients appointment successfully added"}, doc);
+          .then(()=>{
+          console.log('check email for confirmation')
+          res.status(200).json({msg:"patients appointment successfully added", doc})
+          })
+          .catch(err=>{console.log('did not send email', err)})
       }
     )
     // Doctor.findById().availableTimeSlots.findByIdAndDelete() 

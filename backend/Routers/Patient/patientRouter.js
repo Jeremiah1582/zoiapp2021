@@ -12,5 +12,7 @@ router.post("/finddoctor", patientController.findDoctor);
 router.post("/bookingForm", patientController.bookingForm)
 // *** Appointment Part *** //
 // router.get("/", patientController.bookAppointment);
+// Booked Appointments Part
+router.post("/bookedappointments",patientController.bookedAppointments)
 
 module.exports = router;

@@ -7,16 +7,14 @@
   --fonts: #333333;
   --textCard: #fdfffc;
 
-  
-    --color-green:rgba(52, 173, 133, 0.795);
-    --color-grey:#999;
-    --color-dark:#000;
-    --color-white:#fff;
-    --color-light:#eee;
-    
-    --hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
-    --returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  
+  --color-green: rgba(52, 173, 133, 0.795);
+  --color-grey: #999;
+  --color-dark: #000;
+  --color-white: #fff;
+  --color-light: #eee;
+
+  --hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
+  --returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 *,
 *::after,
@@ -66,6 +64,23 @@ a {
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
  
 } */
+.header {
+  height: 90vh;
+  width: 96vw;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 61, 41, 0.705),
+      rgba(0, 250, 167, 0.568)
+    ),
+    url("./imgs/surgeons.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  /* position: fixed; */
+  z-index: 0;
+}
 .logo {
   height: 11rem;
   animation: animateHeart 1.2s infinite;
@@ -102,11 +117,15 @@ a {
   top: 60%;
   left: 25%;
 }
+.buttons a {
+  color: var(--textCard);
+}
 .buttonNavbar {
   position: relative;
   font-size: 2rem;
   display: inline-block;
   text-transform: uppercase;
+  text-align: center;
   letter-spacing: 0.3rem;
   overflow: hidden;
   transition: 0.2s;
@@ -574,11 +593,97 @@ a {
 }
 
 /* *** Patient Sign Up Form  *** */
-.pt-reg {
+/* .pt-reg {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
+} */
+
+/* ***Sign Up Forms Style *** */
+.reg-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  /* border: solid pink; */
+  position: relative;
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 249, 166, 0.506),
+    rgba(227, 255, 246, 0.959)
+  );
+  z-index: 2;
+  /* background-image: url('../styling/images/online-doctor-video-doctor-using-healthcare-app-laptop-medi.jpg'); */
+}
+/* .con-picture {
+  width: 40%;
+  height: 100%;
+} */
+.reg-img-container {
+  max-width: 60%;
+  /* max-height: 100vh; */
+  /* justify-content: left;  */
+  /* z-index: 0; */
+  /* position: absolute;  */
+  contain: content;
+}
+.reg-img {
+  width: 100%;
+}
+
+.signUpForm {
+  border-top-left-radius: 40px;
+  animation-delay: 5;
+  max-width: 40%;
+  font-size: large;
+  /* position:absolute;  */
+  justify-content: left;
+  /* right: 0px; */
+  padding: 20px;
+  height: 100%;
+  /* -webkit-filter: blur(7px); */
+  border: none;
+  /* background-color:rgba(138, 196, 178, 0.445); */
+  background-color: rgba(254, 255, 254, 0.952);
+  /* backdrop-filter: blur(50px); */
+  box-shadow: -5px 0px 15px #949494, 8px -20px 60px rgb(160, 160, 160);
+  /* z-index: 500; */
+}
+.form {
+  padding: 7px;
+}
+
+.input-field {
+  margin: 5px;
+  max-width: 90%;
+}
+.name {
+  width: 50%;
+}
+
+.reg-discipline {
+  background-color: rgba(0, 249, 166, 0.506);
+  border-radius: 5px;
+  padding: 4px;
+  max-width: fit-content;
+  margin: 2px;
+  cursor: pointer;
+}
+
+/* 2nd style test*/
+/* .reg-section {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+} */
+
+.login-link {
+  color: #333;
+  border: 1px solid #333;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 /* *******footer******** */
@@ -769,32 +874,30 @@ a {
 }
 
 /* dashbored***************************** */
-.dash-container{
+.dash-container {
   height: 100vh;
   display: grid;
-  grid-template-rows: repeat(3, 20%) 10% ;
-  grid-template-columns: repeat(2,10%) repeat(4,20%);
-  font-family: 'Roboto', sans-serif;
+  grid-template-rows: repeat(3, 20%) 10%;
+  grid-template-columns: repeat(2, 10%) repeat(4, 20%);
+  font-family: "Roboto", sans-serif;
   /* // border: dotted greenyellow; */
-  background-color:rgba(138, 196, 178, 0.548);
+  background-color: rgba(138, 196, 178, 0.548);
   /* background-image: url('../imgs/hospital-bed.jpeg'); */
   background-repeat: no-repeat;
-
 }
 
-.widget-container{
+.widget-container {
   height: 100vh;
   grid-area: 1/3/4/6;
   /* // background-color: rgba(150, 34, 34, 0.596); */
-  display:grid;
-  grid-template-rows: repeat(3, 33%) ;
-  grid-template-columns: repeat(3,33%);
-  grid-gap:3px;
+  display: grid;
+  grid-template-rows: repeat(3, 33%);
+  grid-template-columns: repeat(3, 33%);
+  grid-gap: 3px;
   margin-top: 10px;
   padding: 20px;
   /* // grid-template-rows: repeat(3,30vw); */
   /* // grid-template-columns: repeat(3.30vh); */
-  
 }
 
 .widget {
@@ -848,26 +951,23 @@ a {
   display: block;
   text-align: center;
   /* // border-radius: 50%; */
-  margin-left: 50% ;
+  margin-left: 50%;
   transform: translate(-50%);
-  
-       
-  }
-  /* .dash-menu-item:hover{
+}
+/* .dash-menu-item:hover{
     background-color:lighten(var(--color-light),40%);
   } */
-  .dash-menu-item i:hover{
-        color:var(--color-dark);
-        scale: 1.2;
-    }
-    .dash-menu-item i .box:hover{
-        display: block !important;
-    }
+.dash-menu-item i:hover {
+  color: var(--color-dark);
+  scale: 1.2;
+}
+.dash-menu-item i .box:hover {
+  display: block !important;
+}
 
-    /* *************************doctor List Table********************************/
-.doctor-list-table{
+/* *************************doctor List Table********************************/
+.doctor-list-table {
   max-width: 90%;
-
 }
 .doctor-list-table thead th {
   /* background: rgb(179, 157, 157); */
@@ -886,7 +986,6 @@ a {
 .doctor-list-table tbody td {
   padding: 5px;
   margin: 5px;
-  
 }
 .doctor-list-table tbody td:hover {
   /* background-color: rgba(108, 153, 108, 0.61); */
