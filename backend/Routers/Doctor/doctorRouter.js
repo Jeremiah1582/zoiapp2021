@@ -30,5 +30,7 @@ router.post("/bookingForm",doctorController.bookingForm)
 router.post("/setAppointmentTime", doctorController.setAppointmentTime)
 // *** Appointment Part *** // 
 // router.get("/", doctorController.appointments);
+// Booked Appointments Part
+router.post("/bookedappointments", doctorController.bookedAppointments)
 
 module.exports = router;

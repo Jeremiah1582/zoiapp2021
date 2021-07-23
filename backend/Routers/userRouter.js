@@ -19,7 +19,7 @@ router.post("/login", userController.loginUser);
 
 
 // Booked Appointments Part
-router.post("/appointmentlist",userController.bookedAppointments)
+// router.post("/appointmentlist",userController.bookedAppointments)
 // *** Log Out *** //
 // router.get("/logout", userController.logout);
 

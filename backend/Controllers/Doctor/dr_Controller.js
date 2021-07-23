@@ -1,6 +1,9 @@
 const Doctor = require("../../Models/Doctor/dr_Model");
+const Patient = require("../../Models/Patient/p_Model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const sgMail = require('@sendgrid/mail')
+
 // exports.appointments=(req, res)=>{
 
 // res.send(' <h1>Dr: </br> this is the appointment page for Dr </h1>')
@@ -111,7 +114,7 @@ exports.registerDoctor = (req, res) => {
 
 exports.setAppointmentTime = (req, res) => {
   //add timeslot to the doctors DB
-  console.log(req.body, "line 114 DrController");
+  // console.log(req.body, "line 114 DrController");
   const token = req.body.userToken;
   let Id = "";
   jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
@@ -124,7 +127,7 @@ exports.setAppointmentTime = (req, res) => {
       (err, doc) => {
         // console.log(req.body.timeSlot, "line 126");
         if (err) throw err;
-        console.log(doc, "line 127");
+        // console.log(doc, "line 127");
         res.json({ msg: "time slot successfully added" });
       }
     );
@@ -133,7 +136,7 @@ exports.setAppointmentTime = (req, res) => {
 
 // ** Search for a Doctor ** //
 exports.findDoctor = (req, res) => {
-  console.log(req.body.field, "line 136 dr_controller");
+  // console.log(req.body.field, "line 136 dr_controller");
   Doctor.find({ $text: { $search: req.body.field } }, (err, doc) => {
     // console.log(doc,'line 138 dr_controller')
     res.json(doc);
@@ -147,13 +150,13 @@ exports.bookingForm = (req, res) => {
   // console.log(req.body, "line 147 DrController ");
   
   jwt.verify(token, process.env.JWT_SECRET, (err, data1) => {
-console.log(data1, 'line 150 DrController');
+// console.log(data1, 'line 150 DrController');
     if (err) throw err;
     let Id = data1.id;
-    console.log(Id, "line 153 dr_controller");
+    // console.log(Id, "line 153 dr_controller");
   
     Doctor.findById(Id, (err, data) => {
-console.log(data, "line 153 dr_controller"); //data= user details 
+// console.log(data, "line 153 dr_controller"); //data= user details 
       res.status(200).json({ msg: "dr info is coming", data });
     });
   });
@@ -163,16 +166,18 @@ console.log(data, "line 153 dr_controller"); //data= user details
 //List of appointments Booked for Dr and Patient **********************
 exports.bookedAppointments = (req, res) => {
   //add timeslot to the doctors DB
-  console.log(req.body, "line 114");
+  // console.log(req.body, "line 114");
   
   
     let doctorId = req.body.doctorId
     let patientId = req.body.patientId;
-    let timeSlotId = req.body.timeSlotId
+    let timeSlotId = req.body.timeSlotId;
+    let patEmail = req.body.email;
+    let patFirstName = req.body.firstName;
     
-console.log(doctorId,"Dr Id");
-console.log(patientId,"patient Id");
-console.log(timeSlotId,"timeSlot Id");
+// console.log(doctorId,"Dr Id");
+// console.log(patientId,"patient Id");
+// console.log(timeSlotId,"timeSlot Id");
     // console.log(Id, "line 120");
     Doctor.findByIdAndUpdate(
       doctorId,
@@ -181,24 +186,15 @@ console.log(timeSlotId,"timeSlot Id");
       $pull:{ availableTimeSlots: {_id:timeSlotId} }},//remove 
       (err, doc) => { // doc = all Dr details
         if (err) throw err;
-        res.json({ msg: "Dr appointment successfully added", doc });
-      }
-      )
-    Patient.findByIdAndUpdate(
-      patientId,
-      { $push: { bookedAppointments: req.body } },
-      (err, doc) => { //doc= all Patient details
-        if (err) throw err;
-        console.log(doc);
-        
-// sendGrid Email confirmation of appointment.
+//  console.log(doc, 'line 187 ');
+        // sendGrid Email confirmation of appointment.
         sgMail.setApiKey(process.env.SG_SECRET_KEY)
-
-        const sgEmail = {
-          to: doc.email,
+ const sgEmail = {
+          to: patEmail,
           from: process.env.ADMIN_EMAIL, 
+          subject: 'sending a Test email ', 
           html: `<p>
-            Hi  ${doc.firstName}.
+            Hi  ${patFirstName}.
 
             Thank you for using the Zoe App to book your Dr appointment. Your appointment has been successfully booked. 
 
@@ -214,13 +210,74 @@ console.log(timeSlotId,"timeSlot Id");
         }
         sgMail
           .send(sgEmail)
-          .then(()=>{console.log('check email for confirmation')})
-        .catch(err=>{console.log('did not send email');}
+          .then(()=>{
+            console.log('check email for confirmation')
+             res.json({msg: " appointment successfully added", doc})
+            })
+        .catch(err=>{console.log('did not send email');
+        // console.log(err);
+        }
 
         )
-        res.json({msg: "patients appointment successfully added"}, doc);
+
+       
+
+// Patient.findByIdAndUpdate(
+//       patientId,
+//       { $push: { bookedAppointments: req.body } },
+//       (err, padoc) => { //doc= all Patient details
+//         if (err) throw err;
+//          console.log(padoc, 'line 197 ');
+//         const sgEmail = {
+//           to: padoc.email,
+//           from: process.env.ADMIN_EMAIL, 
+//           subject: 'sending a Test email ', 
+//           html: `<p>
+//             Hi  ${padoc.firstName}.
+
+//             Thank you for using the Zoe App to book your Dr appointment. Your appointment has been successfully booked. 
+
+//             Please remember to bring to your appointment:
+//             - your ID
+//             - your insurance card
+
+//             You can view your appointment details in the App by logging in and clicking into the appointment list feature. 
+
+//             Stay healthy and well, and we hope to see you again soon!
+//             The Zoe Team. 
+//             </p>`
+//         }
+//         sgMail
+//           .send(sgEmail)
+//           .then(()=>{console.log('check email for confirmation')})
+//         .catch(err=>{console.log('did not send email');
+//         console.log(err);}
+
+//         )
+
+//         res.json({msg: "patients appointment successfully added"}, doc);
+//       }
+//     )
+
+
+        
+
+       // res.json({ msg: "Dr appointment successfully added", doc });
       }
-    )
+      )
+
+    // Patient.findByIdAndUpdate(
+    //   patientId,
+    //   { $push: { bookedAppointments: req.body } },
+    //   (err, doc) => { //doc= all Patient details
+    //     if (err) throw err;
+    //     // console.log(doc, 'line 192 ');
+        
+
+    //     res.json({msg: "patients appointment successfully added"}, doc);
+    //   }
+    // )
+
     // Doctor.findById().availableTimeSlots.findByIdAndDelete() 
     //  doctorId.findBy({availableTimeSlots},
     //   findByIdAndDelete(timeSlotId)
