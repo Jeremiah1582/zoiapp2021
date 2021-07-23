@@ -1,8 +1,8 @@
 const Patient = require("../Models/Patient/p_Model");
 const Doctor = require("../Models/Doctor/dr_Model");
 const jwt = require("jsonwebtoken");
-const sgMail = require('@sendgrid/mail')
-require('dotenv').config()
+const sgMail = require("@sendgrid/mail");
+require("dotenv").config();
 
 //***** Login function for Patient & Doctor *******//
 
@@ -66,41 +66,43 @@ exports.loginUser = (req, res) => {
 exports.bookedAppointments = (req, res) => {
   //add timeslot to the doctors DB
   console.log(req.body, "line 114");
-  
-  
-    let doctorId = req.body.doctorId
-    let patientId = req.body.patientId;
-    let timeSlotId = req.body.timeSlotId
-    
-console.log(doctorId,"Dr Id");
-console.log(patientId,"patient Id");
-console.log(timeSlotId,"timeSlot Id");
-    // console.log(Id, "line 120");
-  
-    Doctor.findByIdAndUpdate(
-      doctorId,
-      { 
-      $push: { bookedAppointments: req.body}, //update
-      $pull:{ availableTimeSlots: {_id:timeSlotId} }},//remove 
-      (err, doc) => { // doc = all Dr details
-        if (err) throw err;
-        res.json({ msg: "Dr appointment successfully added", doc });
-      }
-      )
-    Patient.findByIdAndUpdate(
-      patientId,
-      { $push: { bookedAppointments: req.body } },
-      (err, doc) => { //doc= all Patient details
-        if (err) throw err;
-        console.log(doc);
-        
-// sendGrid Email confirmation of appointment.
-        sgMail.setApiKey(process.env.SG_SECRET_KEY)
 
-        const sgEmail = {
-          to: doc.email,
-          from: process.env.ADMIN_EMAIL, 
-          html: `<p>
+  let doctorId = req.body.doctorId;
+  let patientId = req.body.patientId;
+  let timeSlotId = req.body.timeSlotId;
+
+  console.log(doctorId, "Dr Id");
+  console.log(patientId, "patient Id");
+  console.log(timeSlotId, "timeSlot Id");
+  // console.log(Id, "line 120");
+
+  Doctor.findByIdAndUpdate(
+    doctorId,
+    {
+      $push: { bookedAppointments: req.body }, //update
+      $pull: { availableTimeSlots: { _id: timeSlotId } },
+    }, //remove
+    (err, doc) => {
+      // doc = all Dr details
+      if (err) throw err;
+      res.json({ msg: "Dr appointment successfully added", doc });
+    }
+  );
+  Patient.findByIdAndUpdate(
+    patientId,
+    { $push: { bookedAppointments: req.body } },
+    (err, doc) => {
+      //doc= all Patient details
+      if (err) throw err;
+      console.log(doc);
+
+      // sendGrid Email confirmation of appointment.
+      sgMail.setApiKey(process.env.SG_SECRET_KEY);
+
+      const sgEmail = {
+        to: doc.email,
+        from: process.env.ADMIN_EMAIL,
+        html: `<p>
             Hi  ${doc.firstName}.
 
             Thank you for using the Zoe App to book your Dr appointment. Your appointment has been successfully booked. 
@@ -113,21 +115,22 @@ console.log(timeSlotId,"timeSlot Id");
 
             Stay healthy and well, and we hope to see you again soon!
             The Zoe Team. 
-            </p>`
-        }
-        sgMail
-          .send(sgEmail)
-          .then(()=>{console.log('check email for confirmation')})
-        .catch(err=>{console.log('did not send email');}
-
-        )
-        res.json({msg: "patients appointment successfully added"}, doc);
-      }
-    )
-    // Doctor.findById().availableTimeSlots.findByIdAndDelete() 
-    //  doctorId.findBy({availableTimeSlots},
-    //   findByIdAndDelete(timeSlotId)
-    //   {$splice: {availableTimeSlots: timeSlotId},1}
-    //   ))
-
+            </p>`,
+      };
+      sgMail
+        .send(sgEmail)
+        .then(() => {
+          console.log("check email for confirmation");
+        })
+        .catch((err) => {
+          console.log("did not send email");
+        });
+      res.json({ msg: "patients appointment successfully added" }, doc);
+    }
+  );
+  // Doctor.findById().availableTimeSlots.findByIdAndDelete()
+  //  doctorId.findBy({availableTimeSlots},
+  //   findByIdAndDelete(timeSlotId)
+  //   {$splice: {availableTimeSlots: timeSlotId},1}
+  //   ))
 };
