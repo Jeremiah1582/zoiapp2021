@@ -1,8 +1,8 @@
 const Patient = require("../Models/Patient/p_Model");
 const Doctor = require("../Models/Doctor/dr_Model");
 const jwt = require("jsonwebtoken");
-const sgMail = require('@sendgrid/mail')
-require('dotenv').config()
+const sgMail = require("@sendgrid/mail");
+require("dotenv").config();
 
 //***** Login function for Patient & Doctor *******//
 
@@ -61,5 +61,3 @@ exports.loginUser = (req, res) => {
 //   console.log("this is the logout function");
 //   res.send("<h1> <br/> you have licked log out </h1>");
 // };
-
-
