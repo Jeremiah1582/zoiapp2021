@@ -500,86 +500,6 @@ a {
   transition: 0.5s;
 }
 
-/* ********cards********* */
-.cardWrap {
-  display: grid;
-  grid-template-rows: auto;
-  min-height: 120rem;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-top: 11rem;
-}
-.cardWrap .card {
-  position: relative;
-  min-width: 32rem;
-  height: 85vh;
-  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
-    inset -5px -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 5px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
-  border-radius: 1.5rem;
-  margin-top: 5rem;
-}
-
-.cardWrap .card .boxCard {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  right: 2rem;
-  bottom: 2rem;
-  background: rgba(0, 62, 41, 0.4);
-  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.5);
-  transition: 0.5s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 3rem;
-}
-.cardWrap .card .boxCard:hover {
-  transform: translateY(-50px);
-  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
-}
-.imgCard {
-  height: 9rem;
-  width: 9rem;
-  border-radius: 50%;
-  position: absolute;
-  top: 5%;
-  left: 40%;
-  box-shadow: 10px 10px 95px -16px rgba(0, 0, 0, 0.82);
-}
-.cardWrap .card .boxCard .contentCard {
-  padding: 2rem;
-  text-align: center;
-}
-.cardWrap .card .boxCard .contentCard h2 {
-  font-size: 4rem;
-  letter-spacing: 2px;
-  color: var(--textCard);
-  margin-top: 7rem;
-  margin-bottom: 3rem;
-  text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
-}
-.cardWrap .card .boxCard .contentCard p {
-  font-size: 2rem;
-  z-index: 1;
-  transition: 0.5s;
-  color: var(--textCard);
-  margin-top: 4rem;
-  font-weight: 400;
-}
-.cardWrap .card .boxCard .contentCard a {
-  position: relative;
-  display: inline-block;
-  padding: 8px 2rem;
-  margin-top: 9rem;
-  border-radius: 2rem;
-  text-decoration: none;
-  color: var(--textCard);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
 /* *** Patient Sign Up Form  *** */
 /* .pt-reg {
   display: flex;
@@ -924,7 +844,7 @@ a {
 }
 
 .user-info-widget {
-  width: 250px;
+  width: 30vw;
   height: 100%;
 }
 /* // ********************************* */

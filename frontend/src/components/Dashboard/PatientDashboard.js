@@ -4,7 +4,7 @@ import React, { useContext, useEffect } from "react";
 //dashNav Widgets:
 import Home from "./PatientWidgets/Home";
 import Logout from "../Logout";
-import NavBar from "../Navbar";
+// import NavBar from "../Navbar";
 // import Calendar from "./PatientWidgets/Calendar";
 // import Messages from "./PatientWidgets/Messages";
 import AppointmentList from "./PatientWidgets/AppointmentList";
@@ -25,7 +25,7 @@ function PatientDashboard() {
   // console.log(userState, 'the patientState ')
   return (
     <DashRouter>
-      <NavBar/>
+      {/* <NavBar/> */}
       <Logout />
 
       <div className="dash-container">
