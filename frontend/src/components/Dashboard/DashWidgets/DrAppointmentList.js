@@ -19,17 +19,18 @@ console.log(userDrState);
     return (
         <div>
             <h3>Appointments</h3>
-            <div className='appointment-list-container'>
+
+            <div className='widget-container2'>
 {userDrState.bookedAppointments.map((appointment, index)=>{
     return(
         <div key={appointment._id} id={appointment._id} >      
             <Card className='app-list-cards' style={{ width: '18rem'}}>
             <Card.Body>{console.log(appointment)}
-                <Card.Title>Your Upcoming Appointment</Card.Title>
+                <Card.Title>{appointment.firstName} {appointment.lastName}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">date:{appointment.date}</Card.Subtitle>
                 <Card.Text>
-                <h6>{appointment.time}</h6> <br/>
-                <h7>{appointment.duration}</h7> <br/>
+                <h4>{appointment.time}</h4> <br/>
+                <h4>Mins: {appointment.duration}</h4> <br/>
                 {/* <h7>{appointment.address}</h7> <br/> */}
                 {/* <h7>{appointment.DrName}</h7> <br/> */}
                 </Card.Text>
