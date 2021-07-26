@@ -34,7 +34,11 @@ app.use(
 const DB_NAME = process.env.DB_NAME;
 const DB_LINK = process.env.MONGO_LINK + DB_NAME;
 mongoose
-  .connect(DB_LINK, { useUnifiedTopology: true, useNewUrlParser: true,  useFindAndModify: false })
+  .connect(DB_LINK, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useFindAndModify: false,
+  })
   .then(() => {
     console.log("Mongoose found his way to the database...");
   })
