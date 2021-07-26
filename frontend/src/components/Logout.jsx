@@ -1,17 +1,40 @@
-import React, { useState, useEffect } from "react";
-import {Alert} from 'react-bootstrap'
+import React, { useState, useEffect, useContext } from "react";
+import { Alert } from "react-bootstrap";
 // import Home from "./Home";
 import logoNew from "../imgs/logoNew.png";
+// import { MyContext } from "../Context_APIs/userContextAPI";
 
 const Logout = () => {
-      // // save token in localStorage for login
+  // save token in localStorage for login
+
+  // const { userDrState, getUserDr } = useContext(MyContext);
+  // const { userState, getUser } = useContext(MyContext);
+
+  // console.log(userDrState);
+  // console.log(userState);
   const [token, setToken] = useState("false");
+  // useEffect
   useEffect(() => {
     const user = localStorage.getItem("currentToken");
+
+    // previous code
     if (user) {
+      // console.log(user);
       setToken(true);
+      // getUserDr();
+      // getUser();
     }
+
+    // new code 26.11
+  //   if (userState.accountType === "Patient") {
+  //     getUser();
+  //   } else if (userDrState.accountType === "Doctor") {
+  //     getUserDr();
+  //   } else {
+  //     ("User not found!");
+  //   }
   }, []);
+ 
 
   // logout and remove token
   const logout = () => {
@@ -20,9 +43,11 @@ const Logout = () => {
     window.location.href = "/user/login";
   };
   return (
-   <div className="navigation">
-  {token? <Alert variant='success'> Welcome </Alert>: null}
-      
+    <div className="navigation">
+      {/* {token ? (
+        <Alert variant="success"> Welcome</Alert>
+      ) : null} */}
+
       <input type="checkbox" className="navCheckbox" id="navigationToogle" />
       <label htmlFor="navigationToogle" className="navButton">
         MENU
@@ -56,8 +81,7 @@ const Logout = () => {
             </a>
           </li>
           <li className="navItem">
-            <a href="/user/login" className="navLink" 
-            onClick ={logout} >
+            <a href="/user/login" className="navLink" onClick={logout}>
               Log Out
             </a>
           </li>

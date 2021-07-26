@@ -8,16 +8,15 @@
   --textCard: #fdfffc;
 
   /* login and signup colours */
-    --color-green:rgba(52, 173, 133, 0.795);
-    --dash-background: rgba(138, 196, 178, 0.548);
-    --color-grey:#999;
-    --color-dark:#000;
-    --color-white:#fff;
-    --color-light:#eee;
-    
-    --hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
-    --returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  
+  --color-green: rgba(52, 173, 133, 0.795);
+  --dash-background: rgba(138, 196, 178, 0.548);
+  --color-grey: #999;
+  --color-dark: #000;
+  --color-white: #fff;
+  --color-light: #eee;
+
+  --hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
+  --returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 *,
 *::after,
@@ -863,51 +862,47 @@ a {
 }
 
 /* dashbored***************************** */
-.dash-container{
+.dash-container {
   min-height: 100%;
   width: 100vw;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   /* display: grid;
   grid-template-rows: repeat(3, 20%) 10%;
   grid-template-columns: repeat(2, 10%) repeat(4, 20%); */
-  
+
   /* // border: dotted greenyellow; */
   background-color: var(--dash-background);
   /* background-image: url('../imgs/hospital-bed.jpeg'); */
   background-repeat: no-repeat;
-
 }
 
-.widget-container{
+.widget-container {
   min-height: 100vh;
-  width:100%;
-  
+  width: 100%;
+
   /* grid-area: 1/3/4/6; */
   /* // background-color: rgba(150, 34, 34, 0.596); */
   /* grid-template-rows: repeat(3, 33%) ;
   grid-template-columns: repeat(3,33%); */
-  display:flex;
+  display: flex;
   flex-flow: row;
   flex-wrap: wrap;
   /* margin-left: 100px; */
   /* grid-gap:3px; */
-  /* margin-top: 10px;
-  padding: 20px; */
+  margin-top: 10px;
+  padding-left: 10rem;
   /* // grid-template-rows: repeat(3,30vw); */
   /* // grid-template-columns: repeat(3.30vh); */
-
 }
 
 .widget {
   /* // border: solid black; */
-  position: relative;
+  /* position: relative; */
   /* // flex: 0 0 240px; */
-  max-width: 250px;
-  max-height: 150px;
-  min-height: 120px;
-  min-width: 150px;
-  
+  width: 200px;
+  height: 150px;
+  margin: 10px;
   background-color: rgba(51, 51, 51, 0.753);
   /* // overflow: hidden; */
   border-radius: 10px;
@@ -928,10 +923,13 @@ a {
     rgba(black, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px;
 }
 
+.user-info-widget {
+  width: 250px;
+  height: 100%;
+}
 /* // ********************************* */
 /* // DASHBOARD NAV side LEFt............... */
 .dash-nav-container {
-  
   border-right: 1px solid var(--color-light);
   /* // position: fixed; */
   /* grid-area:1/1/5/2 ; //R-start/C-Start/R-End/C-End */
@@ -940,7 +938,7 @@ a {
   min-height: 100%;
   /* height: 100%; */
   border-top-right-radius: 30px;
-  position: fixed;
+  /* position: fixed; */
   z-index: 2;
 }
 
@@ -997,16 +995,15 @@ a {
   /* background-color: rgba(108, 153, 108, 0.61); */
 }
 /* appointment List Page******************** */
-.app-list-cards{
+.app-list-cards {
   margin: 10px;
   border-radius: 4px;
-background: #f3f2f2;
-
+  background: #f3f2f2;
 }
-.app-card-buttons{
-margin: 10px;
+.app-card-buttons {
+  margin: 10px;
 }
-.app-list-cards:hover{
+.app-list-cards:hover {
   transition: 0.6s var(--hoverEasing), box-shadow 2s var(--hoverEasing);
   box-shadow: rgba(white, 0.2) 0 0 40px 5px, rgba(white, 1) 0 0 0 1px,
     rgba(black, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px;
