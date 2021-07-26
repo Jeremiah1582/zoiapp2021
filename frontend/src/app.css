@@ -864,11 +864,12 @@ a {
 
 /* dashbored***************************** */
 .dash-container{
-  height: 100%;
+  min-height: 100%;
   min-width: 100%;
-  display: grid;
+  display: flex;
+  /* display: grid;
   grid-template-rows: repeat(3, 20%) 10%;
-  grid-template-columns: repeat(2, 10%) repeat(4, 20%);
+  grid-template-columns: repeat(2, 10%) repeat(4, 20%); */
   font-family: "Roboto", sans-serif;
   /* // border: dotted greenyellow; */
   background-color: var(--dash-background);
@@ -887,7 +888,7 @@ a {
   display:flex;
   flex-flow: row;
   flex-wrap: wrap;
-  
+  margin-left: 100px;
   grid-gap:3px;
   margin-top: 10px;
   padding: 20px;
@@ -927,14 +928,16 @@ a {
 /* // ********************************* */
 /* // DASHBOARD NAV side LEFt............... */
 .dash-nav-container {
+  
   border-right: 1px solid var(--color-light);
   /* // position: fixed; */
   /* grid-area:1/1/5/2 ; //R-start/C-Start/R-End/C-End */
   background-color: var(--color-green);
-  max-width: 130px;
-  min-height: 110vh;
-  height: 100%;
+  min-width: 100px;
+  min-height: 100%;
+  /* height: 100%; */
   border-top-right-radius: 30px;
+  position: fixed;
 }
 
 .dash-nav-items {
