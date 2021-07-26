@@ -148,7 +148,7 @@ function FindDoctor() {
   };
 
   return (
-    <div className="widget-container">
+    <div className="find-doctor-container">
       {/* search bar (search in database) */}
 
       <form name="form1" id="form1" action="" onSubmit={submit}>

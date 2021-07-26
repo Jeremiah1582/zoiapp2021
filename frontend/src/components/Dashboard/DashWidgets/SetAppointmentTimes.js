@@ -37,7 +37,7 @@ function SetAppointmentTimes() {
 
   return (
     // Patient SetAppointmentTimes View (appointment booking system)
-    <div className='widget-container'>
+    <div className='set-appointments-container'>
       <h1>SetAppointmentTimes</h1>
       {/* set availability here */}
       <div className="set-time-slot">

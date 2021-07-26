@@ -80,9 +80,9 @@ useEffect(() => {
           </ul>
         </div>
 
-        {/* <main className="widget-display">
-          display
-          </main> */}
+        
+        <div className='widget-container'>
+          
         <Switch>
           <Route exact path="/doctor/dashboard/home">
             <Home />
@@ -109,6 +109,7 @@ useEffect(() => {
             <Settings />
           </Route>
         </Switch>
+      </div>
       </div>
     </DashRouter>
   );

@@ -18,8 +18,8 @@ console.log(userDrState);
   
     return (
         <div>
-            <h3>Appointment List </h3>
-            <div className='widget-container'>
+            <h3>Appointments</h3>
+            <div className='appointment-list-container'>
 {userDrState.bookedAppointments.map((appointment, index)=>{
     return(
         <div key={appointment._id} id={appointment._id} >      
