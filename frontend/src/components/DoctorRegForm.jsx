@@ -6,7 +6,7 @@ import { Form, Button, Image } from "react-bootstrap";
 import specialistAPI from "../Context_APIs/specialistFields";
 import DocImage from "../imgs/drReg.png";
 
-import "../styling/customRegForm.css";
+// import "../styling/customRegForm.css";
 
 import axios from "axios";
 

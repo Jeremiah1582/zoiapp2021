@@ -19,10 +19,11 @@ console.log(userDrState);
     return (
         <div>
             <h3>Appointment List </h3>
+            <div className='widget-container'>
 {userDrState.bookedAppointments.map((appointment, index)=>{
     return(
-        <div key={appointment._id} id={appointment._id} className='app-list-cards'>      
-            <Card style={{ width: '18rem'}}>
+        <div key={appointment._id} id={appointment._id} >      
+            <Card className='app-list-cards' style={{ width: '18rem'}}>
             <Card.Body>{console.log(appointment)}
                 <Card.Title>Your Upcoming Appointment</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">date:{appointment.date}</Card.Subtitle>
@@ -32,8 +33,8 @@ console.log(userDrState);
                 {/* <h7>{appointment.address}</h7> <br/> */}
                 {/* <h7>{appointment.DrName}</h7> <br/> */}
                 </Card.Text>
-                <Button>Delete</Button>
-                <Button>Update</Button>
+                <Button className='app-card-buttons'>Delete</Button>
+                <Button className='app-card-buttons'>Update</Button>
             </Card.Body>
             </Card>
             </div>
@@ -42,6 +43,7 @@ console.log(userDrState);
 
 
          
+        </div>
         </div>
     )
 }
