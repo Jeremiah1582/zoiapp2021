@@ -50,20 +50,6 @@ a {
 
 /* *****header****** */
 
-/* .main-header {
-  height: 100vh;
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 61, 41, 0.705),
-      rgba(0, 250, 167, 0.568)
-    ),
-    url("./imgs/surgeons.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
- 
-} */
 .header {
   height: 90vh;
   width: 96vw;
@@ -78,9 +64,9 @@ a {
   background-position: top;
 
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  /* position: fixed; */
   z-index: 0;
 }
+
 .logo {
   height: 11rem;
   animation: animateHeart 1.2s infinite;
