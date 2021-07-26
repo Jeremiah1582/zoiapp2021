@@ -17,7 +17,7 @@ const Navbar = () => {
               ZO<span>&xi;</span>
             </span>
             <span className="subTitle">
-              <i>your life matters</i>
+              <i>Online Booking Solution</i>
             </span>
           </h1>
         </div>

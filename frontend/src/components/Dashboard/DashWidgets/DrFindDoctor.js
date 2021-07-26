@@ -48,7 +48,7 @@ function FindDoctor() {
   });
 
   const sendRequest = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     //sending appointment info
     const userToken = localStorage.getItem("currentToken");
     axios
