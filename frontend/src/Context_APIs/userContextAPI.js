@@ -50,7 +50,7 @@ note:"foot probs"
            console.log(res.data,'useContext API');
        
         setUserState({
-            // condition: res.data.data.condition,
+            accountType: res.data.data.accountType,
             userId: res.data.data._id,
             firstName: res.data.data.firstName,
             lastName:res.data.data.lastName ,
@@ -60,7 +60,8 @@ note:"foot probs"
             insuranceCompany: res.data.data.insuranceCompany,
             insuranceNumber: res.data.data.insuranceNumber,
             bookedAppointments:res.data.data.bookedAppointments,
-            availableTimeSlots:res.data.data.availableTimeSlots
+            availableTimeSlots:res.data.data.availableTimeSlots,
+            
         })
      
         
@@ -77,6 +78,7 @@ note:"foot probs"
            console.log(res.data);
           
         setUserDrState({
+            accountType: res.data.data.accountType,
             userId: res.data.data._id,
             firstName: res.data.data.firstName,
             lastName:res.data.data.lastName ,
@@ -86,7 +88,8 @@ note:"foot probs"
             insuranceCompany: res.data.data.insuranceCompany,
             insuranceNumber: res.data.data.insuranceNumber,
             bookedAppointments:res.data.data.bookedAppointments,
-            availableTimeSlots:res.data.data.availableTimeSlots
+            availableTimeSlots:res.data.data.availableTimeSlots,
+            
         }
         )
         
