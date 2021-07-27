@@ -47,6 +47,24 @@ function PatientDashboard() {
               className="dash-menu-item dash-menu-link"
               to="/patient/dashboard/appointmentlist"
             >
+              <i class="fas fa-calendar-check"></i>
+            </Link>
+            <Link
+              className="dash-menu-item dash-menu-link"
+              to="/patient/dashboard/messages"
+            >
+              <i class="fas fa-sms"></i>
+            </Link>
+            <Link
+              className="dash-menu-item dash-menu-link"
+              to="/patient/dashboard/weather"
+            >
+              <i class="fas fa-cloud-sun-rain"></i>
+            </Link>
+            <Link
+              className="dash-menu-item dash-menu-link"
+              to="/patient/dashboard/todolist"
+            >
               <i className="fas fa-th-list"></i>
             </Link>
             <Link
