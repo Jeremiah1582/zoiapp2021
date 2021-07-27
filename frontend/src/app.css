@@ -8,16 +8,15 @@
   --textCard: #fdfffc;
 
   /* login and signup colours */
-    --color-green:rgba(52, 173, 133, 0.795);
-    --dash-background: rgba(138, 196, 178, 0.548);
-    --color-grey:#999;
-    --color-dark:#000;
-    --color-white:#fff;
-    --color-light:#eee;
-    
-    --hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
-    --returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  
+  --color-green: rgba(52, 173, 133, 0.795);
+  --dash-background: rgba(138, 196, 178, 0.548);
+  --color-grey: #999;
+  --color-dark: #000;
+  --color-white: #fff;
+  --color-light: #eee;
+
+  --hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
+  --returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 *,
 *::after,
@@ -285,7 +284,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-top: 11rem;
+  margin-top: 1rem;
 }
 .cardWrap .card {
   position: relative;
@@ -317,14 +316,17 @@ a {
   box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
 }
 .imgCard {
-  height: 9rem;
-  width: 9rem;
+  height: 15rem;
+  width: 15rem;
   border-radius: 50%;
+  border: 2px solid rgba(0, 62, 41, 0.4);
+  padding: 4px;
   position: absolute;
-  top: 5%;
+  top: 2%;
   left: 40%;
   box-shadow: 10px 10px 95px -16px rgba(0, 0, 0, 0.82);
 }
+
 .cardWrap .card .boxCard .contentCard {
   padding: 2rem;
   text-align: center;
@@ -354,7 +356,35 @@ a {
   color: var(--textCard);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+.card {
+  background: none;
+  border: none;
+  width: 50rem;
+}
+.user-title {
+  font-size: 3rem;
+  margin-top: 18rem !important;
+  color: var(--textCard);
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 
+}
+.user-info-items {
+  background-color: rgba(55, 119, 98, 0.4);
+  margin: 1rem;
+  margin-top: 0;
+  padding: 7px;
+  font-size: 1.8rem;
+  color: var(--white);
+  height: 100%;
+  text-align: center !important;
+  align-items: center;
+  border-radius: 10px;
+  text-transform: capitalize;
+}
+.user-info-items:hover {
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
 /* ********About********* */
 .aboutSubWrapper {
   margin: 19rem auto;
@@ -499,86 +529,6 @@ a {
 .social-links_link:hover {
   transform: scale(1.2);
   transition: 0.5s;
-}
-
-/* ********cards********* */
-.cardWrap {
-  display: grid;
-  grid-template-rows: auto;
-  min-height: 120rem;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-top: 11rem;
-}
-.cardWrap .card {
-  position: relative;
-  min-width: 32rem;
-  height: 85vh;
-  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
-    inset -5px -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 5px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
-  border-radius: 1.5rem;
-  margin-top: 5rem;
-}
-
-.cardWrap .card .boxCard {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  right: 2rem;
-  bottom: 2rem;
-  background: rgba(0, 62, 41, 0.4);
-  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.5);
-  transition: 0.5s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 3rem;
-}
-.cardWrap .card .boxCard:hover {
-  transform: translateY(-50px);
-  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
-}
-.imgCard {
-  height: 9rem;
-  width: 9rem;
-  border-radius: 50%;
-  position: absolute;
-  top: 5%;
-  left: 40%;
-  box-shadow: 10px 10px 95px -16px rgba(0, 0, 0, 0.82);
-}
-.cardWrap .card .boxCard .contentCard {
-  padding: 2rem;
-  text-align: center;
-}
-.cardWrap .card .boxCard .contentCard h2 {
-  font-size: 4rem;
-  letter-spacing: 2px;
-  color: var(--textCard);
-  margin-top: 7rem;
-  margin-bottom: 3rem;
-  text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
-}
-.cardWrap .card .boxCard .contentCard p {
-  font-size: 2rem;
-  z-index: 1;
-  transition: 0.5s;
-  color: var(--textCard);
-  margin-top: 4rem;
-  font-weight: 400;
-}
-.cardWrap .card .boxCard .contentCard a {
-  position: relative;
-  display: inline-block;
-  padding: 8px 2rem;
-  margin-top: 9rem;
-  border-radius: 2rem;
-  text-decoration: none;
-  color: var(--textCard);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* *** Patient Sign Up Form  *** */
@@ -731,7 +681,7 @@ a {
     color: var(--textCard);
   }
   .cardWrap .card .boxCard .contentCard h2 {
-    font-size: 6rem;
+    font-size: 5rem;
     margin-top: 15rem;
   }
   .cardWrap .card .boxCard .contentCard p {
@@ -863,53 +813,47 @@ a {
 }
 
 /* dashbored***************************** */
-.dash-container{
+.dash-container {
   min-height: 100%;
   width: 100vw;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
+  /* display: grid;
+  grid-template-rows: repeat(3, 20%) 10%;
+  grid-template-columns: repeat(2, 10%) repeat(4, 20%); */
+
+  /* // border: dotted greenyellow; */
   background-color: var(--dash-background);
   background-repeat: no-repeat;
 }
 
-.widget-container{
+.widget-container {
   min-height: 100vh;
-  width:100%;
-  display:flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  margin-left: 100px;
-  margin-top: 10px;
-  padding: 20px;
-}
-.widget-container2{
-  min-height: 100vh;
-  width:100%;
-  display:flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  
-  margin-top: 10px;
-  padding: 20px;
-}
-.set-appointment-container input{
- 
-}
-.find-doctor-container select{
- width: 70%;
- margin: 2px;
- display: block;
+  width: 100%;
 
+  /* grid-area: 1/3/4/6; */
+  /* // background-color: rgba(150, 34, 34, 0.596); */
+  /* grid-template-rows: repeat(3, 33%) ;
+  grid-template-columns: repeat(3,33%); */
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  /* margin-left: 100px; */
+  /* grid-gap:3px; */
+  margin-top: 10px;
+  padding-left: 10rem;
+  /* // grid-template-rows: repeat(3,30vw); */
+  /* // grid-template-columns: repeat(3.30vh); */
 }
 
 
 .widget {
-  position: relative;
-  max-width: 250px;
-  max-height: 150px;
-  min-height: 120px;
-  min-width: 150px;
-
+  /* // border: solid black; */
+  /* position: relative; */
+  /* // flex: 0 0 240px; */
+  width: 200px;
+  height: 150px;
+  margin: 10px;
   background-color: rgba(51, 51, 51, 0.753);
   
   border-radius: 10px;
@@ -928,10 +872,13 @@ a {
     rgba(black, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px;
 }
 
+.user-info-widget {
+  width: 30vw;
+  height: 100%;
+}
 /* // ********************************* */
 /* // DASHBOARD NAV side LEFt............... */
 .dash-nav-container {
-  
   border-right: 1px solid var(--color-light);
   /* // position: fixed; */
   /* grid-area:1/1/5/2 ; //R-start/C-Start/R-End/C-End */
@@ -940,7 +887,7 @@ a {
   min-height: 100%;
   /* height: 100%; */
   border-top-right-radius: 30px;
-  position: fixed;
+  /* position: fixed; */
   z-index: 2;
 }
 
@@ -997,18 +944,15 @@ a {
   /* background-color: rgba(108, 153, 108, 0.61); */
 }
 /* appointment List Page******************** */
-.app-list-cards{
+.app-list-cards {
   margin: 10px;
-  border-radius: 10px;
-background: rgb(243, 242, 242 0.1)  ;
-
+  border-radius: 4px;
+  background: #f3f2f2;
 }
-.app-card-buttons{
-margin: 10px;
-background:#00a46d;
-border: none;
+.app-card-buttons {
+  margin: 10px;
 }
-.app-list-cards:hover{
+.app-list-cards:hover {
   transition: 0.6s var(--hoverEasing), box-shadow 2s var(--hoverEasing);
   box-shadow: rgba(white, 0.2) 0 0 40px 5px, rgba(white, 1) 0 0 0 1px,
     rgba(black, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px;
