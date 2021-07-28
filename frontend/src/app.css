@@ -286,6 +286,10 @@ a {
 }
 
 /* ********cards********* */
+.home-card-wrap{
+/* margin-bottom: 100px; */
+
+}
 .cardWrap {
   display: grid;
   grid-template-rows: auto;
@@ -576,12 +580,12 @@ a {
     to bottom,
   
   ); */
-  background-image: url('./imgs/appointment.jpg'), linear-gradient(
+  background-image: linear-gradient(
     to right,
-   rgba(0, 249, 166, 0.506),
-    rgba(227, 255, 246, 0.959)
-  ) ;
-  background-position: -100px;
+   rgba(0, 249, 166, 0.212),
+    rgba(227, 255, 246, 0.596)
+  ), url('./imgs/loginWoman2.png');
+  background-position: -10px;
   /* background-height:100px; */
   z-index: 2;
   background-repeat: no-repeat;
@@ -592,15 +596,15 @@ a {
   width: 40%;
   height: 100%;
 } */
-/* .reg-img-container {
-  max-width: 60%;
+.reg-img-container {
+  max-width: 80%;
   contain: content;
   z-index: 1;
 }
 .reg-img {
-  width: 100%;
+  width: 150%;
  
-} */
+}
 .reg-form-container{
 min-width:150px; 
 border-top-left-radius: 40px;
@@ -616,7 +620,7 @@ font-size: large;
   /* -webkit-filter: blur(7px); */
   border: none;
   /* background-color:rgba(138, 196, 178, 0.445); */
-  background-color: rgba(254, 255, 254, 0.726);
+  background-color: rgba(254, 255, 254, 0.842);
   /* backdrop-filter: blur(50px); */
   box-shadow: -5px 0px 15px #949494, 8px -20px 60px rgb(160, 160, 160);
   /* z-index: 500; */
@@ -730,6 +734,7 @@ height: 35px;
 /* *******footer******** */
 .footerWrap {
   height: 100%;
+  width:100%;
   background-image: linear-gradient(
       to right,
       rgba(0, 61, 41, 0.705),
@@ -741,21 +746,24 @@ height: 35px;
   background-position: center;
   position:relative; 
   /* margin-top: 200px; */
-
+   
   
   
 }
 .footerItem {
-  display: flex;
-  flex-direction: column;
+ display: flex;
+   justify-content:space-between;
+  /* flex-direction: column; */
   line-height: 3rem;
   font-weight: 700;
   text-align: center;
   font-size: 4rem;
   
 }
+
 .footerLink {
-  margin: 2rem 0;
+  /* margin: 2rem ; */
+  padding: 10px;
 }
 .footerLink:hover {
   color: var(--light);
@@ -768,6 +776,9 @@ height: 35px;
   text-shadow: 0 1rem 2rem var(--black);
   transform: scale(1.1);
   transition: 2s;
+}
+.footer-social-links{
+
 }
 .copyright {
   position: absolute;
