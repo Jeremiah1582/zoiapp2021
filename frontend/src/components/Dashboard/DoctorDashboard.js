@@ -28,7 +28,7 @@ function DoctorDashboard() {
     <DashRouter>
       <Logout />
 
-      <div className="dash-container">
+      <div className="dash-container doctor-dash">
         {/* <img className='background-img' href='../../styling/images/operacion-retorno-mallorca-by-andres-nieto-porras.jpg' */}
 
         <div className="dash-nav-container">

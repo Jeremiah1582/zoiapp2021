@@ -1,41 +1,16 @@
 import React, { useContext } from "react";
-// import image1 from '../../../styling/images/operacion-retorno-mallorca-by-andres-nieto-porras.jpg'
 import { Link } from "react-router-dom";
 import { MyContext } from "../../../Context_APIs/userContextAPI";
 import UserIcon from "../../../imgs/usericon.png";
-import specialistAPI from "../../../Context_APIs/specialistFields";
 
 function Home() {
   const { userDrState, setUserDrState } = useContext(MyContext);
+  console.log(userDrState.bookedAppointments);
 
   return (
-    //previous code
-    // <div className="widget-container">
-    //   <Link to="./SetAppointmentTimes" className="widget calendar-widget">
-    //     <div>Set Availability</div>{" "}
-    //   </Link>
-    //   <Link to="./appointmentlist" className="widget patient-list-widget">
-    //     <div>Appointments </div>
-    //   </Link>
-    //   <Link to="./finddoctor" className="widget dr-list-widget">
-    //     <div> Find Dr </div>
-    //   </Link>
-    //   <Link to="./todoList" className="widget todo-list-widget">
-    //     <div>To Do List </div>
-    //   </Link>
-    //   <Link to="./weather" className="widget todo-list-widget">
-    //     <div>weather </div>
-    //   </Link>
-    // </div>
-
-    // new code 28.11
-
     <div className="cardWrap">
       <div className="card">
-        <div
-          className="boxCard "
-          style={{ background: "rgba(52, 173, 133, 0.795)", opacity: "0.9" }}
-        >
+        <div className="boxCard doctor-cards ">
           <div className="contentCard user-icon">
             <img src={UserIcon} alt="user icon" className="imgCard " />
             <div className="account-type">{userDrState.accountType} </div>
@@ -75,22 +50,16 @@ function Home() {
       </div>
 
       <div className="card">
-        <div
-          className="boxCard"
-          style={{ background: "rgba(52, 173, 133, 0.795)", opacity: "0.9" }}
-        >
+        <div className="boxCard doctor-cards">
           <div className="contentCard">
             {/* <img src={Items} alt="items" className="imgCard" /> */}
             <h4 className="user-title">What do you need ?</h4>
             <hr />
 
             {/* parent div start */}
-            <div className="widget-container"
-            >
+            <div className="widget-container">
               {/* child divs start */}
-              <div className="widget set-appointment-widget"
-              
-              >
+              <div className="widget set-appointment-widget">
                 <Link to="/doctor/dashboard/SetAppointmentTimes">
                   <div className="widget-title">Set Times</div>
                 </Link>
@@ -128,31 +97,30 @@ function Home() {
       </div>
 
       <div className="card">
-        <div
-          className="boxCard"
-          style={{ background: "rgba(52, 173, 133, 0.795)", opacity: "0.9" }}
-        >
-          <div className="contentCard ">
+        <div className="boxCard doctor-cards">
+          <div className="contentCard specialist-info">
             {/* <img src={staySafe} alt="appointment" className="imgCard" /> */}
-            <h4 className="user-title">Extra</h4>
+            <h4 className="user-title">My Patients</h4>
             <hr />
             <div className="specialist-infos">
               {/* <p>Hello</p> */}
-              {/* {specialistAPI.map((item, index) => {
-              return (
-                <div key={index}>
-                  <div className="specialist-info-items">
-                    <h4>
-                      {" "}
-                      <b>{item.field} </b>{" "}
-                    </h4>
-                    <h4 style={{ lineHeight: "24px" }}>
-                      {item.description}{" "}
-                    </h4>
+              {userDrState.bookedAppointments.map((patient, index) => {
+                return (
+                  <div key={index}>
+                    <div className="specialist-info-items">
+                      <h4>
+                        <b>
+                          {" "}
+                          {patient.firstName} {patient.lastName}
+                        </b>
+                      </h4>
+                      <h4>E-mail: {patient.email} </h4>
+                      <h4>Mobile : {patient.mobileNumber}</h4>
+                      <h4>Problems: {patient.note}</h4>
+                    </div>
                   </div>
-                </div>
-              );
-            })} */}
+                );
+              })}
             </div>
           </div>
         </div>
