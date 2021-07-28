@@ -135,16 +135,16 @@ function DoctorRegForm() {
     </div>
       
       {/* <div className="" > */}
-        <div className="reg-container">
+        <div className="dr-reg-container">
           
                 {/* Photo-Container  */}
                 <div className='reg-img-container'>
-                  <Image src={DocImage} className='reg-img' />
+                  {/* <Image src={DocImage} className='reg-img' /> */}
                 </div>
                   
-                <div className="signUpForm">
+                <div className="">
                   <Form
-                    className="form "
+                    className="dr-signUpForm"
                     onSubmit={sendToBackEnd}
                     method="POST"
                   >
@@ -152,7 +152,7 @@ function DoctorRegForm() {
                       {/* First Name */}
                       <div className="col-md-12">
                         <Form.Group
-                          className="input-field name d-flex align-items-center"
+                          className="input-field "
                           controlId="formBasicFirstName"
                         >
                           <Form.Label className='form-label'>First Name:</Form.Label> <br />
@@ -171,7 +171,7 @@ function DoctorRegForm() {
                       {/* Last Name */}
                       <div className="col-md-12">
                         <Form.Group
-                          className="input-field name d-flex align-items-center"
+                          className="input-field "
                           controlId="formBasicLastName"
                         >
                           <Form.Label className='form-label'>Last Name:</Form.Label> <br />
@@ -190,7 +190,7 @@ function DoctorRegForm() {
                       {/* email */}
                       <div className="col-md-12">
                         <Form.Group
-                          className="input-field d-flex align-items-center"
+                          className="input-field "
                           controlId="formBasicEmail"
                         >
                           <Form.Label className='form-label'>Email address</Form.Label> <br /> 
@@ -209,7 +209,7 @@ function DoctorRegForm() {
                       {/* contact Number */}
                       <div className="col-md-12">
                         <Form.Group
-                          className="input-field d-flex align-items-center"
+                          className="input-field "
                           controlId="formBasicMobileNumber"
                         >
                           <Form.Label className='form-label'>Mobile Number:</Form.Label> <br />
@@ -228,7 +228,7 @@ function DoctorRegForm() {
                       {/* Licence Number */}
                       <div className="col-md-12">
                         <Form.Group
-                          className="input-field d-flex align-items-center"
+                          className="input-field "
                           controlId="formBasicLicenceNumber"
                         >
                           <Form.Label className='form-label'>Licence Number:</Form.Label> <br />
@@ -248,7 +248,7 @@ function DoctorRegForm() {
                       <div className="col-md-12">
                         <Form.Group
                           controlId="exampleForm.ControlSelect1 "
-                          className="input-field d-flex align-items-center"
+                          className="input-field"
                         >
                           <Form.Label className='form-label'>Specialist In</Form.Label> <br />
 
@@ -396,7 +396,7 @@ function DoctorRegForm() {
                       {/* Password */}
                       <div className="col-md-12">
                         <Form.Group
-                          className="input-field d-flex align-items-center"
+                          className="input-field "
                           controlId="formBasicPassword"
                         >
                           <Form.Label className='form-label'>Password:</Form.Label> <br />
@@ -456,9 +456,9 @@ function DoctorRegForm() {
                   <div class="w-100 text-center">
                     <p class="p mt-4">
                       Have already an account!
-                      <a type="btn" href="/user/login" class="login-link">
-                        Log In
-                      </a>
+                       <Button type="btn" href="/" className="login-link reg-discipline">
+                  Log In
+                </Button>
                     </p>
                   </div>
                 </div>

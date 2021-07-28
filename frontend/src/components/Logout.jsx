@@ -40,7 +40,7 @@ const Logout = () => {
   const logout = () => {
     localStorage.removeItem("currentToken");
     setToken(false);
-    window.location.href = "/user/login";
+    window.location.href = "/";
   };
   return (
     <div className="navigation">
@@ -81,7 +81,7 @@ const Logout = () => {
             </a>
           </li>
           <li className="navItem">
-            <a href="/user/login" className="navLink" onClick={logout}>
+            <a href="/" className="navLink" onClick={logout}>
               Log Out
             </a>
           </li>

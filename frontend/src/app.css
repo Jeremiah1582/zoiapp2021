@@ -567,14 +567,54 @@ a {
   justify-content: center;
 } */
 
-/* ***Sign Up Forms Style *** */
-.reg-container {
+/* ***dr Sign Up Forms Style *** */
+.dr-reg-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
   height: 100%;
   /* border: solid pink; */
+  position: relative;
+  /* background: linear-gradient(
+    to bottom,
+  
+  ); */
+  background-image: linear-gradient(
+    to right,
+   rgba(0, 249, 166, 0.212),
+    rgba(227, 255, 246, 0.596)
+  ), url('./imgs/drReg.png');
+  background-position: -10px;
+  /* background-height:100px; */
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* background-image: url('../styling/images/online-doctor-video-doctor-using-healthcare-app-laptop-medi.jpg'); */
+}
+.dr-reg-img-container{
+  width: 20%;
+}
+.dr-signUpForm{
+ border: solid pink;
+ width: 30%;
+ background: linear-gradient(
+   to left,
+ rgba(40, 221, 161, 0.849),
+    rgba(227, 255, 246, 0.959)
+ );
+border-top-left-radius: 40px;
+border-bottom-left-radius: 4px;
+padding: 12px;
+}
+/* ***patient Sign Up Forms Style *** */
+.reg-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  /* */
   position: relative;
   /* background: linear-gradient(
     to bottom,
@@ -592,6 +632,8 @@ a {
   background-size: contain;
   /* background-image: url('../styling/images/online-doctor-video-doctor-using-healthcare-app-laptop-medi.jpg'); */
 }
+
+
 /* .con-picture {
   width: 40%;
   height: 100%;
