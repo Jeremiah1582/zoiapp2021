@@ -293,7 +293,8 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-top: 1rem;
+  /* margin-top: 0.5rem; */
+  margin-bottom: 1.8rem;
 }
 .cardWrap .card {
   position: relative;
@@ -571,29 +572,56 @@ a {
   height: 100%;
   /* border: solid pink; */
   position: relative;
-  background-image: linear-gradient(
-    to top,
-    rgba(0, 249, 166, 0.506),
+  /* background: linear-gradient(
+    to bottom,
+  
+  ); */
+  background-image: url('./imgs/appointment.jpg'), linear-gradient(
+    to right,
+   rgba(0, 249, 166, 0.506),
     rgba(227, 255, 246, 0.959)
-  );
+  ) ;
+  background-position: -100px;
+  /* background-height:100px; */
   z-index: 2;
+  background-repeat: no-repeat;
+  background-size: contain;
   /* background-image: url('../styling/images/online-doctor-video-doctor-using-healthcare-app-laptop-medi.jpg'); */
 }
 /* .con-picture {
   width: 40%;
   height: 100%;
 } */
-.reg-img-container {
+/* .reg-img-container {
   max-width: 60%;
-  /* max-height: 100vh; */
-  /* justify-content: left;  */
-  /* z-index: 0; */
-  /* position: absolute;  */
   contain: content;
+  z-index: 1;
 }
 .reg-img {
   width: 100%;
  
+} */
+.reg-form-container{
+min-width:150px; 
+border-top-left-radius: 40px;
+border-bottom-left-radius: 4px;
+animation-delay: 5;
+
+font-size: large;
+  /* position:absolute;  */
+  justify-content: left;
+  /* right: 0px; */
+  padding: 20px;
+  height: 100%;
+  /* -webkit-filter: blur(7px); */
+  border: none;
+  /* background-color:rgba(138, 196, 178, 0.445); */
+  background-color: rgba(254, 255, 254, 0.726);
+  /* backdrop-filter: blur(50px); */
+  box-shadow: -5px 0px 15px #949494, 8px -20px 60px rgb(160, 160, 160);
+  /* z-index: 500; */
+  z-index: 4;
+  margin-bottom: 10px;
 }
 
 /* login form styling  */
@@ -662,22 +690,7 @@ height: 35px;
 
 
 .signUpForm {
-  border-top-left-radius: 40px;
-  animation-delay: 5;
-  max-width: 40%;
-  font-size: large;
-  /* position:absolute;  */
-  justify-content: left;
-  /* right: 0px; */
-  padding: 20px;
-  height: 100%;
-  /* -webkit-filter: blur(7px); */
-  border: none;
-  /* background-color:rgba(138, 196, 178, 0.445); */
-  background-color: rgba(254, 255, 254, 0.952);
-  /* backdrop-filter: blur(50px); */
-  box-shadow: -5px 0px 15px #949494, 8px -20px 60px rgb(160, 160, 160);
-  /* z-index: 500; */
+  
 }
 .form {
   padding: 7px;
@@ -716,17 +729,21 @@ height: 35px;
 
 /* *******footer******** */
 .footerWrap {
-  height: 45vh;
+  height: 100%;
   background-image: linear-gradient(
       to right,
       rgba(0, 61, 41, 0.705),
       rgba(0, 250, 167, 0.568)
     ),
-    url("./imgs/surgeons.jpeg");
+    url("./imgs/catscan.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  position: relative;
+  position:relative; 
+  /* margin-top: 200px; */
+
+  
+  
 }
 .footerItem {
   display: flex;
@@ -735,6 +752,7 @@ height: 35px;
   font-weight: 700;
   text-align: center;
   font-size: 4rem;
+  
 }
 .footerLink {
   margin: 2rem 0;

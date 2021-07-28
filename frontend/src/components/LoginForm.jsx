@@ -11,7 +11,7 @@ const LoginForm = (prop) => {
   const [UserLogin, setUserLogin] = useState({
     email: "",
     password: "",
-    condition: "",
+    condition: prop.accountType,
   });
 
   // const [condition, setCondition] = useState("patient");
@@ -25,11 +25,12 @@ const LoginForm = (prop) => {
       [e.target.name]: e.target.value,
     });
   };
-
+console.log(prop.accountType);
   // account type function
-  const accountType = () => {
-    setUserLogin({ ...UserLogin, condition: prop.accountType });
-  };
+  // const accountType = () => {
+  
+  // };
+
   // console.log(UserLogin.condition, "is here");
   // submit function
   const submit = (e) => {
@@ -100,9 +101,7 @@ const LoginForm = (prop) => {
 
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>Account Type</Form.Label>
-              <div
-                className="reg-discipline"
-              >
+              <div className="reg-discipline">
                {prop.accountType.toUpperCase()}
               </div>
 
