@@ -27,10 +27,6 @@ const App = () => {
     <Router>
       <div className="">
         {/* *******for dynamic contain******** */}
-        {/* Log out Button */}
-        {/* <button type="button" onClick={logout}>
-          Log Out
-        </button> */}
         <Switch>
           <Route exact path="/">
             <Home />

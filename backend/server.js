@@ -2,7 +2,7 @@
 
 const express = require("express");
 const app = express();
-require("dotenv").config();
+// require("dotenv").config();
 const PORT = 5000 || process.env.PORT;
 const session = require("express-session");
 const cors = require("cors");
@@ -43,7 +43,7 @@ mongoose
     console.log("Mongoose found his way to the database...");
   })
   .catch((err) => {
-    console.log(err, "Mongoose lost his connection!");
+    console.log(err, "lost connection!");
   });
 
 // Multer part not finish yet !!!

@@ -50,7 +50,7 @@ useEffect(() => {
 
     return (
         <div>
-            <div className="weather-app-container">
+            <div className="widget-container2">
 
             <div className="weather-card">
                 <form className="input-field" onSubmit={(e)=>{handleInput(e,input)}} >

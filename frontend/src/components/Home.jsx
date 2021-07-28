@@ -1,15 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 // import About from "./About";
 import appointment from "../imgs/appointment.jpg";
 import findYourDoctor from "../imgs/findyourdoctor.jpg";
 import aboutUs from "../imgs/aboutus.png";
+import {Modal} from 'react-bootstrap'
 
 const Home = () => {
+// const [lgShow, setLgShow] = useState(false);
+
   return (
     <div style={{ padding: "3rem" }}>
-      <Navbar />
+      <Navbar/>
 
       <p className="textComponent">
         The alarm still oscillated, louder here, the rear wall dulling the roar
@@ -89,8 +92,26 @@ const Home = () => {
       </div>
 
       <Footer />
+
+        {/* <div>
+      <Modal
+        size="lg"
+        show={lgShow}
+        onHide={() => setLgShow(false)}
+        aria-labelledby="example-modal-sizes-title-lg"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-lg">
+            Large Modal
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>..this is a text.</Modal.Body>
+      </Modal>
+    </div> */}
     </div>
   );
 };
+
+
 
 export default Home;

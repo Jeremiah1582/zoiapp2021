@@ -31,7 +31,7 @@ exports.loginUser = (req, res) => {
 
     // res.send("I m doctor");
   } else if (req.body.condition === "patient") {
-    console.log(req.body, "uController :28");
+    console.log(req.body, "uController :34");
     Patient.findOne({ email: req.body.email }, (err, data) => {
       if (data) {
         // console.log(data, "uController: 33");
