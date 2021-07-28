@@ -128,7 +128,7 @@ function Home() {
         <div className="boxCard">
           <div className="contentCard specialist-info">
             {/* <img src={staySafe} alt="appointment" className="imgCard" /> */}
-            <h4 className="user-title">ZOE Specialists type</h4>
+            <h4 className="user-title">ZOE Specialists</h4>
             <hr />
             <div className="specialist-infos">
               {/* <p>Hello</p> */}

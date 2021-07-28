@@ -26,21 +26,20 @@ const Logout = () => {
     }
 
     // new code 26.11
-  //   if (userState.accountType === "Patient") {
-  //     getUser();
-  //   } else if (userDrState.accountType === "Doctor") {
-  //     getUserDr();
-  //   } else {
-  //     ("User not found!");
-  //   }
+    //   if (userState.accountType === "Patient") {
+    //     getUser();
+    //   } else if (userDrState.accountType === "Doctor") {
+    //     getUserDr();
+    //   } else {
+    //     ("User not found!");
+    //   }
   }, []);
- 
 
   // logout and remove token
   const logout = () => {
     localStorage.removeItem("currentToken");
     setToken(false);
-    window.location.href = "/user/login";
+    window.location.href = "/";
   };
   return (
     <div className="navigation">
@@ -75,13 +74,13 @@ const Logout = () => {
               ZOE Team
             </a>
           </li>
-          <li className="navItem">
+          {/* <li className="navItem">
             <a href="/contact" className="navLink">
               Contact
             </a>
-          </li>
+          </li> */}
           <li className="navItem">
-            <a href="/user/login" className="navLink" onClick={logout}>
+            <a href="/" className="navLink" onClick={logout}>
               Log Out
             </a>
           </li>

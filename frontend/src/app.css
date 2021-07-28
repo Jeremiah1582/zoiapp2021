@@ -15,6 +15,8 @@
   --color-white: #fff;
   --color-light: #eee;
 
+  --card-background: rgba(0, 62, 41, 0.4);
+
   --hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
   --returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
@@ -27,6 +29,7 @@
 }
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 body {
   height: 100vh;
@@ -60,10 +63,12 @@ a {
       rgba(0, 61, 41, 0.705),
       rgba(0, 250, 167, 0.568)
     ),
-    url("./imgs/surgeons.jpeg");
+    url("./imgs/doc_image_forlogin.png");
+
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
+  /* background-position: top; */
+  background-position: -40px;
 
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   z-index: 0;
@@ -122,6 +127,7 @@ a {
   border-radius: 9rem;
   padding: 2rem;
   font-weight: 700;
+  cursor: pointer;
   background: linear-gradient(
     to right,
     rgba(0, 61, 41, 0.486),
@@ -287,7 +293,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 .cardWrap .card {
   position: relative;
@@ -297,7 +303,7 @@ a {
     inset -5px -5px -5px 15px rgba(255, 255, 255, 0.1),
     5px 5px 5px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
   border-radius: 1.5rem;
-  margin-top: 5rem;
+  margin-top: 1.8rem;
 }
 .cardWrap .card .boxCard {
   position: absolute;
@@ -305,7 +311,7 @@ a {
   left: 2rem;
   right: 2rem;
   bottom: 2rem;
-  background: rgba(0, 62, 41, 0.4);
+  background: var(--card-background);
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.5);
   transition: 0.5s;
   display: flex;
@@ -589,6 +595,61 @@ a {
   width: 100%;
 }
 
+/* login form styling  */
+.login-modal {
+  border-radius: 30px;
+}
+.login-modal-body {
+}
+.login-container1 {
+  background: url("./imgs/LoginWavingDr.gif");
+  background-position: -500px 0px;
+  background-repeat: no-repeat;
+  display: flex;
+  width: 100%;
+  /* justify-content: space-between; */
+}
+/* .login-container2{
+ 
+background: url('./imgs/LoginWavingDr.gif');
+background-position: -500px 0px;
+background-repeat: no-repeat;
+display: flex;
+width: 100%;
+
+} */
+
+.login-form {
+  width: 60%;
+
+  background: linear-gradient(
+    to right,
+    rgba(240, 250, 246, 0.932),
+    rgba(0, 250, 167, 0.932)
+  );
+  /* backdrop-filter: blur(1px); */
+  border-top-left-radius: 50px;
+  z-index: 2;
+}
+.login-form input {
+  width: 80%;
+  height: 35px;
+}
+.login-img-container1 {
+  z-index: 1;
+  width: 60%;
+}
+
+.login-img-container2 {
+  z-index: 2;
+  width: 60%;
+  /* background: url('./imgs/finDr.gif');
+  background-repeat: no-repeat; */
+}
+.login-img {
+  width: 50%;
+}
+
 .signUpForm {
   border-top-left-radius: 40px;
   animation-delay: 5;
@@ -831,19 +892,15 @@ a {
 
 /* **************   DashBoard    ************* */
 .dash-container {
-  min-height: 100%;
   width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  /* display: grid;
-  grid-template-rows: repeat(3, 20%) 10%;
-  grid-template-columns: repeat(2, 10%) repeat(4, 20%); */
-
-  /* // border: dotted greenyellow; */
-  /* background-color: var(--dash-background); */
-  /* background-image: url('../imgs/hospital-bed.jpeg'); */
-  /* background-repeat: no-repeat; */
+  background-color: var(--dash-background);
+  /* background-image: url("./imgs/medical3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 .widget-container {
@@ -948,7 +1005,6 @@ a {
   /* text-overflow:initial; */
   overflow: scroll;
   overflow-x: hidden;
-  scrollbar-width: transparent;
   /* background-color: var(--light); */
 }
 .specialist-info-items {
@@ -967,9 +1023,10 @@ a {
   border-right: 1px solid var(--color-light);
   background-color: var(--color-green);
   min-width: 100px;
-  min-height: 100%;
+  height: 100vh;
   border-top-right-radius: 30px;
   /* position: fixed; */
+  margin-top: 0.5rem;
   z-index: 2;
 }
 
@@ -1029,7 +1086,8 @@ a {
 .app-list-cards {
   margin: 10px;
   border-radius: 4px;
-  background: #f3f2f2;
+  background: var(--card-background);
+  color: var(--textCard);
 }
 .app-card-buttons {
   margin: 10px;

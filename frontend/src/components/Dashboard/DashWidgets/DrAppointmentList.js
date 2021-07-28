@@ -21,18 +21,19 @@ function DrAppointmentList() {
       <div className="appointment-list-container">
         {userDrState.bookedAppointments.map((appointment, index) => {
           return (
-            <div key={appointment._id} id={appointment._id}>
+            <div key={appointment._id} id={appointment._id} className='cardwrap'>
               <Card className="app-list-cards" style={{ width: "18rem" }}>
                 <Card.Body>
                   {console.log(appointment)}
-                  <Card.Title>Your Upcoming Appointment</Card.Title>
+                  <Card.Title>Patient: {appointment.firstName} {appointment.lastName}</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">
+                    insurance number: {appointment.insuranceNumber} <br/>
                     date:{appointment.date}
                   </Card.Subtitle>
                   <Card.Text>
-                    <h6>{appointment.time}</h6> <br />
-                    <h7>{appointment.duration}</h7> <br />
-                    {/* <h7>{appointment.address}</h7> <br/> */}
+                    <h4>{appointment.time}</h4> <br />
+                    {appointment? <h4>{appointment.duration} mins</h4>: null} <br />
+                    {/* <h6>{appointment.address}</h6> <br/> */}
                     {/* <h7>{appointment.DrName}</h7> <br/> */}
                   </Card.Text>
                   <Button className="app-card-buttons">Delete</Button>
