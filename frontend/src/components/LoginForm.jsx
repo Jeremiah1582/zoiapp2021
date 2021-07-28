@@ -6,7 +6,7 @@ import Navigation from "./Navigation";
 import UserImage from "../imgs/userlogin03.jpg";
 import axios from "axios";
 
-const LoginForm = () => {
+const LoginForm = (prop) => {
   // useState
   const [UserLogin, setUserLogin] = useState({
     email: "",
@@ -27,8 +27,8 @@ const LoginForm = () => {
   };
 
   // account type function
-  const accountType = (e) => {
-    setUserLogin({ ...UserLogin, condition: e.target.value });
+  const accountType = () => {
+    setUserLogin({ ...UserLogin, condition: prop.accountType });
   };
   // console.log(UserLogin.condition, "is here");
   // submit function
@@ -56,14 +56,22 @@ const LoginForm = () => {
   // form 1
   return (
     <div>
-      {/* <NavBar /> */}
-      <Navigation />
-      <div className="login-container">
+     
+      <Navigation/>
+        <div className="login-container1">
+       {/* {prop.accountType ==='doctor'?
+       : <div className="login-container2">} */}
+
         {/* Photo-Container  */}
-        <div className="reg-img-container">
-          <Image src={UserImage} className="reg-img" />
-        </div>
-        <div className="loginForm">
+
+       
+        <div className="login-img-container1">
+          <Image className="login-img"/>
+           </div>
+        
+          
+        
+        <div className="login-form">
           <p class="warningMsg"> {message} </p>
           <Form onSubmit={submit} className="form">
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -76,7 +84,6 @@ const LoginForm = () => {
                 placeholder="Enter your email"
               />
               <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
               </Form.Text>
             </Form.Group>
 
@@ -93,30 +100,27 @@ const LoginForm = () => {
 
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>Account Type</Form.Label>
-              <Form.Control as="select" name="condition" onChange={accountType}>
-                <option value="doctor">Doctor</option>
-                <option value="patient">Patient</option>
-              </Form.Control>
-            </Form.Group>
+              <div
+                className="reg-discipline"
+              >
+               {prop.accountType.toUpperCase()}
+              </div>
 
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Remind me" />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" style={{textAlign:'center'}}>
               Log in
             </Button>
             <Form.Group>
               {/* Sign Up form link */}
               <div class="w-100 text-center">
                 <p class="p mt-4">
-                  Don't have an account!
-                  <a type="btn" href="/doctor/registration" class="login-link">
+                  Don't have an account! <br/>
+                  <Button type="btn" href="/doctor/registration" className="login-link reg-discipline">
                     Sign Up as Doctor
-                  </a>
-                  or
-                  <a type="btn" href="/patient/registration" class="login-link">
+                  </Button>
+                  <Button type="btn" href="/patient/registration" className="login-link reg-discipline">
                     Sign Up as Patient
-                  </a>
+                  </Button>
                 </p>
               </div>
             </Form.Group>

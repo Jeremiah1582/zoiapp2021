@@ -15,6 +15,8 @@
   --color-white: #fff;
   --color-light: #eee;
 
+  --card-background:rgba(0, 62, 41, 0.4);
+
   --hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
   --returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
@@ -60,10 +62,12 @@ a {
       rgba(0, 61, 41, 0.705),
       rgba(0, 250, 167, 0.568)
     ),
-    url("./imgs/surgeons.jpeg");
+    url("./imgs/doc_image_forlogin.png");
+  
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
+  /* background-position: top; */
+  background-position: -40px;
 
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   z-index: 0;
@@ -122,10 +126,12 @@ a {
   border-radius: 9rem;
   padding: 2rem;
   font-weight: 700;
+  cursor: pointer;
   background: linear-gradient(
     to right,
     rgba(0, 61, 41, 0.486),
     rgba(0, 250, 167, 0.39)
+  
   );
   backdrop-filter: blur(10px);
 }
@@ -302,7 +308,7 @@ a {
   left: 2rem;
   right: 2rem;
   bottom: 2rem;
-  background: rgba(0, 62, 41, 0.4);
+  background: var(--card-background);
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.5);
   transition: 0.5s;
   display: flex;
@@ -570,7 +576,73 @@ a {
 }
 .reg-img {
   width: 100%;
+ 
 }
+
+/* login form styling  */
+.login-modal{
+  border-radius: 30px;
+
+}
+.login-modal-body{
+ 
+ 
+}
+.login-container1{
+ 
+background: url('./imgs/LoginWavingDr.gif');
+background-position: -500px 0px;
+background-repeat: no-repeat;
+display: flex;
+width: 100%;
+/* justify-content: space-between; */
+}
+/* .login-container2{
+ 
+background: url('./imgs/LoginWavingDr.gif');
+background-position: -500px 0px;
+background-repeat: no-repeat;
+display: flex;
+width: 100%;
+
+} */
+
+.login-form{
+width: 60%;
+
+background: linear-gradient(
+  to right,
+  rgba(240, 250, 246, 0.932),
+  rgba(0, 250, 167, 0.932)
+
+);
+/* backdrop-filter: blur(1px); */
+border-top-left-radius: 50px;
+z-index: 2;
+
+}
+.login-form input{
+width: 80%;
+height: 35px;
+
+}
+.login-img-container1{
+  z-index: 1;
+  width: 60%; 
+ 
+}
+
+.login-img-container2{
+  z-index: 2;
+  width: 60%;
+  /* background: url('./imgs/finDr.gif');
+  background-repeat: no-repeat; */
+ 
+}
+.login-img{
+  width: 50%;
+}
+
 
 .signUpForm {
   border-top-left-radius: 40px;
@@ -947,7 +1019,8 @@ a {
 .app-list-cards {
   margin: 10px;
   border-radius: 4px;
-  background: #f3f2f2;
+  background: var(--card-background);
+  color: var(--textCard);
 }
 .app-card-buttons {
   margin: 10px;
@@ -956,4 +1029,5 @@ a {
   transition: 0.6s var(--hoverEasing), box-shadow 2s var(--hoverEasing);
   box-shadow: rgba(white, 0.2) 0 0 40px 5px, rgba(white, 1) 0 0 0 1px,
     rgba(black, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px;
+    
 }

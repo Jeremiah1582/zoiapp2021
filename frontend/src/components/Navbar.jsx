@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 // import logo from "../imgs/logo.png";
-import Navigation from "./Navigation";
-import logoNew from "../imgs/logoNew.png";
 
-const Navbar = () => {
+import Navigation from "./Navigation";
+import LoginForm from "./LoginForm"
+import logoNew from "../imgs/logoNew.png";
+import {Modal} from 'react-bootstrap'
+
+const Navbar = (props) => {
+  // const {setLgShow1}=props
+  const [lgShow1, setLgShow1] = useState(false);
+  const [lgShow2, setLgShow2] = useState(false);
+
   // Function for I am a Doctor Button
   const doctorText = (e) => {
     e.target.style.width = "auto";
@@ -45,22 +52,25 @@ const Navbar = () => {
       </div>
       <div className="buttons">
         <a
-          href="/user/login"
+          // href="/user/login"
           className="buttonNavbar"
           onMouseOver={displayText}
           onMouseLeave={doctorText}
+          onClick={() =>setLgShow1(true)}
         >
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-          <b>I am a Doctor</b>
+          <b >I am a Doctor</b>
         </a>
+         
         <a
-          href="/user/login"
+          // href="/user/login"
           className="buttonNavbar"
           onMouseOver={displayText}
           onMouseLeave={patientText}
+          onClick={() =>setLgShow2(true)}
         >
           <span></span>
           <span></span>
@@ -68,9 +78,52 @@ const Navbar = () => {
           <span></span>
           <b>I am a Patient</b>
         </a>
+      </div>  
+
+      {/******************* Doctor Modal ********************/}
+      <div>
+        <Modal
+        className='login-modal'
+          size="lg"
+          show={lgShow1}
+          onHide={() => setLgShow1(false)}
+          aria-labelledby="example-modal-sizes-title-lg"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-modal-sizes-title-lg">
+              Log in
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+          
+          <LoginForm accountType='doctor'/>
+          
+          </Modal.Body>
+        </Modal>
       </div>
+
+      {/************************* Patient Modal******************* */}
+      <div >
+        <Modal
+          className='login-modal'
+          size="lg"
+          show={lgShow2}
+          onHide={() => setLgShow2(false)}
+          aria-labelledby="example-modal-sizes-title-lg"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-modal-sizes-title-lg">
+            Log In 
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body className='login-modal-body' >
+          <LoginForm accountType='patient'/>
+          </Modal.Body>
+        </Modal>
+      </div>
+
     </div>
-  );
+  );   
 };
 
 export default Navbar;

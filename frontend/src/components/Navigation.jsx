@@ -37,16 +37,6 @@ const Navigation = () => {
               Contact
             </a>
           </li> */}
-          <li className="navItem">
-            <a href="/user/login" className="navLink">
-              Login
-            </a>
-          </li>
-          <li className="navItem">
-            <a href="/signup" className="navLink">
-              Sign up
-            </a>
-          </li>
         </ul>
       </nav>
     </div>
