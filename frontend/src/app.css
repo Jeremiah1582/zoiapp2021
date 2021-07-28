@@ -123,7 +123,7 @@ a {
   overflow: hidden;
   transition: 0.2s;
   color: var(--textCard);
-  margin: 1rem;
+  margin: 1rem 2rem;
   border-radius: 9rem;
   padding: 2rem;
   font-weight: 700;
@@ -370,6 +370,13 @@ a {
   border: none;
   width: 50rem;
 }
+
+.doctor-cards {
+  background: var(--color-green) !important;
+}
+.patient-cards {
+  background: rgba(4, 143, 143, 0.904) !important;
+}
 .user-title {
   font-size: 3rem;
   margin-top: 15rem !important;
@@ -393,7 +400,8 @@ a {
   /* text-transform: capitalize; */
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.5);
 }
-.user-info-items:hover {
+.user-info-items:hover,
+.specialist-info-items:hover {
   cursor: pointer;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
@@ -401,12 +409,16 @@ a {
   width: 120px;
   height: 35px;
   font-size: 2rem;
+  letter-spacing: 1.2px;
   color: var(--main);
   text-align: center;
   margin: 5px auto;
   position: absolute;
-  top: 15.5rem;
+  top: 17rem;
   left: 40%;
+  background-color: var(--light);
+  border-radius: 15px;
+  opacity: 0.7;
 }
 /* ********About********* */
 .aboutSubWrapper {
@@ -610,7 +622,7 @@ a {
   /* justify-content: space-between; */
 }
 /* .login-container2{
- 
+
 background: url('./imgs/LoginWavingDr.gif');
 background-position: -500px 0px;
 background-repeat: no-repeat;
@@ -889,20 +901,58 @@ width: 100%;
     opacity: 100%;
   }
 }
+@keyframes scroll {
+  100% {
+    background-position: 0px 3000px;
+  }
+}
 
+@media (prefers-reduced-motion) {
+  .patient-dash {
+    animation: scroll 200s linear infinite;
+  }
+}
+@keyframes scrollUp {
+  100% {
+    background-position: 0px -3000px;
+  }
+}
+@media (prefers-reduced-motion) {
+  .doctor-dash {
+    animation: scroll 200s linear infinite;
+  }
+}
 /* **************   DashBoard    ************* */
 .dash-container {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
   background-color: var(--dash-background);
-  /* background-image: url("./imgs/medical3.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; */
 }
-
+.patient-dash {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 61, 58, 0.705),
+      rgba(0, 242, 250, 0.568)
+    ),
+    url("./imgs/patient2.png");
+  background-repeat: repeat;
+  background-size: cover;
+  animation: scroll 200s linear infinite;
+}
+.doctor-dash {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 61, 41, 0.705),
+      rgba(0, 250, 167, 0.568)
+    ),
+    url("./imgs/medical2.png");
+  background-repeat: repeat;
+  background-size: cover;
+  animation: scrollUp 200s linear infinite;
+}
 .widget-container {
   display: flex;
   flex-direction: row;
@@ -959,42 +1009,49 @@ width: 100%;
 }
 .widget-title:hover {
   color: var(--fonts);
-  margin: 55px auto;
+  /* margin: 75px auto; */
 }
 
-.dr-list-widget:hover {
-  background-image: url("./imgs/finddoctor.gif");
+.set-appointment-widget:hover {
+  background-image: url("./imgs/floatingDrGreen.gif");
   background-size: cover;
   background-repeat: no-repeat;
-  opacity: 0.8;
+  opacity: 0.9;
+  font-weight: 600;
+}
+.dr-list-widget:hover {
+  background-image: url("./imgs/finddoctor.gif") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  opacity: 0.9 !important;
   font-weight: 600;
 }
 .appointments-widget:hover {
-  background-image: url("./imgs/appointments2.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.8;
+  background-image: url("./imgs/fancyDr-application-showcase.gif") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  opacity: 0.9 !important;
   font-weight: 600;
 }
 .messages-widget:hover {
-  background-image: url("./imgs/messages1.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.8;
+  background-image: url("./imgs/Dr-MSg-system.gif") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  opacity: 0.9 !important;
   font-weight: 600;
 }
 .weather-widget:hover {
-  background-image: url("./imgs/weather1.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.8;
+  background-image: url("./imgs/weather1.webp") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  opacity: 0.9 !important;
   font-weight: 600;
 }
 .todo-list-widget:hover {
-  background-image: url("./imgs/todo4.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.8;
+  background-image: url("./imgs/todo4.webp") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  opacity: 0.9 !important;
   font-weight: 600;
 }
 /************* Specialist Info Div ******************/
@@ -1023,11 +1080,11 @@ width: 100%;
   border-right: 1px solid var(--color-light);
   background-color: var(--color-green);
   min-width: 100px;
-  height: 100vh;
+  height: 100%;
   border-top-right-radius: 30px;
-  /* position: fixed; */
-  margin-top: 0.5rem;
-  z-index: 2;
+  position: absolute;
+  margin-top: 2rem;
+  /* z-index: 2; */
 }
 
 .dash-nav-items {
@@ -1036,7 +1093,7 @@ width: 100%;
 }
 .dash-menu-item {
   /* // padding: 20px; */
-  margin-top: 5rem;
+  margin-top: 4rem;
 
   width: 55px;
   height: 55px;

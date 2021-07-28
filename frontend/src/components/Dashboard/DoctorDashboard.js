@@ -28,7 +28,7 @@ function DoctorDashboard() {
     <DashRouter>
       <Logout />
 
-      <div className="dash-container">
+      <div className="dash-container doctor-dash">
         {/* <img className='background-img' href='../../styling/images/operacion-retorno-mallorca-by-andres-nieto-porras.jpg' */}
 
         <div className="dash-nav-container">
@@ -39,35 +39,42 @@ function DoctorDashboard() {
             >
               <i className="fas fa-home" />
             </Link>
-
             <Link
               className="dash-menu-item dash-menu-link"
               to="/doctor/dashboard/SetAppointmentTimes"
             >
               <i className="fas fa-calendar-alt"></i>
             </Link>
-
-            <Link
-              className="dash-menu-item dash-menu-link"
-              to="/doctor/dashboard/appointmentlist"
-            >
-              <i className="fas fa-user-injured"></i>
-            </Link>
-
             <Link
               className="dash-menu-item dash-menu-link"
               to="/doctor/dashboard/finddoctor"
             >
               <i className="fas fa-user-md"></i>
             </Link>
-
+            <Link
+              className="dash-menu-item dash-menu-link"
+              to="/doctor/dashboard/appointmentlist"
+            >
+              <i class="fas fa-calendar-check"></i>
+            </Link>
+            <Link
+              className="dash-menu-item dash-menu-link"
+              to="/doctor/dashboard/messages"
+            >
+              <i class="fas fa-sms"></i>
+            </Link>{" "}
+            <Link
+              className="dash-menu-item dash-menu-link"
+              to="/doctor/dashboard/weather"
+            >
+              <i class="fas fa-cloud-sun-rain"></i>
+            </Link>
             <Link
               className="dash-menu-item dash-menu-link"
               to="/doctor/dashboard/todolist"
             >
               <i className="fas fa-th-list"></i>
             </Link>
-
             <Link
               className="dash-menu-item dash-menu-link"
               to="/user/dashboard/settings"

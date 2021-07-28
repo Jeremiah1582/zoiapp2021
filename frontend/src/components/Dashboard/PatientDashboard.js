@@ -28,8 +28,8 @@ function PatientDashboard() {
       {/* <NavBar/> */}
       <Logout />
 
-      <div className="dash-container">
-        <div className="dash-nav-container">
+      <div className="dash-container patient-dash">
+        <div className="dash-nav-container patient-cards">
           <ul className="dash-nav-items">
             <Link
               className="dash-menu-item dash-menu-link"

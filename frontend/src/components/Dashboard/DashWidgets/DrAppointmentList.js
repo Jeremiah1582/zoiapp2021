@@ -4,7 +4,7 @@ import { MyContext } from "../../../Context_APIs/userContextAPI";
 
 function DrAppointmentList() {
   const { userDrState, getUserDr } = useContext(MyContext);
-  console.log(userDrState);
+  // console.log(userDrState);
 
   // getUser()
   // const {bookedAppointments} = userDrState
