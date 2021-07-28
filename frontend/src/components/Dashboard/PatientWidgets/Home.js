@@ -3,7 +3,9 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MyContext } from "../../../Context_APIs/userContextAPI";
 import UserIcon from "../../../imgs/usericon.png";
-import Items from "../../../imgs/items.jpg"
+import staySafe from "../../../imgs/stay-safe.jpeg";
+// import Items from "../../../imgs/items.jpg";
+import specialistAPI from "../../../Context_APIs/specialistFields";
 
 function Home() {
   const { userState, getUser } = useContext(MyContext);
@@ -42,18 +44,18 @@ function Home() {
 
     // test code ashik
     <div className="cardWrap">
-      {/* <a href="/patient/finddoctor"> */}
-      <div className="card">
-        <div className="boxCard">
+      <div className="card dashboard">
+        <div className="boxCard ">
           <div className="contentCard user-icon">
             <img src={UserIcon} alt="user icon" className="imgCard " />
+            <div className="account-type">{userState.accountType} </div>
             <h4 className="user-title">Hello {userState.firstName} </h4>
             <hr />
             {/* user infos */}
             <div className="user-info">
-              <div className="user-info-items">
+              {/* <div className="user-info-items">
                 Account-Type : {userState.accountType}
-              </div>
+              </div> */}
 
               <div className="user-info-items">
                 First Name : {userState.firstName}
@@ -61,16 +63,16 @@ function Home() {
               <div className="user-info-items">
                 Last Name : {userState.lastName}
               </div>
-              <div className="user-info-items">
+              {/* <div className="user-info-items">
                 Birth Date : {userState.birthDate}
-              </div>
+              </div> */}
 
               <div className="user-info-items">
                 Insurance Nmr : {userState.insuranceNumber}
               </div>
-              <div className="user-info-items">
+              {/* <div className="user-info-items">
                 Insurance Company : {userState.insuranceCompany}
-              </div>
+              </div> */}
               <div className="user-info-items">E-mail : {userState.email}</div>
               <div className="user-info-items">
                 Mobile Nmr : {userState.mobileNumber}
@@ -79,38 +81,76 @@ function Home() {
           </div>
         </div>
       </div>
-      {/* </a> */}
 
-      {/* <a href="/aboutzoe"> */}
       <div className="card">
         <div className="boxCard">
           <div className="contentCard">
-            <img 
-              src={Items}
-               alt="items" className="imgCard" />
-            <h2>What do you need ?</h2>
-          
+            {/* <img src={Items} alt="items" className="imgCard" /> */}
+            <h4 className="user-title">What do you need ?</h4>
+            <hr />
+
+            {/* parent div start */}
+            <div className="widget-container">
+              {/* child divs start */}
+              <div className="widget dr-list-widget">
+                <Link to="/patient/dashboard/finddoctor">
+                  <div className="widget-title">Find a Doctor</div>
+                </Link>
+              </div>
+              <div className="widget appointments-widget">
+                <Link to="/patient/dashboard/appointmentlist">
+                  <div className="widget-title">Appointments</div>
+                </Link>
+              </div>
+              <div className="widget messages-widget">
+                <Link to="/patient/dashboard/messages">
+                  <div className="widget-title">Messages</div>
+                </Link>
+              </div>
+              <div className="widget weather-widget">
+                <Link to="/patient/dashboard/weather">
+                  <div className="widget-title">Weather</div>
+                </Link>
+              </div>
+              <div className="widget todo-list-widget">
+                <Link to="/patient/dashboard/todolist">
+                  <div className="widget-title">To Do List</div>
+                </Link>
+              </div>
+              {/* child div end up*/}
+            </div>
+            {/* parent div end up */}
           </div>
         </div>
       </div>
-      {/* </a> */}
 
-      {/* <a href="/user/login"> */}
       <div className="card">
         <div className="boxCard">
-          <div className="contentCard">
-            {/* <img src={appointment} alt="appointment" className="imgCard" /> */}
-            <h2>Appointments</h2>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi
-              neque quo et provident labore, incidunt maxime alias. Consequuntur
-              ipsum temporibus mollitia, quae placeat dolorum, eum odio illum,
-              quos eius nemo?
-            </p>
+          <div className="contentCard specialist-info">
+            {/* <img src={staySafe} alt="appointment" className="imgCard" /> */}
+            <h4 className="user-title">ZOE Specialists type</h4>
+            <hr />
+            <div className="specialist-infos">
+              {/* <p>Hello</p> */}
+              {specialistAPI.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <div className="specialist-info-items">
+                      <h4>
+                        {" "}
+                        <b>{item.field} </b>{" "}
+                      </h4>
+                      <h4 style={{ lineHeight: "24px" }}>
+                        {item.description}{" "}
+                      </h4>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
-      {/* </a> */}
     </div>
   );
 }
