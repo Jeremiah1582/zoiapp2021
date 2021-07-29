@@ -9,8 +9,8 @@ const Footer = () => {
 
   return (
     <div className="footerWrap">
-      <div className="row">
-        <div className="col-1-of-2">
+      {/* <div className="row"> */}
+        
           <div className="footerNavigation">
             <ul className="footerList">
               <li className="footerItem">
@@ -20,22 +20,22 @@ const Footer = () => {
                 <a href="/aboutzoe" className="footerLink">
                   About Us
                 </a>
-                <a href="#">
-                  <i className="fab fa-linkedin-in"></i>
+                <a href="#" className='footerLink'>
+                  <i className="fab fa-linkedin-in "></i>
                 </a>
-                <a href="#">
+                <a href="#" className='footerLink'>
                   <i className="fab fa-github"></i>
                 </a>
               </li>
             </ul>
           </div>
-        </div>
+        {/* </div> */}
 
         <div className="col-2-of-2">
           <p className="copyright">
             all rights reserved<span> &copy;</span> <span>{date}</span>
           </p>
-        </div>
+       
       </div>
     </div>
   );
