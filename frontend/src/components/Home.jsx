@@ -34,7 +34,7 @@ const Home = () => {
         the drug to blunt SAS, nausea, but the muted purring of the console in
         faded pinks and yellows.
       </p>
-      <div className="cardWrap">
+      <div className="cardWrap home-card-wrap">
         <a href="/patient/finddoctor">
           <div className="card">
             <div className="boxCard">
@@ -89,7 +89,8 @@ const Home = () => {
             </div>
           </div>
         </a>
-      </div>
+      </div> 
+      <br/><br/>
 
       <Footer />
 

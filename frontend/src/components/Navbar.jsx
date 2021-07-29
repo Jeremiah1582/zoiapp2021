@@ -82,6 +82,7 @@ const Navbar = (props) => {
 
       {/******************* Doctor Modal ********************/}
       <div>
+        {/********** Doctor Modal************ */}
         <Modal
         className='login-modal'
           size="lg"
@@ -91,7 +92,7 @@ const Navbar = (props) => {
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-              Log in
+              <b> Log in</b> 
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -102,7 +103,7 @@ const Navbar = (props) => {
         </Modal>
       </div>
 
-      {/************************* Patient Modal******************* */}
+      {/********** Patient Modal************ */}
       <div >
         <Modal
           className='login-modal'
@@ -113,7 +114,7 @@ const Navbar = (props) => {
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-            Log In 
+            <b> Log in</b> 
             </Modal.Title>
           </Modal.Header>
           <Modal.Body className='login-modal-body' >

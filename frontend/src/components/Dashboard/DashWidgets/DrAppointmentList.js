@@ -18,7 +18,7 @@ function DrAppointmentList() {
   return (
     <div>
       <h3>Appointments</h3>
-      <div className="appointment-list-container">
+      <div className="widget-container">
         {userDrState.bookedAppointments.map((appointment, index) => {
           return (
             <div key={appointment._id} id={appointment._id} className='cardwrap'>

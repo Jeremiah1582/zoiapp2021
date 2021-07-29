@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Footer from "./Footer";
 import Navigation from "./Navigation";
 import { Form, Button, Card, Image, Alert } from "react-bootstrap";
-import PatientImage from "../imgs/userlogin02.jpg";
+// import PatientImage from ".";
+// import PatientImage from "../";
 import axios from "axios";
 // import '../styling/customRegForm.css'
 
@@ -80,25 +81,24 @@ const PatientRegForm = () => {
   };
 
   return (
-    <div className="doc-reg">
+    <div>
       <Navigation />
       <div className="reg-container" >
-        <div className="img-container">
-          <Image src={PatientImage} className="reg-img" fluid />
+        <div className="reg-img-container">
+          {/* <Image src={PatientImage} className="reg-img"/> */}
         </div>
-        <div className="form-container">
-          <Card
-            className="signUpForm"
-            style={{ width: "50rem", height: "100" }}
-          >
+        <div className="reg-form-container">
+      
             <Form className="form-class form" onSubmit={sendToBackEnd}>
               {/* First Name */}
               <Form.Group
-                className="input-field name d-flex align-items-center"
+                className="input-field "
                 controlId="formBasicFirstName"
               >
-                <Form.Label >First Name:</Form.Label>
+                <Form.Label>First Name:</Form.Label> <br/>
                 <Form.Control
+                
+                  // className="input-field name"
                   name="firstName"
                   value={patientSignUp.firstName}
                   type="text"
@@ -110,7 +110,7 @@ const PatientRegForm = () => {
               </Form.Group>
               {/* Last Name */}
               <Form.Group
-                className="input-field name"
+                // className="input-field name"
                 controlId="formBasicLastName"
               >
                 <Form.Label>Last Name:</Form.Label>
@@ -340,12 +340,12 @@ const PatientRegForm = () => {
             <div class="w-100 text-center">
               <p class="p mt-4">
                 Have already an account!
-                <a type="btn" href="/user/login" class="login-link">
+                <Button type="btn" href="/" className="login-link reg-discipline">
                   Log In
-                </a>
+                </Button>
               </p>
             </div>
-          </Card>
+        
         </div>
       </div>
       <Footer />
