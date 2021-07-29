@@ -64,7 +64,7 @@ function Home(props) {
               {/* child divs start */}
               <div className="widget set-appointment-widget">
                 <Link
-                //   to="/doctor/dashboard/SetAppointmentTimes"
+                  //   to="/doctor/dashboard/SetAppointmentTimes"
                   onClick={() => setShowTimeForm(true)}
                 >
                   <div className="widget-title">Set Times</div>
@@ -149,6 +149,20 @@ function Home(props) {
           </Modal.Header>
           <Modal.Body>
             <SetAppointmentTimes />
+            <div className="specialist-infos">
+              {/* <p>Hello</p> */}
+              {userDrState.availableTimeSlots.map((appointment, index) => {
+                return (
+                  <div key={index}>
+                    <div className="specialist-info-items">
+                      <h4>Time: {appointment.time} </h4>
+                      <h4>Date : {appointment.date}</h4>
+                      <h4>Duration: {appointment.note} mins</h4>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </Modal.Body>
         </Modal>
       </div>

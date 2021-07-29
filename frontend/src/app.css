@@ -681,16 +681,12 @@ a {
   margin-bottom: 10px;
 }
 /* set time container*/
-.set-appointment-container{
-  /* background-image: linear-gradient(
-      to right,
-      rgba(92, 149, 149, 0.377),
-      rgba(8, 179, 107, 0.5)
-    ); */
-opacity: 0.8;
+.set-appointment-container {
+  background-color: var(--color-green);
+  opacity: 0.9;
 }
-.set-time-form{
-  margin:0 auto;
+.set-time-form {
+  margin: 0 auto;
   width: 70%;
   height: 100%;
   background: linear-gradient(

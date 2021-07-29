@@ -57,6 +57,7 @@ function SetAppointmentTimes() {
                 onChange={(e) => {
                   handleSetTimeSlot(e);
                 }}
+                style={{fontSize:"20px"}}
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
@@ -70,6 +71,7 @@ function SetAppointmentTimes() {
                 onChange={(e) => {
                   handleSetTimeSlot(e);
                 }}
+                style={{fontSize:"20px"}}
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
@@ -83,6 +85,7 @@ function SetAppointmentTimes() {
                   handleSetTimeSlot(e);
                 }}
                 placeholder="30 mins"
+                style={{fontSize:"20px"}}
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
