@@ -10,6 +10,7 @@ const About = () => {
     <div className = "aboutWrapper" style={{padding: '3rem'}}>
       
       < Navbar />
+      <h2 className="teamTitle" >About ZOE</h2>
       <div className="aboutSubWrapper">
         <section className="aboutInfo">
           <img src= { ambulance2 } alt="ambulance" className = "ambulanceImg"/>

@@ -149,20 +149,7 @@ function Home(props) {
           </Modal.Header>
           <Modal.Body>
             <SetAppointmentTimes />
-            <div className="specialist-infos">
-              {/* <p>Hello</p> */}
-              {userDrState.availableTimeSlots.map((appointment, index) => {
-                return (
-                  <div key={index}>
-                    <div className="specialist-info-items">
-                      <h4>Time: {appointment.time} </h4>
-                      <h4>Date : {appointment.date}</h4>
-                      <h4>Duration: {appointment.note} mins</h4>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+           
           </Modal.Body>
         </Modal>
       </div>

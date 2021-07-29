@@ -1,18 +1,18 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 // import About from "./About";
 import appointment from "../imgs/appointment.jpg";
 import findYourDoctor from "../imgs/findyourdoctor.jpg";
 import aboutUs from "../imgs/aboutus.png";
-import {Modal} from 'react-bootstrap'
+import { Modal } from "react-bootstrap";
 
 const Home = () => {
-// const [lgShow, setLgShow] = useState(false);
+  // const [lgShow, setLgShow] = useState(false);
 
   return (
     <div style={{ padding: "3rem" }}>
-      <Navbar/>
+      <Navbar />
 
       <p className="textComponent">
         The alarm still oscillated, louder here, the rear wall dulling the roar
@@ -34,67 +34,64 @@ const Home = () => {
         the drug to blunt SAS, nausea, but the muted purring of the console in
         faded pinks and yellows.
       </p>
+      <h2 className="teamTitle">What ZOE offers</h2>
+
       <div className="cardWrap home-card-wrap">
-        <a href="/patient/finddoctor">
-          <div className="card">
-            <div className="boxCard">
-              <div className="contentCard">
-                <img
-                  src={findYourDoctor}
-                  alt="find a doctor"
-                  className="imgCard"
-                />
-                <h2>Find a Doctor</h2>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Animi neque quo et provident labore, incidunt maxime alias.
-                  Consequuntur ipsum temporibus mollitia, quae placeat dolorum,
-                  eum odio illum, quos eius nemo?
-                </p>
-              </div>
+        {/* <a href="/patient/finddoctor"> */}
+        <div className="card">
+          <div className="boxCard">
+            <div className="contentCard">
+              <img
+                src={findYourDoctor}
+                alt="find a doctor"
+                className="imgCard"
+              />
+              <h2>Find a Doctor</h2>
+              <p>
+               ZOE is an online Platform where patient and doctor both can find specialists regarding to their own diseases or for relatives, friends, family members etc. with a very easy searching system without any complication, developed by a young professional team 
+              </p>
             </div>
           </div>
-        </a>
+        </div>
+        {/* </a> */}
 
-        <a href="/aboutzoe">
-          <div className="card">
-            <div className="boxCard">
-              <div className="contentCard">
-                <img src={aboutUs} alt="about us" className="imgCard" />
-                <h2>About Us</h2>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Animi neque quo et provident labore, incidunt maxime alias.
-                  Consequuntur ipsum temporibus mollitia, quae placeat dolorum,
-                  eum odio illum, quos eius nemo?
-                </p>
-              </div>
+        {/* <a href="/aboutzoe"> */}
+        <div className="card">
+          <div className="boxCard">
+            <div className="contentCard">
+              <img src={aboutUs} alt="about us" className="imgCard" />
+              <h2>Set your Times</h2>
+              <p>
+               As a doctor you can easily set your available times and dates for your patients, 
+               which gonna be display for patients
+               and they can select a suitable time for them during booking an appointment and it's always changeable
+              </p>
             </div>
           </div>
-        </a>
+        </div>
+        {/* </a> */}
 
-        <a href="/user/login">
-          <div className="card">
-            <div className="boxCard">
-              <div className="contentCard">
-                <img src={appointment} alt="appointment" className="imgCard" />
-                <h2>Appointments</h2>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Animi neque quo et provident labore, incidunt maxime alias.
-                  Consequuntur ipsum temporibus mollitia, quae placeat dolorum,
-                  eum odio illum, quos eius nemo?
-                </p>
-              </div>
+        {/* <a href="/user/login"> */}
+        <div className="card">
+          <div className="boxCard">
+            <div className="contentCard">
+              <img src={appointment} alt="appointment" className="imgCard" />
+              <h2>Book Appointments</h2>
+              <p>
+               You are a patient or a doctor ? <br/>
+               don' worry, with ZOE both patient and doctor can book appointments for themselves or for others too and you will be confirmed per e-mail
+              </p>
             </div>
           </div>
-        </a>
-      </div> 
-      <br/><br/>
+        </div>
+        {/* </a> */}
+      </div>
+      <br />
+      <br />
 
       <Footer />
 
-        {/* <div>
+      {/* <div>
       <Modal
         size="lg"
         show={lgShow}
@@ -112,7 +109,5 @@ const Home = () => {
     </div>
   );
 };
-
-
 
 export default Home;

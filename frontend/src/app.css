@@ -288,6 +288,13 @@ a {
 /* ********cards********* */
 .home-card-wrap {
   /* margin-bottom: 100px; */
+  background-image: linear-gradient(
+      to right,
+      rgba(205, 206, 206, 0.308),
+      rgba(235, 235, 235, 0.5)
+    ),url("./imgs/cardsbc4.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .cardWrap {
   display: grid;
@@ -315,7 +322,7 @@ a {
   left: 2rem;
   right: 2rem;
   bottom: 2rem;
-  background: var(--card-background);
+  background: var(--light);
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.5);
   transition: 0.5s;
   display: flex;
@@ -418,8 +425,8 @@ a {
   text-align: center;
   margin: 5px auto;
   position: absolute;
-  top: 17rem;
-  left: 40%;
+  top: 18.2rem;
+  left: 36%;
   background-color: var(--light);
   border-radius: 15px;
   opacity: 0.7;
@@ -682,21 +689,54 @@ a {
 }
 /* set time container*/
 .set-appointment-container {
-  background-color: var(--color-green);
+  background-color: var(--textCard);
+  background-image: url("./imgs/appointment5.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 65%;
+  background-position-x: 50%;
   opacity: 0.9;
 }
 .set-time-form {
   margin: 0 auto;
-  width: 70%;
+  width: 60%;
   height: 100%;
   background: linear-gradient(
     to right,
-    rgba(187, 243, 221, 0.932),
-    rgba(0, 250, 167, 0.932)
+    rgba(136, 194, 171, 0.918),
+    rgba(6, 189, 128, 0.801)
   );
   /* backdrop-filter: blur(1px); */
   border-radius: 10px;
   z-index: 2;
+}
+.timeSlots-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+}
+.timeSlots-title {
+  font-size: 3rem;
+  text-align: center;
+  margin: 10px;
+  /* margin-top: 1rem !important; */
+  color: var(--fonts);
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+.timeSlots-items {
+  width: 180px;
+  height: 100%;
+  padding: 10px;
+  color: var(--textCard);
+  letter-spacing: 1.2px;
+  margin: 10px auto;
+  /* margin-top: 2rem; */
+  border-radius: 10px;
+  background-color: var(--color-green);
 }
 /* login form styling  */
 .login-modal {
@@ -756,7 +796,7 @@ width: 100%;
 .signUpForm {
 }
 .form {
-  padding: 7px;
+  padding: 2rem;
 }
 
 .input-field {
@@ -860,7 +900,7 @@ width: 100%;
     font-size: 3.1rem;
   }
   .teamTitle {
-    font-size: 9rem;
+    font-size: 2rem;
     font-weight: 300;
     text-shadow: 5px 3px 7px rgba(35, 35, 35, 0.65);
     margin: 11rem auto;
@@ -884,10 +924,10 @@ width: 100%;
     margin-bottom: -9rem;
   }
   .imgCard {
-    width: 11rem;
-    height: 11rem;
-    top: 7%;
-    left: 40%;
+    width: 150px;
+    height: 150px;
+    top: 4%;
+    left: 33%;
   }
   .cardWrap .card .boxCard .contentCard h2 {
     font-size: 4rem;
@@ -1022,7 +1062,7 @@ width: 100%;
     url("./imgs/patient2.png");
   background-repeat: repeat;
   background-size: cover;
-  /* animation: scroll 200s linear infinite; */
+  animation: scroll 1000s linear infinite;
 }
 .doctor-dash {
   background-image: linear-gradient(
@@ -1033,7 +1073,7 @@ width: 100%;
     url("./imgs/medical2.png");
   background-repeat: repeat;
   background-size: cover;
-  /* animation: scrollUp 200s linear infinite; */
+  animation: scrollUp 1000s linear infinite;
 }
 .widget-container {
   display: flex;
@@ -1098,6 +1138,8 @@ width: 100%;
   background-image: url("./imgs/floatingDrGreen.gif");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position-x: 50%;
+
   opacity: 0.9;
   font-weight: 600;
 }
@@ -1106,12 +1148,14 @@ width: 100%;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   opacity: 0.9 !important;
+  background-position-x: 50% !important;
   font-weight: 600;
 }
 .appointments-widget:hover {
   background-image: url("./imgs/fancyDr-application-showcase.gif") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
+  background-position-x: 50% !important;
   opacity: 0.9 !important;
   font-weight: 600;
 }
@@ -1119,6 +1163,7 @@ width: 100%;
   background-image: url("./imgs/Dr-MSg-system.gif") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
+  background-position-x: 50% !important;
   opacity: 0.9 !important;
   font-weight: 600;
 }
@@ -1126,6 +1171,7 @@ width: 100%;
   background-image: url("./imgs/weather1.webp") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
+  background-position-x: 50% !important;
   opacity: 0.9 !important;
   font-weight: 600;
 }
@@ -1133,6 +1179,7 @@ width: 100%;
   background-image: url("./imgs/todo4.webp") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
+  background-position-x: 50%;
   opacity: 0.9 !important;
   font-weight: 600;
 }

@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Form, Button, Image } from "react-bootstrap";
 // import '@syncfusion/ej2-react-calendars'
 // import '../../../styling/customDashboard.scss'
+import { MyContext } from "../../../Context_APIs/userContextAPI";
 function SetAppointmentTimes() {
   const [timeSlot, setTimeSlot] = useState([]);
 
   const [StateB, setStateB] = useState([]);
+
+  const [showTimeSlots, setShowTimeSlots] = useState(false);
+  const { userDrState, setUserDrState } = useContext(MyContext);
 
   // handle state func---------------------------------------------------------------
   const handleSetTimeSlot = (e) => {
@@ -20,6 +24,7 @@ function SetAppointmentTimes() {
     const userToken = localStorage.getItem("currentToken");
 
     e.preventDefault();
+
     //    console.log(e.target[0].defaultValue , 'line 29');
     axios
       .post("http://localhost:5000/doctor/setAppointmentTime", {
@@ -27,8 +32,10 @@ function SetAppointmentTimes() {
         userToken,
       })
       .then((result) => {
-        console.log(result);
+        // console.log(result.data.timeSlots);
         setStateB({ ...StateB, data: result.data });
+        setShowTimeSlots(true);
+       
       });
     // console.log(setStateB());
   };
@@ -57,7 +64,7 @@ function SetAppointmentTimes() {
                 onChange={(e) => {
                   handleSetTimeSlot(e);
                 }}
-                style={{fontSize:"20px"}}
+                style={{ fontSize: "20px" }}
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
@@ -71,7 +78,7 @@ function SetAppointmentTimes() {
                 onChange={(e) => {
                   handleSetTimeSlot(e);
                 }}
-                style={{fontSize:"20px"}}
+                style={{ fontSize: "20px" }}
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
@@ -85,7 +92,7 @@ function SetAppointmentTimes() {
                   handleSetTimeSlot(e);
                 }}
                 placeholder="30 mins"
-                style={{fontSize:"20px"}}
+                style={{ fontSize: "20px" }}
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
@@ -108,8 +115,33 @@ function SetAppointmentTimes() {
           </Form>
         </div>
         {/* .map() available slots from data base here */}
-        <div className="time-container"></div>
+        {/* <div className="time-container"></div> */}
       </div>
+
+      {showTimeSlots ? (
+        <div>
+          <h4 className="timeSlots-title">My Time Slots</h4>
+          <div className="timeSlots-container">
+            {userDrState.availableTimeSlots.map((appointment, index) => {
+              return (
+                <div key={index}>
+                  <div className="timeSlots-items">
+                    <h4>
+                      <b> Date:</b> {appointment.date}
+                    </h4>
+                    <h4>
+                      <b>Time:</b> {appointment.time}{" "}
+                    </h4>
+                    <h4>
+                      <b>Duration:</b> {appointment.duration} mins
+                    </h4>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
     </div>
 
     // Dr SetAppointmentTimes View (approval appointments)
