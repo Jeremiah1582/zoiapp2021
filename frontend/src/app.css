@@ -1120,14 +1120,32 @@ width: 100%;
   font-weight: 600;
 }
 /* DrFindDr Styling Modal************* */
+.DrFindDoctor-modal{
+
+}
+
+.DrFindDoctor-form{
+/* min-height: 350px; */
+}
 .find-doctor-container{
 width: 100%;
-
+background-image:linear-gradient(to top, rgba(255, 255, 255, 0.356), white), url('./imgs/findDR-SearchDr.png') ;
+background-repeat: no-repeat;
+background-position:center ;
+background-position-y: 0px;
 }
 .drFindDr-input{
 min-width: 300px;
 max-width: 450px;
  ;
+}
+.booked-app-thankYou-msg-modal{
+  width: 100%;
+background-image:linear-gradient(to top, rgba(255, 255, 255, 0.753), rgba(255, 255, 255, 0.986)), url('./imgs/findDR-SearchDr.png') ;
+background-repeat: no-repeat;
+background-position:center ;
+background-position-y: 0px;
+
 }
 
 /************* Specialist Info Div ******************/
@@ -1150,6 +1168,24 @@ max-width: 450px;
   /* border: 2px solid var(--black); */
   background-color: rgba(55, 119, 98, 0.4);
 }
+.findDr-result-card {
+  padding: 18px;
+  color: var(--textCard);
+  letter-spacing: 1.2px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border-radius: 20px;
+  /* border: 2px solid var(--black); */
+  background-color: rgba(84, 177, 146, 0.897);
+}
+.findDr-time-slot-modal{
+  display:flex;
+
+}
+.findDr-available-times{
+  padding: 5px;
+}
+
 /* // ********************************* */
 /* // DASHBOARD NAV side LEFt............... */
 .dash-nav-container {

@@ -151,9 +151,9 @@ function FindDoctor() {
     <div className="find-doctor-container">
       {/* search bar (search in database) */}
 
-      <form className='DrFindDoctor-form'name="form1" id="form1" action="" onSubmit={submit}>
+      <form className='DrFindDoctor-form' name="form1" id="form1" action="" onSubmit={submit}>
         {" "}
-        Specialist Fields:
+        Specialist Field:
         <select className='drFindDr-input' name="field" id="subject" onChange={handleChange}>
           {specialistFields.map((item, index) => {
             return (
@@ -164,7 +164,12 @@ function FindDoctor() {
             );
           })}
         </select>
-        <Button type="submit" className="reg-discipline">
+        <br />
+        <Button 
+        type="submit" 
+        className="reg-discipline"
+         >
+       
           <i className="fa fa-search " ></i>
           Search
         </Button>
@@ -172,28 +177,27 @@ function FindDoctor() {
         <br />
       </form>
       {showTable ? (
-        <Table className="doctor-list-table" striped bordered hover>
-          <thead>
-            <th></th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>Specialist In</th>
-            <th>Appointments</th>
-          </thead>
+   <div>
 
-          
-            {doctorTable.map((specialist, index) => {
+  {doctorTable.map((specialist, index) => {
               return (
+                  <div key={index}>
+                    <div className="findDr-result-card">
+                      <h4>
+                        <b>
+                          {" "}
+                          Doctor: {specialist.firstName} {specialist.lastName} 
+                        </b>
 
-                <div className="specialist-infos">
-                <p>Doctor:{specialist.firstName} {specialist.lastName}  </p> 
-                  <h4> {specialist.street}
+                      </h4>
+                      <h4><p>Field: {specialist.specialistFields}</p></h4>
+                      <h4>E-mail: {specialist.email} </h4>
+                      <h4>Mobile : {specialist.mobile} </h4>
+                      <h4> Address: {specialist.street}
                     {specialist.houseNr},{specialist.postalCode}
-                    {specialist.city}
-                  </h4> 
-                  <p>{specialist.email}</p>
-                  <p>{specialist.specialistFields}</p>
-                  <Button
+                    {specialist.city}</h4>
+                    <Button
+                    
                       className="find-dr-modal"
                       variant="primary"
                       onClick={() => {
@@ -206,6 +210,9 @@ function FindDoctor() {
                     >
                       Book Now
                     </Button>
+                    </div>
+                  
+                  
                 </div>
                
                    
@@ -213,12 +220,13 @@ function FindDoctor() {
               );
             })}
           
-        </Table>
+       </div>
       ) : null}
 
       {/* Show/ Hidden Modal  */}
 
       <Modal
+        size="lg"
         show={show}
         onHide={() => {
           setShow(false);
@@ -228,20 +236,23 @@ function FindDoctor() {
         dialogClassName="modal-90w"
         aria-labelledby="example-custom-modal-styling-title"
       >
-        <div>
+        <div className=''>
           <Modal.Header closeButton>
             <h3> Book an Appointment</h3>
           </Modal.Header>
           {successModalShow ? (
-            <Modal.Body>
+            <Modal.Body className='booked-app-thankYou-msg-modal'>
               {/* Message to Patients */}
+    
               <p>
-                Your request has been successfully sended. <br />
-                Please check your e-mail.Thank you.
-              </p>
+                Your appointment has been successfully booked. <br />
+                Please check your e-mail for confirmation.</p>
+               <p>Thank you for booking with ZOE .</p> 
+               
               <Button className="find-dr-modal" variant="primary">
                 Back to Appointments List
               </Button>
+            
             </Modal.Body>
           ) : null}
 
@@ -394,11 +405,13 @@ function FindDoctor() {
             </Modal.Body>
           ) : (
             // Displaying Time Slots from Doctors
-            <Modal.Body>
+            <Modal.Body
+              className='findDr-time-slot-modal'
+             >
               {/* <h3>Select Time and Date</h3> */}
               {availableTimesDisplay.map((item, index) => {
                 return (
-                  <div className="available-times">
+                  <div className="findDr-available-times">
                     <Button
                       type="btn"
                       key={index}

@@ -169,7 +169,7 @@ function Home(props) {
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-              <b> Find Dr</b>
+              <b> Find Doctor</b>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
