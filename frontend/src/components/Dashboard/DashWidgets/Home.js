@@ -5,11 +5,13 @@ import { Modal } from "react-bootstrap";
 import { MyContext } from "../../../Context_APIs/userContextAPI";
 import UserIcon from "../../../imgs/usericon.png";
 import SetAppointmentTimes from "./SetAppointmentTimes";
+import DrFindDoctor from "./DrFindDoctor";
 function Home(props) {
   const { userDrState, setUserDrState } = useContext(MyContext);
   //   console.log(userDrState.bookedAppointments);
   // show appointment form state
   const [showTimeForm, setShowTimeForm] = useState(false);
+  const [showDrFindDoctor, setShowDrFindDoctor] = useState(false);
   return (
     <div className="cardWrap">
       <div className="card">
@@ -71,7 +73,10 @@ function Home(props) {
                 </Link>
               </div>
               <div className="widget dr-list-widget">
-                <Link to="/doctor/dashboard/finddoctor">
+                <Link 
+                // to="/doctor/dashboard/finddoctor"
+                onClick={() => setShowDrFindDoctor(true)}
+                >
                   <div className="widget-title">Find a Doctor</div>
                 </Link>
               </div>
@@ -153,6 +158,25 @@ function Home(props) {
         </Modal>
       </div>
       {/* 2. Find doctor modal */}
+
+      <div>
+          <Modal
+          className="DrFindDoctor-modal"
+          size="lg"
+          show={showDrFindDoctor}
+          onHide={() => setShowDrFindDoctor(false)}
+          aria-labelledby="example-modal-sizes-title-lg"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-modal-sizes-title-lg">
+              <b> Find Dr</b>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <DrFindDoctor/>
+          </Modal.Body>
+        </Modal>
+      </div>
     </div>
   );
 }

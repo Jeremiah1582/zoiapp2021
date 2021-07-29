@@ -1119,6 +1119,17 @@ width: 100%;
   opacity: 0.9 !important;
   font-weight: 600;
 }
+/* DrFindDr Styling Modal************* */
+.find-doctor-container{
+width: 100%;
+
+}
+.drFindDr-input{
+min-width: 300px;
+max-width: 450px;
+ ;
+}
+
 /************* Specialist Info Div ******************/
 .specialist-info {
   /* margin-bottom: 2rem; */

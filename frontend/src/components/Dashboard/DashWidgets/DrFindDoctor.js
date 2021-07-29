@@ -148,13 +148,13 @@ function FindDoctor() {
   };
 
   return (
-    <div className="widget-container2 find-doctor-container">
+    <div className="find-doctor-container">
       {/* search bar (search in database) */}
 
-      <form name="form1" id="form1" action="" onSubmit={submit}>
+      <form className='DrFindDoctor-form'name="form1" id="form1" action="" onSubmit={submit}>
         {" "}
         Specialist Fields:
-        <select name="field" id="subject" onChange={handleChange}>
+        <select className='drFindDr-input' name="field" id="subject" onChange={handleChange}>
           {specialistFields.map((item, index) => {
             return (
               <option name="field" id={index} key={index} value={item.field}>
@@ -164,8 +164,8 @@ function FindDoctor() {
             );
           })}
         </select>
-        <Button type="submit">
-          <i className="fa fa-search"></i>
+        <Button type="submit" className="reg-discipline">
+          <i className="fa fa-search " ></i>
           Search
         </Button>
         <br />
@@ -174,29 +174,26 @@ function FindDoctor() {
       {showTable ? (
         <Table className="doctor-list-table" striped bordered hover>
           <thead>
-            <th>Doctor</th>
+            <th></th>
             <th>Address</th>
             <th>Email</th>
             <th>Specialist In</th>
             <th>Appointments</th>
           </thead>
 
-          <tbody>
+          
             {doctorTable.map((specialist, index) => {
               return (
-                <tr>
-                  <td>
-                    {specialist.firstName} {specialist.lastName}
-                  </td>
-                  <td>
-                    {specialist.street}
+
+                <div className="specialist-infos">
+                <p>Doctor:{specialist.firstName} {specialist.lastName}  </p> 
+                  <h4> {specialist.street}
                     {specialist.houseNr},{specialist.postalCode}
                     {specialist.city}
-                  </td>
-                  <td>{specialist.email}</td>
-                  <td>{specialist.specialistFields}</td>
-                  <td>
-                    <Button
+                  </h4> 
+                  <p>{specialist.email}</p>
+                  <p>{specialist.specialistFields}</p>
+                  <Button
                       className="find-dr-modal"
                       variant="primary"
                       onClick={() => {
@@ -209,11 +206,13 @@ function FindDoctor() {
                     >
                       Book Now
                     </Button>
-                  </td>
-                </tr>
+                </div>
+               
+                   
+        
               );
             })}
-          </tbody>
+          
         </Table>
       ) : null}
 
