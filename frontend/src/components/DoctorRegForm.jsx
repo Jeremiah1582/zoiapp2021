@@ -138,9 +138,9 @@ function DoctorRegForm() {
         <div className="dr-reg-container">
           
                 {/* Photo-Container  */}
-                <div className='reg-img-container'>
-                  {/* <Image src={DocImage} className='reg-img' /> */}
-                </div>
+                {/* <div className='reg-img-container'>
+                  <Image src={DocImage} className='reg-img' />
+                </div> */}
                   
                 <div className="">
                   <Form
