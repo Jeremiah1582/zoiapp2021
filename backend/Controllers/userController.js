@@ -3,9 +3,71 @@ const Doctor = require("../Models/Doctor/dr_Model");
 const jwt = require("jsonwebtoken");
 const sgMail = require("@sendgrid/mail");
 require("dotenv").config();
+const bcrypt = require("bcrypt");
 
 //***** Login function for Patient & Doctor *******//
 
+// exports.loginUser = (req, res) => {
+//   if (req.body.condition === "doctor") {
+//     Doctor.findOne({ email: req.body.email }, (err, data) => {
+//       if (data !== null) {
+//         bcrypt.compare(req.body.password, data.password, (err, result) => {
+//           if (err) throw err;
+//           if (result) {
+//             const secret = process.env.JWT_SECRET;
+//             const token = jwt.sign({ id: data._id }, secret, {
+//               expiresIn: "1d", // 60*60*24
+//               algorithm: "HS256",
+//             });
+//             res.status(200).json({ msg: "Welcome to Doctor Page ", token });
+//           } else {
+//             res.json({ msg: "password incorrect" });
+//           }
+//         });
+//       } else {
+//         // console.log("Please log in!");
+//         res.status(404).json({ msg: "Please log in!" });
+//       }
+//     });
+//     if (req.body.condition === "patient") {
+//       console.log(req.body, "uController :34");
+//       Patient.findOne({ email: req.body.email }, (err, data) => {
+// if (data !== null) {
+
+//   bcrypt.compare(req.body.password, data.password,(err,result)=>{
+//     if(err) throw err
+//     if(result){
+//       const secret = process.env.JWT_SECRET;
+//       const token = jwt.sign({ id: data._id }, secret, {
+//         expiresIn: "1d", // 60*60*24
+//         algorithm: "HS256",
+//       });
+//     res
+//     .status(200)
+//     .json({ msg: "Welcome to Patient Page ", token });
+//     } else {
+//       res.json({msg:'Log in failed'})
+//     }
+//   })
+// }
+//         if (data) {
+//           const secret = process.env.JWT_SECRET;
+//           const token = jwt.sign({ id: data._id }, secret, {
+//             expiresIn: "1d", // 60*60*24
+//             algorithm: "HS256",
+//           });
+
+//           res.status(200).json({ msg: "Welcome to Patient Page ", token });
+//         } else {
+//           // console.log("Please log in!");
+//           res.status(404).json({ msg: "Please log in!" });
+//         }
+//       });
+//     }
+//   }
+// };
+
+// code from jeremiah
 exports.loginUser = (req, res) => {
   // console.log(req.body, "userController: 07");
   //assign cookie to the
@@ -52,12 +114,3 @@ exports.loginUser = (req, res) => {
     //   console.log("Please log in!");
   }
 };
-
-// //****************** logout function***************/
-// exports.logout = (req, res) => {
-//   //delete the cookies here
-//   delete req.session.user;
-//   res.status(200).json({ msg: "Please login!" });
-//   console.log("this is the logout function");
-//   res.send("<h1> <br/> you have licked log out </h1>");
-// };
