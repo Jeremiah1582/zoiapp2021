@@ -109,7 +109,7 @@ function DoctorRegForm() {
           });
           // setMessage(res.data.msg);
           // redirecting to login page
-          window.location.href = "/user/login";
+          window.location.href = "/";
           // console.log("Sign up done! ");
         })
         .catch((error) => {
@@ -313,9 +313,9 @@ function DoctorRegForm() {
                       {/* Street Name */}
                       <Form.Group
                         className="input-field name"
-                        controlId="formBasicEmail"
+                        controlId="formGridAddress1"
                       >
-                        <Form.Label className='form-label'>Street Name:</Form.Label> <br />
+                        <Form.Label className='form-label'>Address of Practice:</Form.Label> <br />
                         <Form.Control
                           name="street"
                           value={DrSignUp.street}
@@ -330,9 +330,9 @@ function DoctorRegForm() {
                       {/* House Number */}
                       <Form.Group
                         className="input-field name"
-                        controlId="formBasicEmail"
+                        controlId="formGridAddress1"
                       >
-                        <Form.Label className='form-label'>House Nr.:</Form.Label> <br />
+                        
                         <Form.Control
                           name="houseNr"
                           value={DrSignUp.houseNr}
@@ -347,9 +347,9 @@ function DoctorRegForm() {
                       {/* Postal Code */}
                       <Form.Group
                         className="input-field name"
-                        controlId="formBasicEmail"
+                        controlId="formGridZip"
                       >
-                        <Form.Label className='form-label'>Postal Code:</Form.Label> <br />
+                      
                         <Form.Control
                           name="postalCode"
                           value={DrSignUp.postalCode}
@@ -364,14 +364,14 @@ function DoctorRegForm() {
                       {/* City Name */}
                       <Form.Group
                         className="input-field name"
-                        controlId="formBasicEmail"
+                        controlId="formGridCity"
                       >
-                        <Form.Label className='form-label'>City:</Form.Label> <br />
+                      
                         <Form.Control
                           name="city"
                           value={DrSignUp.city}
                           type="text"
-                          placeholder="City Name"
+                          placeholder="City"
                           onChange={(e) => {
                             handleFormInput(e);
                           }}
@@ -380,14 +380,13 @@ function DoctorRegForm() {
                       {/* Country Name */}
                       <Form.Group
                         className="input-field name"
-                        controlId="formBasicEmail"
+                        controlId="formGridCountry"
                       >
-                        <Form.Label className='form-label'>Country:</Form.Label> <br />
                         <Form.Control
                           name="country"
                           value={DrSignUp.country}
                           type="text"
-                          placeholder="Country Name"
+                          placeholder="Country"
                           onChange={(e) => {
                             handleFormInput(e);
                           }}

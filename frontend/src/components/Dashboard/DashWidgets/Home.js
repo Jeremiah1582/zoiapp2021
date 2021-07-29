@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { Modal } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 
 import { MyContext } from "../../../Context_APIs/userContextAPI";
 import UserIcon from "../../../imgs/usericon.png";
@@ -162,7 +162,8 @@ function Home(props) {
                     <div className="specialist-info-items">
                       <h4>Time: {appointment.time} </h4>
                       <h4>Date : {appointment.date}</h4>
-                      <h4>Duration: {appointment.note} mins</h4>
+                      <h4>Duration: {appointment.duration} mins</h4>
+                      <Button> Remove Time</Button>
                     </div>
                   </div>
                 );
