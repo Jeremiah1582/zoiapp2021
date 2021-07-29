@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { Modal } from "react-bootstrap";
+
 import { MyContext } from "../../../Context_APIs/userContextAPI";
 import UserIcon from "../../../imgs/usericon.png";
-
-function Home() {
+import SetAppointmentTimes from "./SetAppointmentTimes";
+function Home(props) {
   const { userDrState, setUserDrState } = useContext(MyContext);
-  console.log(userDrState.bookedAppointments);
-
+  //   console.log(userDrState.bookedAppointments);
+  // show appointment form state
+  const [showTimeForm, setShowTimeForm] = useState(false);
   return (
     <div className="cardWrap">
       <div className="card">
@@ -60,7 +63,10 @@ function Home() {
             <div className="widget-container">
               {/* child divs start */}
               <div className="widget set-appointment-widget">
-                <Link to="/doctor/dashboard/SetAppointmentTimes">
+                <Link
+                //   to="/doctor/dashboard/SetAppointmentTimes"
+                  onClick={() => setShowTimeForm(true)}
+                >
                   <div className="widget-title">Set Times</div>
                 </Link>
               </div>
@@ -125,6 +131,28 @@ function Home() {
           </div>
         </div>
       </div>
+      {/* Modal Part */}
+
+      <div>
+        {/* Set Time modal */}
+        <Modal
+          className="login-modal"
+          size="lg"
+          show={showTimeForm}
+          onHide={() => setShowTimeForm(false)}
+          aria-labelledby="example-modal-sizes-title-lg"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-modal-sizes-title-lg">
+              <b> Set Appointment Time</b>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <SetAppointmentTimes />
+          </Modal.Body>
+        </Modal>
+      </div>
+      {/* 2. Find doctor modal */}
     </div>
   );
 }

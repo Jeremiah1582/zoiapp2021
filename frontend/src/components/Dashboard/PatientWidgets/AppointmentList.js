@@ -21,7 +21,7 @@ console.log(userState);
 
     return (
         <div>
-            <h3>Appointment List </h3>
+            <h3>Appointments </h3>
             <div className='widget-container'>
 {userState.bookedAppointments.map((appointment, index)=>{
     return(
