@@ -3,7 +3,7 @@ import { Form, Button, Image } from "react-bootstrap";
 // import NavBar from "./Navbar";
 import Navigation from "./Navigation";
 // import "../styling/customRegForm.css";
-import UserImage from "../imgs/userlogin03.jpg";
+// import UserImage from "../imgs/userlogin03.jpg";
 import axios from "axios";
 
 const LoginForm = (prop) => {
@@ -106,7 +106,17 @@ console.log(prop.accountType);
               </div>
 
             </Form.Group>
-            <Button variant="primary" type="submit" style={{textAlign:'center'}}>
+            <Button variant="primary" type="submit"  class="w-100 text-center"
+                 style={{
+                  textAlign: "center",
+                  width: "100px",
+                  height: "40px",
+                  fontSize: "16px",
+                  lineHeight: "14px",
+                  letterSpacing: "2px",
+                  borderRadius: "7px",
+                }}
+            >
               Log in
             </Button>
             <Form.Group>
