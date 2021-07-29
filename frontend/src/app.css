@@ -8,7 +8,7 @@
   --textCard: #fdfffc;
 
   /* login and signup colours */
-  --color-green: rgba(52, 173, 133, 0.795);
+  --color-green: rgba(52, 173, 133, 0.904);
   --dash-background: rgba(138, 196, 178, 0.548);
   --color-grey: #999;
   --color-dark: #000;
@@ -934,24 +934,28 @@ width: 100%;
 .patient-dash {
   background-image: linear-gradient(
       to right,
-      rgba(0, 61, 58, 0.705),
-      rgba(0, 242, 250, 0.568)
+      /* rgba(0, 61, 58, 0.705),
+      rgba(0, 242, 250, 0.568) */
+      rgba(253, 255, 255, 0.404),
+      rgba(255, 255, 255, 0.404) 
     ),
     url("./imgs/patient2.png");
   background-repeat: repeat;
   background-size: cover;
-  animation: scroll 200s linear infinite;
+  /* animation: scroll 200s linear infinite; */
 }
 .doctor-dash {
   background-image: linear-gradient(
       to right,
-      rgba(0, 61, 41, 0.705),
-      rgba(0, 250, 167, 0.568)
+      /* rgba(0, 61, 41, 0.705),
+      rgba(0, 250, 167, 0.568) */
+      rgba(253, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5) 
     ),
     url("./imgs/medical2.png");
   background-repeat: repeat;
   background-size: cover;
-  animation: scrollUp 200s linear infinite;
+  /* animation: scrollUp 200s linear infinite; */
 }
 .widget-container {
   display: flex;
@@ -1082,7 +1086,7 @@ width: 100%;
   min-width: 100px;
   height: 100%;
   border-top-right-radius: 30px;
-  position: absolute;
+  position: fixed;
   margin-top: 2rem;
   /* z-index: 2; */
 }
