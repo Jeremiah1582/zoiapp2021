@@ -292,7 +292,8 @@ a {
       to right,
       rgba(0, 61, 41, 0.445),
       rgba(0, 250, 167, 0.349)
-    ),url("./imgs/cardsbc4.webp");
+    ),
+    url("./imgs/cardsbc4.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -619,8 +620,8 @@ a {
 .dr-signUpForm {
   /* border: solid pink; */
   width: 30%;
-  background:rgba(254, 255, 254, 0.938);
-  
+  background: rgba(254, 255, 254, 0.938);
+
   border: solid white 1px;
   border-top: none;
   border-top-right-radius: 40px;
@@ -694,12 +695,13 @@ a {
 /* set time container*/
 .set-appointment-container {
   /* background-color: var(--color-green); */
-  background-image:linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.842),
-    rgba(255, 255, 255, 0.932),
-    rgba(254, 255, 255, 0.233)
-  ) ,url('./imgs/patients-sitting-in-chairs-waiting-appointment-time-at-hospital-do.png');
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.842),
+      rgba(255, 255, 255, 0.932),
+      rgba(254, 255, 255, 0.233)
+    ),
+    url("./imgs/patients-sitting-in-chairs-waiting-appointment-time-at-hospital-do.png");
   background-position: -600px;
   opacity: 0.9;
 }
@@ -1066,27 +1068,29 @@ width: 100%;
       rgba(205, 206, 206, 0.267),
       rgba(235, 235, 235, 0.445)
     ),
-    url("./imgs/patientdash1.png");
-  background-repeat: repeat;
-  background-size: cover;
+    url("./imgs/world-health-day-2888589-2430387.png"),
+    url("./imgs/patients-sitting-in-chairs-waiting-appointment-time-at-hospital-do.png");
+
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  background-position: 0% 107%, 105% -11%;
+  background-attachment: fixed;
   /* animation: scroll 1000s linear infinite; */
 }
 .doctor-dash {
-  background-image: 
-  linear-gradient(
+  background-image: linear-gradient(
       to right,
       rgba(205, 206, 206, 0.267),
       rgba(235, 235, 235, 0.445)
     ),
     /* url("./imgs/hand-with-magnifying-glass-and-woman-with-binocular-searching-dr.webp"), */
-    url('./imgs/female-doctor-doing-eye-checkup-2823076-2348949.webp'), 
-    url('./imgs/patient-doctor-doing-auscultation-2822833-2348932.webp');
- 
-  background-position: -10% 115%,  110% top ;
+      url("./imgs/female-doctor-doing-eye-checkup-2823076-2348949.webp"),
+    url("./imgs/patient-doctor-doing-auscultation-2822833-2348932.webp");
+
+  background-position: -10% 115%, 110% top;
   background-attachment: fixed;
   background-repeat: no-repeat;
- 
-  
+
   /* background-size: ; */
   /* animation: scrollUp 200s linear infinite; */
 }
@@ -1199,32 +1203,35 @@ width: 100%;
   font-weight: 600;
 }
 /* DrFindDr Styling Modal************* */
-.DrFindDoctor-modal{
-
+.DrFindDoctor-modal {
 }
 
-.DrFindDoctor-form{
-/* min-height: 350px; */
+.DrFindDoctor-form {
+  /* min-height: 350px; */
 }
-.find-doctor-container{
-width: 100%;
-background-image:linear-gradient(to top, rgba(255, 255, 255, 0.356), white), url('./imgs/findDR-SearchDr.png') ;
-background-repeat: no-repeat;
-background-position:center ;
-background-position-y: 0px;
-}
-.drFindDr-input{
-min-width: 300px;
-max-width: 450px;
- ;
-}
-.booked-app-thankYou-msg-modal{
+.find-doctor-container {
   width: 100%;
-background-image:linear-gradient(to top, rgba(255, 255, 255, 0.753), rgba(255, 255, 255, 0.986)), url('./imgs/findDR-SearchDr.png') ;
-background-repeat: no-repeat;
-background-position:center ;
-background-position-y: 0px;
-
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.356), white),
+    url("./imgs/findDR-SearchDr.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 0px;
+}
+.drFindDr-input {
+  min-width: 300px;
+  max-width: 450px;
+}
+.booked-app-thankYou-msg-modal {
+  width: 100%;
+  background-image: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.753),
+      rgba(255, 255, 255, 0.986)
+    ),
+    url("./imgs/findDR-SearchDr.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 0px;
 }
 
 /************* Specialist Info Div ******************/
@@ -1257,11 +1264,10 @@ background-position-y: 0px;
   /* border: 2px solid var(--black); */
   background-color: rgba(84, 177, 146, 0.897);
 }
-.findDr-time-slot-modal{
-  display:flex;
-
+.findDr-time-slot-modal {
+  display: flex;
 }
-.findDr-available-times{
+.findDr-available-times {
   padding: 5px;
 }
 
