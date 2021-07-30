@@ -151,15 +151,13 @@ exports.bookingForm = (req, res) => {
   const token = req.body.userToken;
   // console.log(req.body, "line 147 DrController ");
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, data1) => {
-    // console.log(data1, 'line 150 DrController');
+  jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
     if (err) throw err;
-    let Id = data1.id;
-    // console.log(Id, "line 153 dr_controller");
-
+    let Id = data.id;
+    // console.log(Id, "line 122 p.controller");
     Doctor.findById(Id, (err, data) => {
-      // console.log(data, "line 153 dr_controller"); //data= user details
-      res.status(200).json({ msg: "dr info is coming", data });
+      console.log(data, "line 125 p.controller");
+      res.status(200).json({ msg: "Patient info is coming", data });
     });
   });
 };

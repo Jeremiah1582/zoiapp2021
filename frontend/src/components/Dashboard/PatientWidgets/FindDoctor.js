@@ -71,7 +71,7 @@ function FindDoctor() {
     getUser();
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
-  console.log(bookingForm);
+  // console.log(bookingForm);
 
   const handleShow = (DrId, timeSlots, index) => {
     setShow(true);
@@ -113,7 +113,7 @@ function FindDoctor() {
     setNewAppointment({ ...newAppointment, [e.target.name]: e.target.value });
   };
   //
-  console.log(newAppointment);
+  // console.log(newAppointment);
   //Delete search Query from formState------------------------
   // const deleteField = (e) => {
   //   const index = e.target.id;
@@ -149,13 +149,302 @@ function FindDoctor() {
   };
 
   return (
-    <div className="page-container">
+    // previous code
+    // <div className="page-container">
+    //   {/* search bar (search in database) */}
+
+    //   <form name="form1" id="form1" action="" onSubmit={submit}>
+    //     {" "}
+    //     Specialist Fields:
+    //     <select name="field" id="subject" onChange={handleChange}>
+    //       {specialistFields.map((item, index) => {
+    //         return (
+    //           <option name="field" id={index} key={index} value={item.field}>
+    //             {" "}
+    //             {item.field}{" "}
+    //           </option>
+    //         );
+    //       })}
+    //     </select>
+    //     <Button type="submit">
+    //       <i className="fa fa-search"></i>
+    //       Search
+    //     </Button>
+    //     <br />
+    //     <br />
+    //   </form>
+    //   {showTable ? (
+    //     <Table className="doctor-list-table" striped bordered hover>
+    //       <thead>
+    //         <th>Doctor</th>
+    //         <th>Address</th>
+    //         <th>Email</th>
+    //         <th>Specialist In</th>
+    //         <th>Appointments</th>
+    //       </thead>
+
+    //       <tbody>
+    //         {doctorTable.map((specialist, index) => {
+    //           return (
+    //             <tr>
+    //               <td>
+    //                 {specialist.firstName} {specialist.lastName}
+    //               </td>
+    //               <td>
+    //                 {specialist.street}
+    //                 {specialist.houseNr},{specialist.postalCode}
+    //                 {specialist.city}
+    //               </td>
+    //               <td>{specialist.email}</td>
+    //               <td>{specialist.specialistFields}</td>
+    //               <td>
+    //                 <Button
+    //                   className="find-dr-modal"
+    //                   variant="primary"
+    //                   onClick={() => {
+    //                     handleShow(
+    //                       specialist._id,
+    //                       specialist.availableTimeSlots,
+    //                       index
+    //                     );
+    //                   }}
+    //                 >
+    //                   Book Now
+    //                 </Button>
+    //               </td>
+    //             </tr>
+    //           );
+    //         })}
+    //       </tbody>
+    //     </Table>
+    //   ) : null}
+
+    //   {/* Show/ Hidden Modal  */}
+
+    //   <Modal
+    //     show={show}
+    //     onHide={() => {
+    //       setShow(false);
+    //       setBookingForm(false);
+    //       setSuccessModalShow(false);
+    //     }}
+    //     dialogClassName="modal-90w"
+    //     aria-labelledby="example-custom-modal-styling-title"
+    //   >
+    //     <div>
+    //       <Modal.Header closeButton>
+    //         <h3> Book an Appointment</h3>
+    //       </Modal.Header>
+    //       {successModalShow ? (
+    //         <Modal.Body>
+    //           {/* Message to Patients */}
+    //           <p>
+    //             Your request has been successfully sended. <br />
+    //             Please check your e-mail.Thank you.
+    //           </p>
+    //           <Button className="find-dr-modal" variant="primary">
+    //             Back to Appointments List
+    //           </Button>
+    //         </Modal.Body>
+    //       ) : null}
+
+    //       {/* Displaying Booking form with condition */}
+    //       {bookingForm ? (
+    //         <Modal.Body>
+    //           {/* <h3>Booking Form</h3> */}
+    //           <div>
+    //             <h4>
+    //               Time: {newAppointment.time} <br /> Date: {newAppointment.date}{" "}
+    //               <br /> Duration: {newAppointment.duration} mins
+    //             </h4>
+    //           </div>
+    //           {/* Back Button */}
+    //           <Button
+    //             className="find-dr-modal"
+    //             variant="primary"
+    //             onClick={backToSlot}
+    //           >
+    //             Back
+    //           </Button>
+
+    //           {/* Form  */}
+    //           <Form
+    //             className="form-class form"
+    //             onSubmit={(e) => sendRequest(e)}
+    //           >
+    //             {/* First Name */}
+    //             <Form.Group
+    //               className="input-field name d-flex align-items-center"
+    //               controlId="formBasicFirstName"
+    //             >
+    //               <Form.Label>First Name:</Form.Label>
+    //               <Form.Control
+    //                 name="firstName"
+    //                 type="text"
+    //                 placeholder="First name"
+    //                 onChange={(e) => handleModalInfoChange(e)}
+    //                 defaultValue={userState.firstName}
+    //                 value={newAppointment.firstName}
+    //                 onChange={handleModalInfoChange}
+    //               />
+    //             </Form.Group>
+    //             {/* Last Name */}
+    //             <Form.Group
+    //               className="input-field name d-flex align-items-center"
+    //               controlId="formBasicLastName"
+    //             >
+    //               <Form.Label>Last Name:</Form.Label>
+    //               <Form.Control
+    //                 name="lastName"
+    //                 type="text"
+    //                 placeholder="Last name"
+    //                 onChange={(e) => handleModalInfoChange(e)}
+    //                 defaultValue={userState.lastName}
+    //                 value={newAppointment.lastName}
+    //               />
+    //             </Form.Group>
+    //             {/* Birth Date */}
+    //             <Form.Group
+    //               className="input-field name d-flex align-items-center"
+    //               controlId="formBasicBirthDate"
+    //             >
+    //               <Form.Label>Birth-Date:</Form.Label>
+    //               <Form.Control
+    //                 name="birthDate"
+    //                 type="text"
+    //                 placeholder="Enter birth date"
+    //                 onChange={(e) => handleModalInfoChange(e)}
+    //                 defaultValue={userState.birthDate}
+    //                 value={newAppointment.birthDate}
+    //               />
+    //             </Form.Group>
+
+    //             {/* email */}
+    //             <Form.Group className="input-field" controlId="formBasicEmail">
+    //               <Form.Label>Email address:</Form.Label>
+    //               <Form.Control
+    //                 name="email"
+    //                 type="email"
+    //                 placeholder="Enter email"
+    //                 onChange={(e) => handleModalInfoChange(e)}
+    //                 defaultValue={userState.email}
+    //                 value={newAppointment.email}
+    //               />
+    //             </Form.Group>
+    //             {/* Insurance Company Name */}
+    //             <Form.Group
+    //               className="input-field name"
+    //               controlId="formBasicInsuranceCompany"
+    //             >
+    //               <Form.Label>Insurance Company:</Form.Label>
+    //               <Form.Control
+    //                 name="insuranceCompany"
+    //                 type="text"
+    //                 placeholder="Insurance company name"
+    //                 onChange={(e) => handleModalInfoChange(e)}
+    //                 defaultValue={userState.insuranceCompany}
+    //                 value={newAppointment.insuranceCompany}
+    //               />
+    //             </Form.Group>
+    //             {/* Insurance Number */}
+    //             <Form.Group
+    //               className="input-field"
+    //               controlId="formBasicInsuranceNumber"
+    //             >
+    //               <Form.Label>Insurance Number:</Form.Label>
+    //               <Form.Control
+    //                 name="insuranceNumber"
+    //                 type="text"
+    //                 placeholder="Enter insurance number"
+    //                 onChange={(e) => handleModalInfoChange(e)}
+    //                 defaultValue={userState.insuranceNumber}
+    //                 value={newAppointment.insuranceNumber}
+    //               />
+    //             </Form.Group>
+    //             {/* Mobile Number */}
+    //             <Form.Group
+    //               className="input-field"
+    //               controlId="formBasicMobileNumber"
+    //             >
+    //               <Form.Label>Mobile Number:</Form.Label>
+    //               <Form.Control
+    //                 name="mobileNumber"
+    //                 type="text"
+    //                 placeholder="Enter mobile number"
+    //                 onChange={(e) => handleModalInfoChange(e)}
+    //                 defaultValue={userState.mobileNumber}
+    //                 value={newAppointment.mobileNumber}
+    //               />
+    //             </Form.Group>
+    //             {/* Note from Patient */}
+    //             <Form.Group
+    //               className="mb-3 appointment-note-field"
+    //               controlId="exampleForm.ControlTextarea1"
+    //             >
+    //               <Form.Label>Note:</Form.Label>
+    //               <Form.Control
+    //                 type="text"
+    //                 name="note"
+    //                 as="textarea"
+    //                 rows="3"
+    //                 onChange={(e) => handleModalInfoChange(e)}
+    //                 value={newAppointment.note}
+    //               />
+    //             </Form.Group>
+    //             {/* Send Request */}
+    //             <Button type="submit">Send Request</Button>
+    //           </Form>
+    //         </Modal.Body>
+    //       ) : (
+    //         // Displaying Time Slots from Doctors
+    //         <Modal.Body>
+    //           {/* <h3>Select Time and Date</h3> */}
+    //           {availableTimesDisplay.map((item, index) => {
+    //             return (
+    //               <div className="available-times">
+    //                 <Button
+    //                   type="btn"
+    //                   key={index}
+    //                   id={index}
+    //                   onClick={() => {
+    //                     scheduleAppointment(item);
+    //                   }}
+    //                 >
+    //                   <h4>
+    //                     Time: {item.time} <br /> Date: {item.date} <br />{" "}
+    //                     Duration: {item.duration} mins
+    //                   </h4>
+    //                 </Button>
+    //               </div>
+    //             );
+    //           })}
+    //         </Modal.Body>
+    //       )}
+    //       <Modal.Footer></Modal.Footer>
+    //     </div>
+    //   </Modal>
+    // </div>
+
+    // Latest code from jeremiah
+
+    <div className="find-doctor-container">
       {/* search bar (search in database) */}
 
-      <form name="form1" id="form1" action="" onSubmit={submit}>
+      <form
+        className="DrFindDoctor-form"
+        name="form1"
+        id="form1"
+        action=""
+        onSubmit={submit}
+      >
         {" "}
-        Specialist Fields:
-        <select name="field" id="subject" onChange={handleChange}>
+        Specialist Field:
+        <select
+          className="drFindDr-input"
+          name="field"
+          id="subject"
+          onChange={handleChange}
+        >
           {specialistFields.map((item, index) => {
             return (
               <option name="field" id={index} key={index} value={item.field}>
@@ -165,85 +454,122 @@ function FindDoctor() {
             );
           })}
         </select>
-        <Button type="submit">
-          <i className="fa fa-search"></i>
+        <br />
+        <Button
+          type="submit"
+          className="reg-discipline"
+          style={{
+            textAlign: "center",
+            width: "120px",
+            height: "40px",
+            fontSize: "16px",
+            lineHeight: "7px",
+            letterSpacing: "2px",
+            borderRadius: "7px",
+          }}
+        >
+          <i className="fa fa-search "></i>
           Search
         </Button>
         <br />
         <br />
       </form>
       {showTable ? (
-        <Table className="doctor-list-table" striped bordered hover>
-          <thead>
-            <th>Doctor</th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>Specialist In</th>
-            <th>Appointments</th>
-          </thead>
-
-          <tbody>
-            {doctorTable.map((specialist, index) => {
-              return (
-                <tr>
-                  <td>
-                    {specialist.firstName} {specialist.lastName}
-                  </td>
-                  <td>
-                    {specialist.street}
+        <div>
+          {doctorTable.map((specialist, index) => {
+            return (
+              <div key={index}>
+                <div className="findDr-result-card">
+                  <h4>
+                    <b>
+                      {" "}
+                      Doctor: {specialist.firstName} {specialist.lastName}
+                    </b>
+                  </h4>
+                  <h4>
+                    <p>Field: {specialist.specialistFields}</p>
+                  </h4>
+                  <h4>E-mail: {specialist.email} </h4>
+                  <h4>Mobile : {specialist.mobile} </h4>
+                  <h4>
+                    {" "}
+                    Address: {specialist.street}
                     {specialist.houseNr},{specialist.postalCode}
                     {specialist.city}
-                  </td>
-                  <td>{specialist.email}</td>
-                  <td>{specialist.specialistFields}</td>
-                  <td>
-                    <Button
-                      className="find-dr-modal"
-                      variant="primary"
-                      onClick={() => {
-                        handleShow(
-                          specialist._id,
-                          specialist.availableTimeSlots,
-                          index
-                        );
-                      }}
-                    >
-                      Book Now
-                    </Button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </Table>
+                  </h4>
+                  <Button
+                    className="find-dr-modal"
+                    variant="primary"
+                    onClick={() => {
+                      handleShow(
+                        specialist._id,
+                        specialist.availableTimeSlots,
+                        index
+                      );
+                    }}
+                    style={{
+                      textAlign: "center",
+                      width: "110px",
+                      height: "40px",
+                      fontSize: "16px",
+                      lineHeight: "7px",
+                      letterSpacing: "1px",
+                      borderRadius: "7px",
+                    }}
+                  >
+                    Book Now
+                  </Button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       ) : null}
 
       {/* Show/ Hidden Modal  */}
 
       <Modal
+        size="lg"
         show={show}
         onHide={() => {
           setShow(false);
           setBookingForm(false);
           setSuccessModalShow(false);
+          setDoctorTable([]);
         }}
         dialogClassName="modal-90w"
         aria-labelledby="example-custom-modal-styling-title"
       >
-        <div>
+        <div className="">
           <Modal.Header closeButton>
-            <h3> Book an Appointment</h3>
+            <h3 className="appointments-title"> Select an Appointment</h3>
           </Modal.Header>
           {successModalShow ? (
-            <Modal.Body>
+            <Modal.Body className="booked-app-thankYou-msg-modal">
               {/* Message to Patients */}
+
               <p>
-                Your request has been successfully sended. <br />
-                Please check your e-mail.Thank you.
+                Your appointment has been successfully booked. <br />
+                Please check your e-mail for confirmation.
               </p>
-              <Button className="find-dr-modal" variant="primary">
-                Back to Appointments List
-              </Button>
+              <p>Thank you for booking with ZOE .</p>
+
+              <a
+                href="/patient/dashboard/appointmentlist"
+                className="btn-primary "
+                style={{
+                  textAlign: "center",
+                  width: "120px",
+                  height: "80px",
+                  fontSize: "20px",
+                  // lineHeight: "8px",
+                  letterSpacing: "2px",
+                  borderRadius: "4px",
+                  padding: "7px",
+                }}
+              >
+                My Appointment Lists
+              </a>
             </Modal.Body>
           ) : null}
 
@@ -262,6 +588,15 @@ function FindDoctor() {
                 className="find-dr-modal"
                 variant="primary"
                 onClick={backToSlot}
+                style={{
+                  textAlign: "center",
+                  width: "120px",
+                  height: "40px",
+                  fontSize: "16px",
+                  lineHeight: "7px",
+                  letterSpacing: "2px",
+                  borderRadius: "7px",
+                }}
               >
                 Back
               </Button>
@@ -391,32 +726,48 @@ function FindDoctor() {
                   />
                 </Form.Group>
                 {/* Send Request */}
-                <Button type="submit">Send Request</Button>
+                <Button
+                  type="submit"
+                  style={{
+                    textAlign: "center",
+                    width: "140px",
+                    height: "40px",
+                    fontSize: "16px",
+                    lineHeight: "2px",
+                    letterSpacing: "1px",
+                    borderRadius: "7px",
+                  }}
+                >
+                  Submit
+                </Button>
               </Form>
             </Modal.Body>
           ) : (
             // Displaying Time Slots from Doctors
+
             <Modal.Body>
-              {/* <h3>Select Time and Date</h3> */}
-              {availableTimesDisplay.map((item, index) => {
-                return (
-                  <div className="available-times">
-                    <Button
-                      type="btn"
-                      key={index}
-                      id={index}
-                      onClick={() => {
-                        scheduleAppointment(item);
-                      }}
-                    >
-                      <h4>
-                        Time: {item.time} <br /> Date: {item.date} <br />{" "}
-                        Duration: {item.duration} mins
-                      </h4>
-                    </Button>
-                  </div>
-                );
-              })}
+              <div className="findDr-time-slot-modal">
+                {/* <h3>Select Time and Date</h3> */}
+                {availableTimesDisplay.map((item, index) => {
+                  return (
+                    <div className="findDr-available-times">
+                      <Button
+                        type="btn"
+                        key={index}
+                        id={index}
+                        onClick={() => {
+                          scheduleAppointment(item);
+                        }}
+                      >
+                        <h4>
+                          Time: {item.time} <br /> Date: {item.date} <br />{" "}
+                          Duration: {item.duration} mins
+                        </h4>
+                      </Button>
+                    </div>
+                  );
+                })}
+              </div>
             </Modal.Body>
           )}
           <Modal.Footer></Modal.Footer>

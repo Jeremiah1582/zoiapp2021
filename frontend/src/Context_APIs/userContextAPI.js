@@ -71,7 +71,8 @@ function MyProvider({ children }) {
     axios
       .post("http://localhost:5000/doctor/bookingForm", { userToken })
       .then((res) => {
-        // console.log(res.data);
+        
+        console.log(res.data);
 
         setUserDrState({
           userId: res.data.data._id,
