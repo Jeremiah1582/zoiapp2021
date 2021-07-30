@@ -288,6 +288,9 @@ a {
 /* ********cards********* */
 .home-card-wrap {
   /* margin-bottom: 100px; */
+  background-image:linear-gradient(rgba(255, 255, 255, 0.692), rgba(255, 255, 255, 0.836)), url('./imgs/female-nurse-uniform-carries-old-man-patient-wheelchair-doctor-ex.webp');
+  background-position:0px -100px;
+  margin-bottom:100px;
 }
 .cardWrap {
   display: grid;

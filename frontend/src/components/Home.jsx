@@ -56,7 +56,7 @@ const Home = () => {
           </div>
         </a>
 
-        <a href="/aboutzoe">
+        <a href="/" >
           <div className="card">
             <div className="boxCard">
               <div className="contentCard">
@@ -73,7 +73,7 @@ const Home = () => {
           </div>
         </a>
 
-        <a href="/user/login">
+        <a href="/">
           <div className="card">
             <div className="boxCard">
               <div className="contentCard">
