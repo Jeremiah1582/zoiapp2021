@@ -196,15 +196,15 @@ exports.bookedAppointments = (req, res) => {
         html: `<p>
             Hi  ${patFirstName}.
 
-            Thank you for using the Zoe App to book your Dr appointment. Your appointment has been successfully booked. 
+            Thank you for using the Zoe App to book your Dr appointment.<br/> Your appointment has been successfully booked. <br/>
 
-            Please remember to bring to your appointment:
+            Please remember to bring to your appointment: <br/>
             - your ID
             - your insurance card
+<br/>
+            You can view your appointment details in the App by logging in and clicking into the appointment list feature. <br/>
 
-            You can view your appointment details in the App by logging in and clicking into the appointment list feature. 
-
-            Stay healthy and well, and we hope to see you again soon!
+            Stay healthy and well, and we hope to see you again soon!<br/>
             The Zoe Team. 
             </p>`,
       };
