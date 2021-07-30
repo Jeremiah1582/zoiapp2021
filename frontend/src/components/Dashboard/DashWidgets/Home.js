@@ -73,9 +73,9 @@ function Home(props) {
                 </Link>
               </div>
               <div className="widget dr-list-widget">
-                <Link 
-                // to="/doctor/dashboard/finddoctor"
-                onClick={() => setShowDrFindDoctor(true)}
+                <Link
+                  // to="/doctor/dashboard/finddoctor"
+                  onClick={() => setShowDrFindDoctor(true)}
                 >
                   <div className="widget-title">Find a Doctor</div>
                 </Link>
@@ -125,9 +125,9 @@ function Home(props) {
                           {patient.firstName} {patient.lastName}
                         </b>
                       </h4>
+                      <h4>Insurance Nmr: {patient.insuranceNumber}</h4>
                       <h4>E-mail: {patient.email} </h4>
                       <h4>Mobile : {patient.mobileNumber}</h4>
-                      <h4>Problems: {patient.note}</h4>
                     </div>
                   </div>
                 );
@@ -154,14 +154,13 @@ function Home(props) {
           </Modal.Header>
           <Modal.Body>
             <SetAppointmentTimes />
-           
           </Modal.Body>
         </Modal>
       </div>
       {/* 2. Find doctor modal */}
 
       <div>
-          <Modal
+        <Modal
           className="DrFindDoctor-modal"
           size="lg"
           show={showDrFindDoctor}
@@ -174,7 +173,7 @@ function Home(props) {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <DrFindDoctor/>
+            <DrFindDoctor />
           </Modal.Body>
         </Modal>
       </div>

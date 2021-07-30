@@ -289,13 +289,12 @@ a {
 .home-card-wrap {
   /* margin-bottom: 100px; */
   background-image: linear-gradient(
-      to right,
-      rgba(0, 61, 41, 0.445),
-      rgba(0, 250, 167, 0.349)
+      rgba(255, 255, 255, 0.521),
+      rgba(255, 255, 255, 0.836)
     ),
-    url("./imgs/cardsbc4.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
+    url("./imgs/female-nurse-uniform-carries-old-man-patient-wheelchair-doctor-ex.webp");
+  background-position: 0px -100px;
+  margin-bottom: 100px;
 }
 .cardWrap {
   display: grid;
@@ -1223,6 +1222,7 @@ width: 100%;
 }
 .booked-app-thankYou-msg-modal {
   width: 100%;
+  height: 420px;
   background-image: linear-gradient(
       to top,
       rgba(255, 255, 255, 0.753),
@@ -1266,6 +1266,9 @@ width: 100%;
 }
 .findDr-time-slot-modal {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-even;
+  margin: 5px;
 }
 .findDr-available-times {
   padding: 5px;
@@ -1337,17 +1340,55 @@ width: 100%;
   /* background-color: rgba(108, 153, 108, 0.61); */
 }
 /* appointment List Page******************** */
+.appointments-title {
+  text-align: center;
+}
+.appointment-container {
+  margin-left: 80px;
+}
+.subtitle-text {
+  color: rgb(240, 240, 240);
+}
 .app-list-cards {
   margin: 10px;
   border-radius: 4px;
-  background: var(--card-background);
+  background: rgba(68, 68, 68, 0.24);
   color: var(--textCard);
+  width: 400px;
 }
+.appointment-card-header {
+  padding: 5%;
+  background: rgba(62, 173, 136, 0.932);
+  width: 400px;
+  height: 120px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 70px;
+}
+.appointment-card-body {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+.appointment-body-part1 {
+  width: 47%;
+  color: rgba(0, 0, 0, 0.479);
+  background: rgba(255, 255, 255, 0.959);
+  padding: 5px;
+  cursor: pointer;
+}
+.appointment-body-part2 {
+  width: 47%;
+  background: rgba(247, 191, 38, 0.959);
+  color: rgb(22, 22, 65);
+  padding: 5px;
+}
+
 .app-card-buttons {
   margin: 10px;
 }
 .app-list-cards:hover {
   transition: 0.6s var(--hoverEasing), box-shadow 2s var(--hoverEasing);
-  box-shadow: rgba(white, 0.2) 0 0 40px 5px, rgba(white, 1) 0 0 0 1px,
-    rgba(black, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px;
+  /* box-shadow: rgba(white, 0.2) 0 0 40px 5px, rgba(white, 1) 0 0 0 1px,
+    rgba(black, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px; */
 }

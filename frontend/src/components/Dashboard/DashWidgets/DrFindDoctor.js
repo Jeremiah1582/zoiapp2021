@@ -112,7 +112,7 @@ function FindDoctor() {
     setNewAppointment({ ...newAppointment, [e.target.name]: e.target.value });
   };
   //
-  console.log(newAppointment);
+  // console.log(newAppointment);
   //Delete search Query from formState------------------------
   // const deleteField = (e) => {
   //   const index = e.target.id;
@@ -151,10 +151,21 @@ function FindDoctor() {
     <div className="find-doctor-container">
       {/* search bar (search in database) */}
 
-      <form className='DrFindDoctor-form' name="form1" id="form1" action="" onSubmit={submit}>
+      <form
+        className="DrFindDoctor-form"
+        name="form1"
+        id="form1"
+        action=""
+        onSubmit={submit}
+      >
         {" "}
         Specialist Field:
-        <select className='drFindDr-input' name="field" id="subject" onChange={handleChange}>
+        <select
+          className="drFindDr-input"
+          name="field"
+          id="subject"
+          onChange={handleChange}
+        >
           {specialistFields.map((item, index) => {
             return (
               <option name="field" id={index} key={index} value={item.field}>
@@ -165,62 +176,75 @@ function FindDoctor() {
           })}
         </select>
         <br />
-        <Button 
-        type="submit" 
-        className="reg-discipline"
-         >
-       
-          <i className="fa fa-search " ></i>
+        <Button
+          type="submit"
+          className="reg-discipline"
+          style={{
+            textAlign: "center",
+            width: "120px",
+            height: "40px",
+            fontSize: "16px",
+            lineHeight: "7px",
+            letterSpacing: "2px",
+            borderRadius: "7px",
+          }}
+        >
+          <i className="fa fa-search "></i>
           Search
         </Button>
         <br />
         <br />
       </form>
       {showTable ? (
-   <div>
-
-  {doctorTable.map((specialist, index) => {
-              return (
-                  <div key={index}>
-                    <div className="findDr-result-card">
-                      <h4>
-                        <b>
-                          {" "}
-                          Doctor: {specialist.firstName} {specialist.lastName} 
-                        </b>
-
-                      </h4>
-                      <h4><p>Field: {specialist.specialistFields}</p></h4>
-                      <h4>E-mail: {specialist.email} </h4>
-                      <h4>Mobile : {specialist.mobile} </h4>
-                      <h4> Address: {specialist.street}
+        <div>
+          {doctorTable.map((specialist, index) => {
+            return (
+              <div key={index}>
+                <div className="findDr-result-card">
+                  <h4>
+                    <b>
+                      {" "}
+                      Doctor: {specialist.firstName} {specialist.lastName}
+                    </b>
+                  </h4>
+                  <h4>
+                    <p>Field: {specialist.specialistFields}</p>
+                  </h4>
+                  <h4>E-mail: {specialist.email} </h4>
+                  <h4>Mobile : {specialist.mobile} </h4>
+                  <h4>
+                    {" "}
+                    Address: {specialist.street}
                     {specialist.houseNr},{specialist.postalCode}
-                    {specialist.city}</h4>
-                    <Button
-                    
-                      className="find-dr-modal"
-                      variant="primary"
-                      onClick={() => {
-                        handleShow(
-                          specialist._id,
-                          specialist.availableTimeSlots,
-                          index
-                        );
-                      }}
-                    >
-                      Book Now
-                    </Button>
-                    </div>
-                  
-                  
+                    {specialist.city}
+                  </h4>
+                  <Button
+                    className="find-dr-modal"
+                    variant="primary"
+                    onClick={() => {
+                      handleShow(
+                        specialist._id,
+                        specialist.availableTimeSlots,
+                        index
+                      );
+                    }}
+                    style={{
+                      textAlign: "center",
+                      width: "110px",
+                      height: "40px",
+                      fontSize: "16px",
+                      lineHeight: "7px",
+                      letterSpacing: "1px",
+                      borderRadius: "7px",
+                    }}
+                  >
+                    Book Now
+                  </Button>
                 </div>
-               
-                   
-        
-              );
-            })}
-          
-       </div>
+              </div>
+            );
+          })}
+        </div>
       ) : null}
 
       {/* Show/ Hidden Modal  */}
@@ -232,27 +256,41 @@ function FindDoctor() {
           setShow(false);
           setBookingForm(false);
           setSuccessModalShow(false);
+          setDoctorTable([]);
         }}
         dialogClassName="modal-90w"
         aria-labelledby="example-custom-modal-styling-title"
       >
-        <div className=''>
+        <div className="">
           <Modal.Header closeButton>
-            <h3> Book an Appointment</h3>
+            <h3 className="appointments-title"> Select an Appointment</h3>
           </Modal.Header>
           {successModalShow ? (
-            <Modal.Body className='booked-app-thankYou-msg-modal'>
+            <Modal.Body className="booked-app-thankYou-msg-modal">
               {/* Message to Patients */}
-    
+
               <p>
                 Your appointment has been successfully booked. <br />
-                Please check your e-mail for confirmation.</p>
-               <p>Thank you for booking with ZOE .</p> 
-               
-              <Button className="find-dr-modal" variant="primary">
-                Back to Appointments List
-              </Button>
-            
+                Please check your e-mail for confirmation.
+              </p>
+              <p>Thank you for booking with ZOE .</p>
+
+              <a
+                href="/doctor/dashboard/appointmentlist"
+                className="btn-primary "
+                style={{
+                  textAlign: "center",
+                  width: "120px",
+                  height: "80px",
+                  fontSize: "20px",
+                  // lineHeight: "8px",
+                  letterSpacing: "2px",
+                  borderRadius: "4px",
+                  padding: "7px",
+                }}
+              >
+                My Appointment Lists
+              </a>
             </Modal.Body>
           ) : null}
 
@@ -271,6 +309,15 @@ function FindDoctor() {
                 className="find-dr-modal"
                 variant="primary"
                 onClick={backToSlot}
+                style={{
+                  textAlign: "center",
+                  width: "120px",
+                  height: "40px",
+                  fontSize: "16px",
+                  lineHeight: "7px",
+                  letterSpacing: "2px",
+                  borderRadius: "7px",
+                }}
               >
                 Back
               </Button>
@@ -400,34 +447,48 @@ function FindDoctor() {
                   />
                 </Form.Group>
                 {/* Send Request */}
-                <Button type="submit">Send Request</Button>
+                <Button
+                  type="submit"
+                  style={{
+                    textAlign: "center",
+                    width: "140px",
+                    height: "40px",
+                    fontSize: "16px",
+                    lineHeight: "2px",
+                    letterSpacing: "1px",
+                    borderRadius: "7px",
+                  }}
+                >
+                  Submit
+                </Button>
               </Form>
             </Modal.Body>
           ) : (
             // Displaying Time Slots from Doctors
-            <Modal.Body
-              className='findDr-time-slot-modal'
-             >
-              {/* <h3>Select Time and Date</h3> */}
-              {availableTimesDisplay.map((item, index) => {
-                return (
-                  <div className="findDr-available-times">
-                    <Button
-                      type="btn"
-                      key={index}
-                      id={index}
-                      onClick={() => {
-                        scheduleAppointment(item);
-                      }}
-                    >
-                      <h4>
-                        Time: {item.time} <br /> Date: {item.date} <br />{" "}
-                        Duration: {item.duration} mins
-                      </h4>
-                    </Button>
-                  </div>
-                );
-              })}
+
+            <Modal.Body>
+              <div className="findDr-time-slot-modal">
+                {/* <h3>Select Time and Date</h3> */}
+                {availableTimesDisplay.map((item, index) => {
+                  return (
+                    <div className="findDr-available-times">
+                      <Button
+                        type="btn"
+                        key={index}
+                        id={index}
+                        onClick={() => {
+                          scheduleAppointment(item);
+                        }}
+                      >
+                        <h4>
+                          Time: {item.time} <br /> Date: {item.date} <br />{" "}
+                          Duration: {item.duration} mins
+                        </h4>
+                      </Button>
+                    </div>
+                  );
+                })}
+              </div>
             </Modal.Body>
           )}
           <Modal.Footer></Modal.Footer>

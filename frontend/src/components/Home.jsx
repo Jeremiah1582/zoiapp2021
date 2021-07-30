@@ -48,43 +48,41 @@ const Home = () => {
               />
               <h2>Find a Doctor</h2>
               <p>
-               ZOE is an online Platform where patient and doctor both can find specialists regarding to their own diseases or for relatives, friends, family members etc. with a very easy searching system without any complication, developed by a young professional team 
+               ZOE is an online Platform where patient and doctor can find specialists related to their or their patients condition. With a very easy searching system without any complication, developed by a professional team dedicated to innovative development 
               </p>
             </div>
           </div>
         </div>
         {/* </a> */}
 
-        {/* <a href="/aboutzoe"> */}
+        <a href="/">
         <div className="card">
           <div className="boxCard">
             <div className="contentCard">
               <img src={aboutUs} alt="about us" className="imgCard" />
-              <h2>Set your Times</h2>
+              <h2>Booking Management Systems</h2>
               <p>
-               As a doctor you can easily set your available times and dates for your patients, 
-               which gonna be display for patients
-               and they can select a suitable time for them during booking an appointment and it's always changeable
+               If you're a practice, Zoe's Booking system is easy to set up, customisable and easy for your patients to use. Zoe offers practises a simple way to stay on top of their appointment with a built in email notification system. giving you complete control
               </p>
             </div>
           </div>
         </div>
-        {/* </a> */}
+        </a>
 
-        {/* <a href="/user/login"> */}
+        <a href="/">
         <div className="card">
           <div className="boxCard">
             <div className="contentCard">
               <img src={appointment} alt="appointment" className="imgCard" />
-              <h2>Book Appointments</h2>
+              <h2>Real Time Availability</h2>
               <p>
                You are a patient or a doctor ? <br/>
-               don' worry, with ZOE both patient and doctor can book appointments for themselves or for others too and you will be confirmed per e-mail
+               you can see when an appointment slot is available. As a doctor, patients will only see the appointments times you have declared as available.
               </p>
             </div>
           </div>
         </div>
-        {/* </a> */}
+        </a>
       </div>
       <br />
       <br />
@@ -105,7 +103,7 @@ const Home = () => {
         </Modal.Header>
         <Modal.Body>..this is a text.</Modal.Body>
       </Modal>
-    </div> */}
+  </div> */}  
     </div>
   );
 };
