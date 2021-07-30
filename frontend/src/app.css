@@ -600,31 +600,35 @@ a {
   ); */
   background-image: linear-gradient(
       to right,
-      rgba(0, 249, 166, 0.212),
+      rgba(92, 211, 171, 0.562),
       rgba(227, 255, 246, 0.596)
     ),
-    url("./imgs/drReg.png");
+    url("./imgs/patients-sitting-in-chairs-waiting-appointment-time-at-hospital-do.png");
   background-position: -10px;
   /* background-height:100px; */
   z-index: 2;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-position: 110% 112%;
+  background-attachment: fixed;
+  /* background-size: contain; */
   /* background-image: url('../styling/images/online-doctor-video-doctor-using-healthcare-app-laptop-medi.jpg'); */
 }
 .dr-reg-img-container {
   width: 20%;
 }
 .dr-signUpForm {
-  border: solid pink;
+  /* border: solid pink; */
   width: 30%;
-  background: linear-gradient(
-    to left,
-    rgba(40, 221, 161, 0.849),
-    rgba(227, 255, 246, 0.959)
-  );
-  border-top-left-radius: 40px;
-  border-bottom-left-radius: 4px;
+  background:rgba(254, 255, 254, 0.938);
+  
+  border: solid white 1px;
+  border-top: none;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 4px;
   padding: 12px;
+  padding-left: 20px;
+  position: right;
+  box-shadow: -5px 0px 15px #949494, 8px -20px 60px rgb(160, 160, 160);
 }
 /* ***patient Sign Up Forms Style *** */
 .reg-container {
@@ -642,7 +646,7 @@ a {
   background-image: linear-gradient(
       to right,
       rgba(0, 249, 166, 0.212),
-      rgba(227, 255, 246, 0.596)
+      rgba(254, 255, 254, 0.842)
     ),
     url("./imgs/loginWoman2.png");
   background-position: -10px;
@@ -689,25 +693,28 @@ a {
 }
 /* set time container*/
 .set-appointment-container {
-  background-color: var(--textCard);
-  background-image: url("./imgs/appointment5.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-y: 65%;
-  background-position-x: 50%;
+  /* background-color: var(--color-green); */
+  background-image:linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.842),
+    rgba(255, 255, 255, 0.932),
+    rgba(254, 255, 255, 0.233)
+  ) ,url('./imgs/patients-sitting-in-chairs-waiting-appointment-time-at-hospital-do.png');
+  background-position: -600px;
   opacity: 0.9;
 }
 .set-time-form {
   margin: 0 auto;
-  width: 60%;
+  width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(136, 194, 171, 0.918),
-    rgba(6, 189, 128, 0.801)
-  );
+  /* background: linear-gradient(
+    to bottom,
+    rgba(223, 245, 236, 0.842),
+    rgba(223, 245, 236, 0.932),
+    rgba(254, 255, 255, 0.055)
+  ); */
   /* backdrop-filter: blur(1px); */
-  border-radius: 10px;
+  /* border-radius: 10px; */
   z-index: 2;
 }
 .timeSlots-container {
@@ -1051,29 +1058,37 @@ width: 100%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  background-color: var(--dash-background);
+  /* background-color: var(--dash-background); */
 }
 .patient-dash {
   background-image: linear-gradient(
       to right,
-      rgba(185, 185, 185, 0.39),
-      rgba(255, 255, 255, 0.404)
+      rgba(205, 206, 206, 0.267),
+      rgba(235, 235, 235, 0.445)
     ),
-    url("./imgs/patient2.png");
+    url("./imgs/patientdash1.png");
   background-repeat: repeat;
   background-size: cover;
-  animation: scroll 1000s linear infinite;
+  /* animation: scroll 1000s linear infinite; */
 }
 .doctor-dash {
-  background-image: linear-gradient(
+  background-image: 
+  linear-gradient(
       to right,
-      rgba(205, 206, 206, 0.308),
-      rgba(235, 235, 235, 0.5)
+      rgba(205, 206, 206, 0.267),
+      rgba(235, 235, 235, 0.445)
     ),
-    url("./imgs/medical2.png");
-  background-repeat: repeat;
-  background-size: cover;
-  animation: scrollUp 1000s linear infinite;
+    /* url("./imgs/hand-with-magnifying-glass-and-woman-with-binocular-searching-dr.webp"), */
+    url('./imgs/female-doctor-doing-eye-checkup-2823076-2348949.webp'), 
+    url('./imgs/patient-doctor-doing-auscultation-2822833-2348932.webp');
+ 
+  background-position: -10% 115%,  110% top ;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+ 
+  
+  /* background-size: ; */
+  /* animation: scrollUp 200s linear infinite; */
 }
 .widget-container {
   display: flex;
@@ -1183,6 +1198,35 @@ width: 100%;
   opacity: 0.9 !important;
   font-weight: 600;
 }
+/* DrFindDr Styling Modal************* */
+.DrFindDoctor-modal{
+
+}
+
+.DrFindDoctor-form{
+/* min-height: 350px; */
+}
+.find-doctor-container{
+width: 100%;
+background-image:linear-gradient(to top, rgba(255, 255, 255, 0.356), white), url('./imgs/findDR-SearchDr.png') ;
+background-repeat: no-repeat;
+background-position:center ;
+background-position-y: 0px;
+}
+.drFindDr-input{
+min-width: 300px;
+max-width: 450px;
+ ;
+}
+.booked-app-thankYou-msg-modal{
+  width: 100%;
+background-image:linear-gradient(to top, rgba(255, 255, 255, 0.753), rgba(255, 255, 255, 0.986)), url('./imgs/findDR-SearchDr.png') ;
+background-repeat: no-repeat;
+background-position:center ;
+background-position-y: 0px;
+
+}
+
 /************* Specialist Info Div ******************/
 .specialist-info {
   /* margin-bottom: 2rem; */
@@ -1203,6 +1247,24 @@ width: 100%;
   /* border: 2px solid var(--black); */
   background-color: rgba(55, 119, 98, 0.4);
 }
+.findDr-result-card {
+  padding: 18px;
+  color: var(--textCard);
+  letter-spacing: 1.2px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border-radius: 20px;
+  /* border: 2px solid var(--black); */
+  background-color: rgba(84, 177, 146, 0.897);
+}
+.findDr-time-slot-modal{
+  display:flex;
+
+}
+.findDr-available-times{
+  padding: 5px;
+}
+
 /* // ********************************* */
 /* // DASHBOARD NAV side LEFt............... */
 .dash-nav-container {
