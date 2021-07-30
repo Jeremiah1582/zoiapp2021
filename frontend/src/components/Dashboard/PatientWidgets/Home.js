@@ -1,4 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
+import { Modal, Button } from "react-bootstrap";
+
 // import image1 from '../../../styling/images/operacion-retorno-mallorca-by-andres-nieto-porras.jpg'
 import { Link } from "react-router-dom";
 import { MyContext } from "../../../Context_APIs/userContextAPI";
@@ -6,11 +8,13 @@ import UserIcon from "../../../imgs/user2.png";
 import staySafe from "../../../imgs/stay-safe.jpeg";
 // import Items from "../../../imgs/items.jpg";
 import specialistAPI from "../../../Context_APIs/specialistFields";
+import FindDoctor from "../DashWidgets/DrFindDoctor";
 
 function Home() {
   const { userState, getUser } = useContext(MyContext);
   // console.log(userState);
-
+  const [showTimeForm, setShowTimeForm] = useState(false);
+  const [showDrFindDoctor, setShowDrFindDoctor] = useState(false);
   return (
     <div className="cardWrap">
       <div className="card dashboard">
@@ -76,7 +80,10 @@ function Home() {
             <div className="widget-container">
               {/* child divs start */}
               <div className="widget patient-cards dr-list-widget ">
-                <Link to="/patient/dashboard/finddoctor">
+                <Link 
+                // to="/patient/dashboard/finddoctor"
+                onClick={() => setShowDrFindDoctor(true)}
+                >
                   <div className="widget-title ">Find a Doctor</div>
                 </Link>
               </div>
@@ -86,12 +93,16 @@ function Home() {
                 </Link>
               </div>
               <div className="widget messages-widget patient-cards">
-                <Link to="/patient/dashboard/messages">
+                <Link
+                //  to="/patient/dashboard/messages"
+                 >
                   <div className="widget-title">Messages</div>
                 </Link>
               </div>
               <div className="widget weather-widget patient-cards">
-                <Link to="/patient/dashboard/weather">
+                <Link 
+                // to="/patient/dashboard/weather"
+                >
                   <div className="widget-title">Weather</div>
                 </Link>
               </div>
@@ -133,6 +144,30 @@ function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+            {/* Modal Part */}
+
+      
+      {/* 1. Find doctor modal */}
+
+      <div>
+        <Modal
+          className="DrFindDoctor-modal"
+          size="lg"
+          show={showDrFindDoctor}
+          onHide={() => setShowDrFindDoctor(false)}
+          aria-labelledby="example-modal-sizes-title-lg"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-modal-sizes-title-lg">
+              <b> Find Doctor</b>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <FindDoctor />
+          </Modal.Body>
+        </Modal>
       </div>
     </div>
   );
