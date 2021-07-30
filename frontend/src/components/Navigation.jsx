@@ -24,7 +24,7 @@ const Navigation = () => {
           </li>
           <li className="navItem">
             <a href="/aboutzoe" className="navLink">
-              About us
+              About ZOE
             </a>
           </li>
           <li className="navItem">

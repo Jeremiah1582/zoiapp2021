@@ -238,7 +238,7 @@ function FindDoctor() {
       >
         <div className=''>
           <Modal.Header closeButton>
-            <h3> Book an Appointment</h3>
+            <h3 className='appointments-title'> Select an Appointment</h3>
           </Modal.Header>
           {successModalShow ? (
             <Modal.Body className='booked-app-thankYou-msg-modal'>
@@ -405,9 +405,11 @@ function FindDoctor() {
             </Modal.Body>
           ) : (
             // Displaying Time Slots from Doctors
+            
             <Modal.Body
-              className='findDr-time-slot-modal'
+              
              >
+              <div className='findDr-time-slot-modal'>
               {/* <h3>Select Time and Date</h3> */}
               {availableTimesDisplay.map((item, index) => {
                 return (
@@ -428,6 +430,7 @@ function FindDoctor() {
                   </div>
                 );
               })}
+            </div>
             </Modal.Body>
           )}
           <Modal.Footer></Modal.Footer>

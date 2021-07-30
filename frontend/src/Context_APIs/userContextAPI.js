@@ -60,7 +60,7 @@ function MyProvider({ children }) {
           insuranceCompany: res.data.data.insuranceCompany,
           insuranceNumber: res.data.data.insuranceNumber,
           bookedAppointments: res.data.data.bookedAppointments,
-          // availableTimeSlots: res.data.data.availableTimeSlots,
+          
         });
       });
   };
