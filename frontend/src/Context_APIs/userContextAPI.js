@@ -60,7 +60,6 @@ function MyProvider({ children }) {
           insuranceCompany: res.data.data.insuranceCompany,
           insuranceNumber: res.data.data.insuranceNumber,
           bookedAppointments: res.data.data.bookedAppointments,
-          
         });
       });
   };
@@ -71,7 +70,6 @@ function MyProvider({ children }) {
     axios
       .post("http://localhost:5000/doctor/bookingForm", { userToken })
       .then((res) => {
-        
         console.log(res.data);
 
         setUserDrState({
@@ -86,6 +84,7 @@ function MyProvider({ children }) {
           insuranceNumber: res.data.data.insuranceNumber,
           bookedAppointments: res.data.data.bookedAppointments,
           availableTimeSlots: res.data.data.availableTimeSlots,
+          licenceNumber: res.data.data.licenceNumber,
         });
 
         // console.log('userDrState is:',userDrState);

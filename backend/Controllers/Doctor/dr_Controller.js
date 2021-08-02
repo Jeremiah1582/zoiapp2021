@@ -195,6 +195,7 @@ exports.bookedAppointments = (req, res) => {
         subject: "sending a Test email ",
         html: `<p>
             Hi  ${patFirstName}.
+            <br/>
 
             Thank you for using the Zoe App to book your Dr appointment.<br/> Your appointment has been successfully booked. <br/>
 

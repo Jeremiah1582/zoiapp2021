@@ -38,7 +38,7 @@ function Home(props) {
             </div> */}
 
               <div className="user-info-items">
-                Insurance Nmr : {userDrState.insuranceNumber}
+                Licence Nmr : {userDrState.licenceNumber}
               </div>
               {/* <div className="user-info-items">
               Insurance Company : {userDrState.insuranceCompany}
