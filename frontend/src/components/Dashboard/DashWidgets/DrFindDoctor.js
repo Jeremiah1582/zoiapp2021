@@ -142,7 +142,7 @@ function FindDoctor() {
     axios
       .post("http://localhost:5000/doctor/finddoctor", formState)
       .then((res) => {
-        console.log(res.data, "line 148 drFindDr");
+        console.log(res, "line 148 drFindDr");
         setDoctorTable(res.data);
       });
   };

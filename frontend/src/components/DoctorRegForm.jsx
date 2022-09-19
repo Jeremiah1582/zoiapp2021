@@ -20,7 +20,7 @@ function DoctorRegForm() {
     password: "",
     confirmedPassword: "",
     licenceNumber: "",
-    // specialistFields: [],
+    specialistFields: [],
     street: "",
     houseNr: "",
     postalCode: "",
@@ -29,11 +29,20 @@ function DoctorRegForm() {
   });
   // Error message state
   const [message, setMessage] = useState("");
-  // let specialist = [];
+
+  const specialistObjectArray = [];
   const [specialist, setSpecialist] = useState([]);
-  const handleSpecial = (item) => {
-    setSpecialist([...specialist, item]);
+// turn specialist list into an Array of Objects
+const handleSpecial = (item) => {
+  console.log(item);
+     setSpecialist([...specialist,item]);
   };
+specialist.map((item2, index)=>(
+    specialistObjectArray.push({ key:index,field:item2})
+   ))
+   
+console.log('specialistObjectArray is = ', specialistObjectArray);
+
   // const { specialistFields } = DrSignUp;
   // add new Dr details
   const handleFormInput = (e) => {
@@ -72,7 +81,7 @@ function DoctorRegForm() {
     formData.append("password", DrSignUp.password);
     formData.append("confirmedPassword", DrSignUp.confirmedPassword);
     formData.append("licenceNumber", DrSignUp.licenceNumber);
-    formData.append("specialistFields", specialist);
+    formData.append("specialistFields", specialistObjectArray);
     formData.append("street", DrSignUp.street);
     formData.append("houseNr", DrSignUp.houseNr);
     formData.append("postalCode", DrSignUp.postalCode);
@@ -100,7 +109,7 @@ function DoctorRegForm() {
             password: "",
             confirmedPassword: "",
             licenceNumber: "",
-            // specialistFields: [],
+            specialistFields: [],
             street: "",
             houseNr: "",
             postalCode: "",
@@ -253,18 +262,17 @@ function DoctorRegForm() {
                           <Form.Label className='form-label'>Specialist In</Form.Label> <br />
 
                           <Form.Control
-                            class="input-field col-md-12"
+                            className="input-field col-md-12"
                             name="specialistFields"
                             as="select"
                             type="text"
                             onChange={(e) => {
-                              console.log("onSelect is", e.target.value);
                               const selectedItem = e.target.value;
-                              // handleSpecialistInput(selectedItem);
                               handleSpecial(selectedItem);
                             }}
                           >
                             {specialistAPI.map((item, index) => {
+                 
                               return (
                                 <option key={index} value={item.field}>
                                   {item.field}
@@ -283,6 +291,7 @@ function DoctorRegForm() {
                                   className="reg-discipline"
                                   onClick={(e) => {
                                     deleteField(e);
+                                    
                                   }}
                                 >
                                   {item}
@@ -452,8 +461,8 @@ function DoctorRegForm() {
                     </div>
                   </Form>
                   {/* Log in form link */}
-                  <div class="w-100 text-center">
-                    <p class="p mt-4">
+                  <div className="w-100 text-center">
+                    <p className="p mt-4">
                       Have already an account!
                        <Button type="btn" href="/" className="login-link reg-discipline">
                   Log In

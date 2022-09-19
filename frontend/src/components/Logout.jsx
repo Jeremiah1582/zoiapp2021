@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Alert } from "react-bootstrap";
 // import Home from "./Home";
 import logoNew from "../imgs/logoNew.png";
@@ -43,9 +43,9 @@ const Logout = () => {
   };
   return (
     <div className="navigation">
-      {/* {token ? (
+      {token ? (
         <Alert variant="success"> Welcome</Alert>
-      ) : null} */}
+      ) : null}
 
       <input type="checkbox" className="navCheckbox" id="navigationToogle" />
       <label htmlFor="navigationToogle" className="navButton">

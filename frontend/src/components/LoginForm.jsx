@@ -26,6 +26,7 @@ const LoginForm = (prop) => {
     });
   };
 console.log(prop.accountType);
+
   // account type function
   // const accountType = () => {
   
@@ -36,7 +37,7 @@ console.log(prop.accountType);
   const submit = (e) => {
     e.preventDefault();
     if (UserLogin.email !== "") {
-      console.log(UserLogin, "from line 35");
+      console.log(UserLogin, "from line 40");
       // JWToken
       axios.post("http://localhost:5000/user/login", UserLogin).then((res) => {
         console.log(res.data);
@@ -99,7 +100,7 @@ console.log(prop.accountType);
               />
             </Form.Group>
 
-            <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Group  controlId="exampleForm.ControlSelect1">
               <Form.Label>Account Type</Form.Label>
               <div className="reg-discipline">
                {prop.accountType.toUpperCase()}

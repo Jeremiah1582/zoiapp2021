@@ -72,9 +72,12 @@ const PatientRegForm = () => {
             city: "",
             country: "",
           });
+          console.log('TEST: patient-response from backend after sign up',res.data.msg);
+          setMessage(res.data.msg)
           // redirecting to login page
-          window.location.href = "/user/login";
+          // window.location.href = "/user/login";
         });
+        
     } else {
       setMessage("Please fill the required fields!");
     }
@@ -88,6 +91,7 @@ const PatientRegForm = () => {
           {/* <Image src={PatientImage} className="reg-img"/> */}
         </div>
         <div className="reg-form-container">
+        {message !==''? <Alert>{message}</Alert>:""}
       
             <Form className="form-class form" onSubmit={sendToBackEnd}>
               {/* First Name */}
@@ -337,8 +341,8 @@ const PatientRegForm = () => {
               <Button type="submit">Sign Up</Button>
             </Form>
             {/* Log in form link */}
-            <div class="w-100 text-center">
-              <p class="p mt-4">
+            <div className="w-100 text-center">
+              <p className="p mt-4">
                 Have already an account!
                 <Button type="btn" href="/" className="login-link reg-discipline">
                   Log In

@@ -8,8 +8,10 @@ const sgMail = require("@sendgrid/mail");
 
 // res.send(' <h1>Dr: </br> this is the appointment page for Dr </h1>')
 // }
+
+// ---------------REGISTER/SIGNUP NEW DR---------------------
 exports.registerDoctor = (req, res) => {
-  // console.log(req.body, "line 09 controller");
+  console.log(req.body, "TEST: line 14 controller");
   const {
     firstName,
     lastName,
@@ -78,7 +80,7 @@ exports.registerDoctor = (req, res) => {
     confirmedPassword == "" ||
     licenceNumber == "" ||
     specialistFields == "" ||
-    doctorFile == "" ||
+    // doctorFile == "" ||
     street == "" ||
     houseNr == "" ||
     postalCode == "" ||
@@ -112,6 +114,7 @@ exports.registerDoctor = (req, res) => {
   });
 };
 
+
 exports.setAppointmentTime = (req, res) => {
   //add timeslot to the doctors DB
   // console.log(req.body, "line 114 DrController");
@@ -139,11 +142,23 @@ exports.setAppointmentTime = (req, res) => {
 
 // ** Search for a Doctor ** //
 exports.findDoctor = (req, res) => {
-  // console.log(req.body.field, "line 136 dr_controller");
-  Doctor.find({ $text: { $search: req.body.field } }, (err, doc) => {
-    // console.log(doc,'line 138 dr_controller')
+  // console.log(req.body, "line 144 dr_controller");
+  const{field}=req.body
+//  console.log(Doctor.specialistFields);
+// console.log(field.toString());
+  Doctor.createIndex({specialistFields:'text'})
+  Doctor.find({$text:{$search:field}})
+  .then((err,doc) => {
+    if(err){
+      console.log('there was an ERROR BRO !' ,err);
+    }else{
+      // console.log(doc,'line 146 dr_controller')
+      console.log('this is the response doc',doc);
     res.json(doc);
+    
+    }
   });
+  
 };
 
 //

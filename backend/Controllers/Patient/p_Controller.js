@@ -6,7 +6,7 @@ const sgMail = require('@sendgrid/mail')
 require('dotenv').config()
 
 exports.registerPatient = (req, res) => {
-  // console.log(req.body, "patient data line 04");
+  console.log(req.body, "TEST: patient data line 09");
   const {
     firstName,
     lastName,
@@ -70,11 +70,11 @@ exports.registerPatient = (req, res) => {
     firstName == "" ||
     lastName == "" ||
     birthDate == "" ||
-    mobileNumber == "" ||
+    // mobileNumber == "" ||
     email == "" ||
     password == "" ||
     confirmedPassword == "" ||
-    insuranceCompany == "" ||
+    // insuranceCompany == "" ||
     insuranceNumber == "" ||
     street == "" ||
     houseNr == "" ||
@@ -109,9 +109,11 @@ exports.registerPatient = (req, res) => {
 
 // ** Search for a Doctor ** //
 exports.findDoctor = (req, res) => {
-  console.log(req.body.field, "line 111");
+
+  console.log(req.body, "line 111");
   Doctor.find({ $text: { $search: req.body.field } }, (err, doc) => {
-    // console.log(doc)
+    console.log('findDr Doc is-',doc)
+    console.log(req.body)
     res.json(doc);
   });
 };

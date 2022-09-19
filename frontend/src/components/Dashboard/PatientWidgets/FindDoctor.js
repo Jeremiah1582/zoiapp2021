@@ -139,11 +139,11 @@ function FindDoctor() {
     e.preventDefault();
     setShowTable(true);
 
-    // console.log(formState, "line 12");
+    console.log(e, "line 12");
     axios
       .post("http://localhost:5000/patient/finddoctor", formState)
       .then((res) => {
-        // console.log(res.data, "line 25");
+        console.log(res.data, "line 146");
         setDoctorTable(res.data);
       });
   };
@@ -183,6 +183,7 @@ function FindDoctor() {
           </thead>
 
           <tbody>
+          {console.log('TEST: doctorTable content-',doctorTable)}
             {doctorTable.map((specialist, index) => {
               return (
                 <tr>

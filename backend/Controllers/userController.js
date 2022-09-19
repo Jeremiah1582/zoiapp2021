@@ -75,18 +75,19 @@ exports.loginUser = (req, res) => {
   if (req.body.condition === "doctor") {
     Doctor.findOne({ email: req.body.email }, (err, data) => {
       if (data !== null) {
-        // console.log(data, "userController: 15");
+        console.log(data, "userController: 78");
         // console.log("Test 01: Doctor Dashboard. userController :16");
         const secret = process.env.JWT_SECRET;
         const token = jwt.sign({ id: data._id }, secret, {
           expiresIn: "1d", // 60*60*24
           algorithm: "HS256",
         });
+        console.log(token);
         res
           .status(200)
           .json({ msg: "Doctor Page connected. uController :17", token });
       } else {
-        console.log("Please log in!");
+        console.log("back end line 89-Please log in!");
         res.status(404).json({ msg: "Please log in!" });
       }
     });

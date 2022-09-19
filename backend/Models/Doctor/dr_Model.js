@@ -36,11 +36,8 @@ const newDoctor = new Schema({
   yearOfCertificate: {
     type: String,
   },
-  specialistFields: [
-    {
-      type: String,
-    },
-  ],
+  specialistFields: [String],
+  
   gender:{
     type: String,
   },
@@ -89,7 +86,7 @@ const newDoctor = new Schema({
     doctorId: { type:Schema.Types.ObjectId, ref:"Doctor"},
     timeSlotId: { type:Schema.Types.ObjectId} ,
     time: String,
-    date: String ,
+    date: String,
     duration: Number,
     firstName: String,
     lastName: String,
@@ -99,9 +96,13 @@ const newDoctor = new Schema({
     insuranceNumber:Number,
     insuranceCompany:String,
     note: String
-    
+  
     }
-    ]
+   ], 
+   date:{
+     type: Date,
+     default: Date.now
+   }
 });
 
 const Doctor = mongoose.model("Doctor", newDoctor);

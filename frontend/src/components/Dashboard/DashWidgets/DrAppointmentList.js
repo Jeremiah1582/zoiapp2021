@@ -16,9 +16,18 @@ function DrAppointmentList() {
   //    console.log(bookedAppointments);
 
    const [show, setShow] = useState(false);
+   const [modalNote, setModalNote] = useState(
+     {note: 'hello there'}
+     );
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = (e) => {
+    console.log(e.target.element, 'line 23');
+    setShow(true);
+    const modalMessage = e.target.value;
+    // modalMessage.stringify;
+    setModalNote({note:modalMessage})
+    };
 
   return (
     <div>
@@ -29,7 +38,7 @@ function DrAppointmentList() {
             <div key={appointment._id} id={appointment._id} className='app-list-cards'>
               <Card className="" style={{ width: "18rem" }}>
               <div className='appointment-card-header'>
-                <Card.Title className='appointments-title'> <h5 ><u>Patient:</u> </h5> {appointment.firstName} {appointment.lastName}
+                <Card.Title className='appointments-title'> <h5 ><u>Patient:</u> </h5> <h2>{appointment.firstName} {appointment.lastName}</h2>
                 </Card.Title>
                  <Card.Subtitle className="mb-2 subtitle-text"> 
                    <u>Date:</u> <h4>{appointment.date}</h4> 
@@ -41,7 +50,7 @@ function DrAppointmentList() {
                   {console.log(appointment)}
                  <br />
                  {/* PART 1 */}
-                    <div className="appointment-body-part1" value={appointment} onClick={()=>{handleShow()}}
+                    <div className="appointment-body-part1" value={appointment.note} onClick={(e)=>{handleShow(e)}}
                     >
                     <p placeHolder='note section'>{appointment.note}</p>
                 
@@ -52,8 +61,8 @@ function DrAppointmentList() {
                      <u>Date:</u> <h4>{appointment.date}</h4>
                      <u>Time:</u><h4> {appointment.time}</h4>
                     {appointment?  <div><u>Duration:</u> <h4>{appointment.duration} mins</h4></div> : null}
-                    <Button className="app-card-buttons">Update</Button>
-                    <Button className="app-card-buttons">Delete</Button>
+                    
+                    <Button className="app-card-buttons">Cancel</Button>
                     </div>
                   <Card.Text>
                    
@@ -70,20 +79,23 @@ function DrAppointmentList() {
           );
         })}
       </div>
+      <div>
        <Modal show={show} onHide={handleClose}>
                   <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Patient Note:</Modal.Title>
                   </Modal.Header>
-                  <Modal.Body></Modal.Body>
+                  <Modal.Body>
+                  {modalNote.note}
+                  There is an issue with the Modal, React can't access the value of this div
+                  </Modal.Body>
                   <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                       Close
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                      Save Changes
-                    </Button>
+                 
                   </Modal.Footer>
                 </Modal>
+            </div>
     </div>
   );
 }
