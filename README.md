@@ -1,70 +1,171 @@
-# Getting Started with Create React App
+# ZoiApp2021
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Patient-Doctor Booking System built with the MERN stack
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Table of Contents
 
-### `yarn start`
+1. [Overview](#overview)  
+2. [Features](#features)  
+3. [Demo](#demo)  
+4. [Getting Started](#getting-started)  
+   - [Prerequisites](#prerequisites)  
+   - [Installation](#installation)  
+5. [Usage](#usage)  
+6. [Architecture](#architecture)  
+   - [MVC Pattern](#mvc-pattern)  
+   - [Tech Stack](#tech-stack)  
+7. [Folder Structure](#folder-structure)  
+8. [Contributing](#contributing)  
+9. [License](#license)  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Overview
 
-### `yarn test`
+ZoiApp2021 is a booking platform that connects patients with specialist doctors in their area.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Patients can browse available specialists, book appointments, and receive notifications once their booking is confirmed.  
 
-### `yarn build`
+Doctors control their own schedules by specifying available days and time slots, ensuring they manage their patient load effectively.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Patients browse and filter doctors by specialty and location.  
+- Real-time appointment availability based on the doctor’s schedule.  
+- Doctors receive instant notifications for new bookings.  
+- Role-based authentication: separate dashboards for patients and doctors.  
+- CRUD operations for appointments and user profiles.
 
-### `yarn eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Demo
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_No live demo is available at the moment. The app runs locally on your machine._
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Below is a screenshot of the homepage interface:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Homepage Screenshot](./screenshots/homepage.png)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
 
-### Code Splitting
+- Node.js v14 or higher  
+- npm or Yarn  
+- MongoDB running locally (or a MongoDB Atlas URI)  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Installation
 
-### Analyzing the Bundle Size
+1. Clone the repo  
+   ```bash
+   git clone https://github.com/your-org/zoiapp2021.git
+   cd zoiapp2021
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Install dependencies for both servers  
+   ```bash
+   # In the root
+   npm install
 
-### Making a Progressive Web App
+   # Frontend
+   cd client
+   npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   # Backend
+   cd ../server
+   npm install
+   ```
 
-### Advanced Configuration
+3. Create a `.env` file in `server/` with at least:  
+   ```env
+   MONGO_URI=<your_mongodb_connection_string>
+   JWT_SECRET=<your_jwt_secret>
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Start MongoDB if not already running.  
+2. Launch the backend server  
+   ```bash
+   cd server
+   npm run dev
+   ```
+3. Start the React frontend  
+   ```bash
+   cd client
+   npm start
+   ```
+4. Open your browser at `http://localhost:3000`
 
-### `yarn build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Architecture
+
+### MVC Pattern
+
+- **Models:** Mongoose schemas for Users, Doctors, Appointments  
+- **Views:** React components handling routes, state, and UI  
+- **Controllers:** Express route handlers encapsulating business logic  
+
+### Tech Stack
+
+| Layer       | Technology            |
+| ----------- | --------------------- |
+| Frontend    | React, React Router   |
+| Backend     | Node.js, Express      |
+| Database    | MongoDB, Mongoose     |
+| Authentication | JWT               |
+| State Mgmt  | React Context / Hooks |
+
+---
+
+## Folder Structure
+
+```
+zoiapp2021/
+├── client/                 # React frontend
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       ├── pages/
+│       └── services/
+├── server/                 # Express backend
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   └── utils/
+└── .env
+```
+
+---
+
+## Contributing
+
+We welcome your contributions! Please follow these steps:
+
+1. Fork the repository  
+2. Create a feature branch (`git checkout -b feature/YourFeature`)  
+3. Commit your changes (`git commit -m 'Add some feature'`)  
+4. Push to the branch (`git push origin feature/YourFeature`)  
+5. Open a Pull Request on GitHub  
+
+### Current Contributors
+
+- [Jeremiah1582](https://github.com/Jeremiah1582)  
+- [ashikkhandani](https://github.com/ashikkhandani)  
+- [whiteroach](https://github.com/whiteroach)  
+- [camposCode](https://github.com/camposCode)  
+
+---
+
+## License
+
+This project is licensed under the MIT License. 
