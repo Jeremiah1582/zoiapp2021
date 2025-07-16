@@ -48,7 +48,7 @@ _No live demo is available at the moment. The app runs locally on your machine._
 
 Below is a screenshot of the homepage interface:
 
-![Homepage Screenshot](./homepage.png)
+![Homepage Screenshot](./ZoeApp2021.JPG)
 
 ---
 
